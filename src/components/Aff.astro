@@ -1,0 +1,7 @@
+---
+// Affiliate placeholder. NOT an active affiliate link yet: points to the provider's
+// public homepage. When a program approves the site, swap href for the tracking link
+// and keep data-affiliate so links can be found with: grep -r 'data-affiliate' src
+const { id, href, text } = Astro.props;
+---
+<a href={href} data-affiliate={id} rel="sponsored nofollow noopener" target="_blank">{text}</a><span class="aff-tag" title="Placeholder: no affiliate relationship yet">affiliate link pending</span>

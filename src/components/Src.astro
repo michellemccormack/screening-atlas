@@ -1,0 +1,5 @@
+---
+// Inline citation link. Every factual claim should carry one.
+const { href, label = 'source' } = Astro.props;
+---
+<a class="src" href={href} target="_blank" rel="noopener">[{label}]</a>
