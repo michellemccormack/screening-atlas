@@ -1,0 +1,51 @@
+---
+import Base from '../layouts/Base.astro';
+import Src from '../components/Src.astro';
+import Aff from '../components/Aff.astro';
+import Unverified from '../components/Unverified.astro';
+const S = {
+  ttRead: 'https://support.turbotenant.com/en/articles/4409356-how-do-i-read-a-tenant-screening-report',
+  ttDiff: 'https://support.turbotenant.com/en/articles/6362365-what-s-the-difference-between-a-rental-application-and-a-screening-report',
+  ttScreen: 'https://www.turbotenant.com/tenant-screening/',
+  smDisc: 'https://www.mysmartmove.com/disclaimer',
+  rIL: 'https://www.reddit.com/r/Landlord/comments/1wshsxf/landlord_usil_turbotenant_vs_rent_redi_vs/',
+  rOR: 'https://www.reddit.com/r/PropertyManagement/comments/1skqayd/turbotenant_rent_butter_not_screening_for/',
+};
+const title = '"No Criminal Records Are Available" on a TurboTenant Report: What It Means';
+const description = 'Why a TurboTenant screening report can show "No criminal records are available" even for an applicant with a record, what TurboTenant\'s own help center says about state suppression rules, and what landlords can do next.';
+const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":"2026-11-18"};
+---
+<Base title={title} description={description} schema={schema}>
+  <h1>{title}</h1>
+  <p class="lede">The message doesn't necessarily mean the applicant has a clean record. It can also mean the report wasn't allowed to show the records. Here's what TurboTenant says, what landlords are reporting, and what to do.</p>
+
+  <h2>What landlords are seeing</h2>
+  <p>A landlord in Illinois described the wording on r/Landlord about two months before this page was written <Src href={S.rIL} label="Reddit" />:</p>
+  <blockquote>"No criminal records are available. This could be because they have no records, or the local area does not allow the use of their criminal history in evaluating them as tenants"</blockquote>
+  <p>The same landlord asked: "How do I know they are properly interpreting legal requirements and in any event, why is it up to them to police whether landlords are following the law." <Src href={S.rIL} label="Reddit" /></p>
+  <p>An Oregon landlord on r/PropertyManagement reported a blank criminal section for an applicant who had disclosed multiple felonies, and said the report did not state that no check had been performed <Src href={S.rOR} label="Reddit" />. That post says TurboTenant's chat agent blamed the data partner and the Oregon rules. Those are one user's account, and we have not verified them <Unverified />.</p>
+
+  <h2>What TurboTenant says</h2>
+  <ul>
+    <li>Criminal checks are run with TransUnion and "cover all 50 states," including felonies and misdemeanors, the national sex offender registry, and an SSN trace <Src href={S.ttRead} />.</li>
+    <li>Reports are "subject to State Suppression Laws." TurboTenant gives examples of look-back limits ("In states like Colorado or New York, we may only view records from the last 5 to 7 years") and says dismissed, acquitted or expunged cases won't appear "in most jurisdictions, including Massachusetts and Hawaii" <Src href={S.ttRead} />.</li>
+    <li>In <strong>Cook County, IL; Detroit, MI; Montgomery County, MD; Oakland, CA; Berkeley, CA; and Washington, D.C.</strong>, TurboTenant says these areas "use a two-phase screening process that TurboTenant does not currently support," so "results will indicate whether records exist, but specific charge details will not be provided" <Src href={S.ttRead} />.</li>
+    <li>Its help center describes the criminal section as "Available criminal history information," and says screening comes from TransUnion <Src href={S.ttDiff} />.</li>
+  </ul>
+  <p>We did not find a TurboTenant page listing every state or county where criminal results are withheld <Unverified note="not found" />. If you know of one, the right move is to link it, not guess.</p>
+
+  <h2>The TransUnion coverage list</h2>
+  <p>TransUnion's own landlord product, SmartMove, publishes where criminal records can be returned. As of its January 14, 2026 revision, that's 30 states: Alaska, Arizona, Arkansas, Colorado, Connecticut, Florida, Georgia, Illinois, Indiana, Iowa, Kansas, Louisiana, Maryland, Minnesota, Missouri, Nebraska, New Jersey, New Mexico, North Carolina, North Dakota, Ohio, Oklahoma, Oregon, Pennsylvania, Rhode Island, Tennessee, Texas, Utah, Washington, and Wisconsin <Src href={S.smDisc} />.</p>
+  <p>TurboTenant uses TransUnion for screening <Src href={S.ttDiff} />, but we have <strong>not</strong> confirmed that SmartMove's list applies to TurboTenant reports <Unverified />. Treat it as a useful signal, not proof. Note that both Illinois and Oregon, the states in the two Reddit reports, are on SmartMove's list.</p>
+
+  <h2>What you can do</h2>
+  <ol>
+    <li><strong>Ask in writing.</strong> Contact the provider's support and ask whether a criminal search was actually run for your property's county, or whether results were suppressed. Keep the reply.</li>
+    <li><strong>Check whether your area uses phased screening.</strong> If your rental is in one of the jurisdictions listed above, the criminal step happens after the applicant meets your other criteria <Src href={S.smDisc} label="SmartMove" /><Src href={S.ttRead} label="TurboTenant" />. Local rules may limit what you can consider, so check them before you act on a record.</li>
+    <li><strong>Compare what other providers return.</strong> See our <a href="/tenant-screening-report-comparison/">report comparison</a> for price, who pays, and each provider's published coverage notes.</li>
+    <li><strong>Mind the fee rules.</strong> If you run a second screening, your state may limit what you can charge the applicant. Some states allow only one screening charge in a set period (Oregon: one per 60 days; Maine: one per 12 months). See the <a href="/application-fee-caps-by-state/">fee-cap table</a>.</li>
+  </ol>
+  <div class="warnbox">Don't deny someone based on a criminal record your local law says you can't consider. If a report is blank and you think it shouldn't be, the fix is to check what the law allows in your area, not to work around it.</div>
+
+  <p class="meta">Mentioned providers (no affiliate relationship yet): <Aff id="turbotenant" href="https://www.turbotenant.com/" text="TurboTenant" /> · <Aff id="smartmove" href="https://www.mysmartmove.com/" text="TransUnion SmartMove" /></p>
+</Base>
