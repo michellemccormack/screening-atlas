@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+const title = 'Screening Atlas';
+const description = 'Tenant screening rules and report coverage, state by state: application fee caps, what each screening report includes, and where criminal or eviction records may not appear. Every claim is linked to its source.';
+const schema = {"@context":"https://schema.org","@type":"WebSite","name":"Screening Atlas","description":description};
+---
+<Base title={title} description={description} schema={schema}>
+  <h1>Tenant screening, state by state, with sources</h1>
+  <p class="lede">Small landlords keep asking the same questions: what can I charge an applicant, what will this report actually show, and why did it come back blank? The answers depend on the state, and sometimes on the county. Screening Atlas answers them one state and one provider at a time, and links every claim to the law or the provider's own page.</p>
+
+  <div class="cards">
+    <div class="card"><h3><a href="/application-fee-caps-by-state/">Application fee caps by state</a></h3><p>Dollar caps, actual-cost rules and outright bans, quoted from each statute. 15 states reviewed so far.</p></div>
+    <div class="card"><h3><a href="/tenant-screening-report-comparison/">What each screening report includes</a></h3><p>SmartMove, TurboTenant, RentRedi, Rentec Direct and RentPrep: price, who pays, and the coverage gaps each one discloses.</p></div>
+    <div class="card"><h3><a href="/turbotenant-no-criminal-records-available/">"No criminal records are available"</a></h3><p>What that TurboTenant message can mean and what to do about it.</p></div>
+  </div>
+
+  <h2>Why this site exists</h2>
+  <p>Screening services are sold as "nationwide," but what comes back depends on where the rental is. TransUnion's SmartMove, for example, publishes a list of the 30 states where its criminal records can currently be returned (<a href="https://www.mysmartmove.com/disclaimer" target="_blank" rel="noopener">SmartMove disclaimer</a>). Landlords often find out about these gaps only after a blank report. We put the rules and the coverage in one place, by state.</p>
+  <p><a href="/about/">How we research and what we won't do →</a></p>
+</Base>

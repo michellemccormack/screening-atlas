@@ -1,0 +1,23 @@
+---
+import Base from '../layouts/Base.astro';
+const title = 'About Screening Atlas and how we research';
+const description = 'What Screening Atlas covers, how each fact is sourced, how we mark anything unverified, and how the site makes money.';
+---
+<Base title={title} description={description}>
+  <h1>About Screening Atlas</h1>
+  <p class="lede">A reference for small landlords and the people applying to rent from them: the rules on screening, and what screening reports actually contain, state by state.</p>
+  <h2>The idea</h2>
+  <p>Comparison sites mostly rank screening tools by price and features. The questions landlords keep asking are about <em>coverage</em> and <em>law</em>: Will this report show criminal records for my county? Can I charge this applicant $50? Must I accept the report they already paid for? The answers change at state lines, so the site is organized by state and by provider.</p>
+  <h2>How we source things</h2>
+  <ul>
+    <li>Laws are quoted from the state legislature's site where we could reach it. When we use an unofficial compilation (such as Justia or OregonLaws), the table says so.</li>
+    <li>Provider facts (prices, report contents, coverage) come only from that provider's own pricing, help or disclaimer pages.</li>
+    <li>Landlord experiences quoted from forums are labeled as user reports, not facts.</li>
+    <li>Anything we couldn't confirm is marked <span class="unverified">unverified</span>. A state we haven't reviewed is listed as "not yet reviewed," which says nothing about whether it has a limit.</li>
+    <li>Every page shows the date we last checked it.</li>
+  </ul>
+  <h2>What this site is not</h2>
+  <p>It isn't legal advice, and it isn't a screening company. Laws change and local rules can be stricter than state law, so check the linked source or a local attorney before you act.</p>
+  <h2>How the site makes money</h2>
+  <p>We plan to join affiliate programs for some screening and landlord-software providers. None are active today. See the <a href="/affiliate-disclosure/">affiliate disclosure</a>. Affiliate status will never change a fact, a price, or the order of a table.</p>
+</Base>
