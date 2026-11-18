@@ -1,8 +1,8 @@
 // Post-build: sitemap.xml alias, robots.txt from SITE_URL/BASE_PATH, and base-prefix root-relative links.
 import fs from 'node:fs'; import path from 'node:path';
 const dist = 'dist';
-const site = (process.env.SITE_URL || 'https://michellemccormack.github.io/screening-atlas').replace(/\/$/, '');
-const base = (process.env.BASE_PATH ?? '/screening-atlas').replace(/\/?$/, '/'); // e.g. /screening-atlas/
+const site = (process.env.SITE_URL || 'https://screeningatlas.com').replace(/\/$/, '');
+const base = (process.env.BASE_PATH ?? '/').replace(/\/?$/, '/'); // e.g. /screening-atlas/
 fs.copyFileSync(path.join(dist, 'sitemap-0.xml'), path.join(dist, 'sitemap.xml'));
 const origin = new URL(site).origin;
 fs.writeFileSync(path.join(dist, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${origin}${base}sitemap.xml\n`);

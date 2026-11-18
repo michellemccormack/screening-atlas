@@ -6,8 +6,8 @@ Static Astro site. Personal project (not Secret Boston).
     npm run build      # -> dist/ (also copies sitemap-0.xml to sitemap.xml)
     npm run preview
 
-Live: https://michellemccormack.github.io/screening-atlas/ (GitHub Pages, served from the gh-pages branch).
-Defaults build for that URL. For a custom domain: SITE_URL=https://example.com BASE_PATH=/ npm run build.
+Live: https://screeningatlas.com/ (GitHub Pages from the gh-pages branch; DNS on Vercel, public/CNAME sets the custom domain).
+Defaults build for that URL. For the github.io path instead: SITE_URL=https://michellemccormack.github.io/screening-atlas BASE_PATH=/screening-atlas npm run build.
 scripts/postbuild.mjs writes robots.txt and sitemap.xml and prefixes root-relative links with the base path.
 
 ## Publish
