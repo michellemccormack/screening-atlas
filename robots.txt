@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://michellemccormack.github.io/screening-atlas/sitemap.xml
+Sitemap: https://screeningatlas.com/sitemap.xml
