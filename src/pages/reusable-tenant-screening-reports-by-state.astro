@@ -1,0 +1,92 @@
+---
+import Base from '../layouts/Base.astro';
+import Src from '../components/Src.astro';
+import Unverified from '../components/Unverified.astro';
+const S = {
+  co904: 'https://law.justia.com/codes/colorado/title-38/tenants-and-landlords/article-12/part-9/section-38-12-904/',
+  co902: 'https://law.justia.com/codes/colorado/title-38/tenants-and-landlords/article-12/part-9/section-38-12-902/',
+  wa257: 'https://app.leg.wa.gov/RCW/default.aspx?cite=59.18.257',
+  wa030: 'https://app.leg.wa.gov/RCW/default.aspx?cite=59.18.030',
+  ca: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1950.1',
+  ny: 'https://law.justia.com/codes/new-york/rpp/article-7/238-a/',
+  ri: 'https://webserver.rilegislature.gov/Statutes/TITLE34/34-18/34-18-59.htm',
+  wi: 'https://docs.legis.wisconsin.gov/statutes/statutes/704/085?view=section',
+};
+const updated = '2026-11-19';
+const title = 'Reusable Tenant Screening Reports: Which States Make Landlords Accept Them';
+const description = 'Colorado requires landlords to accept portable tenant screening reports; Washington and California let landlords choose but set rules; New York, Rhode Island and Wisconsin waive screening fees when the applicant brings a recent report. Quoted from each statute.';
+const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":updated};
+---
+<Base title={title} description={description} updated={updated} schema={schema}>
+  <h1>{title}</h1>
+  <p class="lede">An applicant shows up with a screening report they already paid for. Do you have to take it, and can you still charge them a fee? In most of the states we've reviewed, the answer is about the fee, not the report. Only one state, Colorado, generally makes landlords accept it. Here's each rule, quoted from the statute.</p>
+
+  <div class="note"><strong>The short version.</strong> <strong>Colorado</strong> landlords must accept a portable tenant screening report unless they take only one application fee at a time and refund it in full <Src href={S.co904} label="CO" />. <strong>Washington</strong> and <strong>California</strong> landlords can choose, but Washington landlords must say whether they accept one <Src href={S.wa257} label="WA" />, and a California landlord who accepts one can't charge a screening fee for it <Src href={S.ca} label="CA" />. <strong>New York</strong> (30 days), <strong>Rhode Island</strong> (90 days) and <strong>Wisconsin</strong> (30 days, credit report only) bar or waive the screening fee when the applicant supplies a recent report <Src href={S.ny} label="NY" /><Src href={S.ri} label="RI" /><Src href={S.wi} label="WI" />.</div>
+
+  <h2>Quick table</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>State</th><th>Must the landlord accept it?</th><th>Fee effect</th><th>How recent</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr id="co"><td><strong>Colorado</strong></td><td>Yes, unless exempt (one application fee at a time, full refund within 20 days)</td><td>No fee to access or use it; required notice says no application fee</td><td>Landlord may require within 30 days</td><td><a href={S.co904} target="_blank" rel="noopener">C.R.S. § 38-12-904(1.5)</a><br/><span class="meta">unofficial compilation (Justia)</span></td></tr>
+      <tr id="wa"><td><strong>Washington</strong></td><td>No, but must disclose whether it does</td><td>If it accepts, it can't charge the applicant for its own report</td><td>Credit report within 30 days</td><td><a href={S.wa257} target="_blank" rel="noopener">RCW 59.18.257</a>, <a href={S.wa030} target="_blank" rel="noopener">59.18.030(4)</a><br/><span class="meta">official</span></td></tr>
+      <tr id="ca"><td><strong>California</strong></td><td>No (landlord may elect to)</td><td>If accepted: no access fee and no application screening fee</td><td>Prepared within previous 30 days</td><td><a href={S.ca} target="_blank" rel="noopener">Cal. Civ. Code § 1950.1</a><br/><span class="meta">official</span></td></tr>
+      <tr id="ny"><td><strong>New York</strong></td><td>Statute addresses the fee only</td><td>Background/credit check fee must be waived</td><td>Conducted within past 30 days</td><td><a href={S.ny} target="_blank" rel="noopener">N.Y. Real Prop. Law § 238-a(1)(b)</a><br/><span class="meta">unofficial compilation (Justia)</span></td></tr>
+      <tr id="ri"><td><strong>Rhode Island</strong></td><td>Statute addresses the fee only</td><td>No fee for the state criminal background check or credit report</td><td>Issued within 90 days of the application</td><td><a href={S.ri} target="_blank" rel="noopener">R.I. Gen. Laws § 34-18-59</a><br/><span class="meta">official</span></td></tr>
+      <tr id="wi"><td><strong>Wisconsin</strong></td><td>Statute addresses the fee only (credit report)</td><td>No credit report charge</td><td>Less than 30 days old</td><td><a href={S.wi} target="_blank" rel="noopener">Wis. Stat. § 704.085(1)(b)</a><br/><span class="meta">official</span></td></tr>
+    </tbody>
+  </table></div>
+
+  <h2 id="colorado">Colorado: landlords must accept, with one exemption</h2>
+  <ul>
+    <li>"Except as provided in subsection (1.5)(f) of this section, a landlord shall accept a portable tenant screening report from a prospective tenant." <Src href={S.co904} /></li>
+    <li>The landlord may require that the report was completed within the previous 30 days, that it's available at no cost to access or use, and a statement from the applicant that nothing material has changed (name, address, bankruptcy status, criminal history, or eviction history) since it was generated <Src href={S.co904} />.</li>
+    <li>The landlord "shall not charge a prospective tenant a fee to access or use the screening report." <Src href={S.co904} /></li>
+    <li>Before any screening step for which a landlord would expect to collect an application fee, the landlord must tell applicants they have the right to provide a portable report, and that if they do, the landlord is prohibited from charging a rental application fee or a fee to access or use the report. The notice goes in ads, on the home page of the landlord's or property manager's website, or in the application (at least 12-point bold), or orally with written confirmation <Src href={S.co904} />.</li>
+    <li><strong>Exemption:</strong> those rules don't apply to a landlord who doesn't accept more than one application fee at a time for a unit (or from each applicant or applicant group), and refunds the full fee within 20 calendar days after either side declines to sign a lease <Src href={S.co904} />.</li>
+    <li><strong>What counts as a portable report:</strong> a consumer report prepared at the applicant's request, showing the date it's current through, with name, contact information, verification of employment and income, last-known address, and, for each prior residence jurisdiction, a rental and credit history report and a criminal history record check that comply with § 38-12-904's look-back limits <Src href={S.co902} />. Applicants renting with a housing subsidy don't need a credit history, score, or adverse credit event in the report <Src href={S.co902} />.</li>
+    <li>The legislature amended the definition and repealed one of the landlord's optional requirements in 2025 (HB 25-1236), for applications submitted on or after January 1, 2026 <Src href={S.co904} label="history" />. We quote the current text above; Justia is an unofficial copy of the statute, so check the official Colorado Revised Statutes before you rely on it <Unverified note="unofficial source" />.</li>
+  </ul>
+
+  <h2 id="washington">Washington: you choose, but you have to say so</h2>
+  <ul>
+    <li>Before getting any information about an applicant, the landlord must notify them in writing or by posting of several things, including "whether or not the landlord will accept a comprehensive reusable tenant screening report made available to the landlord by a consumer reporting agency." <Src href={S.wa257} /></li>
+    <li>A landlord with a website advertising the rental, or one that serves as an information source for tenants, must state on the property's home page whether it accepts these reports <Src href={S.wa257} />.</li>
+    <li>If the landlord says it accepts them, it can still pull its own report "as long as the prospective tenant is not charged for the landlord's own tenant screening report." <Src href={S.wa257} /></li>
+    <li><strong>What counts:</strong> a report prepared by a consumer reporting agency at the applicant's direction and expense, available to the landlord at no charge, containing a credit report from the past 30 days, criminal history, eviction history, employment verification, and address and rental history <Src href={S.wa030} />. "Criminal history" here means convictions and pending cases going back no more than seven years, plus a sex offender registry search and a U.S. Treasury OFAC search <Src href={S.wa030} />.</li>
+    <li>Violating the notice rules in subsection (1) can make the landlord liable for up to $100, plus court costs and reasonable attorneys' fees to the prevailing party <Src href={S.wa257} />.</li>
+  </ul>
+
+  <h2 id="california">California: optional, but no screening fee if you take one</h2>
+  <ul>
+    <li>"This section does not require a landlord to accept reusable tenant screening reports." <Src href={S.ca} /></li>
+    <li>If a landlord that accepts them receives one, it can't charge "a fee for the landlord to access the report" or "an application screening fee." <Src href={S.ca} /></li>
+    <li><strong>What counts:</strong> a consumer report prepared within the previous 30 days by a consumer reporting agency at the applicant's request and expense, available to the landlord at no cost, and including name, contact information, verification of employment, last known address, and eviction history results. It must prominently state the date the information is current through <Src href={S.ca} />.</li>
+    <li>The landlord may require the applicant to state that there has been no material change to the information in the report <Src href={S.ca} />.</li>
+    <li>Added by AB 2559, effective January 1, 2023. Local ordinances that give applicants more protection win over this section <Src href={S.ca} />.</li>
+  </ul>
+
+  <h2 id="new-york">New York: a recent check waives the fee</h2>
+  <p>New York caps background and credit check fees at actual cost or $20, whichever is less, and the landlord "shall waive the fee or fees if the potential tenant provides a copy of a background check or credit check conducted within the past thirty days." <Src href={S.ny} /> The statute speaks only to the fee. It doesn't say a landlord must base its decision on the applicant's copy, and we haven't found an official source that answers that <Unverified />.</p>
+
+  <h2 id="rhode-island">Rhode Island: a 90-day window</h2>
+  <p>Rhode Island bars rental application fees outright. A landlord may require an official state criminal background check (from the BCI, the attorney general, state police or local police) or a credit check, but if the applicant provides one "issued within ninety (90) days of the application," no fee may be charged for it <Src href={S.ri} />. If the applicant doesn't, the landlord may charge no more than the actual cost and must give the applicant a copy. The landlord can still get its own check at its own expense <Src href={S.ri} />.</p>
+
+  <h2 id="wisconsin">Wisconsin: credit reports only</h2>
+  <p>A Wisconsin landlord may charge actual cost, up to $25, for a credit report from a nationwide consumer credit reporting agency, but not if the applicant first provides one "that is less than 30 days old." <Src href={S.wi} /> This covers the credit report only. The separate background check charge (actual cost up to $25, for applicants who aren't Wisconsin residents) has no similar exception in the statute <Src href={S.wi} />.</p>
+
+  <h2>Similar rules that aren't about reusable reports</h2>
+  <p>Some states limit how often you can charge the same applicant for screening instead. Oregon allows one screening charge per applicant in any 60-day period, and Maine one per 12 months. See the <a href="/application-fee-caps-by-state/">fee-cap table</a> for those and the other states we've reviewed.</p>
+
+  <h2>What to do if you're a landlord</h2>
+  <ol>
+    <li><strong>Colorado:</strong> put the required notice in your listings, website home page or application, or use the one-fee-at-a-time-and-refund exemption. Don't charge for a portable report.</li>
+    <li><strong>Washington:</strong> decide whether you accept reusable reports, and say so in your screening notice and on your website's home page.</li>
+    <li><strong>California:</strong> if you decide to accept them, drop the screening fee for applicants who bring one.</li>
+    <li><strong>New York, Rhode Island, Wisconsin:</strong> before you charge a screening fee, ask whether the applicant has a recent report (30, 90 or 30 days, respectively, credit only in Wisconsin).</li>
+    <li>Check your city or county too. California's section, for example, says the more protective local rule applies <Src href={S.ca} />.</li>
+  </ol>
+  <p>For what each screening service includes and charges, see the <a href="/tenant-screening-report-comparison/">report comparison</a>.</p>
+
+  <h2>States not yet reviewed for this page</h2>
+  <p>We've checked the six states above. We haven't yet reviewed the rest for reusable-report rules, so a state's absence here doesn't mean it has no rule.</p>
+</Base>
