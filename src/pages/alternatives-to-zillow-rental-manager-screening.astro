@@ -1,0 +1,137 @@
+---
+import Base from '../layouts/Base.astro';
+import Src from '../components/Src.astro';
+import Aff from '../components/Aff.astro';
+import Unverified from '../components/Unverified.astro';
+const S = {
+  zTs: 'https://www.zillow.com/rental-manager/tenant-screening/',
+  zFaq: 'https://www.zillow.com/rental-manager/rental-applications-faq/',
+  zBg: 'https://zillow.zendesk.com/hc/en-us/articles/360000972748-What-does-a-background-check-include',
+  zChk: 'https://www.zillow.com/rentals-network/tenant-background-checks/',
+  acCost: 'https://propertyhelp.apartments.com/article/13-applicant-cost',
+  acOwn: 'https://propertyhelp.apartments.com/article/29-can-i-collect-my-own-app-fee',
+  acTools: 'https://propertyhelp.apartments.com/article/196-online-rental-tools',
+  avPrice: 'https://www.avail.com/pricing',
+  avBest: 'https://www.avail.com/education/articles/best-tenant-screening-services-for-landlords',
+  smPrice: 'https://www.mysmartmove.com/pricing',
+  ttScreen: 'https://www.turbotenant.com/tenant-screening/',
+  ttHelpCost: 'https://support.turbotenant.com/en/articles/6362365-what-s-the-difference-between-a-rental-application-and-a-screening-report',
+  rrPrice: 'https://rentredi.com/pricing/',
+  rentec: 'https://www.rentecdirect.com/pricing-transparency',
+  rp: 'https://rentprep.com/guide/packages-pricing/',
+};
+const title = 'Alternatives to Zillow Rental Manager Screening: What Each Includes and Who Pays';
+const description = 'Zillow Rental Manager screening is free for landlords and charges the applicant $40. Here is what it includes and how Apartments.com, Avail, SmartMove, TurboTenant, RentRedi, Rentec Direct and RentPrep compare on who pays and what comes back. Quoted from their own pages.';
+const updated = '2026-11-20';
+const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":updated};
+---
+<Base title={title} description={description} updated={updated} schema={schema}>
+  <h1>{title}</h1>
+  <p class="lede">Zillow Rental Manager's screening costs the landlord nothing: the applicant pays one fee and the reports come with the application. That suits many landlords, and it is a poor fit for others, mainly those who want to pay for the screening themselves, choose which reports to run, or work in a state that limits what an applicant can be charged. This page lays out what Zillow's service includes and who pays, then how the alternatives differ. Everything is from each provider's own pages as of November 20, 2026.</p>
+
+  <div class="note"><strong>The short version.</strong> On Zillow, <strong>the applicant pays $40</strong> and the landlord pays nothing <Src href={S.zTs} label="Zillow" />. <strong>Apartments.com</strong> works the same way at $32 plus tax, and does not let landlords collect their own application fee <Src href={S.acCost} label="Apt.com" /><Src href={S.acOwn} label="Apt.com" />. <strong>Avail, SmartMove, TurboTenant and RentRedi</strong> let the landlord decide who pays, and you choose the reports <Src href={S.avPrice} label="Avail" /><Src href={S.smPrice} label="SM" /><Src href={S.ttScreen} label="TT" /><Src href={S.rrPrice} label="RR" />.</div>
+
+  <h2>What Zillow Rental Manager screening includes</h2>
+  <ul>
+    <li><strong>Cost to landlord:</strong> none. "The application and tenant screening reports are free for landlords." <Src href={S.zFaq} /></li>
+    <li><strong>Cost to applicant:</strong> a $40 application fee that includes the screening reports and lets the renter apply to your listing and to an unlimited number of participating rentals for 30 days. Credit and background information is pulled once during that 30-day period <Src href={S.zFaq} />.</li>
+    <li><strong>Credit report:</strong> from Experian. Zillow lists credit score, open credit lines, employment history, residence history, and past bankruptcies or collections <Src href={S.zFaq} />.</li>
+    <li><strong>Background check:</strong> Zillow's Rental Manager pages say it is performed by CIC and includes a nationwide eviction search, sex offender search, and nationwide criminal search <Src href={S.zFaq} />. One of Zillow's own editorial articles says its background checks are run by Checkr <Src href={S.zChk} label="Zillow article" />. We could not tell from Zillow's pages which one is current <Unverified note="vendor unclear" />.</li>
+    <li><strong>What the criminal search leaves out:</strong> Zillow's help center article says the report includes convictions only, that certain older non-violent felonies and misdemeanors and traffic or vehicle misdemeanors are excluded, and that reports may be modified to reflect state and local law <Src href={S.zBg} label="Zillow help" /> <Unverified note="help page would not load on our last check" />. The Rental Manager FAQ confirms only that checks "are modified to reflect state and local legal requirements" <Src href={S.zFaq} />.</li>
+    <li><strong>Customization:</strong> "At this time we do not have customizable fields for the rental application." Applicants may upload up to five income documents <Src href={S.zFaq} />.</li>
+    <li><strong>Other applicants:</strong> you can screen applicants who did not come from Zillow by sending an application link <Src href={S.zTs} />.</li>
+  </ul>
+
+  <h2>Who pays and what each option includes</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Service</th><th>Price (as published)</th><th>Who pays</th><th>What's included</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Zillow Rental Manager</strong></td>
+        <td>$40 application fee <Src href={S.zFaq} /></td>
+        <td>Applicant; free for landlord <Src href={S.zFaq} /></td>
+        <td>Experian credit report; background check with nationwide eviction, sex offender and criminal searches <Src href={S.zFaq} /></td>
+      </tr>
+      <tr>
+        <td><strong>Apartments.com</strong></td>
+        <td>$32.00 + tax <Src href={S.acCost} /></td>
+        <td>Applicant; landlords cannot collect their own application fee through the platform <Src href={S.acOwn} /></td>
+        <td>TransUnion credit, criminal and eviction reports with every application. Applicant can share them for 30 days with up to 10 participating landlords <Src href={S.acCost} /><Src href={S.acTools} /></td>
+      </tr>
+      <tr>
+        <td><strong>Avail</strong></td>
+        <td>$30 per individual report (credit, criminal or eviction), $55 for all three, per Avail's own comparison article <Src href={S.avBest} />. Avail's pricing page says costs vary by location due to state laws and lists no figures <Src href={S.avPrice} /></td>
+        <td>Tenant (most common) or landlord, the landlord's choice <Src href={S.avPrice} /></td>
+        <td>Tenant-initiated TransUnion credit report and background check, nationwide criminal history, nationwide prior eviction report, plus residence and employment reference checks <Src href={S.avPrice} /></td>
+      </tr>
+      <tr>
+        <td><strong>TransUnion SmartMove</strong></td>
+        <td>Basic $25 · Plus $42 · Premium $49, plus tax where applicable <Src href={S.smPrice} /></td>
+        <td>Landlord or applicant ("where permitted") <Src href={S.smPrice} /></td>
+        <td>Basic: ResidentScore + criminal. Plus: adds credit and eviction-related report. Premium: adds Income Estimator and Identity Check <Src href={S.smPrice} /></td>
+      </tr>
+      <tr>
+        <td><strong>TurboTenant</strong></td>
+        <td>$55 on the Free plan, $45 on Essentials/Pro <Src href={S.ttHelpCost} /></td>
+        <td>Applicant by default; landlord can choose to pay <Src href={S.ttScreen} /></td>
+        <td>TransUnion credit report and score, nationwide criminal background check, eviction check covering all 50 states <Src href={S.ttScreen} /></td>
+      </tr>
+      <tr>
+        <td><strong>RentRedi</strong></td>
+        <td>$39.99 credit + criminal + eviction; $49.99 with Plaid income verification <Src href={S.rrPrice} /></td>
+        <td>Tenant-paid <Src href={S.rrPrice} /></td>
+        <td>TransUnion credit (ResidentScore), criminal, eviction; income verification on the higher tier <Src href={S.rrPrice} /></td>
+      </tr>
+      <tr>
+        <td><strong>Rentec Direct</strong></td>
+        <td>Basic $14.95 / Enhanced $20.95 / Premium $29.45 on Starter; $10 / $13 / $18 on Pro &amp; PM plans <Src href={S.rentec} /></td>
+        <td>Not stated on the pricing page <Unverified /></td>
+        <td>Basic: nationwide criminal, sex offender, SSN validation. Enhanced: adds nationwide eviction search. Premium: adds TransUnion credit report and score <Src href={S.rentec} /></td>
+      </tr>
+      <tr>
+        <td><strong>RentPrep</strong></td>
+        <td>Credit Report Only $29 · Full Background Check Only $29 · Complete Screening Package $49 <Src href={S.rp} /></td>
+        <td>Credit-only and Complete: landlord or tenant. Background-only: landlord pays only <Src href={S.rp} /></td>
+        <td>Background and Complete packages add an FCRA-certified screener review, nationwide criminal and sex offender, nationwide evictions, judgments and liens <Src href={S.rp} /></td>
+      </tr>
+    </tbody>
+  </table></div>
+  <p class="meta">The SmartMove, TurboTenant, RentRedi, Rentec Direct and RentPrep rows repeat figures from our <a href="/tenant-screening-report-comparison/">report comparison</a>, which has the full sourcing and each provider's state-by-state coverage limits. Monthly software subscriptions are separate and not shown. We use only each provider's own pages for its price; third-party roundups sometimes list different numbers for the same service.</p>
+
+  <h2>How the alternatives differ from Zillow</h2>
+  <h3>You want to pay, or split the cost</h3>
+  <p>On Zillow and Apartments.com the applicant pays and the landlord has no say in it <Src href={S.zFaq} label="Zillow" /><Src href={S.acOwn} label="Apt.com" />. If you want to cover screening to attract applicants, Avail, SmartMove, TurboTenant and RentPrep let the landlord pay <Src href={S.avPrice} label="Avail" /><Src href={S.smPrice} label="SM" /><Src href={S.ttScreen} label="TT" /><Src href={S.rp} label="RP" />. RentRedi's page lists screening as tenant-paid <Src href={S.rrPrice} />.</p>
+
+  <h3>You want to choose which reports to run</h3>
+  <p>Zillow's $40 is one package. Avail says landlords choose the required reports for each applicant <Src href={S.avPrice} />, SmartMove sells three tiers <Src href={S.smPrice} />, and Rentec Direct and RentPrep sell tiered or separate packages <Src href={S.rentec} label="Rentec" /><Src href={S.rp} label="RP" />.</p>
+
+  <h3>You want an applicant to reuse their report</h3>
+  <p>Zillow's reports can be reused across participating rentals for 30 days, with unlimited applications <Src href={S.zFaq} />. Apartments.com allows 30 days and up to 10 participating landlords <Src href={S.acCost} />. If an applicant arrives with a report from elsewhere, some states require you to accept it or waive your fee: see <a href="/reusable-tenant-screening-reports-by-state/">reusable reports by state</a>.</p>
+
+  <h3>Your state caps what you can charge</h3>
+  <p>A flat applicant fee set by the platform may exceed what your state allows you to collect. Avail's pricing page says the cost of its reports varies by location due to state laws <Src href={S.avPrice} />. Zillow says its reports are modified for state and local requirements, but its pages give one $40 fee <Src href={S.zFaq} />, and we did not find a statement on how that fee is adjusted where a cap is lower <Unverified note="not found" />. Check the <a href="/application-fee-caps-by-state/">fee-cap table</a> before you choose.</p>
+
+  <h3>Your city requires phased screening</h3>
+  <p>Where criminal history can only be reviewed in a second step (Cook County, NYC, D.C. and others), a bundled application-and-report may not fit. Our <a href="/tenant-screening-report-comparison/">comparison</a> covers what SmartMove and TurboTenant each disclose. We did not find a phased-screening statement on Zillow's or Apartments.com's pages <Unverified note="not found" />.</p>
+
+  <h2>What we could not confirm</h2>
+  <ul>
+    <li>Which vendor currently runs Zillow's background check (CIC or Checkr) <Unverified note="unclear" />.</li>
+    <li>Zillow's detailed criminal-search exclusions, because its help center page did not load on our check <Unverified note="not confirmed" />.</li>
+    <li>Who pays for Rentec Direct screening <Unverified note="not stated" />.</li>
+    <li>Avail's $30 and $55 figures are on Avail's own comparison article but not on its pricing page, which says prices vary by location.</li>
+  </ul>
+
+  <h2>Provider links</h2>
+  <p class="meta">None of these is an affiliate link yet. They go to each provider's public site. See our <a href="/affiliate-disclosure/">affiliate disclosure</a>.</p>
+  <ul>
+    <li><a href="https://www.zillow.com/rental-manager/tenant-screening/" target="_blank" rel="noopener">Zillow Rental Manager</a></li>
+    <li><a href="https://www.apartments.com/rental-manager/" target="_blank" rel="noopener">Apartments.com Rental Manager</a></li>
+    <li><Aff id="avail" href="https://www.avail.com/" text="Avail" /></li>
+    <li><Aff id="smartmove" href="https://www.mysmartmove.com/" text="TransUnion SmartMove" /></li>
+    <li><Aff id="turbotenant" href="https://www.turbotenant.com/" text="TurboTenant" /></li>
+    <li><Aff id="rentredi" href="https://rentredi.com/" text="RentRedi" /></li>
+    <li><Aff id="rentec" href="https://www.rentecdirect.com/" text="Rentec Direct" /></li>
+    <li><Aff id="rentprep" href="https://rentprep.com/" text="RentPrep" /></li>
+  </ul>
+</Base>
