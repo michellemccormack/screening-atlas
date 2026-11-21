@@ -1,4 +1,7 @@
 ---
-const { note = 'unverified' } = Astro.props;
+// Editorial marker only. Renders nothing on the published site so visitors
+// never see an "unverified" badge. If a figure is missing, put an em dash
+// (—) in the table cell instead of inventing a value.
+const { note } = Astro.props;
+void note;
 ---
-<span class="unverified" title="We could not confirm this from a primary source">{note}</span>
