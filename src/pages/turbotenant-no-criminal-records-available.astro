@@ -2,7 +2,6 @@
 import Base from '../layouts/Base.astro';
 import Src from '../components/Src.astro';
 import Aff from '../components/Aff.astro';
-import Unverified from '../components/Unverified.astro';
 const S = {
   ttRead: 'https://support.turbotenant.com/en/articles/4409356-how-do-i-read-a-tenant-screening-report',
   ttDiff: 'https://support.turbotenant.com/en/articles/6362365-what-s-the-difference-between-a-rental-application-and-a-screening-report',
@@ -23,7 +22,7 @@ const schema = {"@context":"https://schema.org","@type":"Article","headline":tit
   <p>A landlord in Illinois described the wording on r/Landlord about two months before this page was written <Src href={S.rIL} label="Reddit" />:</p>
   <blockquote>"No criminal records are available. This could be because they have no records, or the local area does not allow the use of their criminal history in evaluating them as tenants"</blockquote>
   <p>The same landlord asked: "How do I know they are properly interpreting legal requirements and in any event, why is it up to them to police whether landlords are following the law." <Src href={S.rIL} label="Reddit" /></p>
-  <p>An Oregon landlord on r/PropertyManagement reported a blank criminal section for an applicant who had disclosed multiple felonies, and said the report did not state that no check had been performed <Src href={S.rOR} label="Reddit" />. That post says TurboTenant's chat agent blamed the data partner and the Oregon rules. Those are one user's account, and we have not verified them <Unverified />.</p>
+  <p>An Oregon landlord on r/PropertyManagement reported a blank criminal section for an applicant who had disclosed multiple felonies, and said the report did not state that no check had been performed <Src href={S.rOR} label="Reddit" />. That post says TurboTenant's chat agent blamed the data partner and the Oregon rules. Those are one user's account, and we have not verified them.</p>
 
   <h2>What TurboTenant says</h2>
   <ul>
@@ -32,11 +31,11 @@ const schema = {"@context":"https://schema.org","@type":"Article","headline":tit
     <li>In <strong>Cook County, IL; Detroit, MI; Montgomery County, MD; Oakland, CA; Berkeley, CA; and Washington, D.C.</strong>, TurboTenant says these areas "use a two-phase screening process that TurboTenant does not currently support," so "results will indicate whether records exist, but specific charge details will not be provided" <Src href={S.ttRead} />.</li>
     <li>Its help center describes the criminal section as "Available criminal history information," and says screening comes from TransUnion <Src href={S.ttDiff} />.</li>
   </ul>
-  <p>We did not find a TurboTenant page listing every state or county where criminal results are withheld <Unverified note="not found" />. If you know of one, the right move is to link it, not guess.</p>
+  <p>We did not find a TurboTenant page listing every state or county where criminal results are withheld. If you know of one, the right move is to link it, not guess.</p>
 
   <h2>The TransUnion coverage list</h2>
   <p>TransUnion's own landlord product, SmartMove, publishes where criminal records can be returned. As of its January 14, 2026 revision, that's 30 states: Alaska, Arizona, Arkansas, Colorado, Connecticut, Florida, Georgia, Illinois, Indiana, Iowa, Kansas, Louisiana, Maryland, Minnesota, Missouri, Nebraska, New Jersey, New Mexico, North Carolina, North Dakota, Ohio, Oklahoma, Oregon, Pennsylvania, Rhode Island, Tennessee, Texas, Utah, Washington, and Wisconsin <Src href={S.smDisc} />.</p>
-  <p>TurboTenant uses TransUnion for screening <Src href={S.ttDiff} />, but we have <strong>not</strong> confirmed that SmartMove's list applies to TurboTenant reports <Unverified />. Treat it as a useful signal, not proof. Note that both Illinois and Oregon, the states in the two Reddit reports, are on SmartMove's list.</p>
+  <p>TurboTenant uses TransUnion for screening <Src href={S.ttDiff} />, but we have <strong>not</strong> confirmed that SmartMove's list applies to TurboTenant reports. Treat it as a useful signal, not proof. Note that both Illinois and Oregon, the states in the two Reddit reports, are on SmartMove's list.</p>
 
   <h2>What you can do</h2>
   <ol>

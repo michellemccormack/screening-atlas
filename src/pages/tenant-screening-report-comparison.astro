@@ -2,7 +2,6 @@
 import Base from '../layouts/Base.astro';
 import Src from '../components/Src.astro';
 import Aff from '../components/Aff.astro';
-import Unverified from '../components/Unverified.astro';
 const S = {
   smPrice: 'https://www.mysmartmove.com/pricing',
   smDisc: 'https://www.mysmartmove.com/disclaimer',
@@ -47,7 +46,7 @@ const schema = {"@context":"https://schema.org","@type":"Article","headline":tit
       <tr>
         <td><strong>Rentec Direct</strong></td>
         <td>Basic $14.95 / Enhanced $20.95 / Premium $29.45 on Starter; $10 / $13 / $18 on Pro &amp; PM plans <Src href={S.rentec} /></td>
-        <td>Not stated on the pricing page <Unverified /></td>
+        <td>Not stated on the pricing page </td>
         <td>Basic: nationwide criminal, sex offender, SSN validation. Enhanced: adds nationwide eviction search. Premium: adds TransUnion credit report and score <Src href={S.rentec} /></td>
       </tr>
       <tr>
@@ -72,7 +71,7 @@ const schema = {"@context":"https://schema.org","@type":"Article","headline":tit
   <p>TurboTenant says its criminal checks go through TransUnion and "cover all 50 states," but that reports are "subject to State Suppression Laws": look-back limits in states like Colorado and New York, and dismissed or expunged cases left out in places like Massachusetts and Hawaii <Src href={S.ttHelpRead} />. In Cook County, IL; Detroit, MI; Montgomery County, MD; Oakland, CA; Berkeley, CA; and Washington, D.C., TurboTenant says results "will indicate whether records exist, but specific charge details will not be provided," because it does not support the two-phase process there <Src href={S.ttHelpRead} />. See our explainer on <a href="/turbotenant-no-criminal-records-available/">"No criminal records are available"</a>.</p>
 
   <h3>RentRedi, Rentec Direct and RentPrep</h3>
-  <p>We did not find a state-by-state coverage list on the pages we reviewed for these three <Unverified note="not yet found" />. RentRedi's and RentPrep's credit products run on TransUnion (RentRedi says it partners with TransUnion <Src href={S.rrScreen} />; RentPrep calls its credit-only product "the automated SmartMove package" <Src href={S.rp} />). We have not confirmed whether SmartMove's criminal-coverage limits also apply to their criminal searches, so treat that as an open question.</p>
+  <p>We did not find a state-by-state coverage list on the pages we reviewed for these three. RentRedi's and RentPrep's credit products run on TransUnion (RentRedi says it partners with TransUnion <Src href={S.rrScreen} />; RentPrep calls its credit-only product "the automated SmartMove package" <Src href={S.rp} />). We have not confirmed whether SmartMove's criminal-coverage limits also apply to their criminal searches, so treat that as an open question.</p>
 
   <h2>How to choose, by situation</h2>
   <ul>

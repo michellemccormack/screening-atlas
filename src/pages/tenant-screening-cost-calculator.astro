@@ -1,7 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
 import Src from '../components/Src.astro';
-import Unverified from '../components/Unverified.astro';
 const S = {
   smPrice: 'https://www.mysmartmove.com/pricing',
   ttHelpCost: 'https://support.turbotenant.com/en/articles/6362365-what-s-the-difference-between-a-rental-application-and-a-screening-report',
@@ -43,8 +42,8 @@ const schema = {"@context":"https://schema.org","@type":"WebApplication","name":
       <tr><td>SmartMove SmartCheck Basic / Plus / Premium</td><td>$25 / $42 / $49, plus tax where applicable <Src href={S.smPrice} /></td><td>$11 <Src href={S.smPrice} /></td><td>Landlord or applicant, "where permitted" <Src href={S.smPrice} /></td></tr>
       <tr><td>TurboTenant (Free plan / Essentials or Pro)</td><td>$55 / $45 <Src href={S.ttHelpCost} /></td><td>Income verification is listed as a plan feature, not a per-applicant add-on <Src href={S.ttPricing} /></td><td>Renter typically pays; landlord can choose to cover it <Src href={S.ttHelpCost} /></td></tr>
       <tr><td>RentRedi (credit + criminal + eviction / with Plaid income verification)</td><td>$39.99 / $49.99 <Src href={S.rrPrice} /></td><td>Included in the $49.99 tier</td><td>Tenant-paid <Src href={S.rrPrice} /></td></tr>
-      <tr><td>Rentec Direct Basic / Enhanced / Premium (Starter plan)</td><td>$14.95 / $20.95 / $29.45 <Src href={S.rentec} /></td><td>Not listed</td><td>Not stated on the pricing page <Unverified /></td></tr>
-      <tr><td>Rentec Direct Basic / Enhanced / Premium (Pro &amp; PM plans)</td><td>$10 / $13 / $18 <Src href={S.rentec} /></td><td>Not listed</td><td>Not stated on the pricing page <Unverified /></td></tr>
+      <tr><td>Rentec Direct Basic / Enhanced / Premium (Starter plan)</td><td>$14.95 / $20.95 / $29.45 <Src href={S.rentec} /></td><td>Not listed</td><td>Not stated on the pricing page </td></tr>
+      <tr><td>Rentec Direct Basic / Enhanced / Premium (Pro &amp; PM plans)</td><td>$10 / $13 / $18 <Src href={S.rentec} /></td><td>Not listed</td><td>Not stated on the pricing page </td></tr>
       <tr><td>RentPrep Credit Report Only / Full Background Check Only / Complete</td><td>$29 / $29 / $49 <Src href={S.rp} /></td><td>$10 (bank-based) or $15 (income &amp; employment) <Src href={S.rp} /></td><td>Credit-only and Complete: landlord or tenant. Background-only: landlord pays only <Src href={S.rp} /></td></tr>
     </tbody>
   </table></div>

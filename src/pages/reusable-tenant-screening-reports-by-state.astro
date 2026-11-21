@@ -1,7 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
 import Src from '../components/Src.astro';
-import Unverified from '../components/Unverified.astro';
 const S = {
   co904: 'https://law.justia.com/codes/colorado/title-38/tenants-and-landlords/article-12/part-9/section-38-12-904/',
   co902: 'https://law.justia.com/codes/colorado/title-38/tenants-and-landlords/article-12/part-9/section-38-12-902/',
@@ -44,7 +43,7 @@ const schema = {"@context":"https://schema.org","@type":"Article","headline":tit
     <li>Before any screening step for which a landlord would expect to collect an application fee, the landlord must tell applicants they have the right to provide a portable report, and that if they do, the landlord is prohibited from charging a rental application fee or a fee to access or use the report. The notice goes in ads, on the home page of the landlord's or property manager's website, or in the application (at least 12-point bold), or orally with written confirmation <Src href={S.co904} />.</li>
     <li><strong>Exemption:</strong> those rules don't apply to a landlord who doesn't accept more than one application fee at a time for a unit (or from each applicant or applicant group), and refunds the full fee within 20 calendar days after either side declines to sign a lease <Src href={S.co904} />.</li>
     <li><strong>What counts as a portable report:</strong> a consumer report prepared at the applicant's request, showing the date it's current through, with name, contact information, verification of employment and income, last-known address, and, for each prior residence jurisdiction, a rental and credit history report and a criminal history record check that comply with § 38-12-904's look-back limits <Src href={S.co902} />. Applicants renting with a housing subsidy don't need a credit history, score, or adverse credit event in the report <Src href={S.co902} />.</li>
-    <li>The legislature amended the definition and repealed one of the landlord's optional requirements in 2025 (HB 25-1236), for applications submitted on or after January 1, 2026 <Src href={S.co904} label="history" />. We quote the current text above; Justia is an unofficial copy of the statute, so check the official Colorado Revised Statutes before you rely on it <Unverified note="unofficial source" />.</li>
+    <li>The legislature amended the definition and repealed one of the landlord's optional requirements in 2025 (HB 25-1236), for applications submitted on or after January 1, 2026 <Src href={S.co904} label="history" />. We quote the current text above; Justia is an unofficial copy of the statute, so check the official Colorado Revised Statutes before you rely on it.</li>
   </ul>
 
   <h2 id="washington">Washington: you choose, but you have to say so</h2>
@@ -66,7 +65,7 @@ const schema = {"@context":"https://schema.org","@type":"Article","headline":tit
   </ul>
 
   <h2 id="new-york">New York: a recent check waives the fee</h2>
-  <p>New York caps background and credit check fees at actual cost or $20, whichever is less, and the landlord "shall waive the fee or fees if the potential tenant provides a copy of a background check or credit check conducted within the past thirty days." <Src href={S.ny} /> The statute speaks only to the fee. It doesn't say a landlord must base its decision on the applicant's copy, and we haven't found an official source that answers that <Unverified />.</p>
+  <p>New York caps background and credit check fees at actual cost or $20, whichever is less, and the landlord "shall waive the fee or fees if the potential tenant provides a copy of a background check or credit check conducted within the past thirty days." <Src href={S.ny} /> The statute speaks only to the fee. It doesn't say a landlord must base its decision on the applicant's copy, and we haven't found an official source that answers that.</p>
 
   <h2 id="rhode-island">Rhode Island: a 90-day window</h2>
   <p>Rhode Island bars rental application fees outright. A landlord may require an official state criminal background check (from the BCI, the attorney general, state police or local police) or a credit check, but if the applicant provides one "issued within ninety (90) days of the application," no fee may be charged for it <Src href={S.ri} />. If the applicant doesn't, the landlord may charge no more than the actual cost and must give the applicant a copy. The landlord can still get its own check at its own expense <Src href={S.ri} />.</p>
