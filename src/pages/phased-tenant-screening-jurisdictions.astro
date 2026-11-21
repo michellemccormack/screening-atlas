@@ -1,0 +1,115 @@
+---
+import Base from '../layouts/Base.astro';
+import Src from '../components/Src.astro';
+import Unverified from '../components/Unverified.astro';
+const S = {
+  cook: 'https://www.cookcountyil.gov/content/just-housing-amendment-human-rights-ordinance',
+  cookFlyer: 'https://www.cookcountyil.gov/sites/g/files/ywwepo161/files/documents/2026-01/JHA%20Flyer%20%28Eng%29.pdf',
+  dc02: 'https://code.dccouncil.gov/us/dc/council/code/sections/42-3541.02',
+  dc01: 'https://code.dccouncil.gov/us/dc/council/code/sections/42-3541.01',
+  dc03: 'https://code.dccouncil.gov/us/dc/council/code/sections/42-3541.03',
+  nycLaw: 'https://www.nyc.gov/assets/cchr/downloads/pdf/amendments/Local-Law-24.pdf',
+  nycNotice: 'https://www.nyc.gov/assets/cchr/downloads/pdf/publications/FairChanceHousing-Notice.pdf',
+  njRegs: 'https://www.njoag.gov/wp-content/uploads/2025/07/FCHA-Regs.pdf',
+  smDisc: 'https://www.mysmartmove.com/disclaimer',
+  ttHelpRead: 'https://support.turbotenant.com/en/articles/4409356-how-do-i-read-a-tenant-screening-report',
+};
+const updated = '2026-11-21';
+const title = 'Phased (Two-Step) Tenant Screening: Cook County, D.C., New York City and New Jersey';
+const description = 'In some places a landlord must finish the non-criminal screening, and in some a conditional offer, before running a criminal background check. The rules for Cook County IL, Washington DC, New York City and New Jersey side by side: when the check is allowed, the look-back periods, the applicant\'s response window and who is exempt. Quoted from each law.';
+const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":updated};
+---
+<Base title={title} description={description} updated={updated} schema={schema}>
+  <h1>{title}</h1>
+  <p class="lede">"Phased screening" means the criminal check comes last: first income, credit, rental history and the rest, and only then, for an applicant who passes, a criminal background check that is limited to certain records. Screening providers build their products around it. Here is what four of these laws actually require, quoted from the law or the enforcing agency.</p>
+
+  <div class="note"><strong>The short version.</strong> <strong>Cook County</strong>: prequalify on everything except criminal history, then check; consider only convictions from the last 3 years <Src href={S.cook} label="Cook" />. <strong>D.C.</strong>: no criminal questions until a conditional offer; afterwards only listed offenses from the last 7 years <Src href={S.dc02} label="D.C." />. <strong>New York City</strong>: written conditional offer first; then only sex-offense registrations, felonies from the last 5 years and misdemeanors from the last 3 <Src href={S.nycNotice} label="NYC" />. <strong>New Jersey</strong>: conditional offer first; then only listed serious offenses plus indictable offenses within 6, 4 or 1 years depending on degree <Src href={S.njRegs} label="NJ" />.</div>
+
+  <h2>Side by side</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th></th><th>Cook County, IL</th><th>Washington, D.C.</th><th>New York City</th><th>New Jersey</th></tr></thead>
+    <tbody>
+      <tr><td><strong>When the criminal check is allowed</strong></td>
+        <td>Only after the applicant is prequalified on all non-criminal criteria <Src href={S.cookFlyer} /></td>
+        <td>Only after a conditional offer <Src href={S.dc02} /></td>
+        <td>Only after a written conditional offer and giving the applicant the city's notice <Src href={S.nycNotice} /></td>
+        <td>Only after a conditional offer (two narrow exceptions, below) <Src href={S.njRegs} /></td></tr>
+      <tr><td><strong>What can be considered</strong></td>
+        <td>Convictions from the past 3 years, after an individualized assessment; arrests without conviction can't be used <Src href={S.cook} /></td>
+        <td>Pending accusations or convictions within the past 7 years, for 48 listed crimes; never arrests without conviction <Src href={S.dc02} /></td>
+        <td>Current sex-offense registration; felony convictions within 5 years; misdemeanor convictions within 3 years, measured from release or sentencing. Never arrests or pending cases <Src href={S.nycNotice} /></td>
+        <td>Convictions for listed offenses (murder, aggravated sexual assault, kidnapping, arson, human trafficking and others) and lifetime sex-offender registration; 1st-degree indictable offenses within 6 years, 2nd/3rd-degree within 4, 4th-degree within 1 <Src href={S.njRegs} /></td></tr>
+      <tr><td><strong>Applicant's chance to respond</strong></td>
+        <td>Landlord gives a copy of the check within 5 business days; applicant has 5 business days to dispute; landlord decides within 3 business days <Src href={S.cook} /></td>
+        <td>After a withdrawal, the applicant may request within 20 days everything relied on, provided free within 10 days <Src href={S.dc02} /></td>
+        <td>Copy of all criminal history received, then 5 business days to respond, with the unit held open <Src href={S.nycNotice} /></td>
+        <td>Written notice of withdrawal with specific reasons and an opportunity to appeal with evidence; the state's model notice form must be used <Src href={S.njRegs} /></td></tr>
+      <tr><td><strong>Standard to deny</strong></td>
+        <td>Individualized assessment showing denial is necessary to protect against a clear risk to personal safety and/or property <Src href={S.cook} /></td>
+        <td>Withdrawal must achieve "a substantial, legitimate, nondiscriminatory interest," judged on six listed factors <Src href={S.dc02} /></td>
+        <td>Individualized assessment of reviewable convictions and anything the applicant submits <Src href={S.nycNotice} /></td>
+        <td>Preponderance of the evidence that withdrawal is necessary for a substantial, legitimate, nondiscriminatory interest, after a six-factor individualized assessment <Src href={S.njRegs} /></td></tr>
+      <tr><td><strong>Who is exempt</strong></td>
+        <td>Not stated on the county FAQ we used <Unverified note="not reviewed" /></td>
+        <td>Owner-occupied buildings with 3 or fewer rental units, and where federal or D.C. law requires or allows considering the record <Src href={S.dc03} /></td>
+        <td>Housing-provider-occupied properties with 2 or fewer rooms or units; certain government-funded providers for actions they're required or authorized to take <Src href={S.nycNotice} /></td>
+        <td>Units in owner-occupied premises of not more than four units (excluded from "rental dwelling unit") <Src href={S.njRegs} /></td></tr>
+      <tr><td><strong>Source</strong></td>
+        <td><a href={S.cook} target="_blank" rel="noopener">Cook County Commission on Human Rights JHA FAQ</a></td>
+        <td><a href={S.dc02} target="_blank" rel="noopener">D.C. Code § 42-3541.02</a></td>
+        <td><a href={S.nycLaw} target="_blank" rel="noopener">Local Law 24 of 2024</a> (effective Jan. 1, 2025) <Src href={S.nycLaw} /></td>
+        <td><a href={S.njRegs} target="_blank" rel="noopener">N.J.A.C. 13:5</a> (Fair Chance in Housing Act rules)</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>Details by jurisdiction</h2>
+  <h3 id="cook">Cook County, Illinois (Just Housing Amendment)</h3>
+  <ul>
+    <li>Applications may not ask whether the applicant has a criminal record, and ads may not say things like "no felons" or "no criminal history" <Src href={S.cookFlyer} />.</li>
+    <li>Before taking an application fee, the landlord must give its tenant selection criteria and a notice of the applicant's right to dispute and offer evidence of rehabilitation, among other items <Src href={S.cook} />.</li>
+    <li>The three steps: prequalification (no criminal check allowed), then criminal background check and individualized assessment, then approval or denial with the right to dispute <Src href={S.cookFlyer} />.</li>
+    <li>Exceptions: current registered sex offenders and current child sex offenders under residency restrictions <Src href={S.cook} />.</li>
+    <li>The landlord does not have to hold the unit off the market during a dispute, and the law doesn't require landlords to run criminal checks at all <Src href={S.cook} />.</li>
+  </ul>
+
+  <h3 id="dc">Washington, D.C. (Fair Criminal Record Screening for Housing Act)</h3>
+  <ul>
+    <li>Before accepting an application fee, the provider must disclose in writing its eligibility criteria (financial, employment, criminal and rental history) and that the applicant may provide evidence of inaccuracies, rehabilitation or other mitigating factors <Src href={S.dc02} />.</li>
+    <li>The applicant can sign all authorizations up front; the provider just can't ask about or consider criminal accusations or convictions until after the conditional offer <Src href={S.dc02} />.</li>
+    <li>A "conditional offer" is one contingent on the later criminal-record inquiry or on any other eligibility criteria <Src href={S.dc01} />.</li>
+    <li>A withdrawal needs written, specific reasons and notice of the right to file a complaint with the D.C. Office of Human Rights <Src href={S.dc02} />.</li>
+  </ul>
+
+  <h3 id="nyc">New York City (Fair Chance for Housing Law)</h3>
+  <ul>
+    <li>In effect since January 1, 2025, and it covers current tenants (lease renewals) as well as applicants <Src href={S.nycNotice} />.</li>
+    <li>A conditional offer is "a written lease, rental agreement, or agreement for a sale that conditionally commits a unit" and can be revoked only in limited circumstances <Src href={S.nycNotice} />.</li>
+    <li>Never considered: sealed or expunged convictions, violations (non-criminal offenses), youthful offender adjudications, ACDs, and some out-of-state convictions, among others listed in the city notice <Src href={S.nycNotice} />.</li>
+    <li>Ads and applications may not make statements about criminal background checks or limits based on criminal records <Src href={S.nycNotice} />.</li>
+  </ul>
+
+  <h3 id="nj">New Jersey (Fair Chance in Housing Act)</h3>
+  <ul>
+    <li>Before a conditional offer, the only criminal records a provider may consider are a conviction for manufacturing methamphetamine on the premises of federally assisted housing and lifetime sex-offender registration <Src href={S.njRegs} />.</li>
+    <li>For offenses with a prison sentence, the 6/4/1-year clock runs from when the sentence concluded <Src href={S.njRegs} />.</li>
+    <li>A provider using a screening vendor must take reasonable steps to make sure the vendor's check follows the Act <Src href={S.njRegs} />.</li>
+  </ul>
+
+  <h2>Other places providers flag</h2>
+  <p>SmartMove requires its phased workflow (a non-criminal bundle first, the criminal bundle only after you certify the applicant met your preliminary criteria) in Ann Arbor, MI; Berkeley, CA; Cook County, IL; Detroit, MI; Maryland (statewide); New Jersey (statewide); New York City; Oakland, CA; and Washington, D.C. (revised October 1, 2026) <Src href={S.smDisc} />. TurboTenant names Cook County, Detroit, Montgomery County MD, Oakland, Berkeley and D.C. as places where it shows only whether records exist, without charge details, because it doesn't support the two-phase process there <Src href={S.ttHelpRead} />.</p>
+  <p>We have not yet reviewed the local laws for Ann Arbor, Berkeley, Detroit, Oakland, Maryland or Montgomery County <Unverified note="not yet reviewed" />. Some of them may restrict criminal history more than a two-step process does, so don't treat them as identical to the four above.</p>
+
+  <h2>Doing it with a screening service</h2>
+  <ul>
+    <li>Run credit, eviction, income and identity first; record your decision that the applicant passed (and, in D.C., NYC and NJ, make the conditional offer in writing) before ordering the criminal piece.</li>
+    <li>Make sure the report is filtered to the look-back window your jurisdiction allows. New Jersey makes you responsible for your vendor's compliance <Src href={S.njRegs} />.</li>
+    <li>Provider differences matter here: see <a href="/tenant-screening-report-comparison/">the report comparison</a> and <a href="/turbotenant-no-criminal-records-available/">"No criminal records are available"</a>.</li>
+  </ul>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/oregon-tenant-screening-rules/">Oregon screening rules (criminal history limits and individualized assessment)</a></li>
+    <li><a href="/application-fee-caps-by-state/">Application fee caps by state</a></li>
+    <li><a href="/">All Screening Atlas guides</a></li>
+  </ul>
+</Base>
