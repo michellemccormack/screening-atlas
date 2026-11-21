@@ -1,0 +1,73 @@
+---
+import Base from '../layouts/Base.astro';
+import Src from '../components/Src.astro';
+import Unverified from '../components/Unverified.astro';
+const S = {
+  paInfo: 'https://www.pacourts.us/public-records/court-case-information',
+  paPortal: 'https://ujsportal.pacourts.us/CaseSearch',
+  wcca: 'https://wcca.wicourts.gov/',
+  wi758: 'https://docs.legis.wisconsin.gov/statutes/statutes/758/20',
+  scr72: 'https://www.wicourts.gov/sc/rules/chap72.pdf',
+  mcro: 'https://publicaccess.courts.state.mn.us/',
+  mcroInfo: 'https://mncourts.gov/access-case-records/mcro',
+  mn484: 'https://www.revisor.mn.gov/statutes/cite/484.014',
+  maPortal: 'https://www.masscourts.org/',
+  maInfo: 'https://www.mass.gov/info-details/how-to-search-court-dockets',
+  waFaq: 'https://www.courts.wa.gov/subsite/sccms/docs/Odyssey_Portal_FAQ.pdf',
+  waPortal: 'https://prdodypub.courts.wa.gov/ODYPORTAL/',
+  waJis: 'https://www.courts.wa.gov/jislink/',
+  wa367: 'https://app.leg.wa.gov/RCW/default.aspx?cite=59.18.367',
+  moCasenet: 'https://www.courts.mo.gov/cnet/welcome.do',
+  ca1161: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CCP&sectionNum=1161.2',
+  ors: 'https://www.oregonlegislature.gov/bills_laws/ors/ors090.html',
+  smDisc: 'https://www.mysmartmove.com/disclaimer',
+};
+const updated = '2026-11-21';
+const title = 'Where to Look Up Eviction Records: Official Court Portals by State';
+const description = 'Free official court portals where landlords can check an applicant\'s eviction (landlord-tenant) cases in Pennsylvania, Wisconsin, Minnesota, Massachusetts, Washington and Missouri, what each one leaves out, and the state rules that hide or limit eviction records in California, Minnesota, Washington, Wisconsin and Oregon.';
+const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":updated};
+---
+<Base title={title} description={description} updated={updated} schema={schema}>
+  <h1>{title}</h1>
+  <p class="lede">A screening report's eviction section is only as good as the court data behind it, and some providers say their eviction data is thin or missing in whole states. The court's own portal is the primary source. This page lists official portals we've confirmed, what each says it covers, and the state laws that keep some eviction cases out of view.</p>
+
+  <div class="warnbox"><strong>Before you search:</strong> a name match isn't proof it's the same person; check addresses and dates. And a record you <em>can</em> find may be one you're not allowed to use. Oregon, for example, bars landlords from considering dismissed evictions and judgments five or more years old <Src href={S.ors} label="ORS 90.303" />. If you deny someone based on a consumer report, federal adverse-action rules apply.</div>
+
+  <h2>Why the court portal matters</h2>
+  <p>TransUnion SmartMove's disclaimer (revised August 12, 2026) says eviction records are <strong>not available</strong> in Kentucky, Louisiana, Maine, South Dakota and Wyoming, and are <strong>limited</strong> in 19 more states, including California, Michigan, Pennsylvania, Washington and Wisconsin <Src href={S.smDisc} label="SmartMove" />. If your report shows "no eviction records" for an applicant from one of those states, that may mean "no data," not "no evictions."</p>
+
+  <h2>States reviewed so far</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>State</th><th>Official portal</th><th>What the court says it covers</th><th>Gaps and limits</th></tr></thead>
+    <tbody>
+      <tr id="pa"><td><strong>Pennsylvania</strong></td><td><a href={S.paPortal} target="_blank" rel="noopener">UJS Web Portal case search</a></td><td>Free. Magisterial district court case information "including... landlord/tenant cases" <Src href={S.paInfo} /></td><td>For paper case records, contact the magisterial district court office directly <Src href={S.paInfo} /></td></tr>
+      <tr id="wi"><td><strong>Wisconsin</strong></td><td><a href={S.wcca} target="_blank" rel="noopener">Wisconsin Circuit Court Access (WCCA)</a></td><td>The statewide circuit court case site described in Wis. Stat. § 758.20 <Src href={S.wi758} /></td><td>Law requires eviction cases to stay on WCCA at least 10 years if a writ of restitution was granted, and at least 2 years if dismissed with no money judgment docketed <Src href={S.wi758} />. Court rule sets the matching retention periods for eviction case files <Src href={S.scr72} label="SCR 72" /></td></tr>
+      <tr id="mn"><td><strong>Minnesota</strong></td><td><a href={S.mcro} target="_blank" rel="noopener">Minnesota Court Records Online (MCRO)</a></td><td>"Online access to many public Minnesota state district court records and documents," searchable by person or business name; all documents in civil case types filed on or after July 1, 2015, free <Src href={S.mcroInfo} /></td><td>Expunged eviction cases are removed from public records; expungement is mandatory in several situations, including dismissal, a tenant win, and three years after the eviction was ordered <Src href={S.mn484} label="Minn. Stat. 484.014" /></td></tr>
+      <tr id="ma"><td><strong>Massachusetts</strong></td><td><a href={S.maPortal} target="_blank" rel="noopener">MassCourts (Trial Court Case Access)</a></td><td>Party, event, docket and disposition details; choose the court department (Housing Court handles many evictions). Name search is for civil cases <Src href={S.maInfo} /></td><td>Case-type searches are limited to a one-month date range; remote access is governed by the Uniform Rules on Public Access to Court Records, Rule 5 <Src href={S.maInfo} /></td></tr>
+      <tr id="wa"><td><strong>Washington</strong></td><td><a href={S.waPortal} target="_blank" rel="noopener">Odyssey Portal</a> (Superior Courts); <a href={S.waJis} target="_blank" rel="noopener">JIS-Link</a> for the rest</td><td>Anonymous access to case information for Superior Courts in 37 counties <Src href={S.waFaq} /></td><td>No King or Pierce County Superior Court records and no courts of limited jurisdiction; documents aren't available anonymously <Src href={S.waFaq} />. Courts can order an eviction "of limited dissemination," and screening companies then may not report it <Src href={S.wa367} label="RCW 59.18.367" /></td></tr>
+      <tr id="mo"><td><strong>Missouri</strong></td><td><a href={S.moCasenet} target="_blank" rel="noopener">Case.net</a></td><td>The Missouri courts' online case search <Src href={S.moCasenet} /></td><td>We haven't confirmed from a court page which landlord-tenant case types are included <Unverified /></td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>Where eviction records are hidden or limited by law</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>State</th><th>Rule</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr id="ca"><td><strong>California</strong></td><td>Unlawful detainer (eviction) court records are restricted. The public can see them only in listed cases, for example 60 days after filing if the landlord won a judgment against all defendants within those 60 days, or by court order. Before that, access is limited to the parties, residents of the unit, and people who give the clerk a plaintiff's and defendant's names plus the full address <Src href={S.ca1161} /></td><td><a href={S.ca1161} target="_blank" rel="noopener">Cal. Code Civ. Proc. § 1161.2</a></td></tr>
+      <tr><td><strong>Minnesota</strong></td><td>Courts must expunge an eviction case if the tenant prevailed, the complaint was dismissed, the parties agreed, or three years have passed since the eviction was ordered, among other grounds <Src href={S.mn484} /></td><td><a href={S.mn484} target="_blank" rel="noopener">Minn. Stat. § 484.014</a></td></tr>
+      <tr><td><strong>Washington</strong></td><td>Limited dissemination orders (for example where the landlord's case lacked basis or the tenancy was reinstated) bar screening companies from reporting the case or using it in a score <Src href={S.wa367} /></td><td><a href={S.wa367} target="_blank" rel="noopener">RCW 59.18.367</a></td></tr>
+      <tr><td><strong>Wisconsin</strong></td><td>Minimum time on the public site: 2 years for dismissed evictions with no money judgment, 10 years with a writ of restitution <Src href={S.wi758} /></td><td><a href={S.wi758} target="_blank" rel="noopener">Wis. Stat. § 758.20</a></td></tr>
+      <tr><td><strong>Oregon</strong></td><td>The record may be public, but landlords may not consider dismissed cases, judgments for the applicant, judgments 5+ years old, or judgments on claims arising April 1, 2020 to March 1, 2022 <Src href={S.ors} /></td><td><a href={S.ors} target="_blank" rel="noopener">ORS 90.303</a>; see our <a href="/oregon-tenant-screening-rules/">Oregon screening guide</a></td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>Not yet reviewed</h2>
+  <p>Every other state, plus D.C. We'll add states only when we can confirm the portal and its coverage from the court's own pages. Many states have county-level systems instead of one statewide search.</p>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/tenant-screening-report-comparison/">What each screening report includes, and where records are missing</a></li>
+    <li><a href="/turbotenant-no-criminal-records-available/">"No criminal records are available": what it means</a></li>
+    <li><a href="/">All Screening Atlas guides</a></li>
+  </ul>
+</Base>

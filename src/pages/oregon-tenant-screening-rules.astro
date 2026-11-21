@@ -1,0 +1,97 @@
+---
+import Base from '../layouts/Base.astro';
+import Src from '../components/Src.astro';
+import Unverified from '../components/Unverified.astro';
+const ORS = 'https://www.oregonlegislature.gov/bills_laws/ors/ors090.html';
+const S = {
+  ors: ORS,
+  smDisc: 'https://www.mysmartmove.com/disclaimer',
+};
+const updated = '2026-11-21';
+const title = 'Oregon Tenant Screening Rules: Fees, Criminal History, Evictions and Denial Letters';
+const description = 'Oregon landlord screening rules from ORS 90.295, 90.303, 90.304 and 90.306: one screening charge per 60 days, the written notice required before you take it, which criminal records and evictions you may not consider, the 14-day denial statement, and the individualized assessment. Quoted from the statute.';
+const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":updated};
+---
+<Base title={title} description={description} updated={updated} schema={schema}>
+  <h1>{title}</h1>
+  <p class="lede">Oregon packs most of its applicant-screening rules into four sections of ORS chapter 90. They cover what you can charge, what you must put in writing before you charge it, what you may not hold against an applicant, and what you owe someone you turn down. Every rule below is quoted or paraphrased from the official 2025 edition of the Oregon Revised Statutes on the Legislature's site <Src href={S.ors} label="ORS ch. 90" />.</p>
+
+  <div class="note"><strong>The short version.</strong> One screening charge per applicant per <strong>60 days</strong>, no matter how many of your units they apply for, and no more than your average actual cost or the customary rate <Src href={S.ors} label="ORS 90.295" />. Before you take it, give written screening criteria and the other disclosures listed below <Src href={S.ors} label="ORS 90.295(3)" />. You can't consider dismissed evictions, judgments 5+ years old, or arrests that didn't lead to a conviction or pending charge, and criminal history is limited to listed categories <Src href={S.ors} label="ORS 90.303" />. Deny in writing within <strong>14 days</strong>, and before denying for criminal history, let the applicant submit supplemental evidence and do an individualized assessment <Src href={S.ors} label="ORS 90.304" />.</div>
+
+  <h2>1. The screening charge (ORS 90.295)</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Rule</th><th>What the statute says</th></tr></thead>
+    <tbody>
+      <tr><td>What it can pay for</td><td>"Solely to cover the costs of obtaining information about an applicant," such as checking references and getting a consumer credit report or tenant screening report <Src href={S.ors} label="90.295(1)(a)" /></td></tr>
+      <tr><td>How often</td><td>"A single applicant screening charge within any 60-day period, regardless of the number of rental units owned or managed by the landlord for which the applicant has applied" <Src href={S.ors} label="90.295(1)(b)" /></td></tr>
+      <tr><td>How much</td><td>Not more than the landlord's average actual cost of screening, or the customary amount screening companies or credit bureaus charge for comparable screening. Actual cost may include the reasonable value of the landlord's own time <Src href={S.ors} label="90.295(2)" /></td></tr>
+      <tr><td>Receipts</td><td>Give a receipt for the charge, and promptly after a screening company or credit bureau runs the screening, give the applicant confirmation including a copy of that company's receipt <Src href={S.ors} label="90.295(1)(a)" /></td></tr>
+      <tr><td>No units available</td><td>Unless the applicant agrees in writing, you can't take the charge when you know or should know no unit is or will soon be available <Src href={S.ors} label="90.295(4)" /></td></tr>
+      <tr><td>Refunds</td><td>Refund within 30 days if you fill the unit before screening the applicant, or if you haven't ordered any screening before the applicant withdraws in writing <Src href={S.ors} label="90.295(5)" /></td></tr>
+      <tr><td>Penalty</td><td>Twice the screening charge plus $250 if you don't comply, or if you don't screen and don't refund within 30 days. No recovery if the applicant turns down your offer to rent <Src href={S.ors} label="90.295(6)" /></td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>What you must hand over before taking the charge</h3>
+  <p>ORS 90.295(3) says a landlord may not require the charge unless, before accepting payment, it has adopted written screening or admission criteria and given the applicant written notice of <Src href={S.ors} label="90.295(3)" />:</p>
+  <ul>
+    <li>the amount of the screening charge;</li>
+    <li>your screening or admission criteria;</li>
+    <li>the process you typically follow, including whether you use a screening company, credit reports, public records or criminal records, or contact employers, landlords or other references;</li>
+    <li>the applicant's right to dispute the accuracy of information from a screening company or credit bureau;</li>
+    <li>any right to appeal a negative decision, if one exists;</li>
+    <li>your nondiscrimination policy as required by law, including that you may not discriminate based on race, color, religion, sex, sexual orientation, gender identity, national origin, marital status, familial status or source of income;</li>
+    <li>the rent and the deposits you'll require;</li>
+    <li>whether you require renters liability insurance, and how much;</li>
+    <li>the applicant's refund right and right to damages under the statute.</li>
+  </ul>
+  <p>You must also give "actual notice" of your best estimate of how many units of the type and area sought are or will soon be available, and how many applications are already accepted and still under consideration. A good-faith error in that estimate isn't grounds for the damages claim <Src href={S.ors} label="90.295(3)(c)" />.</p>
+  <p>How Oregon compares with other states' fee limits: see <a href="/application-fee-caps-by-state/#or">application fee caps by state</a>.</p>
+
+  <h3>Holding deposits are a separate rule</h3>
+  <p>Apart from the screening charge, a landlord may not charge an applicant any deposit or fee, except a deposit to secure execution of a rental agreement, taken only after approving the application and with a written statement of the terms <Src href={S.ors} label="ORS 90.297" />. If the landlord backs out (or the applicant rejects the unit for habitability defects), the deposit must be returned within five business days <Src href={S.ors} label="90.297(5)" />.</p>
+
+  <h2>2. What you may not consider (ORS 90.303)</h2>
+  <h3>Eviction history</h3>
+  <p>You may not consider a prior possession (eviction) action under ORS 105.100 to 105.168 if it <Src href={S.ors} label="90.303(1)" />:</p>
+  <ul>
+    <li>was dismissed, or ended in a general judgment for the applicant, before they applied;</li>
+    <li>ended in a judgment against the applicant entered <strong>five or more years</strong> before the application; or</li>
+    <li>ended in a judgment against the applicant on claims that arose between <strong>April 1, 2020 and March 1, 2022</strong>.</li>
+  </ul>
+  <p>Unpaid rent that accrued between April 1, 2020 and March 1, 2022, including rent in judgments or collection referrals, is also off limits <Src href={S.ors} label="90.303(5)" />. The statute's note says a version without the 2020–2022 provisions becomes operative on <strong>January 2, 2028</strong> <Src href={S.ors} label="note to 90.303" />.</p>
+
+  <h3>Arrests and criminal history</h3>
+  <ul>
+    <li><strong>Arrests</strong> count only if they led to charges in the categories below and the applicant was convicted, or the charges are pending and the applicant isn't in a diversion, conditional discharge or deferral program <Src href={S.ors} label="90.303(2)" />.</li>
+    <li><strong>Convictions and pending charges</strong> count only for conduct that is presently illegal in Oregon and is: a drug-related crime (but not convictions based solely on marijuana use or possession); a person crime; a sex offense; a financial-fraud crime such as identity theft or forgery; or another crime whose conduct would adversely affect the property of the landlord or a tenant, or residents' health, safety or peaceful enjoyment <Src href={S.ors} label="90.303(3)" />.</li>
+    <li>You may not consider a medical marijuana card or patient status <Src href={S.ors} label="90.303(4)" />.</li>
+  </ul>
+
+  <h3>Immigration status and ID</h3>
+  <p>You may not ask about the immigration or citizenship status of an applicant or household member, or reject an application because someone doesn't produce a Social Security number or prove lawful presence, if the applicant agrees to provide identification under ORS 90.306 <Src href={S.ors} label="90.303(6)" />. If you verify identity, ORS 90.306 makes you accept any of a list of documents (or a combination) that verifies name, date of birth and appearance, including an SSN card, birth certificate, permanent resident card, visa, ITIN card, a passport or driver license or other government ID "regardless of expiration date," or nongovernment ID that permits reasonable verification. Federal rent-subsidy programs that require otherwise are excepted <Src href={S.ors} label="90.306" />.</p>
+  <p>Practical consequence: if your screening service needs an SSN to run a credit report, ask it how it handles applicants who use another accepted ID. We have not checked how individual providers handle this in Oregon <Unverified note="not yet checked" />.</p>
+
+  <h2>3. Denying an application (ORS 90.304)</h2>
+  <ul>
+    <li><strong>Written reasons within 14 days</strong> of the denial. A checkbox form is allowed; the statute lists example reasons (rental history, criminal records, financial information, failing other written criteria, unit already rented) <Src href={S.ors} label="90.304(1)–(2)" />.</li>
+    <li>The statement must include the name and address of any screening company or credit bureau whose report the denial relied on (if not already disclosed), any supplemental evidence the applicant gave and why it didn't outweigh the problem, and any right to appeal <Src href={S.ors} label="90.304(3)" />.</li>
+    <li><strong>Before denying for criminal history</strong>, you must give the applicant a chance to submit supplemental evidence and do an individualized assessment considering the nature and severity of the incidents, their number and type, the time elapsed, and the applicant's age at the time <Src href={S.ors} label="90.304(5)" />.</li>
+    <li>Penalty for not complying with 90.304: the applicant may recover $100 <Src href={S.ors} label="90.304(6)" />.</li>
+  </ul>
+  <p>Federal adverse-action notice rules under the Fair Credit Reporting Act apply on top of this; ORS 90.304(4) refers to the FCRA for what you must disclose about the report itself <Src href={S.ors} label="90.304(4)" />.</p>
+
+  <h2>Will a screening report even return Oregon records?</h2>
+  <p>Oregon is on TransUnion SmartMove's list of states where criminal records can currently be returned (revision dated January 14, 2026) and is not on its lists of states with missing or limited eviction records (revision dated August 12, 2026) <Src href={S.smDisc} label="SmartMove" />. That says nothing about how a report handles the categories Oregon tells you to ignore, so read the report against ORS 90.303 yourself. See <a href="/tenant-screening-report-comparison/">what each screening report includes</a>.</p>
+
+  <h2>Local rules</h2>
+  <p>Local ordinances can add requirements on top of state law. We have not reviewed any Oregon city or county screening ordinances for this page <Unverified note="not yet reviewed" />, so check with your city before relying on state law alone.</p>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/application-fee-caps-by-state/">Application fee caps by state</a></li>
+    <li><a href="/reusable-tenant-screening-reports-by-state/">Reusable screening reports by state</a></li>
+    <li><a href="/phased-tenant-screening-jurisdictions/">Phased (two-step) screening jurisdictions</a></li>
+    <li><a href="/">All Screening Atlas guides</a></li>
+  </ul>
+</Base>
