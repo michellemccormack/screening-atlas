@@ -1,7 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
 import Src from '../components/Src.astro';
-import Unverified from '../components/Unverified.astro';
 import data from '../data/fee-caps.json';
 const rows = data.reviewed;
 const allStates = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","District of Columbia","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
@@ -25,7 +24,7 @@ const schema = {"@context":"https://schema.org","@type":"Article","headline":tit
       {rows.map(r => (
         <tr id={r.code.toLowerCase()}>
           <td><strong>{r.state}</strong></td>
-          <td>{r.cap}{r.capUnverified && <Unverified note="partly unverified" />}</td>
+          <td>{r.cap}</td>
           <td><a href={r.url} target="_blank" rel="noopener">{r.cite}</a>{r.url2 && <> · <a href={r.url2} target="_blank" rel="noopener">also</a></>}<br/><span class="meta">{r.sourceType}</span></td>
         </tr>
       ))}
@@ -37,7 +36,7 @@ const schema = {"@context":"https://schema.org","@type":"Article","headline":tit
     <section>
       <h3 id={`${r.code.toLowerCase()}-details`}>{r.state}: {r.cite}</h3>
       <p>{r.cap} <Src href={r.url} /></p>
-      {r.capUnverified && <p class="meta"><Unverified /> {r.capUnverified}</p>}
+      {r.capUnverified && <p class="meta">{r.capUnverified}</p>}
       {r.notes.length > 0 && <ul>{r.notes.map(n => <li>{n} <Src href={r.url} /></li>)}</ul>}
     </section>
   ))}

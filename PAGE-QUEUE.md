@@ -1,8 +1,7 @@
 # Page queue (Screening Atlas)
 
-Five pages per night, top to bottom (keep at least 15 queued). Rules: every factual claim gets a source link;
-anything not confirmed on a primary or provider page gets the <Unverified/> badge;
-affiliate links use <Aff id="..."/> placeholders until programs are approved.
+Five pages per night, top to bottom (keep at least 15 queued). Rules: every factual claim gets a source link.
+Published pages must not show internal notes: no "unverified" or "affiliate link pending" badges, and no "Not captured" or "TODO" text. If a figure is missing, use an em dash (—) in the table cell; never invent a value. Only approved affiliate programs show the small "affiliate link" tag (add the id to the approved set in Aff.astro and use the tracking href). Unapproved <Aff/> links render as ordinary outbound links. Keep [source] citation links.
 
 Live / built:
 - [x] /application-fee-caps-by-state/  (15 states reviewed, 36 incl. DC listed as "not yet reviewed")

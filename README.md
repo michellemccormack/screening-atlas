@@ -15,8 +15,8 @@ Copy the contents of dist/ to the root of the gh-pages branch (keep .nojekyll).
 
 ## Add a page
 1. Create src/pages/<slug>.astro using layouts/Base.astro (title, description props).
-2. Cite every fact with <Src href="..."/>; mark unconfirmed items with <Unverified/>.
-3. Affiliate links: <Aff id="smartmove|turbotenant|rentredi|rentec|rentprep" .../> (placeholders, data-affiliate attribute).
+2. Cite every fact with <Src href="..."/>. If a figure isn't on a source page, put an em dash (—) in the table cell; never invent a value, and never show an "unverified", "not captured", or "affiliate link pending" badge on the published site.
+3. Affiliate links: <Aff id="smartmove|turbotenant|rentredi|rentec|rentprep" .../>. Only approved programs (listed in the approved set in Aff.astro, with the tracking href) show the small "affiliate link" tag. Unapproved Aff links must render as ordinary outbound links with no badge.
 4. Link it from src/pages/index.astro, tick it off in PAGE-QUEUE.md, and rebuild.
 
 Data: src/data/fee-caps.json (checked dates per entry). Raw source captures: research/.

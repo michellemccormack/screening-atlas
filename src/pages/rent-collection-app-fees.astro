@@ -2,7 +2,6 @@
 import Base from '../layouts/Base.astro';
 import Src from '../components/Src.astro';
 import Aff from '../components/Aff.astro';
-import Unverified from '../components/Unverified.astro';
 const S = {
   ttPricing: 'https://www.turbotenant.com/pricing/',
   ttTiming: 'https://support.turbotenant.com/en/articles/4522996-how-long-do-rent-payments-take-to-process',
@@ -48,7 +47,7 @@ const schema = {"@context":"https://schema.org","@type":"Article","headline":tit
         <td><strong>Rentec Direct</strong></td>
         <td>Starter: $2.00 each incoming payment. Pro &amp; PM: one free incoming ACH per active property per month, extra payments $0.50 each <Src href={S.rentec} /></td>
         <td>Visa/Mastercard/Discover 3.50% on Starter, 2.95% on Pro &amp; PM; AmEx 3.50%; $1.00 minimum <Src href={S.rentec} /></td>
-        <td>Rentec's knowledge base says landlords can "customize accepted payment methods and convenience fees" <Src href={S.rentecKb} />. The pricing page lists these as charges for use of the software <Src href={S.rentec} />. Who pays by default: <Unverified /></td>
+        <td>Rentec's knowledge base says landlords can "customize accepted payment methods and convenience fees" <Src href={S.rentecKb} />. The pricing page lists these as charges for use of the software <Src href={S.rentec} />. Who pays by default isn't stated.</td>
         <td>ACH "transmitted to your bank account within 2 days"; card payments the next business day; same-day funding available <Src href={S.rentecPay} /></td>
       </tr>
       <tr>
@@ -56,21 +55,21 @@ const schema = {"@context":"https://schema.org","@type":"Article","headline":tit
         <td>Unlimited (free): tenants pay $2.50 per bank transfer. Unlimited Plus: no fee <Src href={S.avail} /></td>
         <td>3.5% added to tenant payments on either plan <Src href={S.avail} /></td>
         <td>Tenant <Src href={S.avail} /></td>
-        <td>Lists "Next-day payment deposits," and "FastPay" on Unlimited Plus <Src href={S.avail} />. Business-day timelines: <Unverified note="not stated on the page we checked" /></td>
+        <td>Lists "Next-day payment deposits," and "FastPay" on Unlimited Plus <Src href={S.avail} />. Business-day timelines aren't stated on the page we checked.</td>
       </tr>
     </tbody>
   </table></div>
 
   <h2>Things that change the math</h2>
   <h3>Rentec Direct: two of its pages disagree</h3>
-  <p>Rentec's online-payments page says ACH is "free for both parties" <Src href={S.rentecPay} label="Rentec payments page" />, and its knowledge base says tenant ACH payments "do not incur a fee for you or the tenant" <Src href={S.rentecKb} label="Rentec KB" />. Its pricing-transparency page charges $2.00 per incoming payment on the Starter plan and applies a fair-usage rate above one ACH per property per month on Pro and PM <Src href={S.rentec} label="Rentec pricing" />. Read together, "free" seems to describe the Pro and PM allowance, but confirm with Rentec for your plan <Unverified note="our reading" />. Rentec also says you need a business checking account, because "the banks will not transmit rental payments to personal bank accounts" <Src href={S.rentecPay} />.</p>
+  <p>Rentec's online-payments page says ACH is "free for both parties" <Src href={S.rentecPay} label="Rentec payments page" />, and its knowledge base says tenant ACH payments "do not incur a fee for you or the tenant" <Src href={S.rentecKb} label="Rentec KB" />. Its pricing-transparency page charges $2.00 per incoming payment on the Starter plan and applies a fair-usage rate above one ACH per property per month on Pro and PM <Src href={S.rentec} label="Rentec pricing" />. Read together, "free" seems to describe the Pro and PM allowance, but confirm with Rentec for your plan. Rentec also says you need a business checking account, because "the banks will not transmit rental payments to personal bank accounts" <Src href={S.rentecPay} />.</p>
 
   <h3>TurboTenant: the fee depends on your plan</h3>
   <p>The renter's ACH fee is $2 unless the landlord is on Pro, where it's typically waived <Src href={S.ttTiming} />. Faster ACH payouts (2–4 business days) need Essentials or Pro and apply only to eligible payments under $10,000 <Src href={S.ttTiming} />. TurboTenant explains that expedited payouts advance the money before the renter's ACH has fully cleared <Src href={S.ttTiming} />. An older TurboTenant FAQ gives card payouts as 2–3 business days rather than 1–3 <Src href={S.ttFaq} label="older FAQ" />; the table uses the October 14, 2026 article.</p>
 
   <h3>Who absorbs the fee</h3>
   <p>If you cover a per-payment fee, it comes out of the rent. On a $1,500 rent paid by ACH, that's $1 a month on RentRedi or $2 on TurboTenant Free/Essentials (both from the fee pages above). Card fees are percentage-based, so on $1,500 a 3.49% fee is $52.35: that's why most platforms push card fees to the tenant.</p>
-  <p>Some states and cities limit fees a landlord can charge tenants. We have not reviewed whether any state restricts passing payment-processing fees to tenants <Unverified note="not yet reviewed" />.</p>
+  <p>Some states and cities limit fees a landlord can charge tenants. We have not reviewed whether any state restricts passing payment-processing fees to tenants.</p>
 
   <h2>Monthly software price</h2>
   <p>For completeness, the subscription each platform publishes: TurboTenant Free $0, Essentials "starting at $12.42/month," Pro "starting at $16.58/month" <Src href={S.ttPricing} />; RentRedi from $12/month on annual billing, $20 on six-month and $29.95 month-to-month <Src href={S.rrPrice} />; Rentec Direct Starter $25/month, Pro and PM a $50 monthly minimum at $2 and $2.50 per unit <Src href={S.rentec} />; Avail Unlimited $0/unit, Unlimited Plus $9/unit per month <Src href={S.avail} />.</p>
