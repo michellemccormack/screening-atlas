@@ -14,6 +14,8 @@ const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
   <meta name="impact-site-verification" value="f3eba38d-519e-47c3-a96d-78adf4f495a7" />
   <link rel="canonical" href={canonical} />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" sizes="180x180" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content={siteName} />
   <meta property="og:title" content={fullTitle} />
@@ -30,7 +32,10 @@ const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
     footer.site{border-top:1px solid var(--line);border-bottom:0;margin-top:4rem;font-size:14px;color:var(--muted)}
     .wrap{max-width:860px;margin:0 auto;padding:0 20px}
     header.site .wrap{display:flex;gap:1rem;align-items:center;justify-content:space-between;padding:14px 20px;flex-wrap:wrap}
-    header.site a.brand{font-weight:700;color:var(--brand);text-decoration:none;font-size:19px}
+    header.site a.brand{display:flex;align-items:center;line-height:0;text-decoration:none}
+    header.site a.brand img{height:32px;width:auto;display:block}
+    footer.site .publisher{margin:0 0 0.85rem}
+    footer.site .publisher img{height:22px;width:auto;display:block}
     nav a{color:var(--ink);margin-left:1rem;text-decoration:none;font-size:15px}
     nav a:hover{color:var(--brand)}
     main{padding:2rem 0}
@@ -57,7 +62,7 @@ const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
 </head>
 <body>
   <header class="site"><div class="wrap">
-    <a class="brand" href="/">Screening Atlas</a>
+    <a class="brand" href="/"><img src="/logo.svg" alt="Screening Atlas" width="171" height="32" /></a>
     <nav>
       <a href="/application-fee-caps-by-state/">Fee caps</a>
       <a href="/tenant-screening-report-comparison/">Report comparison</a>
@@ -69,6 +74,7 @@ const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
     <p class="meta" style="margin-top:3rem">Last checked: {updated}. General information, not legal advice. Laws and provider pages change; follow the source links before relying on anything here.</p>
   </div></main>
   <footer class="site"><div class="wrap" style="padding:20px">
+    <p class="publisher"><img src="/atlas-guides.svg" alt="Atlas Guides" width="77" height="22" /></p>
     <p>Screening Atlas: tenant screening rules and report coverage, state by state, with a source link on every claim.</p>
     <p><a href="/about/">About &amp; method</a> · <a href="/contact/">Contact</a> · <a href="/affiliate-disclosure/">Affiliate disclosure</a> · <a href="/privacy/">Privacy</a> · <a href="/sitemap.xml">Sitemap</a></p>
   </div></footer>
