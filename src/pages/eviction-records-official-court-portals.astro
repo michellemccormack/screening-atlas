@@ -1,7 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
 import Src from '../components/Src.astro';
-import Unverified from '../components/Unverified.astro';
 const S = {
   paInfo: 'https://www.pacourts.us/public-records/court-case-information',
   paPortal: 'https://ujsportal.pacourts.us/CaseSearch',
@@ -45,7 +44,7 @@ const schema = {"@context":"https://schema.org","@type":"Article","headline":tit
       <tr id="mn"><td><strong>Minnesota</strong></td><td><a href={S.mcro} target="_blank" rel="noopener">Minnesota Court Records Online (MCRO)</a></td><td>"Online access to many public Minnesota state district court records and documents," searchable by person or business name; all documents in civil case types filed on or after July 1, 2015, free <Src href={S.mcroInfo} /></td><td>Expunged eviction cases are removed from public records; expungement is mandatory in several situations, including dismissal, a tenant win, and three years after the eviction was ordered <Src href={S.mn484} label="Minn. Stat. 484.014" /></td></tr>
       <tr id="ma"><td><strong>Massachusetts</strong></td><td><a href={S.maPortal} target="_blank" rel="noopener">MassCourts (Trial Court Case Access)</a></td><td>Party, event, docket and disposition details; choose the court department (Housing Court handles many evictions). Name search is for civil cases <Src href={S.maInfo} /></td><td>Case-type searches are limited to a one-month date range; remote access is governed by the Uniform Rules on Public Access to Court Records, Rule 5 <Src href={S.maInfo} /></td></tr>
       <tr id="wa"><td><strong>Washington</strong></td><td><a href={S.waPortal} target="_blank" rel="noopener">Odyssey Portal</a> (Superior Courts); <a href={S.waJis} target="_blank" rel="noopener">JIS-Link</a> for the rest</td><td>Anonymous access to case information for Superior Courts in 37 counties <Src href={S.waFaq} /></td><td>No King or Pierce County Superior Court records and no courts of limited jurisdiction; documents aren't available anonymously <Src href={S.waFaq} />. Courts can order an eviction "of limited dissemination," and screening companies then may not report it <Src href={S.wa367} label="RCW 59.18.367" /></td></tr>
-      <tr id="mo"><td><strong>Missouri</strong></td><td><a href={S.moCasenet} target="_blank" rel="noopener">Case.net</a></td><td>The Missouri courts' online case search <Src href={S.moCasenet} /></td><td>We haven't confirmed from a court page which landlord-tenant case types are included <Unverified /></td></tr>
+      <tr id="mo"><td><strong>Missouri</strong></td><td><a href={S.moCasenet} target="_blank" rel="noopener">Case.net</a></td><td>The Missouri courts' online case search <Src href={S.moCasenet} /></td><td>We haven't confirmed from a court page which landlord-tenant case types are included </td></tr>
     </tbody>
   </table></div>
 

@@ -1,7 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
 import Src from '../components/Src.astro';
-import Unverified from '../components/Unverified.astro';
 const ORS = 'https://www.oregonlegislature.gov/bills_laws/ors/ors090.html';
 const S = {
   ors: ORS,
@@ -70,7 +69,7 @@ const schema = {"@context":"https://schema.org","@type":"Article","headline":tit
 
   <h3>Immigration status and ID</h3>
   <p>You may not ask about the immigration or citizenship status of an applicant or household member, or reject an application because someone doesn't produce a Social Security number or prove lawful presence, if the applicant agrees to provide identification under ORS 90.306 <Src href={S.ors} label="90.303(6)" />. If you verify identity, ORS 90.306 makes you accept any of a list of documents (or a combination) that verifies name, date of birth and appearance, including an SSN card, birth certificate, permanent resident card, visa, ITIN card, a passport or driver license or other government ID "regardless of expiration date," or nongovernment ID that permits reasonable verification. Federal rent-subsidy programs that require otherwise are excepted <Src href={S.ors} label="90.306" />.</p>
-  <p>Practical consequence: if your screening service needs an SSN to run a credit report, ask it how it handles applicants who use another accepted ID. We have not checked how individual providers handle this in Oregon <Unverified note="not yet checked" />.</p>
+  <p>Practical consequence: if your screening service needs an SSN to run a credit report, ask it how it handles applicants who use another accepted ID. We have not checked how individual providers handle this in Oregon.</p>
 
   <h2>3. Denying an application (ORS 90.304)</h2>
   <ul>
@@ -85,7 +84,7 @@ const schema = {"@context":"https://schema.org","@type":"Article","headline":tit
   <p>Oregon is on TransUnion SmartMove's list of states where criminal records can currently be returned (revision dated January 14, 2026) and is not on its lists of states with missing or limited eviction records (revision dated August 12, 2026) <Src href={S.smDisc} label="SmartMove" />. That says nothing about how a report handles the categories Oregon tells you to ignore, so read the report against ORS 90.303 yourself. See <a href="/tenant-screening-report-comparison/">what each screening report includes</a>.</p>
 
   <h2>Local rules</h2>
-  <p>Local ordinances can add requirements on top of state law. We have not reviewed any Oregon city or county screening ordinances for this page <Unverified note="not yet reviewed" />, so check with your city before relying on state law alone.</p>
+  <p>Local ordinances can add requirements on top of state law. We have not reviewed any Oregon city or county screening ordinances for this page, so check with your city before relying on state law alone.</p>
 
   <h2>Related</h2>
   <ul>

@@ -2,7 +2,6 @@
 import Base from '../layouts/Base.astro';
 import Src from '../components/Src.astro';
 import Aff from '../components/Aff.astro';
-import Unverified from '../components/Unverified.astro';
 const S = {
   zTs: 'https://www.zillow.com/rental-manager/tenant-screening/',
   zFaq: 'https://www.zillow.com/rental-manager/rental-applications-faq/',
@@ -36,8 +35,8 @@ const schema = {"@context":"https://schema.org","@type":"Article","headline":tit
     <li><strong>Cost to landlord:</strong> none. "The application and tenant screening reports are free for landlords." <Src href={S.zFaq} /></li>
     <li><strong>Cost to applicant:</strong> a $40 application fee that includes the screening reports and lets the renter apply to your listing and to an unlimited number of participating rentals for 30 days. Credit and background information is pulled once during that 30-day period <Src href={S.zFaq} />.</li>
     <li><strong>Credit report:</strong> from Experian. Zillow lists credit score, open credit lines, employment history, residence history, and past bankruptcies or collections <Src href={S.zFaq} />.</li>
-    <li><strong>Background check:</strong> Zillow's Rental Manager pages say it is performed by CIC and includes a nationwide eviction search, sex offender search, and nationwide criminal search <Src href={S.zFaq} />. One of Zillow's own editorial articles says its background checks are run by Checkr <Src href={S.zChk} label="Zillow article" />. We could not tell from Zillow's pages which one is current <Unverified note="vendor unclear" />.</li>
-    <li><strong>What the criminal search leaves out:</strong> Zillow's help center article says the report includes convictions only, that certain older non-violent felonies and misdemeanors and traffic or vehicle misdemeanors are excluded, and that reports may be modified to reflect state and local law <Src href={S.zBg} label="Zillow help" /> <Unverified note="help page would not load on our last check" />. The Rental Manager FAQ confirms only that checks "are modified to reflect state and local legal requirements" <Src href={S.zFaq} />.</li>
+    <li><strong>Background check:</strong> Zillow's Rental Manager pages say it is performed by CIC and includes a nationwide eviction search, sex offender search, and nationwide criminal search <Src href={S.zFaq} />. One of Zillow's own editorial articles says its background checks are run by Checkr <Src href={S.zChk} label="Zillow article" />. We could not tell from Zillow's pages which one is current.</li>
+    <li><strong>What the criminal search leaves out:</strong> Zillow's help center article says the report includes convictions only, that certain older non-violent felonies and misdemeanors and traffic or vehicle misdemeanors are excluded, and that reports may be modified to reflect state and local law <Src href={S.zBg} label="Zillow help" />. The Rental Manager FAQ confirms only that checks "are modified to reflect state and local legal requirements" <Src href={S.zFaq} />.</li>
     <li><strong>Customization:</strong> "At this time we do not have customizable fields for the rental application." Applicants may upload up to five income documents <Src href={S.zFaq} />.</li>
     <li><strong>Other applicants:</strong> you can screen applicants who did not come from Zillow by sending an application link <Src href={S.zTs} />.</li>
   </ul>
@@ -85,7 +84,7 @@ const schema = {"@context":"https://schema.org","@type":"Article","headline":tit
       <tr>
         <td><strong>Rentec Direct</strong></td>
         <td>Basic $14.95 / Enhanced $20.95 / Premium $29.45 on Starter; $10 / $13 / $18 on Pro &amp; PM plans <Src href={S.rentec} /></td>
-        <td>Not stated on the pricing page <Unverified /></td>
+        <td>Not stated on the pricing page </td>
         <td>Basic: nationwide criminal, sex offender, SSN validation. Enhanced: adds nationwide eviction search. Premium: adds TransUnion credit report and score <Src href={S.rentec} /></td>
       </tr>
       <tr>
@@ -109,16 +108,16 @@ const schema = {"@context":"https://schema.org","@type":"Article","headline":tit
   <p>Zillow's reports can be reused across participating rentals for 30 days, with unlimited applications <Src href={S.zFaq} />. Apartments.com allows 30 days and up to 10 participating landlords <Src href={S.acCost} />. If an applicant arrives with a report from elsewhere, some states require you to accept it or waive your fee: see <a href="/reusable-tenant-screening-reports-by-state/">reusable reports by state</a>.</p>
 
   <h3>Your state caps what you can charge</h3>
-  <p>A flat applicant fee set by the platform may exceed what your state allows you to collect. Avail's pricing page says the cost of its reports varies by location due to state laws <Src href={S.avPrice} />. Zillow says its reports are modified for state and local requirements, but its pages give one $40 fee <Src href={S.zFaq} />, and we did not find a statement on how that fee is adjusted where a cap is lower <Unverified note="not found" />. Check the <a href="/application-fee-caps-by-state/">fee-cap table</a> before you choose.</p>
+  <p>A flat applicant fee set by the platform may exceed what your state allows you to collect. Avail's pricing page says the cost of its reports varies by location due to state laws <Src href={S.avPrice} />. Zillow says its reports are modified for state and local requirements, but its pages give one $40 fee <Src href={S.zFaq} />, and we did not find a statement on how that fee is adjusted where a cap is lower. Check the <a href="/application-fee-caps-by-state/">fee-cap table</a> before you choose.</p>
 
   <h3>Your city requires phased screening</h3>
-  <p>Where criminal history can only be reviewed in a second step (Cook County, NYC, D.C. and others), a bundled application-and-report may not fit. Our <a href="/tenant-screening-report-comparison/">comparison</a> covers what SmartMove and TurboTenant each disclose. We did not find a phased-screening statement on Zillow's or Apartments.com's pages <Unverified note="not found" />.</p>
+  <p>Where criminal history can only be reviewed in a second step (Cook County, NYC, D.C. and others), a bundled application-and-report may not fit. Our <a href="/tenant-screening-report-comparison/">comparison</a> covers what SmartMove and TurboTenant each disclose. We did not find a phased-screening statement on Zillow's or Apartments.com's pages.</p>
 
   <h2>What we could not confirm</h2>
   <ul>
-    <li>Which vendor currently runs Zillow's background check (CIC or Checkr) <Unverified note="unclear" />.</li>
-    <li>Zillow's detailed criminal-search exclusions, because its help center page did not load on our check <Unverified note="not confirmed" />.</li>
-    <li>Who pays for Rentec Direct screening <Unverified note="not stated" />.</li>
+    <li>Which vendor currently runs Zillow's background check (CIC or Checkr).</li>
+    <li>Zillow's detailed criminal-search exclusions, because we weren't able to load its help center page.</li>
+    <li>Who pays for Rentec Direct screening.</li>
     <li>Avail's $30 and $55 figures are on Avail's own comparison article but not on its pricing page, which says prices vary by location.</li>
   </ul>
 

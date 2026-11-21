@@ -1,7 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
 import Src from '../components/Src.astro';
-import Unverified from '../components/Unverified.astro';
 const S = {
   cook: 'https://www.cookcountyil.gov/content/just-housing-amendment-human-rights-ordinance',
   cookFlyer: 'https://www.cookcountyil.gov/sites/g/files/ywwepo161/files/documents/2026-01/JHA%20Flyer%20%28Eng%29.pdf',
@@ -50,7 +49,7 @@ const schema = {"@context":"https://schema.org","@type":"Article","headline":tit
         <td>Individualized assessment of reviewable convictions and anything the applicant submits <Src href={S.nycNotice} /></td>
         <td>Preponderance of the evidence that withdrawal is necessary for a substantial, legitimate, nondiscriminatory interest, after a six-factor individualized assessment <Src href={S.njRegs} /></td></tr>
       <tr><td><strong>Who is exempt</strong></td>
-        <td>Not stated on the county FAQ we used <Unverified note="not reviewed" /></td>
+        <td>Not stated on the county FAQ we used </td>
         <td>Owner-occupied buildings with 3 or fewer rental units, and where federal or D.C. law requires or allows considering the record <Src href={S.dc03} /></td>
         <td>Housing-provider-occupied properties with 2 or fewer rooms or units; certain government-funded providers for actions they're required or authorized to take <Src href={S.nycNotice} /></td>
         <td>Units in owner-occupied premises of not more than four units (excluded from "rental dwelling unit") <Src href={S.njRegs} /></td></tr>
@@ -97,7 +96,7 @@ const schema = {"@context":"https://schema.org","@type":"Article","headline":tit
 
   <h2>Other places providers flag</h2>
   <p>SmartMove requires its phased workflow (a non-criminal bundle first, the criminal bundle only after you certify the applicant met your preliminary criteria) in Ann Arbor, MI; Berkeley, CA; Cook County, IL; Detroit, MI; Maryland (statewide); New Jersey (statewide); New York City; Oakland, CA; and Washington, D.C. (revised October 1, 2026) <Src href={S.smDisc} />. TurboTenant names Cook County, Detroit, Montgomery County MD, Oakland, Berkeley and D.C. as places where it shows only whether records exist, without charge details, because it doesn't support the two-phase process there <Src href={S.ttHelpRead} />.</p>
-  <p>We have not yet reviewed the local laws for Ann Arbor, Berkeley, Detroit, Oakland, Maryland or Montgomery County <Unverified note="not yet reviewed" />. Some of them may restrict criminal history more than a two-step process does, so don't treat them as identical to the four above.</p>
+  <p>We have not yet reviewed the local laws for Ann Arbor, Berkeley, Detroit, Oakland, Maryland or Montgomery County. Some of them may restrict criminal history more than a two-step process does, so don't treat them as identical to the four above.</p>
 
   <h2>Doing it with a screening service</h2>
   <ul>
