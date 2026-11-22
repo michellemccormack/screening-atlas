@@ -1,0 +1,69 @@
+---
+import Base from '../layouts/Base.astro';
+import Src from '../components/Src.astro';
+const S = {
+  ca: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1950.5',
+  ma: 'https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section15B',
+  ny: 'https://ag.ny.gov/sites/default/files/tenants_rights.pdf',
+  hi: 'https://www.capitol.hawaii.gov/hrscurrent/Vol12_Ch0501-0588/HRS0521/HRS_0521-0044.htm',
+  or: 'https://www.oregonlegislature.gov/bills_laws/ors/ors090.html',
+};
+const updated = '2026-11-22';
+const title = 'Can a Landlord Take Rent Up Front? Prepaid Rent Limits in CA, MA, NY, HI and OR';
+const description = 'An applicant offers six months of rent in advance to make up for thin credit. Can you accept it? California allows it on a lease of six months or more; Massachusetts, New York and Hawaii cap what you can collect at move-in; Oregon treats a last month\'s rent deposit as a security deposit. Quoted from each statute or the state\'s official guide.';
+const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":updated};
+---
+<Base title={title} description={description} updated={updated} schema={schema}>
+  <h1>{title}</h1>
+  <p class="lede">A common offer from applicants with low scores, no U.S. credit history or a recent job change: "I'll pay six months up front." Whether a landlord can take that money depends on the state, because many states count advance rent toward the security deposit limit or cap everything you may collect before move-in. Here are five states we've checked against the statute or the state's official guide.</p>
+
+  <div class="note"><strong>The short version.</strong> <strong>California:</strong> advance rent counts as "security" (capped at one month's rent, or two for some small landlords), except that an advance payment of at least six months' rent is allowed on a lease of six months or longer <Src href={S.ca} label="Civ. Code 1950.5" />. <strong>Massachusetts:</strong> at or before the start of a tenancy you may collect no more than first month, last month, a security deposit equal to one month and the cost of a lock and key <Src href={S.ma} label="G.L. c.186 §15B(1)(b)" />. <strong>New York:</strong> the security deposit is limited to one month's rent, so a landlord "cannot ask for last month's rent and a security deposit" <Src href={S.ny} label="NY AG guide" />. <strong>Hawaii:</strong> at the start, only the first month's rent and the security deposit <Src href={S.hi} label="HRS 521-44(b)" />. <strong>Oregon:</strong> a last month's rent deposit is a security deposit, and unused prepaid rent must be accounted for and refunded <Src href={S.or} label="ORS 90.300" />.</div>
+
+  <h2>State by state</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>State</th><th>What you can collect up front</th><th>Six months in advance?</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>California</td>
+        <td>"Security" includes any payment "imposed as an advance payment of rent." Security is capped at one month's rent in addition to the first month's rent <Src href={S.ca} label="1950.5(b), (c)(1)" />. A landlord who is a natural person (or an LLC whose members are all natural persons) and owns no more than two rental properties with no more than four units total may take up to two months' rent as security <Src href={S.ca} label="1950.5(c)(5)" />.</td>
+        <td>Allowed if the lease is six months or longer: the cap "does not prohibit an advance payment of not less than six months' rent if the term of the lease is six months or longer" <Src href={S.ca} label="1950.5(c)(2)" /></td>
+        <td>Cal. Civ. Code § 1950.5</td>
+      </tr>
+      <tr>
+        <td>Massachusetts</td>
+        <td>No more than: (i) rent for the first full month; (ii) rent for the last full month, at the same rate; (iii) a security deposit equal to the first month's rent; (iv) the purchase and installation cost of a key and lock <Src href={S.ma} label="§15B(1)(b)" />. After the tenancy starts, no demand for rent in advance beyond the current month <Src href={S.ma} label="§15B(1)(d)" />.</td>
+        <td>No: the statute lists the only amounts you may require at or before the start <Src href={S.ma} label="§15B(1)(b)" /></td>
+        <td>M.G.L. c.186 § 15B</td>
+      </tr>
+      <tr>
+        <td>New York</td>
+        <td>A security deposit of "no more than one month's rent." "The one-month limit means that a landlord cannot ask for last month's rent and a security deposit" <Src href={S.ny} label="NY AG guide" /></td>
+        <td>—</td>
+        <td>NY Attorney General, Residential Tenant's Rights Guide</td>
+      </tr>
+      <tr>
+        <td>Hawaii</td>
+        <td>"The landlord may not require or receive from or on behalf of a tenant at the beginning of a rental agreement any money other than the money for the first month's rent and a security deposit." The deposit is capped at one month's rent, plus a pet deposit of up to one more month where a pet is allowed <Src href={S.hi} label="HRS 521-44(b)" /></td>
+        <td>No: only first month's rent and the deposit may be received at the beginning <Src href={S.hi} label="HRS 521-44(b)" /></td>
+        <td>HRS § 521-44</td>
+      </tr>
+      <tr>
+        <td>Oregon</td>
+        <td>"Security deposit includes any last month's rent deposit" <Src href={S.or} label="90.300(1)" />. "Prepaid rent" means "any payment of money to the landlord for a rent obligation not yet due" <Src href={S.or} label="90.100(38)" />. At the end of the tenancy, account for and refund unused prepaid rent; you may keep only what's reasonably needed for unpaid rent, and must give a separate written accounting within 31 days <Src href={S.or} label="90.300(11)-(12)" />.</td>
+        <td>—</td>
+        <td>ORS 90.100, 90.300</td>
+      </tr>
+    </tbody>
+  </table></div>
+
+  <h2>Details that trip landlords up</h2>
+  <ul>
+    <li><strong>Massachusetts last month's rent earns interest.</strong> If you take last month's rent in advance, give a receipt with the details listed in the statute and pay the tenant interest at 5% a year (or the lesser amount the bank pays) <Src href={S.ma} label="§15B(2)(a)" />.</li>
+    <li><strong>Oregon last month's rent can't be redirected.</strong> Unless you both agree, the tenant can't make you apply a last month's rent deposit to any month other than the last, and that deposit "does not limit the amount of rent charged" unless a written agreement says so <Src href={S.or} label="90.300(10)" />.</li>
+    <li><strong>Hawaii deposits aren't last month's rent</strong> unless you and the tenant agree in writing and the tenant gives 45 days' notice of leaving <Src href={S.hi} label="HRS 521-44(b)" />.</li>
+    <li><strong>California landlords can't call any of it "nonrefundable."</strong> A lease may not describe any security as nonrefundable <Src href={S.ca} label="1950.5(n)" />.</li>
+  </ul>
+
+  <h2>Prepaid rent isn't a substitute for screening</h2>
+  <p>Accepting money up front doesn't change your other obligations. If a screening report led you to require extra money (for example, a larger deposit or last month's rent) rather than approve on standard terms, that can be an adverse action that needs a notice; see <a href="/adverse-action-notice-tenant-screening/">adverse action notices</a>. Related: <a href="/holding-deposits-and-admin-fees-by-state/">holding deposits and admin fees</a>, <a href="/application-fee-caps-by-state/">application fee caps by state</a> and <a href="/oregon-tenant-screening-rules/">Oregon screening rules</a>.</p>
+</Base>

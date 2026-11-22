@@ -1,0 +1,70 @@
+---
+import Base from '../layouts/Base.astro';
+import Src from '../components/Src.astro';
+const S = {
+  wa: 'https://app.leg.wa.gov/RCW/default.aspx?cite=59.18.253',
+  or: 'https://www.oregonlegislature.gov/bills_laws/ors/ors090.html',
+  ca: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1950.5',
+  ma: 'https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section15B',
+  hi: 'https://www.capitol.hawaii.gov/hrscurrent/Vol12_Ch0501-0588/HRS0521/HRS_0521-0044.htm',
+  ny: 'https://ag.ny.gov/sites/default/files/tenants_rights.pdf',
+};
+const updated = '2026-11-22';
+const title = 'Holding Deposits and "Admin Fees" vs Application Fees: Which States Regulate Each';
+const description = 'An applicant is charged a $75 application fee, a $150 admin fee and a $45 screening fee. Which of those are legal? Holding-deposit and move-in fee rules in Washington, Oregon, California, Massachusetts, Hawaii and New York, quoted from the statutes and the New York Attorney General\'s guide.';
+const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":updated};
+---
+<Base title={title} description={description} updated={updated} schema={schema}>
+  <h1>{title}</h1>
+  <p class="lede">Application fees get most of the attention, but applicants also run into "holding deposits," "admin fees," "processing fees" and "move-in fees." States that regulate these usually do it in different sections from the application-fee cap, so a fee that's fine under one rule can still be barred by another. This page covers the non-screening charges; for the screening or application fee itself, see <a href="/application-fee-caps-by-state/">application fee caps by state</a>.</p>
+
+  <div class="note"><strong>The short version.</strong> <strong>Washington</strong> caps a holding deposit at 25% of the first month's rent, requires a receipt and written conditions, and bans waiting-list fees <Src href={S.wa} label="RCW 59.18.253" />. <strong>Oregon</strong> bans applicant deposits and fees other than the screening charge, except a deposit to secure a rental agreement taken after you approve the applicant <Src href={S.or} label="ORS 90.297" />. <strong>California</strong> counts fees "to reimburse the landlord for costs associated with processing a new tenant" as security, subject to the deposit cap <Src href={S.ca} label="Civ. Code 1950.5(b)" />. <strong>Massachusetts</strong> and <strong>Hawaii</strong> list the only amounts you may collect at the start of a tenancy <Src href={S.ma} label="MA" /> <Src href={S.hi} label="HI" />. <strong>New York</strong> limits pre-lease screening charges to $20 and bars "key money" <Src href={S.ny} label="NY AG guide" />.</div>
+
+  <h2>State by state</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>State</th><th>Holding deposit</th><th>Admin / processing / other move-in fees</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Washington</td>
+        <td>Allowed only after the unit has been offered to the applicant. Give a receipt and a written statement of when it may be kept, immediately on payment. Capped at 25% of the first month's rent. If the applicant moves in, credit it to the first month's rent or the security deposit; if not, you may keep up to the full amount per the written conditions <Src href={S.wa} label="RCW 59.18.253(2)-(4)" /></td>
+        <td>Unlawful to charge "a fee or deposit ... for the privilege of being placed on a waiting list" <Src href={S.wa} label="59.18.253(1)" />. Screening costs are separate and not part of a holding deposit <Src href={S.wa} label="59.18.253(4)(b)" /></td>
+      </tr>
+      <tr>
+        <td>Oregon</td>
+        <td>Allowed only "after approving the applicant's application but prior to entering into a rental agreement," and only after giving a written statement of rent, fees, deposits, the terms of the agreement to sign, and refund conditions. Apply it to move-in money or refund it once the agreement is signed; if you fail to sign, return it within five business days <Src href={S.or} label="ORS 90.297(2)-(5)" /></td>
+        <td>"A landlord may not charge a deposit or fee, however designated, to an applicant," apart from the screening charge in ORS 90.295 and the deposit above <Src href={S.or} label="ORS 90.297(1)" /></td>
+      </tr>
+      <tr>
+        <td>California</td>
+        <td>—</td>
+        <td>"Security" includes any payment, fee, deposit or charge imposed at the beginning of the tenancy "to be used to reimburse the landlord for costs associated with processing a new tenant," apart from the screening fee under § 1950.6. Security is capped at one month's rent (two months for some small landlords) on top of the first month's rent, and may not be called "nonrefundable" <Src href={S.ca} label="1950.5(b), (c), (n)" /></td>
+      </tr>
+      <tr>
+        <td>Massachusetts</td>
+        <td>—</td>
+        <td>At or before the start of a tenancy, no lessor or agent may require more than first month's rent, last month's rent, a security deposit equal to one month, and the cost of a lock and key <Src href={S.ma} label="G.L. c.186 §15B(1)(b)" /></td>
+      </tr>
+      <tr>
+        <td>Hawaii</td>
+        <td>—</td>
+        <td>"The landlord may not require or receive from or on behalf of a tenant at the beginning of a rental agreement any money other than the money for the first month's rent and a security deposit" <Src href={S.hi} label="HRS 521-44(b)" /></td>
+      </tr>
+      <tr>
+        <td>New York</td>
+        <td>—</td>
+        <td>Before a lease is signed, the most a landlord can charge for a credit and background check is $20. It's illegal to charge "key money," meaning extra fees above the lawful rent and security deposit for preference in renting a vacant apartment (licensed broker fees are a separate matter) <Src href={S.ny} label="NY AG guide" /></td>
+      </tr>
+    </tbody>
+  </table></div>
+  <p class="meta">A dash means we didn't find a provision specific to holding deposits in the source we reviewed for that state. The general move-in limits in the third column still apply.</p>
+
+  <h2>The $75 + $150 + $45 example</h2>
+  <p>Take an applicant charged a $75 application fee, a $150 admin fee and a $45 screening fee. Under the rules above:</p>
+  <ul>
+    <li><strong>Oregon:</strong> only the screening charge allowed by ORS 90.295 may be collected from an applicant, plus a post-approval deposit to secure the agreement <Src href={S.or} label="ORS 90.297(1)" />. A separate admin fee charged to an applicant doesn't fit either category.</li>
+    <li><strong>California:</strong> an admin or processing fee imposed at the start of the tenancy counts toward the security deposit cap <Src href={S.ca} label="1950.5(b)" />.</li>
+    <li><strong>Massachusetts and Hawaii:</strong> neither appears on the statutory list of what may be collected at the start <Src href={S.ma} label="MA" /> <Src href={S.hi} label="HI" />.</li>
+    <li><strong>New York:</strong> pre-lease screening charges top out at $20 <Src href={S.ny} label="NY AG guide" />.</li>
+  </ul>
+  <p>Application and screening fee limits in other states are on our <a href="/application-fee-caps-by-state/">fee caps</a> page, Oregon's full screening rules are on the <a href="/oregon-tenant-screening-rules/">Oregon</a> page, and limits on rent paid in advance are on <a href="/prepaid-rent-limits-by-state/">prepaid rent limits by state</a>. Some states also let an applicant offer a recent report instead of paying for a new one; see <a href="/reusable-tenant-screening-reports-by-state/">reusable screening reports</a>.</p>
+</Base>
