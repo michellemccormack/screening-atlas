@@ -1,0 +1,58 @@
+---
+import Base from '../layouts/Base.astro';
+import Src from '../components/Src.astro';
+import Aff from '../components/Aff.astro';
+const S = {
+  smIV: 'https://www.mysmartmove.com/tenant-screening-services/income-verification',
+  smIE: 'https://www.mysmartmove.com/tenant-screening-services/income-insights',
+  rrInc: 'https://help.rentredi.com/en/articles/8863080-tenant-income-assets-verification-reports',
+  rrDecl: 'https://help.rentredi.com/en/articles/8775599-how-to-complete-screening-without-income-verification',
+  ttRead: 'https://support.turbotenant.com/en/articles/4409356-how-do-i-read-a-tenant-screening-report',
+  ttSum: 'https://support.turbotenant.com/en/articles/15652533-understanding-the-applicant-summary-page',
+  ttUp: 'https://support.turbotenant.com/en/articles/15960671-upload-income-verification-documents',
+};
+const updated = '2026-11-22';
+const title = 'Bank-Linked Income Verification: What the Landlord Actually Sees';
+const description = 'When an applicant connects a bank or payroll account during tenant screening, what lands on the landlord\'s screen? RentRedi (Plaid), TurboTenant (Snappt) and SmartMove income verification compared: report sections, price, who pays, and whether the applicant can skip it. From each provider\'s own help pages.';
+const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":updated};
+---
+<Base title={title} description={description} updated={updated} schema={schema}>
+  <h1>{title}</h1>
+  <p class="lede">Applicants are increasingly asked to log in to their bank or payroll account through a service like Plaid during a rental application, and the obvious question is what the landlord gets to see afterward. The answer depends on the screening provider. Here is what three of them say on their own pages.</p>
+
+  <div class="note"><strong>The short version.</strong> RentRedi's Plaid report shows an income summary, earnings by month, income sources, an asset summary and the linked accounts, and RentRedi says landlords get these insights "without accessing full bank statements" <Src href={S.rrInc} label="RentRedi" />. TurboTenant's Snappt result shows a pass/fail ruling and, when income is calculated, approximate monthly and annual gross income, employer, employment status and type, and pay-period breakdowns <Src href={S.ttRead} label="TurboTenant" />. SmartMove sells income verification as an $11 add-on covering payroll, gig, bank, benefits and uploaded documents <Src href={S.smIV} label="SmartMove" />.</div>
+
+  <h2>Side by side</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th></th><th>RentRedi</th><th>TurboTenant</th><th>TransUnion SmartMove</th></tr></thead>
+    <tbody>
+      <tr><td>Powered by</td><td>Plaid <Src href={S.rrInc} /></td><td>Snappt <Src href={S.ttRead} /></td><td>— (the FAQ cites Snappt as the source of its timing estimate) <Src href={S.smIV} /></td></tr>
+      <tr><td>How the applicant verifies</td><td>Authorizes Plaid to connect their financial accounts, instead of uploading pay stubs or statements <Src href={S.rrInc} /></td><td>Connects a payroll provider or bank account, and/or uploads income documents; may be asked for a photo ID <Src href={S.ttUp} /></td><td>Payroll providers, employers, gig platforms, banking connections, benefits and supporting documents; native PDFs such as pay stubs, bank statements and tax transcripts can be uploaded <Src href={S.smIV} /></td></tr>
+      <tr><td>What the landlord sees</td><td>Overview, Income Summary, Total Earnings by Month, Income Source(s) Overview, Asset Summary, Account Overview <Src href={S.rrInc} /></td><td>Passed / Failed / Insufficient Documentation ruling; approximate monthly and annual gross income, employer name, employment status, employment type, pay period breakdowns <Src href={S.ttRead} />; status (Waiting, Processing, Verified, Incomplete, Fraud) and income-to-rent details on the Applicant Summary <Src href={S.ttSum} /></td><td>A report "that can help you understand the applicant's income"; SmartMove shows an example report but doesn't list its fields in text <Src href={S.smIV} /></td></tr>
+      <tr><td>Full bank statements?</td><td>No: "Landlords receive reliable financial insights without accessing full bank statements" <Src href={S.rrInc} /></td><td>—</td><td>—</td></tr>
+      <tr><td>Price and who pays</td><td>$10 of the applicant's $49.99 screening total <Src href={S.rrInc} /></td><td>Included with TurboTenant Pro; not available on Essentials <Src href={S.ttSum} /></td><td>$11 add-on to any screening bundle <Src href={S.smIV} /></td></tr>
+      <tr><td>Can the applicant skip it?</td><td>Yes: they can select "I Do Not Want to Verify Income" and send the landlord a message; skipping doesn't automatically approve or deny <Src href={S.rrDecl} /></td><td>—</td><td>—</td></tr>
+      <tr><td>Disputes</td><td>—</td><td>Applicants dispute Snappt results with Snappt; Snappt doesn't disclose the specific reason a document failed <Src href={S.ttUp} /></td><td>—</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>Things worth knowing on each platform</h2>
+  <h3>RentRedi (Plaid)</h3>
+  <p>The landlord turns Income &amp; Asset Verification on per unit under Leasing → Screening Rules <Src href={S.rrInc} />. RentRedi says that, based on the verification method used, Plaid "can identify income sources and provide information about recent and historical income" <Src href={S.rrDecl} />. If an applicant has no bank account or their bank isn't supported, they can decline the step and explain why <Src href={S.rrDecl} />.</p>
+
+  <h3>TurboTenant (Snappt)</h3>
+  <p>TurboTenant tells landlords to verify income independently because applicants self-report it on the application <Src href={S.ttRead} />. On Pro, Snappt reviews the documents; "Insufficient" means Snappt couldn't evaluate the document (wrong type or format), not that fraud was found <Src href={S.ttRead} />. A Fraud flag is "not an automatic rejection," and a Verified result "does not mean TurboTenant has approved the applicant" <Src href={S.ttSum} />.</p>
+
+  <h3>SmartMove</h3>
+  <p>Don't confuse SmartMove's two income products. <strong>Income Verification</strong> is the $11 add-on that checks payroll, bank and other sources <Src href={S.smIV} />. <strong>Income Estimator</strong>, included in SmartCheck Premium <Src href={S.smIV} />, doesn't connect to any account: it compares the applicant's self-reported income with a TransUnion model based on credit-report data and tells you whether more verification is recommended <Src href={S.smIE} />. SmartMove says income verification is processed separately and shouldn't delay the credit, criminal or eviction reports <Src href={S.smIV} />.</p>
+
+  <h2>If you deny someone because of the income result</h2>
+  <p>If anything in a screening report, including an income result delivered with it, contributes to a denial or a condition like a co-signer, see what you owe the applicant on our <a href="/adverse-action-notice-tenant-screening/">adverse action notice</a> page.</p>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/tenant-screening-report-comparison/">What each screening report includes</a>: price, who pays and coverage gaps for <Aff id="smartmove" href="https://www.mysmartmove.com/" text="SmartMove" />, <Aff id="turbotenant" href="https://www.turbotenant.com/" text="TurboTenant" />, <Aff id="rentredi" href="https://rentredi.com/" text="RentRedi" /> and others.</li>
+    <li><a href="/tenant-screening-cost-calculator/">Screening cost calculator</a>: landlord-pays vs applicant-pays totals.</li>
+    <li><a href="/smartmove-criminal-eviction-coverage-by-state/">SmartMove coverage by state</a>.</li>
+  </ul>
+</Base>

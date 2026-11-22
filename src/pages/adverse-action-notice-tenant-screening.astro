@@ -1,0 +1,67 @@
+---
+import Base from '../layouts/Base.astro';
+import Src from '../components/Src.astro';
+import Aff from '../components/Aff.astro';
+const S = {
+  m: 'https://www.govinfo.gov/content/pkg/USCODE-2024-title15/html/USCODE-2024-title15-chap41-subchapIII-sec1681m.htm',
+  a: 'https://www.govinfo.gov/content/pkg/USCODE-2024-title15/html/USCODE-2024-title15-chap41-subchapIII-sec1681a.htm',
+  j: 'https://www.govinfo.gov/content/pkg/USCODE-2024-title15/html/USCODE-2024-title15-chap41-subchapIII-sec1681j.htm',
+  g: 'https://www.govinfo.gov/content/pkg/USCODE-2024-title15/html/USCODE-2024-title15-chap41-subchapIII-sec1681g.htm',
+  wa: 'https://app.leg.wa.gov/RCW/default.aspx?cite=59.18.257',
+  ors: 'https://www.oregonlegislature.gov/bills_laws/ors/ors090.html',
+  smAA: 'https://www.mysmartmove.com/adverse-action-template',
+};
+const updated = '2026-11-22';
+const title = 'Adverse Action Notices After a Tenant Screening Report: What Landlords Must Send';
+const description = 'If you deny an applicant, or ask for a co-signer, a bigger deposit or higher rent, because of something in a screening report, federal law (FCRA section 615(a), 15 U.S.C. 1681m) requires a notice naming the screening company. What it must say, when a credit score must be disclosed, and the extra Washington and Oregon rules. Quoted from the statutes.';
+const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":updated};
+---
+<Base title={title} description={description} updated={updated} schema={schema}>
+  <h1>{title}</h1>
+  <p class="lede">A rejected applicant often asks: "Do you have to tell me which company's report sank me?" Under the Fair Credit Reporting Act, yes, if the report played any part in the decision. The rule is section 615(a) of the FCRA, codified at 15 U.S.C. § 1681m(a) <Src href={S.m} label="15 U.S.C. 1681m" />. Below is what it requires, in the statute's own terms, plus two states that add to it.</p>
+
+  <div class="note"><strong>The short version.</strong> If you take an adverse action "based in whole or in part on any information contained in a consumer report," you must give the applicant notice of the action, the screening company's name, address and phone number, a statement that the company didn't make the decision and can't explain it, and notice of the applicant's rights to a free copy of the report within 60 days and to dispute it. If a numerical credit score was used, you must also disclose the score <Src href={S.m} label="1681m(a)" />.</div>
+
+  <h2>When a notice is required</h2>
+  <p>The duty applies to "any person" who takes "any adverse action with respect to any consumer that is based in whole or in part on any information contained in a consumer report" <Src href={S.m} label="1681m(a)" />. "In part" matters: the report doesn't have to be the main reason.</p>
+  <p>For a rental application, the relevant definition of adverse action is "an action taken or determination that is (I) made in connection with an application that was made by ... any consumer ... and (II) adverse to the interests of the consumer" <Src href={S.a} label="1681a(k)(1)(B)(iv)" />. In practice that covers more than a flat denial. Washington's statutory notice form, for example, lists approval on condition of an increased deposit, a qualified guarantor, last month's rent, or increased monthly rent as adverse actions <Src href={S.wa} label="RCW 59.18.257(1)(c)" />.</p>
+
+  <h2>What the federal notice must contain</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Item</th><th>What 15 U.S.C. § 1681m(a) says</th><th>Format allowed</th></tr></thead>
+    <tbody>
+      <tr><td>Notice of the action</td><td>"Notice of the adverse action to the consumer" <Src href={S.m} label="(a)(1)" /></td><td>Oral, written or electronic</td></tr>
+      <tr><td>Credit score, if used</td><td>The numerical credit score used in taking the action, plus the range of possible scores, up to four key factors that hurt the score, the date the score was created, and who provided it <Src href={S.m} label="(a)(2)" /> <Src href={S.g} label="1681g(f)(1)(B)-(E)" /></td><td>Written or electronic</td></tr>
+      <tr><td>Who supplied the report</td><td>"The name, address, and telephone number of the consumer reporting agency (including a toll-free telephone number established by the agency if the agency compiles and maintains files on consumers on a nationwide basis) that furnished the report" <Src href={S.m} label="(a)(3)(A)" /></td><td>Oral, written or electronic</td></tr>
+      <tr><td>Agency didn't decide</td><td>"A statement that the consumer reporting agency did not make the decision to take the adverse action and is unable to provide the consumer the specific reasons why the adverse action was taken" <Src href={S.m} label="(a)(3)(B)" /></td><td>Oral, written or electronic</td></tr>
+      <tr><td>Free copy</td><td>The right to a free copy of the report from that agency, including "an indication of the 60-day period" for requesting it <Src href={S.m} label="(a)(4)(A)" /></td><td>Oral, written or electronic</td></tr>
+      <tr><td>Dispute</td><td>The right to dispute "the accuracy or completeness of any information" in the report with the agency <Src href={S.m} label="(a)(4)(B)" /></td><td>Oral, written or electronic</td></tr>
+    </tbody>
+  </table></div>
+  <p>The 60 days run from when the applicant receives your notice: the agency must provide the disclosure free if the request comes "not later than 60 days after receipt by such consumer of a notification pursuant to section 1681m" <Src href={S.j} label="1681j(b)" />.</p>
+  <p>Oral notice is legal for most items, but the credit-score disclosure has to be written or electronic <Src href={S.m} label="(a)(2)" />, and a written notice gives you a record. SmartMove's own guidance says it's best to send the letter in writing and to keep a dated copy <Src href={S.smAA} label="SmartMove" />. SmartMove also publishes an adverse action letter template on that page.</p>
+
+  <h2>Who to name when the report came through a platform</h2>
+  <p>The statute requires the name and contact details of the consumer reporting agency "that furnished the report to the person" <Src href={S.m} label="(a)(3)(A)" />. If you ordered through a listing or rent-collection app, check the report itself for the agency's name and contact details; our <a href="/tenant-screening-report-comparison/">report comparison</a> notes which providers say their credit reports come from TransUnion.</p>
+
+  <h2>Extra state requirements we've reviewed</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>State</th><th>Rule</th></tr></thead>
+    <tbody>
+      <tr><td>Washington</td><td>Before screening, tell the applicant in writing or by posting the name and address of the consumer reporting agency and their rights to a free copy and to dispute it. After an adverse action, give a <strong>written</strong> notice that "states the reasons for the adverse action," in a format substantially similar to the statutory form (rejected or approved with conditions; and which source the decision was based on, such as a consumer report, rental history, criminal record or civil record) <Src href={S.wa} label="RCW 59.18.257(1)" /></td></tr>
+      <tr><td>Oregon</td><td>If you deny an application after applying your screening criteria, give a written statement of one or more reasons within <strong>14 days</strong> of the denial; a checklist form is allowed <Src href={S.ors} label="ORS 90.304(1)-(2)" />. More on Oregon's denial and individualized-assessment rules is on our <a href="/oregon-tenant-screening-rules/">Oregon screening rules</a> page.</td></tr>
+    </tbody>
+  </table></div>
+  <p>Other states and cities may have their own notice rules, especially where criminal history may only be checked in a second step; see <a href="/phased-tenant-screening-jurisdictions/">phased screening jurisdictions</a>.</p>
+
+  <h2>A practical checklist</h2>
+  <ol>
+    <li>Note which parts of the report, if any, affected your decision, including a decision to approve only with a co-signer or a larger deposit.</li>
+    <li>Copy the reporting agency's name, address and phone number from the report <Src href={S.m} label="(a)(3)(A)" />.</li>
+    <li>If you used a credit score, include the score and the related details <Src href={S.m} label="(a)(2)" />.</li>
+    <li>Add the "agency didn't decide" statement and the free-copy (60 days) and dispute rights <Src href={S.m} label="(a)(3)(B), (a)(4)" />.</li>
+    <li>In Washington, use the state form and state your reasons; in Oregon, send the written reasons within 14 days <Src href={S.wa} label="WA" /> <Src href={S.ors} label="OR" />.</li>
+    <li>Send it in writing or electronically and keep a dated copy.</li>
+  </ol>
+  <p>Using <Aff id="smartmove" href="https://www.mysmartmove.com/" text="SmartMove" />? Its <a href="/smartmove-criminal-eviction-coverage-by-state/">coverage by state</a> page shows where its criminal and eviction reports can return records.</p>
+</Base>

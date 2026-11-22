@@ -1,0 +1,65 @@
+---
+import Base from '../layouts/Base.astro';
+import Src from '../components/Src.astro';
+import Aff from '../components/Aff.astro';
+import limited from '../data/smartmove-eviction-limited-counties.json';
+const S = {
+  disc: 'https://www.mysmartmove.com/disclaimer',
+  pdf: 'https://www.mysmartmove.com/content/dam/smartmove/pdf/List-National-Eviction-Related-Proceedings-Report-20260812.pdf',
+};
+const updated = '2026-11-22';
+const title = 'SmartMove Coverage by State: Where Criminal and Eviction Records Can Come Back';
+const description = 'All 50 states and D.C.: whether TransUnion SmartMove says its criminal report can return records there, and whether its eviction report is available, limited (with the affected counties) or not available. From SmartMove\'s own disclaimer and county list.';
+const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":updated};
+
+const criminal = new Set(['Alaska','Arizona','Arkansas','Colorado','Connecticut','Florida','Georgia','Illinois','Indiana','Iowa','Kansas','Louisiana','Maryland','Minnesota','Missouri','Nebraska','New Jersey','New Mexico','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','Tennessee','Texas','Utah','Washington','Wisconsin']);
+const evNone = new Set(['Kentucky','Louisiana','Maine','South Dakota','Wyoming']);
+const phased = { 'Maryland': 'Statewide', 'New Jersey': 'Statewide', 'Michigan': 'Ann Arbor, Detroit', 'California': 'Berkeley, Oakland', 'Illinois': 'Cook County', 'New York': 'New York City', 'District of Columbia': 'Washington, D.C.' };
+const all = ['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','District of Columbia','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming'];
+const rows = all.map(s => ({
+  s,
+  crim: criminal.has(s),
+  ev: evNone.has(s) ? 'Not available' : (limited[s] ? `Limited (${limited[s].length} ${limited[s].length === 1 ? 'county' : 'counties'})` : 'Not listed as limited'),
+  phased: phased[s] || '',
+}));
+const crimCount = criminal.size;
+const limitedStates = Object.keys(limited);
+---
+<Base title={title} description={description} updated={updated} schema={schema}>
+  <h1>{title}</h1>
+  <p class="lede">TransUnion sells <Aff id="smartmove" href="https://www.mysmartmove.com/" text="SmartMove" /> nationwide, but its own disclaimer says criminal records can only be returned in {crimCount} states, and that its eviction report is unavailable in five states and limited in parts of nineteen more <Src href={S.disc} label="SmartMove disclaimer" />. This page puts those lists into one table so you can check your rental's state before you order a report or charge an applicant for one.</p>
+
+  <div class="note"><strong>The short version.</strong> Criminal records: available to return in {crimCount} states, and in none of the others (including California, New York, Massachusetts, Virginia and D.C., which aren't on the list) <Src href={S.disc} label="criminal list, rev. 1/14/2026" />. Eviction records: not available in Kentucky, Louisiana, Maine, South Dakota and Wyoming; limited in specific counties of 19 states <Src href={S.disc} label="eviction list, rev. 8/12/2026" /> <Src href={S.pdf} label="county list" />. TransUnion says coverage can vary both because of what each jurisdiction allows and because it holds back records that don't meet its data quality standards <Src href={S.disc} />.</div>
+
+  <h2>State-by-state table</h2>
+  <p>"Criminal" is <strong>Yes</strong> when the state is on SmartMove's list of states where criminal records are available to return. "Eviction" reflects SmartMove's lists of states where eviction records are not available or limited; a state "not listed as limited" isn't named on either list. "Phased" marks places where SmartMove says you must start with its non-criminal bundle and order the criminal report only after the applicant meets your other criteria <Src href={S.disc} label="phased notice, rev. 10/1/2026" />.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>State</th><th>Criminal records</th><th>Eviction records</th><th>Phased screening required</th></tr></thead>
+    <tbody>
+      {rows.map(r => (
+        <tr>
+          <td>{r.s}</td>
+          <td>{r.crim ? 'Yes' : 'No'}</td>
+          <td>{limited[r.s] ? <a href={`#ev-${r.s.toLowerCase().replace(/\s+/g,'-')}`}>{r.ev}</a> : r.ev}</td>
+          <td>{r.phased || '—'}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table></div>
+  <p class="meta">Sources: criminal list (rev. 1/14/2026), eviction list (rev. 8/12/2026) and phased screening notice (rev. 10/1/2026), all on the SmartMove disclaimer page <Src href={S.disc} />; county list from SmartMove's PDF dated August 12, 2026 <Src href={S.pdf} />.</p>
+
+  <h2>Counties where SmartMove eviction coverage is limited</h2>
+  <p>SmartMove links a county list from its disclaimer for the states where eviction coverage is "limited." These are the counties it names, grouped by state <Src href={S.pdf} label="SmartMove county list" />. The list doesn't say what "limited" means for a given county, so if your rental is in one of them, check the official court record yourself (see our <a href="/eviction-records-official-court-portals/">official eviction court portals</a> page).</p>
+  {limitedStates.map(s => (
+    <p id={`ev-${s.toLowerCase().replace(/\s+/g,'-')}`}><strong>{s}</strong> ({limited[s].length}): {limited[s].join(', ')}</p>
+  ))}
+
+  <h2>What to do if your state is missing</h2>
+  <ul>
+    <li><strong>Criminal "No" state:</strong> SmartMove's list doesn't include your state, so a blank criminal section shouldn't be read as a clean record. Decide before you advertise how you'll handle criminal history, and check what your state lets you charge applicants on our <a href="/application-fee-caps-by-state/">application fee caps by state</a> page.</li>
+    <li><strong>Eviction "Not available" or a limited county:</strong> search the county or statewide court portal directly. Some states also restrict which eviction records may be used, covered on our <a href="/eviction-records-official-court-portals/">eviction records</a> page.</li>
+    <li><strong>Phased jurisdiction:</strong> run the non-criminal bundle first, then the criminal report only after the applicant clears your other criteria <Src href={S.disc} />. The local rules are summarized on our <a href="/phased-tenant-screening-jurisdictions/">phased screening</a> page.</li>
+    <li><strong>Comparing providers:</strong> our <a href="/tenant-screening-report-comparison/">report comparison</a> lists what each provider discloses about its own coverage gaps, and the <a href="/turbotenant-no-criminal-records-available/">"No criminal records are available"</a> page explains a similar message on TurboTenant.</li>
+  </ul>
+  <p>If you deny or change the terms for an applicant because of anything in the report, you owe them an <a href="/adverse-action-notice-tenant-screening/">adverse action notice</a>.</p>
+</Base>
