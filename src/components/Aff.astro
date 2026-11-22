@@ -4,7 +4,7 @@
 // as ordinary outbound links with no badge. Keep data-affiliate so links can
 // be found with: grep -r 'data-affiliate' src
 const approved = new Set([
-  // add a program id here when it is approved, and swap href for the tracking link
+  'innago',
 ]);
 const { id, href, text } = Astro.props;
 const isApproved = approved.has(id);

@@ -13,17 +13,18 @@ const S = {
   rentecPay: 'https://www.rentecdirect.com/details/online-payments',
   rentecKb: 'https://help.rentecdirect.com/article/546-online-payment-processing',
   avail: 'https://www.avail.com/pricing',
+  innagoFaq: 'https://innago.com/faq/',
 };
-const updated = '2026-11-21';
+const updated = '2026-11-22';
 const title = 'Rent Collection App Fees Compared: ACH, Card and Payout Times';
-const description = 'What TurboTenant, RentRedi, Rentec Direct and Avail charge per online rent payment (bank transfer and card), who pays the fee, and how long it takes the money to reach the landlord. Quoted from each provider\'s pricing and help pages.';
+const description = 'What TurboTenant, RentRedi, Rentec Direct, Avail and Innago charge per online rent payment (bank transfer and card), who pays the fee, and how long it takes the money to reach the landlord. Quoted from each provider\'s pricing and help pages.';
 const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":updated};
 ---
 <Base title={title} description={description} updated={updated} schema={schema}>
   <h1>{title}</h1>
-  <p class="lede">The subscription price is the number on the pricing page. The number that hits every month is the per-payment fee, who it lands on, and how many days the rent sits in transit. Here are those three numbers for four landlord platforms, from their own pricing and help pages as of November 21, 2026.</p>
+  <p class="lede">The subscription price is the number on the pricing page. The number that hits every month is the per-payment fee, who it lands on, and how many days the rent sits in transit. Here are those three numbers for five landlord platforms, from their own pricing and help pages (Innago as of November 22, 2026; the others as of November 21, 2026).</p>
 
-  <div class="note"><strong>The short version.</strong> Bank transfer (ACH): <strong>TurboTenant</strong> $2 per payment on Free and Essentials, typically waived on Pro <Src href={S.ttTiming} label="TT" />; <strong>RentRedi</strong> $1 <Src href={S.rrFees} label="RR" />; <strong>Rentec Direct</strong> $2 per payment on Starter, one free per property per month on Pro/PM <Src href={S.rentec} label="Rentec" />; <strong>Avail</strong> $2.50 on the free plan, no fee on Unlimited Plus <Src href={S.avail} label="Avail" />. Card fees run 2.95% to 3.5%. Standard ACH payout ranges from about 2 business days (RentRedi, Rentec) to 5–7 (TurboTenant without a paid plan).</div>
+  <div class="note"><strong>The short version.</strong> Bank transfer (ACH): <strong>TurboTenant</strong> $2 per payment on Free and Essentials, typically waived on Pro <Src href={S.ttTiming} label="TT" />; <strong>RentRedi</strong> $1 <Src href={S.rrFees} label="RR" />; <strong>Rentec Direct</strong> $2 per payment on Starter, one free per property per month on Pro/PM <Src href={S.rentec} label="Rentec" />; <strong>Avail</strong> $2.50 on the free plan, no fee on Unlimited Plus <Src href={S.avail} label="Avail" />; <strong>Innago</strong> $2 per payment <Src href={S.innagoFaq} label="Innago" />. Card fees run 2.95% to 3.5% (Innago lists 2.99% <Src href={S.innagoFaq} label="Innago" />). Standard ACH payout ranges from about 1–2 business days (Innago) or 2 business days (RentRedi, Rentec) to 5–7 (TurboTenant without a paid plan).</div>
 
   <h2>Side by side</h2>
   <div class="tablewrap"><table>
@@ -57,6 +58,13 @@ const schema = {"@context":"https://schema.org","@type":"Article","headline":tit
         <td>Tenant <Src href={S.avail} /></td>
         <td>Lists "Next-day payment deposits," and "FastPay" on Unlimited Plus <Src href={S.avail} />. Business-day timelines aren't stated on the page we checked.</td>
       </tr>
+      <tr>
+        <td><strong>Innago</strong></td>
+        <td>$2 per ACH payment <Src href={S.innagoFaq} /></td>
+        <td>2.99% for credit/debit cards <Src href={S.innagoFaq} /></td>
+        <td>Tenant by default. Landlord can absorb the transaction fees <Src href={S.innagoFaq} /></td>
+        <td>Typically 1–2 business days. Payments process Monday–Friday 9am–5pm EST; after 5pm, processing starts the next business day. The first payment, a new funding source, or a payment after a failed one is held for 3 business days <Src href={S.innagoFaq} /></td>
+      </tr>
     </tbody>
   </table></div>
 
@@ -68,11 +76,11 @@ const schema = {"@context":"https://schema.org","@type":"Article","headline":tit
   <p>The renter's ACH fee is $2 unless the landlord is on Pro, where it's typically waived <Src href={S.ttTiming} />. Faster ACH payouts (2–4 business days) need Essentials or Pro and apply only to eligible payments under $10,000 <Src href={S.ttTiming} />. TurboTenant explains that expedited payouts advance the money before the renter's ACH has fully cleared <Src href={S.ttTiming} />. An older TurboTenant FAQ gives card payouts as 2–3 business days rather than 1–3 <Src href={S.ttFaq} label="older FAQ" />; the table uses the October 14, 2026 article.</p>
 
   <h3>Who absorbs the fee</h3>
-  <p>If you cover a per-payment fee, it comes out of the rent. On a $1,500 rent paid by ACH, that's $1 a month on RentRedi or $2 on TurboTenant Free/Essentials (both from the fee pages above). Card fees are percentage-based, so on $1,500 a 3.49% fee is $52.35: that's why most platforms push card fees to the tenant.</p>
+  <p>If you cover a per-payment fee, it comes out of the rent. On a $1,500 rent paid by ACH, that's $1 a month on RentRedi or $2 on TurboTenant Free/Essentials or Innago (all from the fee pages above). Card fees are percentage-based, so on $1,500 a 3.49% fee is $52.35: that's why most platforms push card fees to the tenant.</p>
   <p>Some states and cities limit fees a landlord can charge tenants. We have not reviewed whether any state restricts passing payment-processing fees to tenants.</p>
 
   <h2>Monthly software price</h2>
-  <p>For completeness, the subscription each platform publishes: TurboTenant Free $0, Essentials "starting at $12.42/month," Pro "starting at $16.58/month" <Src href={S.ttPricing} />; RentRedi from $12/month on annual billing, $20 on six-month and $29.95 month-to-month <Src href={S.rrPrice} />; Rentec Direct Starter $25/month, Pro and PM a $50 monthly minimum at $2 and $2.50 per unit <Src href={S.rentec} />; Avail Unlimited $0/unit, Unlimited Plus $9/unit per month <Src href={S.avail} />.</p>
+  <p>For completeness, the subscription each platform publishes: TurboTenant Free $0, Essentials "starting at $12.42/month," Pro "starting at $16.58/month" <Src href={S.ttPricing} />; RentRedi from $12/month on annual billing, $20 on six-month and $29.95 month-to-month <Src href={S.rrPrice} />; Rentec Direct Starter $25/month, Pro and PM a $50 monthly minimum at $2 and $2.50 per unit <Src href={S.rentec} />; Avail Unlimited $0/unit, Unlimited Plus $9/unit per month <Src href={S.avail} />; Innago says it charges landlords no monthly subscription fee, setup fee, or contract <Src href={S.innagoFaq} />.</p>
 
   <h2>Related</h2>
   <ul>
@@ -82,11 +90,12 @@ const schema = {"@context":"https://schema.org","@type":"Article","headline":tit
   </ul>
 
   <h2>Provider links</h2>
-  <p class="meta">None of these is an affiliate link yet. See our <a href="/affiliate-disclosure/">affiliate disclosure</a>.</p>
+  <p class="meta">The Innago link is an affiliate link; the others are ordinary provider links. See our <a href="/affiliate-disclosure/">affiliate disclosure</a>.</p>
   <ul>
     <li><Aff id="turbotenant" href="https://www.turbotenant.com/" text="TurboTenant" /></li>
     <li><Aff id="rentredi" href="https://rentredi.com/" text="RentRedi" /></li>
     <li><Aff id="rentec" href="https://www.rentecdirect.com/" text="Rentec Direct" /></li>
     <li><Aff id="avail" href="https://www.avail.com/" text="Avail" /></li>
+    <li><Aff id="innago" href="https://innago.com/best-rental-management-software-mbl/?utm_source=Manual&utm_medium=Affiliate+Program&utm_campaign=11111111&utm_id=screeningatlas" text="Innago" /></li>
   </ul>
 </Base>
