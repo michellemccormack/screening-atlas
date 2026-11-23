@@ -5,6 +5,7 @@
 // be found with: grep -r 'data-affiliate' src
 const approved = new Set([
   'innago',
+  'smartmove',
 ]);
 const { id, href, text } = Astro.props;
 const isApproved = approved.has(id);

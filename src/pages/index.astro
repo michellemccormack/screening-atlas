@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import Aff from '../components/Aff.astro';
 const title = 'Screening Atlas';
 const description = 'Tenant screening rules and report coverage, state by state: application fee caps, what each screening report includes, and where criminal or eviction records may not appear. Every claim is linked to its source.';
 const schema = {"@context":"https://schema.org","@type":"WebSite","name":"Screening Atlas","description":description};
@@ -32,6 +33,6 @@ const schema = {"@context":"https://schema.org","@type":"WebSite","name":"Screen
   </div>
 
   <h2>Why this site exists</h2>
-  <p>Screening services are sold as "nationwide," but what comes back depends on where the rental is. TransUnion's SmartMove, for example, publishes a list of the 30 states where its criminal records can currently be returned (<a href="https://www.mysmartmove.com/disclaimer" target="_blank" rel="noopener">SmartMove disclaimer</a>). Landlords often find out about these gaps only after a blank report. We put the rules and the coverage in one place, by state.</p>
+  <p>Screening services are sold as "nationwide," but what comes back depends on where the rental is. TransUnion's <Aff id="smartmove" href="https://smartmove.pxf.io/c/6593174/1515180/17713" text="SmartMove" />, for example, publishes a list of the 30 states where its criminal records can currently be returned (<a href="https://www.mysmartmove.com/disclaimer" target="_blank" rel="noopener">SmartMove disclaimer</a>). Landlords often find out about these gaps only after a blank report. We put the rules and the coverage in one place, by state.</p>
   <p><a href="/about/">How we research and what we won't do →</a></p>
 </Base>
