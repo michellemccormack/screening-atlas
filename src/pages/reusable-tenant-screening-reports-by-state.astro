@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Src from '../components/Src.astro';
+import Aff from '../components/Aff.astro';
 const S = {
   co904: 'https://law.justia.com/codes/colorado/title-38/tenants-and-landlords/article-12/part-9/section-38-12-904/',
   co902: 'https://law.justia.com/codes/colorado/title-38/tenants-and-landlords/article-12/part-9/section-38-12-902/',
@@ -84,7 +85,7 @@ const schema = {"@context":"https://schema.org","@type":"Article","headline":tit
     <li><strong>New York, Rhode Island, Wisconsin:</strong> before you charge a screening fee, ask whether the applicant has a recent report (30, 90 or 30 days, respectively, credit only in Wisconsin).</li>
     <li>Check your city or county too. California's section, for example, says the more protective local rule applies <Src href={S.ca} />.</li>
   </ol>
-  <p>For what each screening service includes and charges, see the <a href="/tenant-screening-report-comparison/">report comparison</a>.</p>
+  <p>For what each screening service includes and charges, see the <a href="/tenant-screening-report-comparison/">report comparison</a> and the <a href="/tenant-screening-cost-calculator/">cost calculator</a>, including <Aff id="smartmove" href="https://smartmove.pxf.io/c/6593174/1515180/17713" text="TransUnion SmartMove" />.</p>
 
   <h2>States not yet reviewed for this page</h2>
   <p>We've checked the six states above. We haven't yet reviewed the rest for reusable-report rules, so a state's absence here doesn't mean it has no rule.</p>

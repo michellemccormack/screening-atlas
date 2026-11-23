@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Src from '../components/Src.astro';
+import Aff from '../components/Aff.astro';
 import data from '../data/fee-caps.json';
 const rows = data.reviewed;
 const allStates = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","District of Columbia","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming"];
@@ -16,6 +17,7 @@ const schema = {"@context":"https://schema.org","@type":"Article","headline":tit
 
   <div class="note"><strong>The short version.</strong> Vermont bars application fees for residential rentals <Src href="https://legislature.vermont.gov/statutes/section/09/137/04456a" />. Maine, Rhode Island and Connecticut bar application or processing fees but let a landlord charge for a screening report, at actual cost in Maine and Rhode Island and up to $50 plus inflation in Connecticut <Src href="https://legislature.maine.gov/statutes/14/title14sec6030-H.html" label="ME" /><Src href="https://law.justia.com/codes/rhode-island/title-34/chapter-34-18/section-34-18-59/" label="RI" /><Src href="https://www.cga.ct.gov/2024/sup/chap_830.htm" label="CT" />. New York has the lowest dollar cap we found: actual cost or $20, whichever is less <Src href="https://law.justia.com/codes/new-york/rpp/article-7/238-a/" label="NY" />. Colorado, Oregon and Washington tie the fee to actual or customary cost and set no dollar figure.</div>
   <p>If the applicant already has a screening report, some states bar or waive the fee. See <a href="/reusable-tenant-screening-reports-by-state/">reusable tenant screening reports by state</a>.</p>
+  <p>If you need to order a new screening report, published prices and who pays are on our <a href="/tenant-screening-report-comparison/">report comparison</a> and <a href="/tenant-screening-cost-calculator/">cost calculator</a>, including <Aff id="smartmove" href="https://smartmove.pxf.io/c/6593174/1515180/17713" text="TransUnion SmartMove" />.</p>
 
   <h2>Quick table</h2>
   <div class="tablewrap"><table>
