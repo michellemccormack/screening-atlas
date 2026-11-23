@@ -1,6 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import Src from '../components/Src.astro';
+import Aff from '../components/Aff.astro';
 const S = {
   smPrice: 'https://www.mysmartmove.com/pricing',
   ttHelpCost: 'https://support.turbotenant.com/en/articles/6362365-what-s-the-difference-between-a-rental-application-and-a-screening-report',
@@ -35,11 +36,11 @@ const schema = {"@context":"https://schema.org","@type":"WebApplication","name":
   <noscript><p class="warnbox">The calculator needs JavaScript. The price table below has the same numbers.</p></noscript>
 
   <h2>The prices the calculator uses</h2>
-  <p>All prices were checked on each provider's own page on November 21, 2026. Monthly software subscriptions are not included.</p>
+  <p>SmartMove prices were rechecked on TransUnion's pricing page on November 23, 2026; the other providers were checked on November 21, 2026. Monthly software subscriptions are not included.</p>
   <div class="tablewrap"><table>
     <thead><tr><th>Provider / package</th><th>Price per applicant</th><th>Income add-on</th><th>Who can pay</th></tr></thead>
     <tbody>
-      <tr><td>SmartMove SmartCheck Basic / Plus / Premium</td><td>$25 / $42 / $49, plus tax where applicable <Src href={S.smPrice} /></td><td>$11 <Src href={S.smPrice} /></td><td>Landlord or applicant, "where permitted" <Src href={S.smPrice} /></td></tr>
+      <tr><td><Aff id="smartmove" href="https://smartmove.pxf.io/c/6593174/1515180/17713" text="SmartMove" /> SmartCheck Basic / Plus / Premium</td><td>$25 / $42 / $49, plus tax where applicable <Src href={S.smPrice} /></td><td>$11 <Src href={S.smPrice} /></td><td>Landlord or applicant, "where permitted" <Src href={S.smPrice} /></td></tr>
       <tr><td>TurboTenant (Free plan / Essentials or Pro)</td><td>$55 / $45 <Src href={S.ttHelpCost} /></td><td>Income verification is listed as a plan feature, not a per-applicant add-on <Src href={S.ttPricing} /></td><td>Renter typically pays; landlord can choose to cover it <Src href={S.ttHelpCost} /></td></tr>
       <tr><td>RentRedi (credit + criminal + eviction / with Plaid income verification)</td><td>$39.99 / $49.99 <Src href={S.rrPrice} /></td><td>Included in the $49.99 tier</td><td>Tenant-paid <Src href={S.rrPrice} /></td></tr>
       <tr><td>Rentec Direct Basic / Enhanced / Premium (Starter plan)</td><td>$14.95 / $20.95 / $29.45 <Src href={S.rentec} /></td><td>Not listed</td><td>Not stated on the pricing page </td></tr>
@@ -61,6 +62,12 @@ const schema = {"@context":"https://schema.org","@type":"WebApplication","name":
     <li><a href="/rent-collection-app-fees/">Rent collection app fees compared</a></li>
     <li><a href="/alternatives-to-zillow-rental-manager-screening/">Alternatives to Zillow Rental Manager screening</a></li>
     <li><a href="/">All Screening Atlas guides</a></li>
+  </ul>
+
+  <h2>Provider links</h2>
+  <p class="meta">The TransUnion SmartMove link is an affiliate link; the other providers in the calculator are ordinary links. See our <a href="/affiliate-disclosure/">affiliate disclosure</a>.</p>
+  <ul>
+    <li><Aff id="smartmove" href="https://smartmove.pxf.io/c/6593174/1515180/17713" text="TransUnion SmartMove" /></li>
   </ul>
 
   <script is:inline>
