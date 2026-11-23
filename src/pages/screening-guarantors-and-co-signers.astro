@@ -1,0 +1,66 @@
+---
+import Base from '../layouts/Base.astro';
+import Src from '../components/Src.astro';
+import Aff from '../components/Aff.astro';
+const S = {
+  ca: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1950.6',
+  wa: 'https://app.leg.wa.gov/RCW/default.aspx?cite=59.18.257',
+  fcra: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title15/html/USCODE-2023-title15-chap41-subchapIII-sec1681b.htm',
+  ttSep: 'https://support.turbotenant.com/en/articles/7914939-do-all-adults-and-co-signers-need-separate-rental-applications',
+  ttRole: 'https://support.turbotenant.com/en/articles/8337198-how-do-i-change-an-applicant-from-a-tenant-to-a-co-signer-or-vice-versa',
+  rrHow: 'https://help.rentredi.com/en/articles/3781770-how-tenant-screening-works',
+  rrCur: 'https://help.rentredi.com/en/articles/3679857-how-to-request-tenant-screening-for-a-current-tenant-who-didn-t-apply',
+  smHow: 'https://www.mysmartmove.com/landlord-tenant-screening',
+  smCos: 'https://www.mysmartmove.com/blog/cosigner-tips-for-landlords',
+};
+const updated = '2026-11-23';
+const title = 'Screening a Guarantor or Co-Signer: Fees, Consent and How Each Platform Handles It';
+const description = 'Can you run a credit check on a guarantor and charge them an application fee? What California and Washington law say about guarantors, the FCRA consent basis, and how TurboTenant, RentRedi and SmartMove screen co-signers, from their own help pages.';
+const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":updated};
+---
+<Base title={title} description={description} updated={updated} schema={schema}>
+  <h1>{title}</h1>
+  <p class="lede">When an applicant falls short on income or credit, the usual fix is a guarantor or co-signer. That raises its own screening questions: do you need the guarantor's consent, can you charge them a fee, does a fee cap apply to them, and how do you actually get their report on the platform you use? Here's what the statutes and the providers' own pages say.</p>
+
+  <div class="note"><strong>The short version.</strong> A guarantor is a separate person with a separate report: on <strong>TurboTenant</strong> each co-signer files their own application and pays their own fee <Src href={S.ttSep} label="TurboTenant" />; <strong>RentRedi</strong> screens a guarantor through its "Screen Tenant" request <Src href={S.rrCur} label="RentRedi" />; <strong>SmartMove</strong> reports go out only after the invited person authenticates their identity <Src href={S.smHow} label="SmartMove" />. In <strong>California</strong>, a guarantor or cosigner counts as an "applicant," so the screening-fee rules apply to them too <Src href={S.ca} label="Civ. Code 1950.6(j)" />. In <strong>Washington</strong>, requiring a guarantor is one of the outcomes listed on the statutory adverse action notice <Src href={S.wa} label="RCW 59.18.257(1)(c)" />.</div>
+
+  <h2>Consent: why the guarantor has to take part</h2>
+  <p>Federal law lets a consumer reporting agency furnish a report "in accordance with the written instructions of the consumer to whom it relates" <Src href={S.fcra} label="15 U.S.C. 1681b(a)(2)" />. The landlord platforms below are built around that kind of consent: the person being screened authorizes the report and verifies their identity themselves. TurboTenant, for example, says screening reports "are associated with individual applicants" <Src href={S.ttRole} label="TurboTenant" />, so a guarantor who never logs in and authorizes will not produce a report.</p>
+
+  <h2>How each platform screens a co-signer</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Platform</th><th>How a guarantor or co-signer is screened</th><th>Who pays</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><Aff id="turbotenant" href="https://www.turbotenant.com/" text="TurboTenant" /></td>
+        <td>Each co-signer completes their own rental application with a unique email address, "even if they won't live at the property" <Src href={S.ttSep} />. Switching an applicant's role between tenant and co-signer doesn't remove an existing report or request a new one <Src href={S.ttRole} /></td>
+        <td>"Each applicant and co-signer has their own application and screening fee": $55 per person when the landlord is on the Free plan, $45 on Essentials or Pro. One person's payment doesn't cover a co-signer <Src href={S.ttSep} /></td>
+      </tr>
+      <tr>
+        <td><Aff id="rentredi" href="https://rentredi.com/" text="RentRedi" /></td>
+        <td>Each applicant submits their own application from a separate RentRedi account <Src href={S.rrHow} />. For "a tenant or guarantor who didn't apply," add them to the unit, open their profile and choose Screen Tenant; they get an email to complete screening <Src href={S.rrCur} /></td>
+        <td>Standard screening is tenant-paid at $39.99, or $49.99 with income and asset verification enabled <Src href={S.rrHow} />. The verification add-on on a manual request is $10 and can be unchecked <Src href={S.rrCur} /></td>
+      </tr>
+      <tr>
+        <td><Aff id="smartmove" href="https://www.mysmartmove.com/" text="TransUnion SmartMove" /></td>
+        <td>You enter the person's email address, choose the report bundle and who pays; they authenticate their identity, and the reports are delivered to you <Src href={S.smHow} />. SmartMove's own guidance says to run a cosigner background check "pretty much always" <Src href={S.smCos} /></td>
+        <td>The landlord chooses when sending the request: the applicant covers the cost or the landlord pays ("where permitted") <Src href={S.smHow} /></td>
+      </tr>
+    </tbody>
+  </table></div>
+
+  <h2>Fees and fee caps for guarantors</h2>
+  <p><strong>California</strong> defines "applicant" for its screening-fee statute as anyone who asks to rent a unit "or an entity or individual who agrees to act as a guarantor or cosignor on a rental agreement" <Src href={S.ca} label="1950.6(j)" />. So the per-applicant cap, the itemized receipt, the refund of any unused amount and the right to a copy of the credit report all extend to a guarantor who pays a screening fee <Src href={S.ca} label="1950.6(b), (d)-(f)" />. Where a state caps the fee, compare a platform's per-person fee with the cap before you turn on applicant-paid screening; state caps are on our <a href="/application-fee-caps-by-state/">fee caps</a> page.</p>
+
+  <h2>Requiring a guarantor can be an adverse action</h2>
+  <p>Washington's statutory adverse action notice lists "Approved with conditions" outcomes, including "Residency requires a qualified guarantor," and asks the landlord to mark whether the decision was based on a consumer report, insufficient credit information, rental history, or criminal, civil or employment records <Src href={S.wa} label="RCW 59.18.257(1)(c)" />. If a screening report is the reason you're asking for a guarantor, see what notice you owe on our <a href="/adverse-action-notice-tenant-screening/">adverse action notice</a> page.</p>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/tenant-screening-report-comparison/">What each screening report includes</a></li>
+    <li><a href="/tenant-screening-cost-calculator/">Screening cost calculator</a>: add one more paid report per guarantor when you budget.</li>
+    <li><a href="/bank-linked-income-verification-what-landlords-see/">Bank-linked income verification</a>: what you see if the guarantor links an account.</li>
+    <li><a href="/written-tenant-screening-criteria-by-state/">Written screening criteria</a>: put your guarantor rules in the criteria you hand out.</li>
+    <li><a href="/">All Screening Atlas guides</a></li>
+  </ul>
+</Base>

@@ -1,0 +1,85 @@
+---
+import Base from '../layouts/Base.astro';
+import Src from '../components/Src.astro';
+import Aff from '../components/Aff.astro';
+const S = {
+  tt: 'https://support.turbotenant.com/en/articles/6308470-how-does-rent-reporting-work-for-landlords',
+  rr: 'https://help.rentredi.com/en/articles/4923149-report-rent-to-credit-bureaus',
+  rrFaq: 'https://help.rentredi.com/en/articles/4924628-credit-reporting-faqs',
+  rrLL: 'https://help.rentredi.com/en/articles/8280939-landlord-paid-credit-boosting',
+  av: 'https://www.avail.com/tenants/report-my-rent',
+  avBlog: 'https://www.avail.com/blog/now-announcing-creditboost',
+  inn: 'https://innago.com/tenant-credit-reporting/',
+  ca: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1954.07',
+};
+const updated = '2026-11-23';
+const title = 'Rent Reporting to Credit Bureaus: TurboTenant, RentRedi, Avail and Innago Compared';
+const description = 'Which landlord platforms report on-time rent to TransUnion, Experian and Equifax, what it costs, who pays, whether past months count, and California\'s rule requiring larger landlords to offer rent reporting. From each provider\'s own pages and Civil Code 1954.07.';
+const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":updated};
+---
+<Base title={title} description={description} updated={updated} schema={schema}>
+  <h1>{title}</h1>
+  <p class="lede">A renter with years of on-time payments can still have a thin credit file, because rent usually isn't reported. Most landlord rent-collection apps now sell an add-on that reports it. They differ on which bureaus get the data, whether past months can be added, what it costs and whether the landlord can pay. In California, some landlords must offer it.</p>
+
+  <div class="note"><strong>The short version.</strong> <strong>RentRedi</strong> reports to all three bureaus for $3.99–$5.99 a month <Src href={S.rr} label="RentRedi" />. <strong>Innago</strong> reports to TransUnion free, or to all three for $5.99 a month <Src href={S.inn} label="Innago" />. <strong>TurboTenant</strong> reports to TransUnion and Experian for $4.99 a month <Src href={S.tt} label="TurboTenant" />. <strong>Avail</strong> reports to TransUnion at $3.95 per reported month <Src href={S.av} label="Avail" />. All four describe reporting on-time (positive) payments; none of them reports late rent through these products.</div>
+
+  <h2>Side by side</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Platform</th><th>Bureaus</th><th>Price</th><th>Who pays</th><th>Past payments</th><th>Which payments count</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><Aff id="rentredi" href="https://rentredi.com/" text="RentRedi" /> (Credit Boosting)</td>
+        <td>TransUnion, Equifax, Experian <Src href={S.rr} /></td>
+        <td>Entire lease $3.99/month; 3-month plan $4.99/month; monthly $5.99 <Src href={S.rr} /></td>
+        <td>Tenant, or the landlord can cover it: $5.99/month per enrolled unit, plus $5.99 per prior payment if the landlord also covers past reporting <Src href={S.rrLL} /></td>
+        <td>Up to 24 months of eligible history when landlord-paid <Src href={S.rrLL} />. "Experian only records the current month" <Src href={S.rrFaq} /></td>
+        <td>Only on-time payments made through RentRedi; checks and money orders aren't supported <Src href={S.rr} /></td>
+      </tr>
+      <tr>
+        <td><Aff id="innago" href="https://innago.com/best-rental-management-software-mbl/?utm_source=Manual&utm_medium=Affiliate+Program&utm_campaign=11111111&utm_id=screeningatlas" text="Innago" /></td>
+        <td>Starter: TransUnion. Pro: TransUnion, Experian, Equifax <Src href={S.inn} /></td>
+        <td>Starter free; Pro $5.99/month <Src href={S.inn} /></td>
+        <td>Tenant opts in <Src href={S.inn} /></td>
+        <td>Pro sends "the past 24 months of historical data" <Src href={S.inn} /></td>
+        <td>Tenants who pay through Innago; positive-only, late payments not reported <Src href={S.inn} /></td>
+      </tr>
+      <tr>
+        <td><Aff id="turbotenant" href="https://www.turbotenant.com/" text="TurboTenant" /> (Rent Reporting)</td>
+        <td>TransUnion, Experian; not Equifax <Src href={S.tt} /></td>
+        <td>$4.99/month; annual "as low as $3.99/month" when available <Src href={S.tt} /></td>
+        <td>Tenant; no cost to landlords <Src href={S.tt} /></td>
+        <td>No: only payments made after enrollment <Src href={S.tt} /></td>
+        <td>Payments made through TurboTenant or manually recorded by the landlord; only on-time payments. May take about 3–4 months to appear <Src href={S.tt} /></td>
+      </tr>
+      <tr>
+        <td><Aff id="avail" href="https://www.avail.com/" text="Avail" /> (CreditBoost)</td>
+        <td>TransUnion <Src href={S.av} /> <Src href={S.avBlog} /></td>
+        <td>$3.95 per month reported, charged as a flat one-time fee <Src href={S.av} /></td>
+        <td>Tenant <Src href={S.avBlog} /></td>
+        <td>Past or current payments, up to 24 months per lease <Src href={S.av} /></td>
+        <td>Rent paid through the platform <Src href={S.avBlog} />; money back if payments can't be verified <Src href={S.av} /></td>
+      </tr>
+    </tbody>
+  </table></div>
+
+  <h2>California: larger landlords must offer it</h2>
+  <p>Since January 1, 2025, California requires landlords to offer each tenant on the lease the option of having positive rental payment information reported to at least one nationwide consumer reporting agency <Src href={S.ca} label="Civ. Code 1954.07(a)" />. Key details:</p>
+  <ul>
+    <li><strong>Timing:</strong> for leases signed on or after April 1, 2025, at signing and at least once a year after; for leases outstanding on January 1, 2025, by April 1, 2025 and yearly after <Src href={S.ca} label="(b)" />.</li>
+    <li><strong>The written offer</strong> must say reporting is optional, name each bureau, state any fee, explain how to opt in and out, and note that a tenant who opts out can't resume for six months <Src href={S.ca} label="(d)" />.</li>
+    <li><strong>Fee:</strong> the lesser of the landlord's actual cost or $10 a month, and nothing if the landlord has no cost. Nonpayment can't be reported, can't be grounds for eviction and can't be taken from the deposit <Src href={S.ca} label="(g), (h)" />.</li>
+    <li><strong>Exemptions:</strong> buildings with 15 or fewer units, unless the landlord owns more than one rental building and is a REIT, a corporation, or an LLC with at least one corporate member; and assisted housing developments <Src href={S.ca} label="(j)" />.</li>
+  </ul>
+
+  <h2>Does reported rent help an applicant you're screening?</h2>
+  <p>Rent reported this way becomes part of the applicant's credit file at the bureau that receives it; RentRedi says TransUnion recommends 12 months of on-time payments "for the greatest potential impact" <Src href={S.rr} />. Which bureau your screening service pulls from matters: the services on our <a href="/tenant-screening-report-comparison/">report comparison</a> list which bureau supplies their credit report.</p>
+
+  <p class="meta">The Innago link is an affiliate link; the other provider links are ordinary links. See our <a href="/affiliate-disclosure/">affiliate disclosure</a>.</p>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/rent-collection-app-fees/">Rent collection app fees</a>: ACH and card fees on the same platforms.</li>
+    <li><a href="/tenant-screening-without-ssn-itin/">Screening applicants without an SSN</a></li>
+    <li><a href="/">All Screening Atlas guides</a></li>
+  </ul>
+</Base>

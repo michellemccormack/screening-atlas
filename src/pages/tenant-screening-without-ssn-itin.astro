@@ -1,0 +1,89 @@
+---
+import Base from '../layouts/Base.astro';
+import Src from '../components/Src.astro';
+import Aff from '../components/Aff.astro';
+const S = {
+  smT: 'https://www.mysmartmove.com/transunion-smartmove-frequently-asked-questions/tenant-frequently-asked-questions',
+  smTop: 'https://www.mysmartmove.com/transunion-smartmove-frequently-asked-questions/top-frequently-asked-questions',
+  ttIdv: 'https://support.turbotenant.com/en/articles/11990297-how-do-i-verify-my-identity-for-a-rental-screening-report',
+  rrItin: 'https://help.rentredi.com/en/articles/10045714-how-do-i-complete-my-tenant-screening-if-i-don-t-have-an-ssn',
+  rrManual: 'https://help.rentredi.com/en/articles/5167370-troubleshooting-manual-verification-for-tenant-screening',
+  rentec: 'https://www.rentecdirect.com/blog/questions-and-answers-tenant-screening-with-rentec-direct/',
+  avail: 'https://www.avail.com/education/articles/best-practices-for-screening-international-tenants',
+  or: 'https://www.oregonlegislature.gov/bills_laws/ors/ors090.html',
+  ca: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1940.3',
+  fha: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title42/html/USCODE-2023-title42-chap45-subchapI-sec3604.htm',
+};
+const updated = '2026-11-23';
+const title = 'Screening an Applicant Without a Social Security Number: Which Services Accept an ITIN';
+const description = 'SmartMove needs a valid SSN; TurboTenant and RentRedi accept an ITIN; Rentec Direct says its databases need an SSN. Provider-by-provider rules from their own help pages, plus Oregon\'s list of IDs a landlord must accept and California\'s ban on immigration-status questions.';
+const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":updated};
+---
+<Base title={title} description={description} updated={updated} schema={schema}>
+  <h1>{title}</h1>
+  <p class="lede">New arrivals, international students and many long-time taxpayers apply with an Individual Taxpayer Identification Number (ITIN) or no U.S. number at all. Whether you can get a credit, criminal and eviction report on them depends on the screening service, even among services that all use TransUnion. And in some states, how you ask for ID is regulated too.</p>
+
+  <div class="note"><strong>The short version.</strong> <strong>SmartMove</strong> can only process applicants "who have a valid U.S. Social Security number" <Src href={S.smT} label="SmartMove" />. <strong>TurboTenant</strong> accepts an ITIN; with neither number, TransUnion verification can't be completed <Src href={S.ttIdv} label="TurboTenant" />. <strong>RentRedi</strong> has applicants enter the ITIN in the SSN field and then verify identity by phone with TransUnion <Src href={S.rrItin} label="RentRedi" />. <strong>Rentec Direct</strong> says its nationwide databases need an SSN and other numbers give inaccurate or no results <Src href={S.rentec} label="Rentec" />. <strong>Oregon</strong> lists IDs a landlord must accept, including an ITIN card or any passport regardless of expiration <Src href={S.or} label="ORS 90.306" />.</div>
+
+  <h2>Provider by provider</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Service</th><th>SSN required?</th><th>ITIN</th><th>What the provider says to do otherwise</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><Aff id="smartmove" href="https://www.mysmartmove.com/" text="TransUnion SmartMove" /></td>
+        <td>Yes: "only has the ability to process an application for potential tenants who have a valid U.S. Social Security number" <Src href={S.smT} /> <Src href={S.smTop} /></td>
+        <td>—</td>
+        <td>Contact the property owner "to discuss how he or she wishes to proceed with the application process" <Src href={S.smT} /></td>
+      </tr>
+      <tr>
+        <td><Aff id="turbotenant" href="https://www.turbotenant.com/" text="TurboTenant" /></td>
+        <td>No: SSN or ITIN <Src href={S.ttIdv} /></td>
+        <td>"You may use an ITIN if you have one" <Src href={S.ttIdv} /></td>
+        <td>With neither number, "TransUnion identity verification cannot be completed through TurboTenant. Contact your landlord about alternative documentation" <Src href={S.ttIdv} /></td>
+      </tr>
+      <tr>
+        <td><Aff id="rentredi" href="https://rentredi.com/" text="RentRedi" /></td>
+        <td>No: ITIN accepted as the alternative <Src href={S.rrItin} /></td>
+        <td>Enter the ITIN in the SSN field; the applicant is then prompted to verify identity by calling TransUnion <Src href={S.rrItin} /></td>
+        <td>If TransUnion can't generate a verification exam because the renter has no credit, documentation is required, which "can take 24-48 hours" <Src href={S.rrManual} /></td>
+      </tr>
+      <tr>
+        <td><Aff id="rentec" href="https://www.rentecdirect.com/" text="Rentec Direct" /></td>
+        <td>Yes, in practice: "the databases require a social security number for accurate search results" <Src href={S.rentec} /></td>
+        <td>—</td>
+        <td>An EIN, passport or visa isn't used as an identifier by the nationwide databases; entering other numbers in the SSN field gives "inaccurate or no information" <Src href={S.rentec} /></td>
+      </tr>
+      <tr>
+        <td><Aff id="avail" href="https://www.avail.com/" text="Avail" /></td>
+        <td>SSN or ITIN needed to authorize a credit and background check <Src href={S.avail} /></td>
+        <td>Accepted <Src href={S.avail} /></td>
+        <td>Confirm first whether the applicant can authorize the checks, to avoid unnecessary fees; otherwise consider credit references, bank statements and other documentation <Src href={S.avail} /></td>
+      </tr>
+    </tbody>
+  </table></div>
+  <p class="meta">A dash means the provider's page doesn't describe ITIN use. Accepting an ITIN doesn't guarantee a full report: RentRedi notes that a thin credit file is one reason TransUnion can't generate verification questions online <Src href={S.rrManual} />.</p>
+
+  <h2>State rules on ID and immigration status</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>State</th><th>Rule</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Oregon</td>
+        <td>A landlord may not ask about the immigration or citizenship status of an applicant, tenant or household member. If you require ID, you must accept any of these (or a combination) to verify name, date of birth and appearance: a Social Security card or evidence of an SSN; a certified birth record; a permanent resident card; an immigrant or nonimmigrant visa; an IRS ITIN card; "a passport, driver license or other government-issued identification, regardless of expiration date"; or nongovernment ID that permits reasonable verification. Exception: requirements of a federal rent-subsidy or affordable-rent program <Src href={S.or} label="ORS 90.306" /></td>
+      </tr>
+      <tr>
+        <td>California</td>
+        <td>A landlord may not inquire about, or require a statement about, the immigration or citizenship status of a tenant, prospective tenant or occupant <Src href={S.ca} label="Civ. Code 1940.3(b)" />. The law still allows requesting information or documentation needed to verify a prospective tenant's financial qualifications or identity, and compliance with federal program obligations <Src href={S.ca} label="1940.3(c)" /></td>
+      </tr>
+    </tbody>
+  </table></div>
+  <p>Nationally, the Fair Housing Act makes it unlawful to refuse to rent, or otherwise make a dwelling unavailable, because of national origin <Src href={S.fha} label="42 U.S.C. 3604(a)" />. Because some services can't process an applicant without an SSN, decide in advance what you'll accept instead and apply it the same way to every applicant who can't run the report, then put it in your <a href="/written-tenant-screening-criteria-by-state/">written screening criteria</a>.</p>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/tenant-screening-report-comparison/">What each screening report includes</a></li>
+    <li><a href="/oregon-tenant-screening-rules/">Oregon tenant screening rules</a></li>
+    <li><a href="/bank-linked-income-verification-what-landlords-see/">Bank-linked income verification</a>: one way to check income without a credit file.</li>
+    <li><a href="/">All Screening Atlas guides</a></li>
+  </ul>
+</Base>

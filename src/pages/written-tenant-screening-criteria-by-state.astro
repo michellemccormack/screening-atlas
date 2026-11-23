@@ -1,0 +1,65 @@
+---
+import Base from '../layouts/Base.astro';
+import Src from '../components/Src.astro';
+const S = {
+  or: 'https://www.oregonlegislature.gov/bills_laws/ors/ors090.html',
+  wa: 'https://app.leg.wa.gov/RCW/default.aspx?cite=59.18.257',
+  mn: 'https://www.revisor.mn.gov/statutes/cite/504B.173',
+  ca: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1950.6',
+};
+const updated = '2026-11-23';
+const title = 'Written Tenant Screening Criteria: Where You Must Give Applicants Your Rules Before Charging a Fee';
+const description = 'Oregon, Washington, Minnesota and California each require landlords to put their screening criteria in writing and hand them to the applicant before (or when) taking a screening fee. What each statute requires, the deadline, and the penalty, quoted from the official code.';
+const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":updated};
+---
+<Base title={title} description={description} updated={updated} schema={schema}>
+  <h1>{title}</h1>
+  <p class="lede">"Write your screening rules down before you list" is common landlord advice. In some states it's also the law: if you haven't given the applicant your written criteria first, you may not be allowed to charge a screening fee at all, and getting it wrong can cost you the fee plus a penalty. Here is what four state statutes require, when, and what happens if you skip it.</p>
+
+  <div class="note"><strong>The short version.</strong> <strong>Oregon</strong>: adopt written criteria and give a written notice covering nine items before accepting any screening charge <Src href={S.or} label="ORS 90.295(3)" />. <strong>Washington</strong>: before obtaining <em>any</em> information about the applicant, notify them in writing or by posting what you'll check and what can lead to denial <Src href={S.wa} label="RCW 59.18.257(1)(a)" />. <strong>Minnesota</strong>: disclose in writing, before accepting a screening fee, the screening service you use and "the criteria on which the decision to rent" will be based <Src href={S.mn} label="504B.173 subd. 3" />. <strong>California</strong>: under the first-come screening option, give the criteria in writing "together with the application form" <Src href={S.ca} label="Civ. Code 1950.6(c)(2)(A)(i)" />.</div>
+
+  <h2>State by state</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>State</th><th>When</th><th>What the written notice must cover</th><th>If you don't</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Oregon</td>
+        <td>Before accepting payment of an applicant screening charge <Src href={S.or} label="ORS 90.295(3)" /></td>
+        <td>Adopt written screening or admission criteria, then give written notice of: the charge amount; your criteria; the screening process (whether you use a screening company, credit reports, public or criminal records, or contact employers, landlords or references); the applicant's right to dispute a screening company's information; any right to appeal; nondiscrimination policies; the rent and deposits; any renters insurance requirement; and the applicant's refund and damages rights. You must also give an estimate of how many comparable units are or will be available and how many applications are already under consideration <Src href={S.or} label="ORS 90.295(3)(a)-(c)" /></td>
+        <td>The applicant may recover twice the screening charge plus $250 <Src href={S.or} label="ORS 90.295(6)(b)" /></td>
+      </tr>
+      <tr>
+        <td>Washington</td>
+        <td>Before obtaining any information about a prospective tenant, in writing or by posting <Src href={S.wa} label="RCW 59.18.257(1)(a)" /></td>
+        <td>The types of information you'll access; the criteria that may result in denial; if a consumer report is used, the agency's name and address and the applicant's rights to a free copy after an adverse action and to dispute it; and whether you will accept a comprehensive reusable tenant screening report <Src href={S.wa} label="59.18.257(1)(a)(i)-(iv)" />. A landlord website advertising the rental must also state on the property's home page whether you accept reusable reports <Src href={S.wa} label="59.18.257(2)" /></td>
+        <td>You may charge for screening only if you gave this notice <Src href={S.wa} label="59.18.257(1)(b)" />. Liability of up to $100, plus court costs and attorneys' fees to the prevailing party <Src href={S.wa} label="59.18.257(3)" /></td>
+      </tr>
+      <tr>
+        <td>Minnesota</td>
+        <td>In writing, before accepting an applicant screening fee <Src href={S.mn} label="504B.173 subd. 3(1)" /></td>
+        <td>The name, address and phone number of the tenant screening service you will use (unless you don't use one), and the criteria on which the decision to rent will be based <Src href={S.mn} label="subd. 3(1)(i)-(ii)" /></td>
+        <td>You must return the fee if you reject the applicant for a reason not listed in your disclosure <Src href={S.mn} label="subd. 2(a)(1)" />. A violation makes you liable for the fee plus a civil penalty of up to $100, filing costs and attorney fees <Src href={S.mn} label="subd. 4(a)" /></td>
+      </tr>
+      <tr>
+        <td>California</td>
+        <td>At the time the screening fee is collected, if you use the first-come process: criteria "provided to the applicant in writing together with the application form" <Src href={S.ca} label="1950.6(c)(2)(A)(i)" /></td>
+        <td>The statute requires your "established screening criteria"; completed applications are considered in the order received, and the first applicant who meets the criteria is approved <Src href={S.ca} label="1950.6(c)(2)(A)(i)-(ii)" /></td>
+        <td>The alternative is to refund the entire fee to every applicant not selected, within 7 days of selecting a tenant or 30 days of the application, whichever is first <Src href={S.ca} label="1950.6(c)(2)(B)" /></td>
+      </tr>
+    </tbody>
+  </table></div>
+
+  <h2>After the decision: the criteria come back</h2>
+  <p>Written criteria matter again when you say no. In <strong>Minnesota</strong>, you must notify the applicant within 14 days of rejecting the application, identifying the criteria they failed to meet <Src href={S.mn} label="504B.173 subd. 3(2)" />. In <strong>Washington</strong>, an adverse action notice must state the reasons, using the statutory form <Src href={S.wa} label="59.18.257(1)(c)" />. Oregon's denial-notice rule and the federal adverse action requirements are covered on our <a href="/adverse-action-notice-tenant-screening/">adverse action notice</a> page and the <a href="/oregon-tenant-screening-rules/">Oregon screening rules</a> page.</p>
+
+  <h2>What a working criteria sheet usually lists</h2>
+  <p>Taking the four statutes together, a single sheet that would cover each one's required topics names: the screening company (with address and phone, for Minnesota), the kinds of records you check, the specific results that lead to denial, the fee, whether you accept a reusable report (Washington), the applicant's dispute and appeal rights, your nondiscrimination policy, and the rent and deposits (Oregon) <Src href={S.or} label="OR" /> <Src href={S.wa} label="WA" /> <Src href={S.mn} label="MN" /> <Src href={S.ca} label="CA" />. Some cities add their own requirements on top; this page covers state law only.</p>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/application-fee-caps-by-state/">Application fee caps by state</a>: how much you can charge once the notice is given.</li>
+    <li><a href="/reusable-tenant-screening-reports-by-state/">Reusable screening reports by state</a>: the Washington reusable-report statement and similar rules elsewhere.</li>
+    <li><a href="/phased-tenant-screening-jurisdictions/">Phased screening jurisdictions</a>: places where the criminal check has to wait until after a conditional offer.</li>
+    <li><a href="/">All Screening Atlas guides</a></li>
+  </ul>
+</Base>
