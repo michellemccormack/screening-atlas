@@ -1,0 +1,70 @@
+---
+import Base from '../layouts/Base.astro';
+import Src from '../components/Src.astro';
+import Aff from '../components/Aff.astro';
+const S = {
+  efx: 'https://investor.equifax.com/news-events/press-releases/detail/1286/equifax-experian-and-transunion-remove-medical-collections',
+  tu: 'https://newsroom.transunion.com/first-changes-to-reporting-of-medical-collection-debt-roll-out-july-1-2022',
+  ny: 'https://nyassembly.gov/leg/?default_fld=&leg_video=&bn=S04907&term=2023&Summary=Y&Actions=Y&Text=Y',
+  mn: 'https://www.revisor.mn.gov/statutes/cite/332C.03',
+  mnDef: 'https://www.revisor.mn.gov/statutes/cite/332C.01',
+  ca: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1785.27',
+  tt: 'https://support.turbotenant.com/en/articles/6362365-what-s-the-difference-between-a-rental-application-and-a-screening-report',
+  rr: 'https://help.rentredi.com/en/articles/3781770-how-tenant-screening-works',
+};
+const updated = '2026-11-23';
+const title = 'Medical Debt on a Rental Applicant\'s Credit Report: What Was Removed and Which States Ban It';
+const description = 'Paid medical collections, collections under $500 and debts less than a year old no longer appear on Equifax, Experian and TransUnion reports. New York and Minnesota go further and bar consumer reporting agencies from reporting medical debt; California bars furnishing it. What that means for a tenant screening credit report.';
+const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":updated};
+---
+<Base title={title} description={description} updated={updated} schema={schema}>
+  <h1>{title}</h1>
+  <p class="lede">An applicant tells you their score is low because of medical bills. Should that debt even be on the report? Since 2022 the three nationwide credit bureaus have dropped most medical collections, and several states now bar medical debt from credit reports altogether. Here's what changed, from the bureaus' own announcements and the state statutes.</p>
+
+  <div class="note"><strong>The short version.</strong> Since July 1, 2022, paid medical collections are no longer on Equifax, Experian or TransUnion reports, and unpaid medical collections wait one year (up from six months) before they can appear <Src href={S.tu} label="TransUnion" />. Since April 11, 2023, medical collections with an initial balance under $500 are removed too <Src href={S.efx} label="Equifax/Experian/TransUnion" />. <strong>New York</strong> <Src href={S.ny} label="GBL 380-j" /> and <strong>Minnesota</strong> <Src href={S.mn} label="Minn. Stat. 332C.03" /> bar consumer reporting agencies from reporting medical debt. <strong>California</strong> bars anyone from furnishing medical debt to a credit reporting agency <Src href={S.ca} label="Civ. Code 1785.27" />.</div>
+
+  <h2>What the three bureaus removed</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Change</th><th>Effective</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><td>Medical collection debt "paid by the consumer in full" no longer included on U.S. consumer credit reports</td><td>July 1, 2022</td><td><Src href={S.tu} label="TransUnion" /></td></tr>
+      <tr><td>Waiting period before unpaid medical collection debt appears increased from six months to one year</td><td>July 1, 2022</td><td><Src href={S.tu} label="TransUnion" /></td></tr>
+      <tr><td>Medical collection debt with an initial reported balance under $500 removed; the bureaus said this took out nearly 70% of medical collection tradelines</td><td>April 11, 2023</td><td><Src href={S.efx} label="joint release" /></td></tr>
+    </tbody>
+  </table></div>
+  <p>These are the bureaus' own reporting policies, announced jointly by Equifax, Experian and TransUnion <Src href={S.efx} />. They don't cover an unpaid medical collection with an initial balance of $500 or more that is over a year old, so that can still appear unless a state law like those below applies.</p>
+
+  <h2>States that go further</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>State</th><th>Rule</th><th>What counts as medical debt</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>New York</td>
+        <td>"No consumer reporting agency shall report or maintain in the file on a consumer" information relative to a medical debt; medical debt is also on the list of items excluded from consumer reports regardless of when it was incurred. Enacted as the Fair Medical Debt Reporting Act, chapter 727 of 2023, signed December 13, 2023, effective immediately <Src href={S.ny} label="S4907-A" /></td>
+        <td>Any obligation to pay for health care services, products or devices from a licensed hospital, a licensed health care professional or a certified ambulance service <Src href={S.ny} label="GBL 380-a(v)" /></td>
+      </tr>
+      <tr>
+        <td>Minnesota</td>
+        <td>A collecting party may not report medical debt to a consumer reporting agency, and a consumer reporting agency may not make a consumer report containing information it "knows or should know concerns medical debt" <Src href={S.mn} label="332C.03" /></td>
+        <td>Debt incurred primarily for medically necessary treatment or services, including (on or after October 1, 2024) debt on a credit plan offered specifically for health care. Excludes general-purpose credit cards, veterinary and dental services, and home equity lines <Src href={S.mnDef} label="332C.01 subd. 4" /></td>
+      </tr>
+      <tr>
+        <td>California</td>
+        <td>"A person shall not furnish information regarding a medical debt to a consumer credit reporting agency." A medical debt knowingly furnished in violation is void and unenforceable <Src href={S.ca} label="1785.27(a)-(b)" /></td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table></div>
+  <p class="meta">"Consumer reporting agency" in the New York and Minnesota rules covers more than the three bureaus; Minnesota uses the federal FCRA definition <Src href={S.mn} label="332C.03(c)" />. This page covers the three states above, reviewed from official sources; other states' laws aren't covered here.</p>
+
+  <h2>Where tenant screening credit reports come from</h2>
+  <p>The most common small-landlord screening services pull TransUnion credit data: <Aff id="turbotenant" href="https://www.turbotenant.com/" text="TurboTenant" />'s screening report is "third-party information from TransUnion" <Src href={S.tt} />, <Aff id="rentredi" href="https://rentredi.com/" text="RentRedi" />'s standard screening runs through TransUnion <Src href={S.rr} />, and <Aff id="smartmove" href="https://www.mysmartmove.com/" text="SmartMove" /> is TransUnion's own service. So the bureau-wide removals above apply to the credit portion of those reports. If an applicant says a medical collection on their report shouldn't be there, they can dispute it with the reporting agency; the dispute rights you must tell them about are on our <a href="/adverse-action-notice-tenant-screening/">adverse action notice</a> page.</p>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/tenant-screening-report-comparison/">What each screening report includes</a></li>
+    <li><a href="/rent-reporting-services-compared/">Rent reporting services compared</a>: how a thin-file applicant can add on-time rent to their credit file.</li>
+    <li><a href="/written-tenant-screening-criteria-by-state/">Written screening criteria</a>: say how you treat credit scores and collections before you charge a fee.</li>
+    <li><a href="/">All Screening Atlas guides</a></li>
+  </ul>
+</Base>
