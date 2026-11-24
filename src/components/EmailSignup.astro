@@ -1,0 +1,51 @@
+---
+// Email signup (Brevo free plan, double opt-in). Renders nothing until ACTION is set to the
+// Brevo form's action URL (Brevo > Contacts > Forms > the form > Share > HTML code: the <form action="...">).
+// Static site: no API key in the page; the browser posts straight to Brevo's hosted form endpoint.
+const ACTION = '';
+const { compact = false } = Astro.props;
+---
+{ACTION && (
+<section class="esu" data-compact={compact ? '1' : undefined}>
+  <h2 class="esu-h">Get the landlord screening checklist</h2>
+  <p class="esu-t">Six checks to run before you charge an application fee or deny an applicant, with links to the law for each state we cover. We'll also tell you when a rule we track changes. A few emails a month at most.</p>
+  <form class="esu-f" method="POST" action={ACTION} target="_blank">
+    <label class="esu-l" for="esu-email">Email address</label>
+    <input id="esu-email" class="esu-i" type="email" name="EMAIL" required autocomplete="email" placeholder="you@example.com" />
+    <input type="text" name="email_address_check" value="" tabindex="-1" autocomplete="off" aria-hidden="true" class="esu-hp" />
+    <input type="hidden" name="locale" value="en" />
+    <button class="esu-b" type="submit">Send me the checklist</button>
+  </form>
+  <p class="esu-ok" role="status" hidden>Almost done. Check your inbox and click the confirmation link.</p>
+  <p class="esu-s">One click to unsubscribe. We don't share your email. <a href="/privacy/">Privacy</a></p>
+</section>
+)}
+<script>
+  document.querySelectorAll('form.esu-f').forEach((f) => {
+    f.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const ok = f.parentElement.querySelector('.esu-ok');
+      const btn = f.querySelector('button');
+      btn.disabled = true;
+      try {
+        await fetch(f.action, { method: 'POST', body: new FormData(f), mode: 'no-cors' });
+        f.hidden = true; ok.hidden = false;
+      } catch (err) {
+        btn.disabled = false; f.submit();
+      }
+    });
+  });
+</script>
+<style>
+  .esu{background:#fff;border:1px solid var(--line,#e3e6ea);border-left:4px solid var(--brand);border-radius:8px;padding:18px 20px;margin:2rem 0}
+  .esu-h{margin:0 0 .3rem;font-size:1.2rem}
+  .esu-t{margin:0 0 .8rem;color:#333;font-size:15px}
+  .esu-f{display:flex;gap:8px;flex-wrap:wrap}
+  .esu-l{position:absolute;left:-9999px}
+  .esu-i{flex:1 1 220px;padding:10px 12px;border:1px solid #c8ced5;border-radius:6px;font:inherit;font-size:16px}
+  .esu-b{padding:10px 16px;border:0;border-radius:6px;background:var(--brand);color:#fff;font:inherit;font-size:15px;cursor:pointer}
+  .esu-b[disabled]{opacity:.6}
+  .esu-hp{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+  .esu-ok{margin:.6rem 0 0;font-weight:600}
+  .esu-s{margin:.6rem 0 0;font-size:13px;color:var(--muted,#5b6470)}
+</style>

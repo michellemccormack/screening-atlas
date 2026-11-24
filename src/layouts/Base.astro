@@ -1,4 +1,7 @@
 ---
+import EmailSignup from '../components/EmailSignup.astro';
+const noSignup = ['/privacy/', '/contact/', '/affiliate-disclosure/', '/404', '/get-it-done/'];
+const showSignup = !noSignup.some((p) => Astro.url.pathname.startsWith(p));
 const { title, description, updated = '2026-11-18', schema } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const siteName = 'Screening Atlas';
@@ -75,6 +78,7 @@ const fullTitle = title === siteName ? title : `${title} | ${siteName}`;
   </div></header>
   <main><div class="wrap">
     <slot />
+    {showSignup && <EmailSignup />}
     <p class="meta" style="margin-top:3rem">Last checked: {updated}. General information, not legal advice. Laws and provider pages change; follow the source links before relying on anything here.</p>
   </div></main>
   <footer class="site"><div class="wrap" style="padding:20px">
