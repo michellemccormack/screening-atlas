@@ -1,0 +1,81 @@
+---
+import Base from '../layouts/Base.astro';
+import Src from '../components/Src.astro';
+import Aff from '../components/Aff.astro';
+const S = {
+  smTop: 'https://www.mysmartmove.com/transunion-smartmove-frequently-asked-questions/top-frequently-asked-questions',
+  smTen: 'https://www.mysmartmove.com/transunion-smartmove-frequently-asked-questions/tenant-frequently-asked-questions',
+  ttWait: 'https://support.turbotenant.com/en/articles/4004068-what-does-waiting-on-applicant-mean-for-a-screening-report',
+  ttAcc: 'https://support.turbotenant.com/en/articles/4004041-screening-reports-how-to-access-them-and-resolve-common-issues',
+  ttLand: 'https://www.turbotenant.com/tenant-screening/',
+  rrMan: 'https://help.rentredi.com/en/articles/5167370-troubleshooting-manual-verification-for-tenant-screening',
+  rrAcc: 'https://help.rentredi.com/en/articles/10225286-how-long-do-i-have-access-to-transunion-screening-reports',
+  rcOrd: 'https://help.rentecdirect.com/article/533-ordering-credit-and-criminal-reports',
+  rcInc: 'https://help.rentecdirect.com/article/799-income-verification',
+};
+const updated = '2026-11-24';
+const title = 'How Long Does Tenant Screening Take? Turnaround and Report Access by Provider';
+const description = 'How long a tenant background check takes on SmartMove, TurboTenant, RentRedi and Rentec Direct, what causes delays (identity verification, manual TransUnion checks, county criminal searches), and how long each lets you view the report, from their own help pages.';
+const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":updated};
+---
+<Base title={title} description={description} updated={updated} schema={schema}>
+  <h1>{title}</h1>
+  <p class="lede">Landlords ask "how long does a background check take?" when a good applicant is waiting and a second one is asking about the unit. The honest answer: the report itself is often quick, and the wait is usually the applicant finishing identity verification. Here is what each provider says about timing, delays, and how long you can see the report afterward.</p>
+
+  <div class="note"><strong>The short version.</strong> <strong>SmartMove</strong> says it provides most results the same day once the renter confirms and passes identity authentication <Src href={S.smTop} label="SmartMove" />. <strong>TurboTenant</strong> says most checks take 1 to 3 days and some come back the same day <Src href={S.ttLand} label="TurboTenant" />. On <strong>RentRedi</strong>, a renter who has to send documents to TransUnion for manual verification can wait 24 to 48 hours <Src href={S.rrMan} label="RentRedi" />. On <strong>Rentec Direct</strong>, some reports return in under 60 seconds while county-level criminal searches may take longer <Src href={S.rcOrd} label="Rentec" />.</div>
+
+  <h2>How long does each provider take?</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Provider</th><th>Typical turnaround (provider's words)</th><th>Common cause of delay</th><th>How long you can view the report</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><Aff id="smartmove" href="https://smartmove.pxf.io/c/6593174/1515180/17713" text="TransUnion SmartMove" /></td>
+        <td>"Most results same day after the renter has confirmed their application and passed identity authentication online" <Src href={S.smTop} /></td>
+        <td>"Majority of delays are due to either party not completing one or more steps" <Src href={S.smTop} /></td>
+        <td>30 days after the applicant approves screening (credit and criminal information) <Src href={S.smTen} /></td>
+      </tr>
+      <tr>
+        <td><Aff id="turbotenant" href="https://www.turbotenant.com/" text="TurboTenant" /></td>
+        <td>"Most tenant background checks take 1 to 3 days, and some come back the same day" <Src href={S.ttLand} />. After identity verification, "additional verification or processing may take approximately 24–48 hours" <Src href={S.ttWait} /></td>
+        <td>The status stays "Waiting on Applicant" with "no guaranteed completion timeframe" until the applicant authorizes and verifies <Src href={S.ttWait} />. Identity verification may need to be redone after about 30 days <Src href={S.ttAcc} /></td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td><Aff id="rentredi" href="https://rentredi.com/" text="RentRedi" /></td>
+        <td>—</td>
+        <td>If TransUnion needs phone verification and can't generate a verification exam (for example, no credit), the renter must send documents: "This process can take 24-48 hours." If it's been 3 days, the documents may be missing or wrong <Src href={S.rrMan} /></td>
+        <td>Reports are available in RentRedi for up to 30 days from completion; download them to keep them <Src href={S.rrAcc} /></td>
+      </tr>
+      <tr>
+        <td><Aff id="rentec" href="https://www.rentecdirect.com/" text="Rentec Direct" /></td>
+        <td>"Some reports are instant and return in less than 60 seconds, while others, such as county-level criminal searches, may take longer." If nothing arrives in 1 to 3 business days, use Reload From Source <Src href={S.rcOrd} /></td>
+        <td>County-level criminal searches <Src href={S.rcOrd} /></td>
+        <td>Credit reports up to 90 days, criminal reports up to 180 days <Src href={S.rcOrd} />; income verification reports 5 days <Src href={S.rcInc} /></td>
+      </tr>
+    </tbody>
+  </table></div>
+  <p>A dash means the provider's pages we reviewed don't state that figure.</p>
+
+  <h2>Why is my applicant's screening stuck?</h2>
+  <p>On TransUnion-based platforms, the applicant has to authorize the report and verify their identity themselves. TurboTenant says landlords "cannot answer verification questions or authorize screening on their behalf" <Src href={S.ttAcc} />. TurboTenant lists the usual causes when a report isn't available: missing landlord mailing address or phone number, the applicant not authorizing, unfinished identity verification, an unpaid fee, an archived applicant, expired verification, and a credit freeze or fraud alert <Src href={S.ttAcc} />. RentRedi says a "thin file" or a typo in the date of birth or SSN can stop TransUnion from generating questions, and the renter then has to call TransUnion <Src href="https://help.rentredi.com/en/articles/9105209-what-to-do-if-your-tenant-screening-requires-a-call-to-transunion" />.</p>
+  <p>Applicants without an SSN usually go through manual verification; see <a href="/tenant-screening-without-ssn-itin/">screening applicants without an SSN</a>.</p>
+
+  <h2>How do you speed it up?</h2>
+  <ol>
+    <li>Fill in your own mailing address and phone number in your account first. TurboTenant says TransUnion requires them before reports are delivered <Src href={S.ttAcc} />.</li>
+    <li>Have applicants verify during the application. TurboTenant says applicants who verify during the rental application "get results fastest" <Src href={S.ttLand} />.</li>
+    <li>Tell applicants to expect the request email or text, and to call TransUnion right away if the platform tells them to <Src href={S.rrMan} />.</li>
+    <li>Download the report as soon as it arrives. SmartMove and RentRedi access ends after 30 days <Src href={S.smTen} /> <Src href={S.rrAcc} />.</li>
+  </ol>
+
+  <h2>Does the speed of screening affect fee rules?</h2>
+  <p>It can. In Oregon, if you fill the unit before screening an applicant who paid a screening charge, you must refund it within 30 days <Src href="https://www.oregonlegislature.gov/bills_laws/ors/ors090.html" label="ORS 90.295(5)" />. See <a href="/screening-fee-refund-when-no-screening/">screening fee refunds when you don't screen</a>.</p>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/tenant-screening-report-comparison/">What each screening report includes</a></li>
+    <li><a href="/tenant-screening-cost-calculator/">Screening cost calculator</a></li>
+    <li><a href="/turbotenant-no-criminal-records-available/">"No criminal records are available" on TurboTenant</a></li>
+    <li><a href="/">All Screening Atlas guides</a></li>
+  </ul>
+</Base>
