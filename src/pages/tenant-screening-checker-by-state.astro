@@ -1,0 +1,211 @@
+---
+import Base from '../layouts/Base.astro';
+import Src from '../components/Src.astro';
+import Aff from '../components/Aff.astro';
+import fees from '../data/fee-caps.json';
+import limited from '../data/smartmove-eviction-limited-counties.json';
+const updated = '2026-11-23';
+const title = 'Tenant Screening Checker by State: Fee Rules, Coverage and Which Report Fits';
+const description = 'Pick your state and get the application fee rule, whether a reusable report waives the fee, where TransUnion SmartMove can return criminal and eviction records, and which screening packages fit under the cap. Free, runs in your browser, every rule linked to its source.';
+const SM = 'https://smartmove.pxf.io/c/6593174/1515180/17713';
+const S = {
+  disc: 'https://www.mysmartmove.com/disclaimer',
+  pdf: 'https://www.mysmartmove.com/content/dam/smartmove/pdf/List-National-Eviction-Related-Proceedings-Report-20260812.pdf',
+  smPrice: 'https://www.mysmartmove.com/pricing',
+  ttHelpCost: 'https://support.turbotenant.com/en/articles/6362365-what-s-the-difference-between-a-rental-application-and-a-screening-report',
+  rrPrice: 'https://rentredi.com/pricing/',
+  rentec: 'https://www.rentecdirect.com/pricing-transparency',
+  rp: 'https://rentprep.com/guide/packages-pricing/',
+};
+const all = ['Alabama','Alaska','Arizona','Arkansas','California','Colorado','Connecticut','Delaware','District of Columbia','Florida','Georgia','Hawaii','Idaho','Illinois','Indiana','Iowa','Kansas','Kentucky','Louisiana','Maine','Maryland','Massachusetts','Michigan','Minnesota','Mississippi','Missouri','Montana','Nebraska','Nevada','New Hampshire','New Jersey','New Mexico','New York','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','South Carolina','South Dakota','Tennessee','Texas','Utah','Vermont','Virginia','Washington','West Virginia','Wisconsin','Wyoming'];
+// Same lists as /smartmove-criminal-eviction-coverage-by-state/ (SmartMove disclaimer).
+const criminal = ['Alaska','Arizona','Arkansas','Colorado','Connecticut','Florida','Georgia','Illinois','Indiana','Iowa','Kansas','Louisiana','Maryland','Minnesota','Missouri','Nebraska','New Jersey','New Mexico','North Carolina','North Dakota','Ohio','Oklahoma','Oregon','Pennsylvania','Rhode Island','Tennessee','Texas','Utah','Washington','Wisconsin'];
+const evNone = ['Kentucky','Louisiana','Maine','South Dakota','Wyoming'];
+const phased = { 'Maryland': 'Statewide', 'New Jersey': 'Statewide', 'Michigan': 'Ann Arbor, Detroit', 'California': 'Berkeley, Oakland', 'Illinois': 'Cook County', 'New York': 'New York City', 'District of Columbia': 'Washington, D.C.' };
+// Machine-readable reading of each reviewed cap (text and source come from fee-caps.json).
+// type: 'ban' = no applicant fee; 'dollar' = fixed ceiling; 'rent' = greater of % of rent or $; 'cost' = actual cost, no dollar figure.
+const capRule = {
+  CA: { type: 'dollar', max: 30, plus: 'adjusted annually for inflation since 1998, so the current ceiling is higher than $30' },
+  CO: { type: 'cost' },
+  CT: { type: 'dollar', max: 50, plus: 'plus an annual CPI adjustment', label: 'screening report fee' },
+  DE: { type: 'rent', pct: 0.10, min: 50 },
+  ME: { type: 'cost', label: 'actual cost of one screening only' },
+  MD: { type: 'cost', label: 'fees over $25 must be returned except what was actually spent' },
+  MA: { type: 'ban' },
+  MN: { type: 'none' },
+  NY: { type: 'dollar', max: 20, label: 'lesser of actual cost or $20' },
+  OR: { type: 'cost' },
+  RI: { type: 'cost', label: 'actual cost of the state criminal check and/or credit report only' },
+  VT: { type: 'ban' },
+  VA: { type: 'cost', label: '$50 plus actual third-party screening cost' },
+  WA: { type: 'cost' },
+  WI: { type: 'dollar', max: 25, label: 'credit report at actual cost up to $25' },
+};
+const reusable = {
+  CO: { rule: 'Landlords must accept a portable screening report (unless they take one application fee at a time and refund it in full), and may not charge a fee to use it.', recent: 'Landlord may require it within 30 days', href: 'https://law.justia.com/codes/colorado/title-38/tenants-and-landlords/article-12/part-9/section-38-12-904/' },
+  WA: { rule: 'Not required, but you must disclose whether you accept one. If you accept it, you cannot charge for your own report.', recent: 'Credit report within 30 days', href: 'https://app.leg.wa.gov/RCW/default.aspx?cite=59.18.257' },
+  CA: { rule: 'Not required. If you accept one, you cannot charge an access fee or a screening fee.', recent: 'Prepared within the previous 30 days', href: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1950.1' },
+  NY: { rule: 'The background and credit check fee must be waived if the applicant gives you a recent check.', recent: 'Conducted within the past 30 days', href: 'https://law.justia.com/codes/new-york/rpp/article-7/238-a/' },
+  RI: { rule: 'No fee for the state criminal background check or credit report if the applicant gives you a recent one.', recent: 'Issued within 90 days of the application', href: 'https://webserver.rilegislature.gov/Statutes/TITLE34/34-18/34-18-59.htm' },
+  WI: { rule: 'No credit report charge if the applicant gives you a recent credit report.', recent: 'Less than 30 days old', href: 'https://docs.legis.wisconsin.gov/statutes/statutes/704/085?view=section' },
+};
+// State-specific Screening Atlas guides.
+const guides = [
+  { href: '/oregon-tenant-screening-rules/', t: 'Oregon tenant screening rules', s: ['OR'] },
+  { href: '/phased-tenant-screening-jurisdictions/', t: 'Phased (two-step) screening rules', s: ['IL','DC','NY','NJ'] },
+  { href: '/written-tenant-screening-criteria-by-state/', t: 'Written screening criteria you must give applicants', s: ['OR','WA','MN','CA'] },
+  { href: '/eviction-records-official-court-portals/', t: 'Official eviction court portals and record limits', s: ['PA','WI','MN','MA','WA','MO','CA'] },
+  { href: '/prepaid-rent-limits-by-state/', t: 'Prepaid rent limits', s: ['CA','MA','NY','HI','OR'] },
+  { href: '/holding-deposits-and-admin-fees-by-state/', t: 'Holding deposits and admin fees', s: ['WA','OR','CA','MA','HI','NY'] },
+  { href: '/medical-debt-on-tenant-credit-reports/', t: 'Medical debt on tenant credit reports', s: ['NY','MN','CA'] },
+  { href: '/tenant-screening-without-ssn-itin/', t: 'Screening applicants without an SSN', s: ['OR','CA'] },
+  { href: '/adverse-action-notice-tenant-screening/', t: 'Adverse action notices after screening', s: ['WA','OR'] },
+];
+const codes = {Alabama:'AL',Alaska:'AK',Arizona:'AZ',Arkansas:'AR',California:'CA',Colorado:'CO',Connecticut:'CT',Delaware:'DE','District of Columbia':'DC',Florida:'FL',Georgia:'GA',Hawaii:'HI',Idaho:'ID',Illinois:'IL',Indiana:'IN',Iowa:'IA',Kansas:'KS',Kentucky:'KY',Louisiana:'LA',Maine:'ME',Maryland:'MD',Massachusetts:'MA',Michigan:'MI',Minnesota:'MN',Mississippi:'MS',Missouri:'MO',Montana:'MT',Nebraska:'NE',Nevada:'NV','New Hampshire':'NH','New Jersey':'NJ','New Mexico':'NM','New York':'NY','North Carolina':'NC','North Dakota':'ND',Ohio:'OH',Oklahoma:'OK',Oregon:'OR',Pennsylvania:'PA','Rhode Island':'RI','South Carolina':'SC','South Dakota':'SD',Tennessee:'TN',Texas:'TX',Utah:'UT',Vermont:'VT',Virginia:'VA',Washington:'WA','West Virginia':'WV',Wisconsin:'WI',Wyoming:'WY'};
+const D = {
+  all, codes, criminal, evNone, phased, limited, capRule, reusable, guides,
+  fees: Object.fromEntries(fees.reviewed.map(r => [r.code, { cap: r.cap, cite: r.cite, url: r.url, note: r.capUnverified || '' }])),
+  sm: SM,
+  pkgs: [
+    { n: 'SmartMove SmartCheck Basic', p: 25, who: 'either', sm: true, inc: 11, crim: true, ev: false, src: S.smPrice },
+    { n: 'SmartMove SmartCheck Plus', p: 42, who: 'either', sm: true, inc: 11, crim: true, ev: true, src: S.smPrice },
+    { n: 'SmartMove SmartCheck Premium', p: 49, who: 'either', sm: true, inc: 11, crim: true, ev: true, src: S.smPrice },
+    { n: 'TurboTenant (Essentials or Pro plan)', p: 45, who: 'either', inc: 0, src: S.ttHelpCost },
+    { n: 'TurboTenant (Free plan)', p: 55, who: 'either', inc: 0, src: S.ttHelpCost },
+    { n: 'RentRedi credit + criminal + eviction', p: 39.99, who: 'applicant', inc: 10, src: S.rrPrice },
+    { n: 'Rentec Direct Premium (Pro/PM plans)', p: 18, who: 'unknown', inc: null, src: S.rentec },
+    { n: 'Rentec Direct Premium (Starter plan)', p: 29.45, who: 'unknown', inc: null, src: S.rentec },
+    { n: 'RentPrep Credit Report Only', p: 29, who: 'either', inc: 10, src: S.rp },
+    { n: 'RentPrep Complete Screening Package', p: 49, who: 'either', inc: 10, src: S.rp },
+  ],
+};
+const schema = [
+  {"@context":"https://schema.org","@type":"WebApplication","name":"Tenant Screening Checker by State","url":"https://screeningatlas.com/tenant-screening-checker-by-state/","description":description,"applicationCategory":"BusinessApplication","operatingSystem":"Any (runs in the browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"isAccessibleForFree":true,"dateModified":updated,"publisher":{"@type":"Organization","name":"Screening Atlas"}},
+  {"@context":"https://schema.org","@type":"HowTo","name":"How to check tenant screening rules for your state","step":[
+    {"@type":"HowToStep","name":"Pick the rental's state","text":"Choose the state (and county, if asked) where the rental unit is."},
+    {"@type":"HowToStep","name":"Say who pays and what you need","text":"Choose whether you or the applicant pays, enter the monthly rent, and tick income verification if you want it."},
+    {"@type":"HowToStep","name":"Read the fee rule and coverage","text":"See the state's application fee rule with its statute, the reusable report rule, and where SmartMove can return criminal and eviction records."},
+    {"@type":"HowToStep","name":"Pick a package","text":"Compare packages by price, who can pay, and whether the price fits under the state's cap."}]},
+];
+---
+<Base title={title} description={description} updated={updated} schema={schema}>
+  <h1>Tenant screening checker by state</h1>
+  <p class="lede">Pick the state your rental is in. You'll get the application fee rule from the statute, whether an applicant's own recent report changes the fee, where TransUnion SmartMove says it can return criminal and eviction records, and which screening packages fit. It runs in your browser and sends nothing anywhere.</p>
+
+  <form id="ck" class="card" style="display:grid;gap:12px;max-width:640px" onsubmit="return false">
+    <label>State where the rental is<br/>
+      <select id="st" style="width:100%;padding:8px;font-size:16px"><option value="">Choose a state</option>{all.map(s => <option value={s}>{s}</option>)}</select>
+    </label>
+    <label id="cty-wrap" hidden>County (SmartMove limits eviction coverage in some counties of this state)<br/>
+      <select id="cty" style="width:100%;padding:8px;font-size:16px"></select>
+    </label>
+    <fieldset style="border:0;padding:0;margin:0"><legend>Who pays for screening?</legend>
+      <label><input type="radio" name="who" value="applicant" checked /> The applicant</label>&nbsp;&nbsp;
+      <label><input type="radio" name="who" value="landlord" /> I do</label>
+    </fieldset>
+    <label>Monthly rent ($, used for caps tied to rent)<br/><input id="rent" type="number" min="0" step="1" inputmode="numeric" placeholder="e.g. 1800" style="width:160px;padding:8px;font-size:16px" /></label>
+    <label><input type="checkbox" id="inc" /> I want income verification</label>
+    <label><input type="checkbox" id="crim" /> I need criminal records</label>
+  </form>
+  <div id="out" aria-live="polite"><p class="note">Choose a state to see its rules.</p></div>
+  <noscript><p class="warnbox">The checker needs JavaScript. The same information is on <a href="/application-fee-caps-by-state/">fee caps by state</a>, <a href="/reusable-tenant-screening-reports-by-state/">reusable reports by state</a> and <a href="/smartmove-criminal-eviction-coverage-by-state/">SmartMove coverage by state</a>.</p></noscript>
+
+  <h2>Where the answers come from</h2>
+  <ul>
+    <li>Fee rules: the statute quoted on our <a href="/application-fee-caps-by-state/">application fee caps by state</a> page ({fees.reviewed.length} states reviewed). For a state we haven't reviewed, the checker says so rather than guessing.</li>
+    <li>Reusable reports: <a href="/reusable-tenant-screening-reports-by-state/">reusable tenant screening reports by state</a>.</li>
+    <li>SmartMove coverage: TransUnion's own disclaimer and county list <Src href={S.disc} label="disclaimer" /> <Src href={S.pdf} label="county list" />, summarized on <a href="/smartmove-criminal-eviction-coverage-by-state/">SmartMove coverage by state</a>.</li>
+    <li>Package prices: each provider's pricing page, as on the <a href="/tenant-screening-cost-calculator/">cost calculator</a> <Src href={S.smPrice} label="SmartMove" /> <Src href={S.ttHelpCost} label="TurboTenant" /> <Src href={S.rrPrice} label="RentRedi" /> <Src href={S.rentec} label="Rentec" /> <Src href={S.rp} label="RentPrep" />.</li>
+  </ul>
+  <p>Cities and counties can add their own rules on top of state law. This checker covers state law and provider disclosures only.</p>
+
+  <h2>Related tools and guides</h2>
+  <ul>
+    <li><a href="/tenant-screening-cost-calculator/">Tenant screening cost calculator</a>: landlord pays vs. applicant pays, per vacancy and per year.</li>
+    <li><a href="/tenant-screening-report-comparison/">What each screening report includes</a></li>
+    <li><Aff id="smartmove" href={SM} text="TransUnion SmartMove" /></li>
+  </ul>
+  <p class="meta">The SmartMove link is an affiliate link; other providers are ordinary links. See our <a href="/affiliate-disclosure/">affiliate disclosure</a>.</p>
+
+  <script type="application/json" id="ck-data" set:html={JSON.stringify(D)} />
+  <script is:inline>
+  (function(){
+    var D=JSON.parse(document.getElementById('ck-data').textContent);
+    var $=function(i){return document.getElementById(i)};
+    function esc(s){return String(s).replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+    function money(v){return '$'+(Math.round(v*100)/100).toFixed(2).replace(/\.00$/,'')}
+    function src(h,l){return ' <a class="src" href="'+esc(h)+'" target="_blank" rel="noopener">['+esc(l||'source')+']</a>'}
+    function smLink(t){return '<a href="'+D.sm+'" data-affiliate="smartmove" rel="sponsored nofollow noopener" target="_blank">'+esc(t)+'</a><span class="aff-tag" title="Affiliate link: we may earn a commission">affiliate link</span>'}
+    function stateFromHash(){var h=decodeURIComponent(location.hash.slice(1)).toLowerCase();if(!h)return '';for(var i=0;i<D.all.length;i++){var s=D.all[i];if(s.toLowerCase().replace(/ /g,'-')===h||D.codes[s].toLowerCase()===h)return s;}return ''}
+    function capFor(code,rent){
+      var r=D.capRule[code]; if(!r) return null;
+      if(r.type==='ban') return {max:0,text:'No applicant-paid application fee'};
+      if(r.type==='dollar') return {max:r.max,text:money(r.max)+(r.label?' ('+r.label+')':'')+(r.plus?', '+r.plus:''),soft:!!r.plus};
+      if(r.type==='rent'){ if(!(rent>0)) return {max:r.min,text:'The greater of '+(r.pct*100)+'% of monthly rent or '+money(r.min)+'. Enter the rent to get the exact figure; '+money(r.min)+' is the floor.'}; var m=Math.max(rent*r.pct,r.min); return {max:m,text:money(m)+' (the greater of '+(r.pct*100)+'% of '+money(rent)+' rent or '+money(r.min)+')'}; }
+      if(r.type==='cost') return {max:null,text:'Actual cost'+(r.label?' ('+r.label+')':'')+', with no fixed dollar ceiling'};
+      return {max:null,text:'No dollar cap in the statute we reviewed'};
+    }
+    function run(){
+      var st=$('st').value; var out=$('out');
+      var cw=$('cty-wrap'), cs=$('cty');
+      if(!st){cw.hidden=true;out.innerHTML='<p class="note">Choose a state to see its rules.</p>';return;}
+      var code=D.codes[st]; var lim=D.limited[st];
+      if(lim){ if(cs.getAttribute('data-st')!==st){cs.innerHTML='<option value="">Not sure / another county</option>'+lim.map(function(c){return '<option>'+esc(c)+'</option>'}).join('');cs.setAttribute('data-st',st);} cw.hidden=false; } else {cw.hidden=true;}
+      var who=document.querySelector('input[name=who]:checked').value;
+      var rent=parseFloat($('rent').value||'0'); var wantInc=$('inc').checked; var wantCrim=$('crim').checked;
+      if(history.replaceState) history.replaceState(null,'','#'+st.toLowerCase().replace(/ /g,'-'));
+      var f=D.fees[code]; var cap=capFor(code,rent); var h='';
+      h+='<h2 style="margin-top:1.2rem">'+esc(st)+'</h2>';
+      // 1. fee rule
+      h+='<div class="card" style="margin:12px 0"><h3>Application fee rule</h3>';
+      if(f){ h+='<p>'+esc(f.cap)+src(f.url,f.cite)+'</p>'; if(f.note) h+='<p class="meta">'+esc(f.note)+'</p>'; h+='<p class="meta">Ceiling used below: '+esc(cap.text)+'.</p>'; }
+      else { h+='<p>We haven\'t reviewed '+esc(st)+'\'s statute yet, so there\'s no rule to show here. That doesn\'t mean the state has no limit. Check the state code or a local attorney before charging an applicant.</p>'; }
+      h+='<p class="meta"><a href="/application-fee-caps-by-state/'+(f?'#'+code.toLowerCase()+'-details':'')+'">All fee caps by state →</a></p></div>';
+      // 2. reusable
+      var ru=D.reusable[code];
+      h+='<div class="card" style="margin:12px 0"><h3>Applicant brings their own report</h3>';
+      h+= ru ? '<p>'+esc(ru.rule)+src(ru.href,'statute')+'</p><p class="meta">How recent: '+esc(ru.recent)+'.</p>' : '<p>No reusable-report rule on our list for '+esc(st)+'. Our list covers CO, WA, CA, NY, RI and WI.</p>';
+      h+='<p class="meta"><a href="/reusable-tenant-screening-reports-by-state/">Reusable reports by state →</a></p></div>';
+      // 3. coverage
+      var crimYes=D.criminal.indexOf(st)>=0; var evTxt;
+      if(D.evNone.indexOf(st)>=0) evTxt='<strong>Not available</strong> in '+esc(st)+'.';
+      else if(lim){ var cty=cs.value; evTxt = cty ? '<strong>Limited</strong> in '+esc(cty)+' County, per SmartMove\'s county list. Check the court record yourself.' : '<strong>Limited</strong> in '+lim.length+' '+esc(st)+' count'+(lim.length===1?'y':'ies')+'; available elsewhere in the state. Pick your county above to check.'; }
+      else evTxt='Not listed as limited or unavailable in '+esc(st)+'.';
+      h+='<div class="card" style="margin:12px 0"><h3>What SmartMove can return here</h3><ul>';
+      h+='<li>Criminal records: '+(crimYes?'<strong>Yes</strong>, '+esc(st)+' is on SmartMove\'s list of states where criminal records can be returned.':'<strong>No</strong>, '+esc(st)+' is not on SmartMove\'s list of states where criminal records can be returned.')+src('https://www.mysmartmove.com/disclaimer','SmartMove disclaimer')+'</li>';
+      h+='<li>Eviction records: '+evTxt+src('https://www.mysmartmove.com/disclaimer','SmartMove disclaimer')+'</li>';
+      if(D.phased[st]) h+='<li>Phased screening: SmartMove says you must order the criminal report only after the applicant meets your other criteria in '+esc(D.phased[st])+'. <a href="/phased-tenant-screening-jurisdictions/">How phased screening works</a></li>';
+      h+='</ul>';
+      if(wantCrim&&!crimYes) h+='<p class="warnbox" style="margin:8px 0">You asked for criminal records, and SmartMove says it can\'t return them in '+esc(st)+'. Other providers\' coverage disclosures are on the <a href="/tenant-screening-report-comparison/">report comparison</a>; court records are on <a href="/eviction-records-official-court-portals/">official court portals</a>.</p>';
+      h+='<p class="meta"><a href="/smartmove-criminal-eviction-coverage-by-state/">SmartMove coverage, all states →</a></p></div>';
+      // 4. packages
+      var rows=D.pkgs.map(function(p){
+        var price=p.p; var incNote='';
+        if(wantInc){ if(p.inc===null){incNote='Income add-on not listed';} else if(p.inc===0){incNote='Income verification is a plan feature';} else {price+=p.inc;incNote='Includes '+money(p.inc)+' income add-on';} }
+        var payOk = who==='applicant' ? (p.who==='either'||p.who==='applicant') : (p.who==='either'||p.who==='landlord');
+        var payTxt = p.who==='unknown' ? '–' : (p.who==='either'?'Landlord or applicant':(p.who==='applicant'?'Applicant only':'Landlord only'));
+        var fit='–';
+        if(who==='landlord') fit='Not limited (you pay)';
+        else if(cap&&cap.max===0) fit='No: applicant fees not allowed';
+        else if(cap&&cap.max!==null) fit = price<=cap.max+1e-9 ? 'Yes' : 'No: '+money(price-cap.max)+' over'+(cap.soft?' the base figure':'');
+        else if(cap) fit='Depends on actual cost';
+        var crimNote=''; if(p.sm&&wantCrim){ if(!p.crim) crimNote=' (no criminal report in this package)'; else if(!crimYes) crimNote=' (criminal records not returned in '+st+')'; }
+        var name = p.sm ? smLink(p.n) : '<a href="'+esc(p.src)+'" target="_blank" rel="noopener">'+esc(p.n)+'</a>';
+        var good = payOk && (fit==='Yes'||fit==='–'||fit.indexOf('Not limited')===0||fit==='Depends on actual cost') && !(p.sm&&wantCrim&&(!p.crim||!crimYes));
+        return {good:good,price:price,html:'<tr'+(good?'':' style="color:#77808a"')+'><td>'+name+crimNote+'</td><td>'+money(price)+(incNote?'<br/><span class="meta">'+esc(incNote)+'</span>':'')+'</td><td>'+payTxt+'</td><td>'+esc(fit)+'</td></tr>'};
+      }).sort(function(a,b){return (b.good-a.good)||(a.price-b.price)});
+      var nGood=rows.filter(function(r){return r.good}).length;
+      h+='<div class="card" style="margin:12px 0"><h3>Packages that fit</h3><p>'+(nGood?nGood+' of '+rows.length+' packages fit what you picked; they are listed first, cheapest first.':'None of the packages we track fit everything you picked. The closest are listed below.')+'</p>';
+      h+='<div class="tablewrap"><table><thead><tr><th>Package</th><th>Price per applicant</th><th>Who can pay</th><th>Under the cap if applicant pays?</th></tr></thead><tbody>'+rows.map(function(r){return r.html}).join('')+'</tbody></table></div>';
+      h+='<p class="meta">Prices are per applicant before any sales tax. "–" means the provider\'s pricing page doesn\'t say. <a href="/tenant-screening-cost-calculator/">Work out per-vacancy and yearly cost →</a></p></div>';
+      // 5. guides
+      var g=D.guides.filter(function(x){return x.s.indexOf(code)>=0});
+      if(g.length) h+='<div class="card" style="margin:12px 0"><h3>More on '+esc(st)+'</h3><ul>'+g.map(function(x){return '<li><a href="'+x.href+'">'+esc(x.t)+'</a></li>'}).join('')+'</ul></div>';
+      out.innerHTML=h;
+    }
+    ['st','cty','rent','inc','crim'].forEach(function(i){$(i).addEventListener('input',run);$(i).addEventListener('change',run);});
+    Array.prototype.forEach.call(document.querySelectorAll('input[name=who]'),function(r){r.addEventListener('change',run)});
+    var s0=stateFromHash(); if(s0){$('st').value=s0;} run();
+  })();
+  </script>
+</Base>
