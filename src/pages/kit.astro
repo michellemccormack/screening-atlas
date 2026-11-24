@@ -1,0 +1,96 @@
+---
+import Base from '../layouts/Base.astro';
+// Set PRICE (e.g. '$29') and CHECKOUT_URL when the kit goes on sale; until then the page shows the coming-soon notice.
+const PRICE = null;
+const CHECKOUT_URL = null;
+const title = 'Landlord Tenant Screening Kit: Criteria, Application and Adverse Action Templates';
+const description = 'A 16-page kit for small landlords: written screening criteria, rental application, consumer report authorization, FCRA adverse action notice templates, and a state cheat sheet on fee caps, criteria rules and criminal-history limits. PDF plus editable Word and Excel files.';
+const updated = '2026-11-23';
+const schema = {"@context":"https://schema.org","@type":"Product","name":'Landlord Tenant Screening Kit',"description":description,"brand":{"@type":"Brand","name":'Screening Atlas'},"image":'https://screeningatlas.com/kit/kit-hero.svg'};
+---
+<Base title={title} description={description} updated={updated} schema={schema}>
+<style>
+  .kit-hero{margin:1.2rem 0 1rem;border-radius:10px;overflow:hidden;border:1px solid var(--line);background:#fff}
+  .kit-hero img{display:block;width:100%;height:auto}
+  .kit-cta{display:flex;flex-wrap:wrap;gap:.8rem 1.2rem;align-items:center;border:1px solid var(--line);border-left:4px solid var(--brand);background:#fff;border-radius:8px;padding:1rem 1.2rem;margin:1rem 0 1.6rem}
+  .kit-cta .soon{font-weight:700;color:var(--brand);text-transform:uppercase;letter-spacing:.06em;font-size:.85rem}
+  .kit-btn{display:inline-block;background:var(--brand);color:#fff!important;text-decoration:none;font-weight:600;padding:.6rem 1.1rem;border-radius:6px}
+  .kit-btn:hover{opacity:.92}
+  .kit-cta .fine{flex:1 0 100%;margin:0;font-size:14px;color:var(--muted)}
+  .kit-list{display:grid;grid-template-columns:1fr 1fr;gap:.5rem 1.4rem;padding-left:1.1rem}
+  .kit-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:1rem 0}
+  .kit-gallery figure{margin:0}
+  .kit-gallery img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:4px;box-shadow:0 2px 10px rgba(0,0,0,.08);background:#fff}
+  .kit-gallery figcaption{font-size:13px;color:var(--muted);margin-top:.35rem}
+  .kit-formats{display:flex;flex-wrap:wrap;gap:.5rem;margin:.6rem 0 0;padding:0;list-style:none}
+  .kit-formats li{border:1px solid var(--line);border-radius:999px;padding:.15rem .7rem;font-size:14px;background:#fff}
+  @media (max-width:640px){.kit-list{grid-template-columns:1fr}.kit-gallery{grid-template-columns:1fr 1fr}}
+</style>
+  <h1>Landlord Tenant Screening Kit</h1>
+  <p class="lede">Everything a small landlord needs to screen applicants the same way every time, and to send the notice federal law requires when a screening report affects your decision. Fill-in templates, a step-by-step checklist, and the state rules that trip people up, each tied to the statute it comes from.</p>
+  <div class="kit-hero"><img src="/kit/kit-hero.svg" alt="The Landlord Tenant Screening Kit cover with sample pages: screening checklist, adverse action notice and state fee-limit cheat sheet" width="1200" height="750" /></div>
+  <div class="kit-cta">
+    {CHECKOUT_URL ? (
+      <>
+        <a class="kit-btn" href={CHECKOUT_URL} rel="noopener">Get the kit · {PRICE}</a>
+        <p class="fine">Instant download. 16-page PDF, 5 editable Word templates and an Excel decision log.</p>
+      </>
+    ) : (
+      <>
+        <span class="soon">Coming soon</span>
+        <a class="kit-btn" href="mailto:ds59tmmv@mail.grokbot.com?subject=Notify%20me%3A%20Landlord%20Tenant%20Screening%20Kit">Get notified when it launches</a>
+        <p class="fine">We'll send one email when the kit is available. 16-page PDF, 5 editable Word templates and an Excel decision log.</p>
+      </>
+    )}
+  </div>
+
+  <h2>What's inside</h2>
+  <ul class="kit-list">
+      <li>Screening checklist, listing to lease</li>
+      <li>Written screening criteria template</li>
+      <li>Two-page rental application</li>
+      <li>Authorization to obtain consumer reports</li>
+      <li>Adverse action notice: application denied</li>
+      <li>Adverse action notice: approved with conditions</li>
+      <li>Credit score disclosure guide</li>
+      <li>State fee-cap cheat sheet (15 states)</li>
+      <li>Written-criteria and denial-notice rules (OR, WA, MN, CA)</li>
+      <li>Criminal-history timing rules (Cook County, D.C., NYC, NJ)</li>
+      <li>Fair housing, record keeping and disposal</li>
+      <li>Applicant decision log</li>
+  </ul>
+  <ul class="kit-formats">
+    <li>16-page PDF</li>
+    <li>5 editable Word templates</li>
+    <li>Excel decision log</li>
+  </ul>
+
+  <h2>A look inside</h2>
+  <div class="kit-gallery">
+    <figure><img src="/kit/kit-preview-1.svg" alt="Screening checklist" width="620" height="803" loading="lazy" /><figcaption>Screening checklist</figcaption></figure>
+    <figure><img src="/kit/kit-preview-2.svg" alt="Adverse action notice template" width="620" height="803" loading="lazy" /><figcaption>Adverse action notice template</figcaption></figure>
+    <figure><img src="/kit/kit-preview-3.svg" alt="State fee-limit cheat sheet" width="620" height="803" loading="lazy" /><figcaption>State fee-limit cheat sheet</figcaption></figure>
+  </div>
+
+  <h2>Who it's for</h2>
+  <ul>
+    <li>Independent landlords with one to a few dozen units</li>
+    <li>Property managers who want one consistent screening file per applicant</li>
+    <li>Landlords who use SmartMove, TurboTenant, RentRedi or another screening service and need the paperwork around it</li>
+  </ul>
+
+  <h2>How it's sourced</h2>
+  <p>Every legal statement in the kit carries a numbered citation to the source: the Fair Credit Reporting Act (15 U.S.C. §§ 1681a, 1681b, 1681g, 1681j and 1681m), the Fair Housing Act, the FTC Disposal Rule, CFPB guidance, and each state or local law named. State laws were checked November 18–23, 2026, the same research behind the guides on this site.</p>
+
+  <h2>Questions</h2>
+  <h3>Is this legal advice?</h3>
+  <p>No. It is general information and templates based on the cited laws. Cities and counties can add stricter rules, so check your local law, and consider a licensed attorney in your state before relying on any template.</p>
+  <h3>Does it cover my state?</h3>
+  <p>The federal rules (adverse action notices, permissible purpose, fair housing, disposal) apply in every state. The state cheat sheets cover the states and cities named above; if yours isn't listed, the kit shows you what to look for in your own law.</p>
+  <h3>Can I edit the templates?</h3>
+  <p>Yes. The criteria sheet, application, authorization and both adverse action notices come as Word files, and the decision log as an Excel file.</p>
+  <h3>Do I still need a screening service?</h3>
+  <p>Yes. The kit is the paperwork around a screening report, not the report itself. See our <a href="/tenant-screening-report-comparison/">screening report comparison</a> to choose one.</p>
+
+  <p class="meta">General information, not legal advice. Screening Atlas is not a consumer reporting agency and is not affiliated with any government agency.</p>
+</Base>
