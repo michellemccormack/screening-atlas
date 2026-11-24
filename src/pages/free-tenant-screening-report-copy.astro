@@ -1,0 +1,77 @@
+---
+import Base from '../layouts/Base.astro';
+import Src from '../components/Src.astro';
+import Aff from '../components/Aff.astro';
+const S = {
+  j: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title15/html/USCODE-2023-title15-chap41-subchapIII-sec1681j.htm',
+  a: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title15/html/USCODE-2023-title15-chap41-subchapIII-sec1681a.htm',
+  cfpb: 'https://files.consumerfinance.gov/f/documents/cfpb%5Fconsumer-reporting-companies%5Flist%5F2025.pdf',
+  cfpbCsv: 'https://files.consumerfinance.gov/f/documents/cfpb-consumer-reporting-companies_list_2025.csv',
+  sm: 'https://www.mysmartmove.com/transunion-smartmove-frequently-asked-questions/tenant-frequently-asked-questions',
+  safe: 'https://saferentsolutions.com/consumer-support/',
+  rp: 'https://www.realpage.com/support/consumer/',
+  cic: 'https://www.cicreports.com/consumer-assistance/',
+  exp: 'https://www.experian.com/rental-property-solutions/rentbureau',
+  ca: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1950.6',
+};
+const updated = '2026-11-24';
+const title = 'How to Get a Free Copy of Your Tenant Screening Report Before You Apply';
+const description = 'Renters can ask tenant screening companies for their own file. The federal free-report rules, the CFPB list of tenant screening companies with their contact pages, and what SmartMove, SafeRent, RealPage, CIC and Experian RentBureau say about requesting a copy.';
+const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":updated};
+---
+<Base title={title} description={description} updated={updated} schema={schema}>
+  <h1>{title}</h1>
+  <p class="lede">Most renters know they can pull their credit reports. Fewer know that the companies landlords use for tenant screening keep their own files, with eviction cases, rent payment history and criminal records, and that you can ask to see them. Checking before you apply gives you time to dispute an error instead of finding it in a denial letter. This page is for applicants, and for landlords who want to point a rejected applicant to the right place.</p>
+
+  <div class="note"><strong>The short version.</strong> A company that keeps files nationwide on "residential or tenant history" is a <strong>nationwide specialty consumer reporting agency</strong> <Src href={S.a} label="15 U.S.C. 1681a" />, and must give you your file disclosure free once in any 12-month period when you ask <Src href={S.j} label="1681j(a)(1)" />. Separately, any reporting company that has a file on you must give you a free disclosure if you ask within 60 days after an adverse action notice <Src href={S.j} label="1681j(b)" />. The CFPB lists 10 tenant screening companies with how to reach each one; all 10 are marked as offering a free report <Src href={S.cfpbCsv} label="CFPB list, Jan 2025" />.</div>
+
+  <h2>When is a tenant screening report free?</h2>
+  <ul>
+    <li><strong>Once every 12 months, on request,</strong> from each nationwide specialty consumer reporting agency. The statute applies the free annual disclosure to agencies that compile files nationwide on "residential or tenant history," among other categories <Src href={S.a} label="1681a" /> <Src href={S.j} label="1681j(a)(1)(A), (C)" />.</li>
+    <li><strong>Within 60 days after an adverse action notice.</strong> If a landlord denied you, or approved you on worse terms, because of a report, the reporting company that has your file must give you the disclosure free if you request it within 60 days of getting the notice <Src href={S.j} label="1681j(b)" />. The notice has to name the company (see our <a href="/adverse-action-notice-tenant-screening/">adverse action notice</a> page).</li>
+    <li><strong>Other cases:</strong> once in 12 months if you certify in writing that you're unemployed and plan to look for work within 60 days, receive public welfare assistance, or believe your file is inaccurate because of fraud <Src href={S.j} label="1681j(c)" />.</li>
+  </ul>
+  <p>In California, if you paid a landlord a screening fee, the landlord must also give you a copy of the consumer credit report within seven days of receiving it <Src href={S.ca} label="Civ. Code 1950.6(f)" />.</p>
+
+  <h2>Which tenant screening companies should you ask?</h2>
+  <p>The CFPB's list of consumer reporting companies has a tenant screening section. It says the list "incorporates information from the companies' own self-descriptions that has not been independently verified by the Bureau" and isn't all-inclusive <Src href={S.cfpb} label="CFPB" />. Contact details below are as the CFPB lists them.</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Company</th><th>Where to request</th><th>Phone (CFPB list)</th><th>Free report (CFPB list)</th></tr></thead>
+    <tbody>
+      <tr><td>AmRent</td><td><a href="https://www.amrent.com/consumer_assistance" target="_blank" rel="noopener">amrent.com consumer assistance</a></td><td>888-898-6196</td><td>Yes</td></tr>
+      <tr><td>AppFolio, Inc.</td><td><a href="https://www.appfolio.com/consumer" target="_blank" rel="noopener">appfolio.com/consumer</a></td><td>866-359-3630</td><td>Yes</td></tr>
+      <tr><td>Contemporary Information Corp. (CIC)</td><td><a href={S.cic} target="_blank" rel="noopener">cicreports.com consumer assistance</a></td><td>888-316-4242</td><td>Yes</td></tr>
+      <tr><td>Experian RentBureau</td><td><a href={S.exp} target="_blank" rel="noopener">experian.com RentBureau</a></td><td>877-704-4519</td><td>Yes</td></tr>
+      <tr><td>First Advantage Resident Solutions</td><td><a href="https://fadv.com/industries/residential-tenant-background-checks/" target="_blank" rel="noopener">fadv.com</a></td><td>800-845-6004</td><td>Yes</td></tr>
+      <tr><td>RealPage (LeasingDesk)</td><td><a href={S.rp} target="_blank" rel="noopener">realpage.com consumer support</a></td><td>866-934-1124</td><td>Yes</td></tr>
+      <tr><td>RentGrow, Inc.</td><td><a href="https://www.rentgrow.com/learn-now/" target="_blank" rel="noopener">rentgrow.com</a></td><td>800-898-1351</td><td>Yes</td></tr>
+      <tr><td>SafeRent Solutions</td><td><a href={S.safe} target="_blank" rel="noopener">saferentsolutions.com consumer support</a></td><td>888-333-2413</td><td>Yes</td></tr>
+      <tr><td>Screening Reports, Inc.</td><td><a href="https://screeningreports.com/en/contact-page/" target="_blank" rel="noopener">screeningreports.com</a></td><td>954-526-6110</td><td>Yes</td></tr>
+      <tr><td>TransUnion Rental Screening Solutions (SmartMove)</td><td><a href={S.sm} target="_blank" rel="noopener">SmartMove tenant FAQs</a></td><td>800-230-9376 (Option 4)</td><td>Yes</td></tr>
+    </tbody>
+  </table></div>
+  <p class="meta">Source for the table: <a href={S.cfpbCsv} target="_blank" rel="noopener">CFPB consumer reporting companies list (CSV, current as of January 2025)</a>.</p>
+
+  <h2>What do the companies' own pages say about getting a copy?</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Company</th><th>What its consumer page says</th></tr></thead>
+    <tbody>
+      <tr><td><Aff id="smartmove" href="https://smartmove.pxf.io/c/6593174/1515180/17713" text="TransUnion SmartMove" /></td><td>For a copy of your criminal or eviction report, call customer service at 1-866-775-0961 to verify your identity; your TransUnion credit report is requested separately. After you approve screening, the property owner has access to your credit and criminal information for 30 days <Src href={S.sm} label="SmartMove" /></td></tr>
+      <tr><td>SafeRent Solutions</td><td>Offers a Consumer File or a Consumer Report Copy, sent within three business days of receiving your request; request forms, dispute forms and file freeze forms are on its consumer support page <Src href={S.safe} label="SafeRent" /></td></tr>
+      <tr><td>RealPage (LeasingDesk)</td><td>"Upon request and with proper identification, LeasingDesk will provide individuals with a copy of information about themselves contained in the consumer reports prepared by LeasingDesk." Consumer Relations: 1-866-934-1124 <Src href={S.rp} label="RealPage" /></td></tr>
+      <tr><td>CIC</td><td>Its consumer assistance page has separate options for a free annual report ("I want to see My Housing Court Records"), a copy after a denial, a dispute, and an expunged eviction; mailed or faxed requests need ID documents <Src href={S.cic} label="CIC" /></td></tr>
+      <tr><td>Experian RentBureau</td><td>Consumers can request a copy of their rental history report or file a dispute online or by calling 1-877-704-4519 <Src href={S.exp} label="Experian" /></td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>What should you do if the report is wrong?</h2>
+  <p>SafeRent, RealPage, CIC and Experian RentBureau each list a dispute option on their consumer pages <Src href={S.safe} label="SafeRent" /> <Src href={S.rp} label="RealPage" /> <Src href={S.cic} label="CIC" /> <Src href={S.exp} label="Experian" />. If an old eviction case shows up, check the court record yourself first; some states seal or limit eviction records (see <a href="/eviction-records-official-court-portals/">eviction records and court portals</a>). Medical debt rules are on our <a href="/medical-debt-on-tenant-credit-reports/">medical debt</a> page.</p>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/reusable-tenant-screening-reports-by-state/">Reusable screening reports by state</a>: where a landlord must accept a report you already have.</li>
+    <li><a href="/tenant-screening-report-comparison/">What each screening report includes</a></li>
+    <li><a href="/smartmove-criminal-eviction-coverage-by-state/">SmartMove coverage by state</a></li>
+    <li><a href="/">All Screening Atlas guides</a></li>
+  </ul>
+</Base>

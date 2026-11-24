@@ -1,0 +1,78 @@
+---
+import Base from '../layouts/Base.astro';
+import Src from '../components/Src.astro';
+const S = {
+  fha: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title42/html/USCODE-2023-title42-chap45-subchapI-sec3604.htm',
+  wa: 'https://app.leg.wa.gov/RCW/default.aspx?cite=59.18.255',
+  or: 'https://www.oregonlegislature.gov/bills_laws/ors/ors659A.html',
+  ca: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=GOV&sectionNum=12955',
+  ma: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXXI/Chapter151B/Section4',
+  mn: 'https://www.revisor.mn.gov/statutes/cite/363A.09',
+  mnDef: 'https://www.revisor.mn.gov/statutes/cite/363A.03',
+};
+const updated = '2026-11-24';
+const title = 'Section 8 and Source-of-Income Rules by State: Vouchers, Income Minimums and Credit Checks';
+const description = 'Can you refuse a housing voucher, and how does a "3x the rent" income rule apply to a voucher holder? What the statutes say in Washington, Oregon, California, Massachusetts and Minnesota, quoted and linked.';
+const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":updated};
+---
+<Base title={title} description={description} updated={updated} schema={schema}>
+  <h1>{title}</h1>
+  <p class="lede">The federal Fair Housing Act doesn't list source of income as a protected class: it bars discrimination "because of race, color, religion, sex, familial status, or national origin" <Src href={S.fha} label="42 U.S.C. 3604(a)" /> (disability is covered in a separate subsection). Whether you can turn down a Section 8 voucher therefore depends on state and local law. Some states go further and tell you how to run an income test or a credit check for a voucher holder. Here are five, from the statutes.</p>
+
+  <div class="note"><strong>The short version.</strong> In all five states below, refusing an applicant because they pay with a housing voucher or subsidy is barred. <strong>Washington</strong> makes you subtract the voucher from the rent before applying an income minimum <Src href={S.wa} label="RCW 59.18.255(3)" />. <strong>California</strong> requires an income standard based on the tenant's share of the rent, and lets a voucher holder offer other proof of ability to pay instead of credit history <Src href={S.ca} label="Gov. Code 12955(o)" />. <strong>Oregon</strong> allows a refusal for inability to pay only "taking into account the value of" the applicant's housing assistance <Src href={S.or} label="ORS 659A.421(2)(a)(B)" />.</div>
+
+  <h2>Which states bar refusing a housing voucher?</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>State</th><th>What is protected</th><th>Income test or credit rule for voucher holders</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Washington</td>
+        <td>"Source of income" includes "housing assistance, public assistance, emergency rental assistance, veterans benefits, social security, supplemental security income or other retirement programs" and other programs run by government or nonprofit entities <Src href={S.wa} label="RCW 59.18.255(5)" /></td>
+        <td>If you require a threshold income, "any source of income in the form of a rent voucher or subsidy must be subtracted from the total of the monthly rent prior to calculating if the income criteria have been met" <Src href={S.wa} label="59.18.255(3)" /></td>
+      </tr>
+      <tr>
+        <td>Oregon</td>
+        <td>"Source of income includes federal rent subsidy payments under 42 U.S.C. 1437f and any other local, state or federal housing assistance" <Src href={S.or} label="ORS 659A.421(1)(d)" /></td>
+        <td>A refusal "based upon the prospective renter's or prospective lessee's inability to pay rent" must take "into account the value of" their local, state and federal housing assistance <Src href={S.or} label="659A.421(2)(a)(B)" /></td>
+      </tr>
+      <tr>
+        <td>California</td>
+        <td>"Source of income" means lawful, verifiable income, including public assistance and housing subsidies, "including, but not limited to, federal housing assistance vouchers issued under Section 8"; it also covers HUD-VASH vouchers <Src href={S.ca} label="Gov. Code 12955(p)(1)" /></td>
+        <td>Where there is a government rent subsidy, an income standard must be "based on the portion of the rent to be paid by the tenant," and before using credit history you must offer the applicant the option of "lawful, verifiable alternative evidence" of ability to pay, such as benefit payments, pay records and bank statements <Src href={S.ca} label="12955(o)(1)" /></td>
+      </tr>
+      <tr>
+        <td>Massachusetts</td>
+        <td>Unlawful to discriminate against a recipient of public assistance or "a tenant receiving federal, state, or local housing subsidies, including rental assistance or rental supplements," because of that status "or because of any requirement of such public assistance, rental assistance, or housing subsidy program" <Src href={S.ma} label="G.L. c. 151B, s. 4(10)" /></td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Minnesota</td>
+        <td>"Status with regard to public assistance" is a protected status in rentals <Src href={S.mn} label="Minn. Stat. 363A.09 subd. 1" />. It includes "being a tenant receiving federal, state, or local subsidies, including rental assistance or rent supplements" <Src href={S.mnDef} label="363A.03 subd. 47" /></td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table></div>
+  <p>A dash means the statute section we reviewed doesn't set a specific income-test or credit-check rule for voucher holders. The general ban on discriminating against them still applies <Src href={S.ma} label="MA" />, and Minnesota's also covers the "terms, conditions or privileges" of a rental <Src href={S.mn} label="MN subd. 1(2)" />.</p>
+
+  <h2>How do you apply a "3x the rent" rule to a voucher holder?</h2>
+  <p>In Washington, subtract the voucher first. Example: rent is $2,000 and the voucher pays $1,400, so a "3x the rent" rule is measured against the $600 the tenant pays <Src href={S.wa} label="RCW 59.18.255(3)" />. California reaches the same place by requiring the income standard to be "based on the portion of the rent to be paid by the tenant" <Src href={S.ca} label="Gov. Code 12955(o)(1)(A)" />. California also requires any income standard to count the combined income of people who will live together the same way it would for a married couple <Src href={S.ca} label="12955(n)" />.</p>
+
+  <h2>Can you still run a credit check on a voucher holder?</h2>
+  <p>In California, yes, but only if you first offer the applicant the choice to give you other verifiable evidence that they can pay their share. If they choose that route, you must give them "reasonable time to respond" and "reasonably consider" that evidence in place of their credit history <Src href={S.ca} label="Gov. Code 12955(o)(1)(B)" />. The same subdivision says it doesn't limit your ability to verify employment, "request landlord references," or verify identity <Src href={S.ca} label="12955(o)(2)" />. Asking about the level or source of income is not, by itself, discrimination under California's definition <Src href={S.ca} label="12955(p)(2)" />.</p>
+
+  <h2>Can your ad say "no Section 8"?</h2>
+  <p>Not in these states. Washington bars any ad or notice "that indicates a preference, limitation, or requirement based on any source of income" <Src href={S.wa} label="RCW 59.18.255(2)" />; Oregon and California have similar advertising bans <Src href={S.or} label="ORS 659A.421(2)(e)" /> <Src href={S.ca} label="Gov. Code 12955(c)" />. Minnesota's ban covers ads and "any form of application" that indicates discrimination based on a protected status <Src href={S.mn} label="363A.09 subd. 1(3)" />.</p>
+
+  <h2>Are there exceptions?</h2>
+  <p>Washington lets a landlord refuse a voucher whose payments depend on the unit passing inspection, but only if the written repair estimate to pass is over $1,500 and the landlord hasn't received money from the state's landlord mitigation program to make the repairs <Src href={S.wa} label="RCW 59.18.255(1)(a)" />. A Washington violation can cost up to four and a half times the monthly rent, plus court costs and attorneys' fees <Src href={S.wa} label="59.18.255(4)" />. Oregon's definition excludes income "derived from a specific occupation or income derived in an illegal manner" <Src href={S.or} label="ORS 659A.421(1)(d)(B)" />.</p>
+  <p>Cities and counties can add their own rules on top of these. We haven't reviewed local ordinances on this page.</p>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/written-tenant-screening-criteria-by-state/">Written screening criteria by state</a>: put your income rule in writing.</li>
+    <li><a href="/screening-guarantors-and-co-signers/">Screening guarantors and co-signers</a></li>
+    <li><a href="/bank-linked-income-verification-what-landlords-see/">Bank-linked income verification</a></li>
+    <li><a href="/oregon-tenant-screening-rules/">Oregon tenant screening rules</a></li>
+    <li><a href="/">All Screening Atlas guides</a></li>
+  </ul>
+</Base>

@@ -1,0 +1,68 @@
+---
+import Base from '../layouts/Base.astro';
+import Src from '../components/Src.astro';
+import Aff from '../components/Aff.astro';
+const S = {
+  a: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title15/html/USCODE-2023-title15-chap41-subchapIII-sec1681a.htm',
+  d: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title15/html/USCODE-2023-title15-chap41-subchapIII-sec1681d.htm',
+  b: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title15/html/USCODE-2023-title15-chap41-subchapIII-sec1681b.htm',
+  ca: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1950.6',
+  wa: 'https://app.leg.wa.gov/RCW/default.aspx?cite=59.18.257',
+  or: 'https://www.oregonlegislature.gov/bills_laws/ors/ors090.html',
+  mn: 'https://www.revisor.mn.gov/statutes/cite/504B.173',
+  ttRef: 'https://support.turbotenant.com/en/articles/7915119-does-turbotenant-provide-landlord-reference-reports',
+  ttApp: 'https://support.turbotenant.com/en/articles/4004061-what-does-the-online-rental-application-include',
+  rpRef: 'https://rentprep.com/blog/tenant-screening-news/how-to-call-tenant-references/',
+};
+const updated = '2026-11-24';
+const title = 'Calling a Previous Landlord: References, Rental Verification and the FCRA';
+const description = 'When is a landlord reference just a phone call, and when does it become a consumer report under the FCRA? The federal definitions, the state rules that mention reference checks (CA, WA, OR, MN), and what TurboTenant and RentPrep say about verifying rental history.';
+const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":updated};
+---
+<Base title={title} description={description} updated={updated} schema={schema}>
+  <h1>{title}</h1>
+  <p class="lede">A credit report tells you whether an applicant pays their bills. It usually doesn't tell you whether they paid <em>rent</em>, kept the place clean, or left on good terms. That's why many landlords still call the previous landlord. Here's how federal law treats that call when you make it yourself and when a company makes it for you, and which states write reference checks into their screening-fee rules.</p>
+
+  <div class="note"><strong>The short version.</strong> Under the FCRA, a "consumer report" is information furnished by a <strong>consumer reporting agency</strong>; a report "containing information solely as to transactions or experiences between the consumer and the person making the report" is excluded <Src href={S.a} label="15 U.S.C. 1681a(d)(2)(A)(i)" />. A former landlord describing their own tenancy with the applicant fits that description. If you pay a company that regularly gathers this kind of information, it is likely acting as a consumer reporting agency, and a report built from interviews about someone's "character, general reputation, personal characteristics, or mode of living" is an <strong>investigative consumer report</strong> with its own disclosure duty <Src href={S.a} label="1681a(e)" /> <Src href={S.d} label="1681d(a)" />. California, Washington, Oregon and Minnesota all treat reference checks as part of screening <Src href={S.ca} label="CA" /> <Src href={S.wa} label="WA" /> <Src href={S.or} label="OR" /> <Src href={S.mn} label="MN" />.</div>
+
+  <h2>Is calling a previous landlord a consumer report?</h2>
+  <p>The FCRA defines a consumer report as a communication "by a consumer reporting agency" bearing on a consumer's "credit worthiness, credit standing, credit capacity, character, general reputation, personal characteristics, or mode of living" that is used as a factor in deciding eligibility for credit, insurance, employment or another purpose the Act allows <Src href={S.a} label="1681a(d)(1)" />. The same section then excludes "any report containing information solely as to transactions or experiences between the consumer and the person making the report" <Src href={S.a} label="1681a(d)(2)(A)(i)" />.</p>
+  <p>So when a former landlord tells you, from their own records, how long the applicant rented, what the rent was and whether it was paid on time, they are reporting their own experience with that tenant. What the statute adds is the definition of the agency: a "consumer reporting agency" is anyone who, for fees or on a cooperative nonprofit basis, "regularly engages in whole or in part in the practice of assembling or evaluating consumer credit information or other information on consumers for the purpose of furnishing consumer reports to third parties" <Src href={S.a} label="1681a(f)" />.</p>
+
+  <h2>What changes when a company makes the calls for you?</h2>
+  <p>If you hire a screening company to verify rental history, the company is assembling information about the applicant for a fee and passing it to you, which is the activity in the agency definition above <Src href={S.a} label="1681a(f)" />. When that verification is done through personal interviews about the applicant's "character, general reputation, personal characteristics, or mode of living" with neighbors, friends, associates or others who know them, the report is an <strong>investigative consumer report</strong> <Src href={S.a} label="1681a(e)" />.</p>
+  <p>Before you order an investigative consumer report, the law requires you to tell the applicant in writing, no later than three days after you first request it, that such a report may be made, along with their right to ask about the nature and scope of the investigation; you also certify this to the agency <Src href={S.d} label="1681d(a)" />. If the applicant asks in writing, you must disclose the nature and scope of the investigation within five days <Src href={S.d} label="1681d(b)" />. And as with any consumer report, the agency may furnish it only for a permissible purpose, including "in accordance with the written instructions of the consumer to whom it relates" <Src href={S.b} label="1681b(a)(2)" />.</p>
+
+  <h2>Which states mention reference checks in their screening rules?</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>State</th><th>What the statute says about references</th><th>Source</th></tr></thead>
+    <tbody>
+      <tr><td>California</td><td>The screening fee covers "obtaining information about the applicant," which "may include, but is not limited to, personal reference checks and consumer credit reports." If the landlord doesn't do a personal reference check or get a credit report, the unused part of the fee must be returned</td><td><Src href={S.ca} label="Civ. Code 1950.6(a), (e)" /></td></tr>
+      <tr><td>Washington</td><td>A landlord who screens on their own may charge actual costs, which "include costs incurred for long distance phone calls and for time spent calling landlords, employers, and financial institutions." The statutory adverse action notice has a box for "Information received from previous rental history or reference"</td><td><Src href={S.wa} label="RCW 59.18.257(1)(b), (c)" /></td></tr>
+      <tr><td>Oregon</td><td>Screening "includes but is not limited to checking references." Before taking a screening charge, the landlord's written notice must describe the process, including whether the landlord "contacts employers, landlords or other references"</td><td><Src href={S.or} label="ORS 90.295(1)(a), (3)(b)(C)" /></td></tr>
+      <tr><td>Minnesota</td><td>If the landlord doesn't perform "a personal reference check" or obtain a credit or tenant screening report, the unused part of the screening fee must be returned</td><td><Src href={S.mn} label="Minn. Stat. 504B.173 subd. 2(b)" /></td></tr>
+    </tbody>
+  </table></div>
+  <p>For the refund side of these rules, see <a href="/screening-fee-refund-when-no-screening/">screening fee refunds when you don't screen</a>. For the written criteria you may owe first, see <a href="/written-tenant-screening-criteria-by-state/">written screening criteria by state</a>.</p>
+
+  <h2>How do screening platforms handle landlord references?</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Provider</th><th>What its own pages say</th></tr></thead>
+    <tbody>
+      <tr><td><Aff id="turbotenant" href="https://www.turbotenant.com/" text="TurboTenant" /></td><td>The application collects current and previous addresses and "Previous landlords' names and available contact information for rental history verification" <Src href={S.ttApp} />. TurboTenant doesn't produce a landlord reference report: you "are welcome to conduct your own rental reference outside of TurboTenant using the information provided in the application" <Src href={S.ttRef} /></td></tr>
+      <tr><td><Aff id="rentprep" href="https://rentprep.com/" text="RentPrep" /></td><td>Its reference guide tells landlords to get written authorization before calling, and quotes its own application's line: "I authorize the release of information from previous or current landlords, employers, and bank representatives" <Src href={S.rpRef} /></td></tr>
+    </tbody>
+  </table></div>
+  <p>TurboTenant also notes that if an applicant lists their own phone number as the landlord reference, you should ask them for the correct contact <Src href={S.ttRef} />.</p>
+
+  <h2>Using what the reference tells you</h2>
+  <p>If a bad reference leads you to deny an applicant or approve them on worse terms, check what notice you owe. Washington's statutory form requires you to say whether the decision was based on "previous rental history or reference" <Src href={S.wa} label="RCW 59.18.257(1)(c)" />; Oregon and Minnesota require written reasons or the unmet criteria after a denial (see <a href="/adverse-action-notice-tenant-screening/">adverse action notices</a> and <a href="/oregon-tenant-screening-rules/">Oregon's screening rules</a>).</p>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/tenant-screening-report-comparison/">What each screening report includes</a></li>
+    <li><a href="/bank-linked-income-verification-what-landlords-see/">Bank-linked income verification</a></li>
+    <li><a href="/eviction-records-official-court-portals/">Eviction records: official court portals</a>: check court records yourself.</li>
+    <li><a href="/">All Screening Atlas guides</a></li>
+  </ul>
+</Base>
