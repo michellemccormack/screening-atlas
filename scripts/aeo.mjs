@@ -12,8 +12,8 @@ const root = new URL(site).origin + base; // e.g. https://screeningatlas.com/
 const bots = ['GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'PerplexityBot', 'Perplexity-User', 'ClaudeBot', 'Claude-SearchBot', 'Claude-User', 'anthropic-ai', 'Google-Extended', 'Googlebot', 'Applebot', 'Applebot-Extended', 'Bingbot', 'DuckAssistBot', 'CCBot', 'Meta-ExternalAgent', 'Amazonbot', 'cohere-ai', 'MistralAI-User'];
 fs.writeFileSync(path.join(dist, 'robots.txt'),
   `# AI assistants and search engines are welcome to crawl, cite and link this site.\n` +
-  bots.map((b) => `User-agent: ${b}\nAllow: /\n`).join('\n') +
-  `\nUser-agent: *\nAllow: /\n\nSitemap: ${root}sitemap.xml\n# Summary for language models: ${root}llms.txt\n`);
+  bots.map((b) => `User-agent: ${b}\nAllow: /\nDisallow: /kit/download-\n`).join('\n') +
+  `\nUser-agent: *\nAllow: /\nDisallow: /kit/download-\n\nSitemap: ${root}sitemap.xml\n# Summary for language models: ${root}llms.txt\n`);
 
 const walk = (d) => fs.readdirSync(d, { withFileTypes: true }).flatMap((e) => e.isDirectory() ? walk(path.join(d, e.name)) : [path.join(d, e.name)]);
 const decode = (t) => t.replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&#39;|&#x27;/g, "'").replace(/&#(\d+);/g, (m, n) => String.fromCharCode(+n)).replace(/&#x([0-9a-f]+);/gi, (m, n) => String.fromCharCode(parseInt(n, 16)));

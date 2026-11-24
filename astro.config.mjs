@@ -7,5 +7,5 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'always',
   build: { format: 'directory' },
-  integrations: [sitemap()],
+  integrations: [sitemap({ filter: (page) => { const p = new URL(page).pathname; return !p.includes('/kit/download-') && !p.startsWith('/kit/thanks'); } })],
 });
