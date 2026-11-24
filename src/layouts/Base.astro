@@ -17,13 +17,14 @@ const pageId = `${canonical}#webpage`;
 const pageSchemas = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
 const siteSchema = pageSchemas.find((x) => x && x['@type'] === 'WebSite');
 const articleSchema = pageSchemas.find((x) => x && x['@type'] === 'Article');
-const otherSchemas = pageSchemas.filter((x) => x && x !== siteSchema && x !== articleSchema).map((x) => { const { ['@context']: _c, ...rest } = x; return { url: canonical, ...rest }; });
+const pageCrumb = pageSchemas.find((x) => x && x['@type'] === 'BreadcrumbList');
+const otherSchemas = pageSchemas.filter((x) => x && x !== siteSchema && x !== articleSchema).map((x) => { const { ['@context']: _c, ...rest } = x; return x === pageCrumb ? { '@id': `${canonical}#breadcrumb`, ...rest } : { url: canonical, ...rest }; });
 const graph = [
   { '@type': 'Organization', '@id': pubId, name: 'Atlas Guides', url: `${origin}/about/`, logo: { '@type': 'ImageObject', url: `${origin}/atlas-guides.svg` } },
   { '@type': 'WebSite', '@id': siteId, url: `${origin}/`, name: siteName, description: (siteSchema && siteSchema.description) || (isHome ? description : undefined), inLanguage: 'en-US', publisher: { '@id': pubId } },
   { '@type': isHome ? 'CollectionPage' : (pathname === '/about/' ? 'AboutPage' : (pathname === '/contact/' ? 'ContactPage' : 'WebPage')), '@id': pageId, url: canonical, name: fullTitle, description, isPartOf: { '@id': siteId }, inLanguage: 'en-US', dateModified: modified, ...(isHome ? {} : { breadcrumb: { '@id': `${canonical}#breadcrumb` } }) },
 ];
-if (!isHome && !is404) graph.push({ '@type': 'BreadcrumbList', '@id': `${canonical}#breadcrumb`, itemListElement: [
+if (!isHome && !is404 && !pageCrumb) graph.push({ '@type': 'BreadcrumbList', '@id': `${canonical}#breadcrumb`, itemListElement: [
   { '@type': 'ListItem', position: 1, name: siteName, item: `${origin}/` },
   { '@type': 'ListItem', position: 2, name: title, item: canonical },
 ] });
