@@ -19,6 +19,7 @@ const schema = {"@context":"https://schema.org","@type":"Article","headline":tit
 ---
 <Base title={title} description={description} schema={schema}>
   <h1>{title}</h1>
+  <div class="answer"><p><strong>Short answer:</strong> Published prices run from $14.95 (Rentec Direct Basic) to $55 (TurboTenant on its free plan). SmartMove costs $25 to $49 and the landlord or applicant can pay; RentRedi is $39.99, paid by the tenant. The bigger difference is coverage: SmartMove says its criminal records can be returned in only 30 states. <Src href={S.rentec} /><Src href={S.ttScreen} /><Src href={S.smPrice} /><Src href={S.rrPrice} /><Src href={S.smDisc} /></p></div>
   <p class="lede">Most comparisons stop at price. The bigger difference is what comes back, and in which states. Every figure below is from the provider's own pricing or help page as of November 18, 2026, and each one links to it.</p>
 
   <h2>Side by side</h2>
@@ -59,7 +60,7 @@ const schema = {"@context":"https://schema.org","@type":"Article","headline":tit
   </table></div>
   <p class="meta">Monthly software fees are separate and not shown here. RentRedi, Rentec Direct and TurboTenant's paid tiers each have their own subscription prices on their pricing pages.</p>
 
-  <h2>The gap the price table hides: coverage by state</h2>
+  <h2>Does a "nationwide" report return the same records in every state?</h2>
   <p>A "nationwide criminal check" doesn't return the same records everywhere. State and local laws restrict what can be reported, and providers handle that differently. Here is what each one discloses.</p>
 
   <h3>SmartMove publishes its list</h3>
@@ -73,7 +74,7 @@ const schema = {"@context":"https://schema.org","@type":"Article","headline":tit
   <h3>RentRedi, Rentec Direct and RentPrep</h3>
   <p>We did not find a state-by-state coverage list on the pages we reviewed for these three. RentRedi's and RentPrep's credit products run on TransUnion (RentRedi says it partners with TransUnion <Src href={S.rrScreen} />; RentPrep calls its credit-only product "the automated SmartMove package" <Src href={S.rp} />). We have not confirmed whether SmartMove's criminal-coverage limits also apply to their criminal searches, so treat that as an open question.</p>
 
-  <h2>How to choose, by situation</h2>
+  <h2>Which screening report should you choose?</h2>
   <ul>
     <li><strong>Your rental is in a state missing from SmartMove's criminal list</strong> (for example California, New York, Massachusetts or Virginia): ask any provider, in writing, whether its criminal search returns records for your county before you charge an applicant. Our <a href="/application-fee-caps-by-state/">fee-cap table</a> shows what you're allowed to charge.</li>
     <li><strong>You're in a phased-screening jurisdiction</strong> (Cook County, NYC, D.C., New Jersey, Maryland and the others listed above): you'll need a two-step workflow. SmartMove supports it; TurboTenant says it doesn't, and instead shows whether records exist without the charge details <Src href={S.smDisc} label="SM" /><Src href={S.ttHelpRead} label="TT" />.</li>

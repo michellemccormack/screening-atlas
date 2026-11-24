@@ -16,6 +16,7 @@ const schema = {"@context":"https://schema.org","@type":"Article","headline":tit
 ---
 <Base title={title} description={description} schema={schema}>
   <h1>{title}</h1>
+  <div class="answer"><p><strong>Short answer:</strong> It doesn't necessarily mean the applicant has a clean record. TurboTenant says its TransUnion reports are "subject to State Suppression Laws," with look-back limits in states like Colorado and New York, and that some cities and counties use two-phase screening it doesn't support. Ask the provider in writing whether a criminal search was actually run for your county. <Src href={S.ttScreen} /></p></div>
   <p class="lede">The message doesn't necessarily mean the applicant has a clean record. It can also mean the report wasn't allowed to show the records. Here's what TurboTenant says, what landlords are reporting, and what to do.</p>
 
   <h2>What landlords are seeing</h2>
@@ -24,7 +25,7 @@ const schema = {"@context":"https://schema.org","@type":"Article","headline":tit
   <p>The same landlord asked: "How do I know they are properly interpreting legal requirements and in any event, why is it up to them to police whether landlords are following the law." <Src href={S.rIL} label="Reddit" /></p>
   <p>An Oregon landlord on r/PropertyManagement reported a blank criminal section for an applicant who had disclosed multiple felonies, and said the report did not state that no check had been performed <Src href={S.rOR} label="Reddit" />. That post says TurboTenant's chat agent blamed the data partner and the Oregon rules. Those are one user's account, and we have not verified them.</p>
 
-  <h2>What TurboTenant says</h2>
+  <h2>What does TurboTenant say the message means?</h2>
   <ul>
     <li>Criminal checks are run with TransUnion and "cover all 50 states," including felonies and misdemeanors, the national sex offender registry, and an SSN trace <Src href={S.ttRead} />.</li>
     <li>Reports are "subject to State Suppression Laws." TurboTenant gives examples of look-back limits ("In states like Colorado or New York, we may only view records from the last 5 to 7 years") and says dismissed, acquitted or expunged cases won't appear "in most jurisdictions, including Massachusetts and Hawaii" <Src href={S.ttRead} />.</li>
@@ -37,7 +38,7 @@ const schema = {"@context":"https://schema.org","@type":"Article","headline":tit
   <p>TransUnion's own landlord product, SmartMove, publishes where criminal records can be returned. As of its January 14, 2026 revision, that's 30 states: Alaska, Arizona, Arkansas, Colorado, Connecticut, Florida, Georgia, Illinois, Indiana, Iowa, Kansas, Louisiana, Maryland, Minnesota, Missouri, Nebraska, New Jersey, New Mexico, North Carolina, North Dakota, Ohio, Oklahoma, Oregon, Pennsylvania, Rhode Island, Tennessee, Texas, Utah, Washington, and Wisconsin <Src href={S.smDisc} />.</p>
   <p>TurboTenant uses TransUnion for screening <Src href={S.ttDiff} />, but we have <strong>not</strong> confirmed that SmartMove's list applies to TurboTenant reports. Treat it as a useful signal, not proof. Note that both Illinois and Oregon, the states in the two Reddit reports, are on SmartMove's list.</p>
 
-  <h2>What you can do</h2>
+  <h2>What can a landlord do about a blank criminal section?</h2>
   <ol>
     <li><strong>Ask in writing.</strong> Contact the provider's support and ask whether a criminal search was actually run for your property's county, or whether results were suppressed. Keep the reply.</li>
     <li><strong>Check whether your area uses phased screening.</strong> If your rental is in one of the jurisdictions listed above, the criminal step happens after the applicant meets your other criteria <Src href={S.smDisc} label="SmartMove" /><Src href={S.ttRead} label="TurboTenant" />. Local rules may limit what you can consider, so check them before you act on a record.</li>
