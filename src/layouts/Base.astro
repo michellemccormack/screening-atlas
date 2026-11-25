@@ -1,4 +1,5 @@
 ---
+import KitCTA from '../components/KitCTA.astro';
 const { title, description, updated = '2026-11-18', schema, noindex = false } = Astro.props;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 const siteName = 'Screening Atlas';
@@ -11,6 +12,7 @@ const isHome = pathname === '/' || pathname === '';
 const utilityPaths = ['/about/', '/contact/', '/privacy/', '/affiliate-disclosure/', '/404/', '/404.html', '/get-it-done/', '/subscribe/'];
 const is404 = title === 'Page not found';
 const isContent = !isHome && !is404 && !Astro.props.noindex && !utilityPaths.includes(pathname) && !/\/(thanks|thank-you|confirm|confirmed|unsubscribe)\/$/.test(pathname);
+const showKitCta = !is404 && !noindex && !pathname.startsWith('/kit/') && !pathname.includes('/thanks') && !['/about/', '/contact/', '/privacy/', '/affiliate-disclosure/', '/get-it-done/', '/subscribe/'].includes(pathname);
 const pubId = `${origin}/#publisher`;
 const siteId = `${origin}/#website`;
 const pageId = `${canonical}#webpage`;
@@ -97,6 +99,12 @@ const prettyDate = (d) => { const t = new Date(`${d}T12:00:00Z`); return isNaN(t
     .answer{background:#fff;border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:6px;padding:12px 16px;margin:1rem 0 1.4rem}
     .answer p{margin:0}
     .updated{margin:0 0 .3rem}
+
+    .kitcta{background:#fff;border:1px solid var(--line);border-left:4px solid var(--brand);border-radius:8px;padding:16px 20px;margin:2rem 0}
+    .kitcta p{margin:.35rem 0}
+    .kitcta-h{font-weight:700;font-size:1.1rem}
+    a.btn{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;border:0;border-radius:6px;padding:10px 18px;font:inherit;font-weight:600}
+    a.btn:hover{opacity:.92}
   </style>
 </head>
 <body>
@@ -113,6 +121,26 @@ const prettyDate = (d) => { const t = new Date(`${d}T12:00:00Z`); return isNaN(t
   <main><div class="wrap">
     {isContent && <p class="meta updated">Last updated <time datetime={modified}>{prettyDate(modified)}</time></p>}
     <slot />
+    {showKitCta && <KitCTA />}
+    {showKitCta && (
+    <script is:inline>
+    (function(){
+      var wrap = document.querySelector('main .wrap');
+      if (!wrap) return;
+      var end = wrap.querySelector('[data-kitcta]');
+      if (!end) return;
+      var heads = Array.prototype.filter.call(wrap.querySelectorAll('h2'), function(h){
+        return !/^(related|sources|further reading|provider links|what happens next)$/i.test((h.textContent || '').trim());
+      });
+      if (heads.length < 3) return;
+      var mid = heads[Math.floor(heads.length / 2)];
+      if (!mid || mid.nextElementSibling === end) return;
+      var clone = end.cloneNode(true);
+      clone.setAttribute('data-kitcta-mid', '');
+      mid.parentNode.insertBefore(clone, mid.nextSibling);
+    })();
+    </script>
+    )}
     <p class="meta" style="margin-top:3rem">Last checked: {modified}. General information, not legal advice. Laws and provider pages change; follow the source links before relying on anything here.</p>
   </div></main>
   <footer class="site"><div class="wrap" style="padding:20px">

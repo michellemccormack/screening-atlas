@@ -72,6 +72,13 @@ const byUrl = Object.fromEntries(pages.map((p) => [p.url, p.modified]));
 for (const sm of ['sitemap-0.xml', 'sitemap.xml']) {
   const fp = path.join(dist, sm); if (!fs.existsSync(fp)) continue;
   let x = fs.readFileSync(fp, 'utf8');
+  x = x.replace(/<url>\s*<loc>([^<]*)<\/loc>[\s\S]*?<\/url>/g, (m, loc) => {
+    try {
+      const p = new URL(loc).pathname;
+      if (p.includes('/kit/thanks') || p.includes('/get-it-done/thanks') || p.includes('/kit/download-')) return '';
+    } catch {}
+    return m;
+  });
   if (!x.includes('<lastmod>')) x = x.replace(/<url><loc>([^<]+)<\/loc>/g, (m, loc) => byUrl[loc] ? `${m}<lastmod>${byUrl[loc]}</lastmod>` : m);
   fs.writeFileSync(fp, x);
 }
