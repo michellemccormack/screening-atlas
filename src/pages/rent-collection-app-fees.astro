@@ -14,10 +14,12 @@ const S = {
   rentecKb: 'https://help.rentecdirect.com/article/546-online-payment-processing',
   avail: 'https://www.avail.com/pricing',
   innagoFaq: 'https://innago.com/faq/',
+  dlFees: 'https://support.doorloop.com/en/articles/17004247-understanding-additional-fees-on-doorloop-one-connect-and-multiply',
+  dlPrice: 'https://www.doorloop.com/pricing',
 };
 const updated = '2026-11-22';
 const title = 'Rent Collection App Fees Compared: ACH, Card and Payout Times';
-const description = 'What TurboTenant, RentRedi, Rentec Direct, Avail and Innago charge per online rent payment (bank transfer and card), who pays the fee, and how long it takes the money to reach the landlord. Quoted from each provider\'s pricing and help pages.';
+const description = 'What TurboTenant, RentRedi, Rentec Direct, Avail, Innago and DoorLoop charge per online rent payment (bank transfer and card), who pays the fee, and how long it takes the money to reach the landlord. Quoted from each provider\'s pricing and help pages.';
 const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":updated};
 ---
 <Base title={title} description={description} updated={updated} schema={schema}>
@@ -65,6 +67,14 @@ const schema = {"@context":"https://schema.org","@type":"Article","headline":tit
         <td>Tenant by default. Landlord can absorb the transaction fees <Src href={S.innagoFaq} /></td>
         <td>Typically 1–2 business days. Payments process Monday–Friday 9am–5pm EST; after 5pm, processing starts the next business day. The first payment, a new funding source, or a payment after a failed one is held for 3 business days <Src href={S.innagoFaq} /></td>
       </tr>
+      <tr>
+        <td><Aff id="doorloop" href="https://doorloop.pxf.io/c/8280160/2153293/27441" text="DoorLoop" /></td>
+        <td>DoorLoop One: $1.50 per transaction, charged to the tenant. DoorLoop Connect and Multiply: free <Src href={S.dlFees} /></td>
+        <td>3.25% per transaction (minimum $3.50), charged to the tenant, on every plan <Src href={S.dlFees} /></td>
+        <td>Tenant <Src href={S.dlFees} /></td>
+        <td>Not stated on the additional-fees article we checked</td>
+      </tr>
+
     </tbody>
   </table></div>
 
@@ -80,7 +90,7 @@ const schema = {"@context":"https://schema.org","@type":"Article","headline":tit
   <p>Some states and cities limit fees a landlord can charge tenants. We have not reviewed whether any state restricts passing payment-processing fees to tenants.</p>
 
   <h2>Monthly software price</h2>
-  <p>For completeness, the subscription each platform publishes: TurboTenant Free $0, Essentials "starting at $12.42/month," Pro "starting at $16.58/month" <Src href={S.ttPricing} />; RentRedi from $12/month on annual billing, $20 on six-month and $29.95 month-to-month <Src href={S.rrPrice} />; Rentec Direct Starter $25/month, Pro and PM a $50 monthly minimum at $2 and $2.50 per unit <Src href={S.rentec} />; Avail Unlimited $0/unit, Unlimited Plus $9/unit per month <Src href={S.avail} />; Innago says it charges landlords no monthly subscription fee, setup fee, or contract <Src href={S.innagoFaq} />.</p>
+  <p>For completeness, the subscription each platform publishes: TurboTenant Free $0, Essentials "starting at $12.42/month," Pro "starting at $16.58/month" <Src href={S.ttPricing} />; RentRedi from $12/month on annual billing, $20 on six-month and $29.95 month-to-month <Src href={S.rrPrice} />; Rentec Direct Starter $25/month, Pro and PM a $50 monthly minimum at $2 and $2.50 per unit <Src href={S.rentec} />; Avail Unlimited $0/unit, Unlimited Plus $9/unit per month <Src href={S.avail} />; Innago says it charges landlords no monthly subscription fee, setup fee, or contract <Src href={S.innagoFaq} />. DoorLoop One starts at $2.50 per unit per month, Connect at $4.00, and Multiply at $5.00; the pricing page says minimum spend and units apply <Src href={S.dlPrice} />.</p>
 
   <h2>Related</h2>
   <ul>
@@ -92,12 +102,13 @@ const schema = {"@context":"https://schema.org","@type":"Article","headline":tit
   <p>Several of these apps also sell rent reporting to the credit bureaus; bureaus, prices and who pays are compared on <a href="/rent-reporting-services-compared/">rent reporting services compared</a>.</p>
 
   <h2>Provider links</h2>
-  <p class="meta">The Innago link is an affiliate link; the others are ordinary provider links. See our <a href="/affiliate-disclosure/">affiliate disclosure</a>.</p>
+  <p class="meta">The Innago and DoorLoop links are affiliate links; the others are ordinary provider links. See our <a href="/affiliate-disclosure/">affiliate disclosure</a>.</p>
   <ul>
     <li><Aff id="turbotenant" href="https://www.turbotenant.com/" text="TurboTenant" /></li>
     <li><Aff id="rentredi" href="https://rentredi.com/" text="RentRedi" /></li>
     <li><Aff id="rentec" href="https://www.rentecdirect.com/" text="Rentec Direct" /></li>
     <li><Aff id="avail" href="https://www.avail.com/" text="Avail" /></li>
     <li><Aff id="innago" href="https://innago.com/best-rental-management-software-mbl/?utm_source=Manual&utm_medium=Affiliate+Program&utm_campaign=11111111&utm_id=screeningatlas" text="Innago" /></li>
+    <li><Aff id="doorloop" href="https://doorloop.pxf.io/c/8280160/2153293/27441" text="DoorLoop" /></li>
   </ul>
 </Base>

@@ -9,10 +9,11 @@ const S = {
   rrPrice: 'https://rentredi.com/pricing/',
   rentec: 'https://www.rentecdirect.com/pricing-transparency',
   rp: 'https://rentprep.com/guide/packages-pricing/',
+  dlFees: 'https://support.doorloop.com/en/articles/17004247-understanding-additional-fees-on-doorloop-one-connect-and-multiply',
 };
 const updated = '2026-11-21';
 const title = 'Tenant Screening Cost Calculator: Landlord Pays vs. Applicant Pays';
-const description = 'Work out what tenant screening costs you per vacancy and per year if you pay, versus what each applicant pays if they do, using the published prices for SmartMove, TurboTenant, RentRedi, Rentec Direct and RentPrep. Prices checked against each provider page.';
+const description = 'Work out what tenant screening costs you per vacancy and per year if you pay, versus what each applicant pays if they do, using the published prices for SmartMove, TurboTenant, RentRedi, Rentec Direct, RentPrep and DoorLoop. Prices checked against each provider page.';
 const schema = {"@context":"https://schema.org","@type":"WebApplication","name":title,"description":description,"applicationCategory":"FinanceApplication","dateModified":updated};
 ---
 <Base title={title} description={description} updated={updated} schema={schema}>
@@ -36,7 +37,7 @@ const schema = {"@context":"https://schema.org","@type":"WebApplication","name":
   <noscript><p class="warnbox">The calculator needs JavaScript. The price table below has the same numbers.</p></noscript>
 
   <h2>The prices the calculator uses</h2>
-  <p>SmartMove prices were rechecked on TransUnion's pricing page on November 23, 2026; the other providers were checked on November 21, 2026. Monthly software subscriptions are not included.</p>
+  <p>SmartMove prices were rechecked on TransUnion's pricing page on November 23, 2026; DoorLoop was checked on November 25, 2026; the other providers were checked on November 21, 2026. Monthly software subscriptions are not included.</p>
   <div class="tablewrap"><table>
     <thead><tr><th>Provider / package</th><th>Price per applicant</th><th>Income add-on</th><th>Who can pay</th></tr></thead>
     <tbody>
@@ -45,6 +46,7 @@ const schema = {"@context":"https://schema.org","@type":"WebApplication","name":
       <tr><td>RentRedi (credit + criminal + eviction / with Plaid income verification)</td><td>$39.99 / $49.99 <Src href={S.rrPrice} /></td><td>Included in the $49.99 tier</td><td>Tenant-paid <Src href={S.rrPrice} /></td></tr>
       <tr><td>Rentec Direct Basic / Enhanced / Premium (Starter plan)</td><td>$14.95 / $20.95 / $29.45 <Src href={S.rentec} /></td><td>Not listed</td><td>Not stated on the pricing page </td></tr>
       <tr><td>Rentec Direct Basic / Enhanced / Premium (Pro &amp; PM plans)</td><td>$10 / $13 / $18 <Src href={S.rentec} /></td><td>Not listed</td><td>Not stated on the pricing page </td></tr>
+      <tr><td><Aff id="doorloop" href="https://doorloop.pxf.io/c/8280160/2153293/27441" text="DoorLoop" /> TransUnion screening</td><td>$35 <Src href={S.dlFees} /></td><td>$10 <Src href={S.dlFees} /></td><td>Applicant <Src href={S.dlFees} /></td></tr>
       <tr><td>RentPrep Credit Report Only / Full Background Check Only / Complete</td><td>$29 / $29 / $49 <Src href={S.rp} /></td><td>$10 (bank-based) or $15 (income &amp; employment) <Src href={S.rp} /></td><td>Credit-only and Complete: landlord or tenant. Background-only: landlord pays only <Src href={S.rp} /></td></tr>
     </tbody>
   </table></div>
@@ -66,9 +68,10 @@ const schema = {"@context":"https://schema.org","@type":"WebApplication","name":
   </ul>
 
   <h2>Provider links</h2>
-  <p class="meta">The TransUnion SmartMove link is an affiliate link; the other providers in the calculator are ordinary links. See our <a href="/affiliate-disclosure/">affiliate disclosure</a>.</p>
+  <p class="meta">The TransUnion SmartMove and DoorLoop links are affiliate links; the other providers in the calculator are ordinary links. See our <a href="/affiliate-disclosure/">affiliate disclosure</a>.</p>
   <ul>
     <li><Aff id="smartmove" href="https://smartmove.pxf.io/c/6593174/1515180/17713" text="TransUnion SmartMove" /></li>
+    <li><Aff id="doorloop" href="https://doorloop.pxf.io/c/8280160/2153293/27441" text="DoorLoop" /></li>
   </ul>
 
   <script is:inline>
@@ -86,6 +89,7 @@ const schema = {"@context":"https://schema.org","@type":"WebApplication","name":
       {id:'rt-p-basic',n:'Rentec Direct Basic (Pro/PM)',p:10,inc:null,tax:false,who:'unknown'},
       {id:'rt-p-enh',n:'Rentec Direct Enhanced (Pro/PM)',p:13,inc:null,tax:false,who:'unknown'},
       {id:'rt-p-prem',n:'Rentec Direct Premium (Pro/PM)',p:18,inc:null,tax:false,who:'unknown'},
+      {id:'dl-screen',n:'DoorLoop TransUnion screening',p:35,inc:10,tax:false,who:'applicant'},
       {id:'rp-credit',n:'RentPrep Credit Report Only',p:29,inc:10,tax:false,who:'either'},
       {id:'rp-bg',n:'RentPrep Full Background Check Only',p:29,inc:10,tax:false,who:'landlord'},
       {id:'rp-comp',n:'RentPrep Complete Screening Package',p:49,inc:10,tax:false,who:'either'}

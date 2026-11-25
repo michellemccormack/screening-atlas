@@ -12,15 +12,17 @@ const S = {
   rrScreen: 'https://rentredi.com/tenant-screening/',
   rentec: 'https://www.rentecdirect.com/pricing-transparency',
   rp: 'https://rentprep.com/guide/packages-pricing/',
+  dlScreen: 'https://www.doorloop.com/features/tenant-screening',
+  dlFees: 'https://support.doorloop.com/en/articles/17004247-understanding-additional-fees-on-doorloop-one-connect-and-multiply',
 };
 const title = 'Tenant Screening Reports Compared: What Each One Actually Includes';
-const description = 'SmartMove, TurboTenant, RentRedi, Rentec Direct and RentPrep side by side: price, who pays, what is in each report, and the state-by-state gaps each provider discloses. Quoted from their own pages.';
-const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":"2026-11-18"};
+const description = 'SmartMove, TurboTenant, RentRedi, Rentec Direct, RentPrep and DoorLoop side by side: price, who pays, what is in each report, and the state-by-state gaps each provider discloses. Quoted from their own pages.';
+const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":"2026-11-25"};
 ---
-<Base title={title} description={description} schema={schema}>
+<Base title={title} description={description} updated="2026-11-25" schema={schema}>
   <h1>{title}</h1>
   <div class="answer"><p><strong>Short answer:</strong> Published prices run from $14.95 (Rentec Direct Basic) to $55 (TurboTenant on its free plan). SmartMove costs $25 to $49 and the landlord or applicant can pay; RentRedi is $39.99, paid by the tenant. The bigger difference is coverage: SmartMove says its criminal records can be returned in only 30 states. <Src href={S.rentec} /><Src href={S.ttScreen} /><Src href={S.smPrice} /><Src href={S.rrPrice} /><Src href={S.smDisc} /></p></div>
-  <p class="lede">Most comparisons stop at price. The bigger difference is what comes back, and in which states. Every figure below is from the provider's own pricing or help page as of November 18, 2026, and each one links to it.</p>
+  <p class="lede">Most comparisons stop at price. The bigger difference is what comes back, and in which states. DoorLoop figures are from its own pages as of November 25, 2026; the others are from each provider's own pricing or help page as of November 18, 2026, and each one links to it.</p>
 
   <h2>Side by side</h2>
   <div class="tablewrap"><table>
@@ -56,6 +58,12 @@ const schema = {"@context":"https://schema.org","@type":"Article","headline":tit
         <td>Credit-only and Complete: landlord or tenant. Background-only: landlord pays only <Src href={S.rp} /></td>
         <td>Credit-only is "the automated SmartMove package" (credit report, ResidentScore, bankruptcies). Background-only and Complete add an FCRA-certified screener review, SSN verification, nationwide criminal and sex offender, nationwide evictions, judgments and liens <Src href={S.rp} /></td>
       </tr>
+      <tr>
+        <td><Aff id="doorloop" href="https://doorloop.pxf.io/c/8280160/2153293/27441" text="DoorLoop" /></td>
+        <td>$35 per TransUnion screening, plus $10 for income verification <Src href={S.dlFees} /></td>
+        <td>Applicant <Src href={S.dlFees} /></td>
+        <td>TransUnion-powered credit history, bankruptcies, eviction records, and US national criminal background checks; optional income verification from bank or payroll providers <Src href={S.dlScreen} /></td>
+      </tr>
     </tbody>
   </table></div>
   <p class="meta">Monthly software fees are separate and not shown here. RentRedi, Rentec Direct and TurboTenant's paid tiers each have their own subscription prices on their pricing pages.</p>
@@ -71,8 +79,8 @@ const schema = {"@context":"https://schema.org","@type":"Article","headline":tit
   <h3>TurboTenant describes it in its help center</h3>
   <p>TurboTenant says its criminal checks go through TransUnion and "cover all 50 states," but that reports are "subject to State Suppression Laws": look-back limits in states like Colorado and New York, and dismissed or expunged cases left out in places like Massachusetts and Hawaii <Src href={S.ttHelpRead} />. In Cook County, IL; Detroit, MI; Montgomery County, MD; Oakland, CA; Berkeley, CA; and Washington, D.C., TurboTenant says results "will indicate whether records exist, but specific charge details will not be provided," because it does not support the two-phase process there <Src href={S.ttHelpRead} />. See our explainer on <a href="/turbotenant-no-criminal-records-available/">"No criminal records are available"</a>.</p>
 
-  <h3>RentRedi, Rentec Direct and RentPrep</h3>
-  <p>We did not find a state-by-state coverage list on the pages we reviewed for these three. RentRedi's and RentPrep's credit products run on TransUnion (RentRedi says it partners with TransUnion <Src href={S.rrScreen} />; RentPrep calls its credit-only product "the automated SmartMove package" <Src href={S.rp} />). We have not confirmed whether SmartMove's criminal-coverage limits also apply to their criminal searches, so treat that as an open question.</p>
+  <h3>RentRedi, Rentec Direct, RentPrep and DoorLoop</h3>
+  <p>We did not find a state-by-state coverage list on the pages we reviewed for these four. DoorLoop says its screening reports are TransUnion-powered, including credit history, bankruptcies, eviction records and US national criminal background checks <Src href={S.dlScreen} />. RentRedi's and RentPrep's credit products run on TransUnion (RentRedi says it partners with TransUnion <Src href={S.rrScreen} />; RentPrep calls its credit-only product "the automated SmartMove package" <Src href={S.rp} />). We have not confirmed whether SmartMove's criminal-coverage limits also apply to their criminal searches, so treat that as an open question.</p>
 
   <h2>Which screening report should you choose?</h2>
   <ul>
@@ -88,13 +96,14 @@ const schema = {"@context":"https://schema.org","@type":"Article","headline":tit
   <p>Coming from the free-for-landlords screening in Zillow Rental Manager? See <a href="/alternatives-to-zillow-rental-manager-screening/">alternatives to Zillow screening</a> for what it includes and who pays on each option.</p>
 
   <h2>Provider links</h2>
-  <p class="meta">The TransUnion SmartMove link is an affiliate link; the other provider links are ordinary links. See our <a href="/affiliate-disclosure/">affiliate disclosure</a>.</p>
+  <p class="meta">The TransUnion SmartMove and DoorLoop links are affiliate links; the other provider links are ordinary links. See our <a href="/affiliate-disclosure/">affiliate disclosure</a>.</p>
   <ul>
     <li><Aff id="smartmove" href="https://smartmove.pxf.io/c/6593174/1515180/17713" text="TransUnion SmartMove" /></li>
     <li><Aff id="turbotenant" href="https://www.turbotenant.com/" text="TurboTenant" /></li>
     <li><Aff id="rentredi" href="https://rentredi.com/" text="RentRedi" /></li>
     <li><Aff id="rentec" href="https://www.rentecdirect.com/" text="Rentec Direct" /></li>
     <li><Aff id="rentprep" href="https://rentprep.com/" text="RentPrep" /></li>
+    <li><Aff id="doorloop" href="https://doorloop.pxf.io/c/8280160/2153293/27441" text="DoorLoop" /></li>
   </ul>
   <p>More: <a href="/smartmove-criminal-eviction-coverage-by-state/">SmartMove coverage by state</a> · <a href="/bank-linked-income-verification-what-landlords-see/">what landlords see in bank-linked income verification</a> · <a href="/adverse-action-notice-tenant-screening/">adverse action notices</a> · <a href="/tenant-screening-without-ssn-itin/">applicants without an SSN</a> · <a href="/screening-guarantors-and-co-signers/">screening guarantors and co-signers</a> · <a href="/medical-debt-on-tenant-credit-reports/">medical debt on credit reports</a></p>
 </Base>
