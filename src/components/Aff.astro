@@ -6,6 +6,7 @@
 const approved = new Set([
   'innago',
   'smartmove',
+  'doorloop',
 ]);
 const { id, href, text } = Astro.props;
 const isApproved = approved.has(id);
