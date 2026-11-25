@@ -1,0 +1,94 @@
+---
+import Base from '../layouts/Base.astro';
+import Src from '../components/Src.astro';
+import Aff from '../components/Aff.astro';
+const S = {
+  cfr: 'https://www.ecfr.gov/current/title-16/chapter-I/subchapter-F/part-682',
+  p: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title15/html/USCODE-2023-title15-chap41-subchapIII-sec1681p.htm',
+  smTen: 'https://www.mysmartmove.com/transunion-smartmove-frequently-asked-questions/tenant-frequently-asked-questions',
+  rrAcc: 'https://help.rentredi.com/en/articles/10225286-how-long-do-i-have-access-to-transunion-screening-reports',
+  rcOrd: 'https://help.rentecdirect.com/article/533-ordering-credit-and-criminal-reports',
+  rcInc: 'https://help.rentecdirect.com/article/799-income-verification',
+  ca: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1798.81',
+  ma1: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXV/Chapter93I/Section1',
+  ma2: 'https://malegislature.gov/Laws/GeneralLaws/PartI/TitleXV/Chapter93I/Section2',
+  or: 'https://www.oregonlegislature.gov/bills_laws/ors/ors646A.html',
+};
+const updated = '2026-11-25';
+const title = 'How Long Should a Landlord Keep Tenant Screening Reports, and How to Destroy Them';
+const description = 'What the FTC Disposal Rule (16 CFR part 682) requires when you get rid of tenant screening reports, how long SmartMove, RentRedi and Rentec Direct keep reports viewable, the FCRA lawsuit deadline, and state disposal laws in California, Massachusetts and Oregon.';
+const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":updated};
+---
+<Base title={title} description={description} updated={updated} schema={schema}>
+  <h1>{title}</h1>
+  <p class="lede">After you pick a tenant, you're left with a pile of credit reports, background checks, pay stubs and bank statements from the applicants you didn't pick. How long should you keep them, and is tossing them in the recycling a problem? Federal law focuses on how you dispose of screening reports. A few states add their own disposal rules for documents with Social Security or account numbers.</p>
+
+  <div class="note"><strong>The short version.</strong> If you hold a consumer report, or information taken from one, for a business purpose, you must take "reasonable measures to protect against unauthorized access to or use of the information in connection with its disposal" <Src href={S.cfr} label="16 CFR 682.3(a)" />. Shredding, burning or pulverizing paper, and destroying or erasing electronic media, are the rule's examples <Src href={S.cfr} label="682.3(b)" />. Screening platforms also limit how long you can view a report: 30 days on SmartMove and RentRedi, 90 days for credit and 180 for criminal reports on Rentec Direct <Src href={S.smTen} label="SmartMove" /> <Src href={S.rrAcc} label="RentRedi" /> <Src href={S.rcOrd} label="Rentec" />.</div>
+
+  <h2>Does the FTC Disposal Rule apply to small landlords?</h2>
+  <p>The rule applies to "any person over which the Federal Trade Commission has jurisdiction, that, for a business purpose, maintains or otherwise possesses consumer information" <Src href={S.cfr} label="16 CFR 682.2(b)" />. "Consumer information" means any record about an individual, paper or electronic, "that is a consumer report or is derived from a consumer report," and compilations of those records <Src href={S.cfr} label="682.1(b)" />. A tenant screening report is the consumer report; your notes or spreadsheet built from it are "derived from" it.</p>
+  <p>"Disposal" covers discarding or abandoning the information, and also selling, donating or transferring any medium it is stored on, "including computer equipment" <Src href={S.cfr} label="682.1(c)" />. An old laptop with downloaded reports counts.</p>
+
+  <h2>How do you properly destroy tenant screening reports?</h2>
+  <p>The rule's examples of reasonable measures <Src href={S.cfr} label="16 CFR 682.3(b)" />:</p>
+  <ul>
+    <li>Burning, pulverizing or shredding papers so the information "cannot practicably be read or reconstructed."</li>
+    <li>Destroying or erasing electronic media so the information cannot practicably be read or reconstructed.</li>
+    <li>Hiring a record-destruction company after due diligence, such as reviewing an independent audit, checking references, or requiring certification by a recognized trade association.</li>
+  </ul>
+  <p>The examples are "illustrative only," not an exclusive list <Src href={S.cfr} label="682.3(b)" />.</p>
+
+  <h2>How long can you view a report on each screening platform?</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Provider</th><th>How long the landlord can view the report</th></tr></thead>
+    <tbody>
+      <tr><td><Aff id="smartmove" href="https://smartmove.pxf.io/c/6593174/1515180/17713" text="TransUnion SmartMove" /></td><td>Credit and criminal information for 30 days after the applicant approves screening <Src href={S.smTen} /></td></tr>
+      <tr><td><Aff id="rentredi" href="https://rentredi.com/" text="RentRedi" /></td><td>Up to 30 days from the date reports are completed; RentRedi suggests downloading them within that window <Src href={S.rrAcc} /></td></tr>
+      <tr><td><Aff id="rentec" href="https://www.rentecdirect.com/" text="Rentec Direct" /></td><td>Credit reports up to 90 days, criminal reports up to 180 days <Src href={S.rcOrd} />; income verification reports 5 days <Src href={S.rcInc} /></td></tr>
+    </tbody>
+  </table></div>
+  <p>SmartMove also says its reports don't include the applicant's Social Security number or account numbers <Src href={S.smTen} label="SmartMove" />. Anything you download or print stays your responsibility after the platform's window closes. Rentec Direct calls its reports "for one-time use" <Src href={S.rcOrd} label="Rentec" />.</p>
+
+  <h2>Is there a reason to keep screening records for a while?</h2>
+  <p>The Disposal Rule says how to dispose, not when. One date to know: a lawsuit under the Fair Credit Reporting Act must be brought by the earlier of 2 years after the plaintiff discovers the violation or 5 years after the violation occurs <Src href={S.p} label="15 U.S.C. 1681p" />. If you want proof on hand for that whole period, keep the records that show you followed the rules: the applicant's authorization, the <a href="/adverse-action-notice-tenant-screening/">adverse action notice</a> you sent, and your <a href="/written-tenant-screening-criteria-by-state/">written screening criteria</a>. Keep them secured, and dispose of them under the rule when you're done.</p>
+
+  <h2>Which state laws cover pay stubs, bank statements and ID copies?</h2>
+  <p>Applicants also hand over documents that aren't consumer reports. Some states have their own disposal laws for records with personal information:</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>State</th><th>Who is covered and what's required</th><th>Penalty stated in the law</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>California</td>
+        <td>A business must take "all reasonable steps" to dispose of customer records containing personal information it no longer keeps, by shredding, erasing, or otherwise making the information "unreadable or undecipherable through any means" <Src href={S.ca} label="Cal. Civ. 1798.81" /></td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Massachusetts</td>
+        <td>Covers a resident's name plus an SSN, driver's license or state ID number, financial account or card number, or biometric indicator <Src href={S.ma1} label="c.93I s.1" />. Paper must be "redacted, burned, pulverized or shredded"; electronic media "destroyed or erased" so the data can't practicably be read or reconstructed <Src href={S.ma2} label="c.93I s.2" /></td>
+        <td>Civil fine up to $100 per data subject affected, capped at $50,000 per instance of improper disposal <Src href={S.ma2} label="c.93I s.2" /></td>
+      </tr>
+      <tr>
+        <td>Oregon</td>
+        <td>Covered entities must maintain reasonable safeguards, including disposing of personal information once it's no longer needed "by burning, pulverizing, shredding or modifying a physical record and by destroying or erasing electronic media" <Src href={S.or} label="ORS 646A.622" />. Small businesses comply with a program "appropriate for the size and complexity of the small business" <Src href={S.or} label="ORS 646A.622(5)" /></td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table></div>
+  <p>A dash means we're not quoting a penalty from that section.</p>
+
+  <h2>A simple retention routine</h2>
+  <ol>
+    <li>Download each report you rely on before the platform's viewing window closes, and store it in one secured place.</li>
+    <li>Don't print reports or copy ID, SSN or bank account numbers into spreadsheets unless you need to.</li>
+    <li>Keep your criteria, the applicant's authorization and any adverse action notice together with the decision.</li>
+    <li>When you no longer need the file, shred paper and delete or wipe electronic copies, including on old computers and phones you sell or give away <Src href={S.cfr} label="16 CFR 682.1(c), 682.3(b)" />.</li>
+  </ol>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/how-long-tenant-screening-takes/">How long tenant screening takes</a></li>
+    <li><a href="/bank-linked-income-verification-what-landlords-see/">Bank-linked income verification: what landlords see</a></li>
+    <li><a href="/tenant-screening-report-comparison/">What each screening report includes</a></li>
+    <li><a href="/">All Screening Atlas guides</a></li>
+  </ul>
+</Base>

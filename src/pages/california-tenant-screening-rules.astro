@@ -1,0 +1,71 @@
+---
+import Base from '../layouts/Base.astro';
+import Src from '../components/Src.astro';
+const S = {
+  f: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1950.6',
+  g: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=GOV&sectionNum=12955',
+  dre: 'https://www.dre.ca.gov/publications/ResourceGuidebook/2026_Landlord_Tenant_Guide.pdf',
+};
+const updated = '2026-11-25';
+const title = 'Is It Illegal to Run Credit or Background Checks in California? What State Law Actually Limits';
+const description = 'California landlords can run credit and background checks, but state law limits the fee, requires written criteria and a copy of the credit report, bars certain criminal records and blanket bans, and requires an alternative to credit history for voucher holders. Quoted from Cal. Civ. Code 1950.6, Gov. Code 12955 and the state\'s 2026 landlord-tenant guide.';
+const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":updated};
+---
+<Base title={title} description={description} updated={updated} schema={schema}>
+  <h1>{title}</h1>
+  <p class="lede">You'll see it said online that credit or background checks are "illegal" for California rentals. They aren't. The state's own landlord-tenant guide says the landlord "may obtain your credit report from a credit reporting agency to assist the landlord with the screening process" and that "generally, a housing provider may check the criminal history of an applicant" <Src href={S.dre} label="CA DRE guide, pp. 12, 16" />. What California does is put rules around how you do it. Here they are, statewide.</p>
+
+  <div class="note"><strong>The short version.</strong> You may charge an application screening fee only up to your actual out-of-pocket cost, capped at $30 per applicant adjusted for CPI since 1998 <Src href={S.f} label="Cal. Civ. 1950.6(b)" />, and only under one of two first-come or refund-everyone processes <Src href={S.f} label="1950.6(c)(2)" />. If the applicant paid a fee, you must give them a copy of the credit report within seven days <Src href={S.f} label="1950.6(f)" />. Criminal history checks are allowed, but not arrests without conviction, diversion, sealed or juvenile records, and not blanket bans <Src href={S.dre} label="CA DRE guide, p. 12" />.</div>
+
+  <h2>Can a California landlord run a credit check?</h2>
+  <p>Yes. The information a landlord gathers with a screening fee "may include, but is not limited to, personal reference checks and consumer credit reports" <Src href={S.f} label="1950.6(a)" />. A landlord "may, but is not required to, accept and rely upon a consumer credit report presented by an applicant" <Src href={S.f} label="1950.6(a)" />.</p>
+  <p>The exception is government rent subsidies. Where there is one, you can't use credit history without offering the applicant the option to provide "lawful, verifiable alternative evidence" of ability to pay their share, such as government benefit payments, pay records and bank statements, and you must reasonably consider it in place of credit history <Src href={S.g} label="Gov. 12955(o)(1)(B)" />. You also can't use an income standard that isn't based on the tenant's portion of the rent <Src href={S.g} label="12955(o)(1)(A)" />. You can still verify employment, call landlord references and verify identity <Src href={S.g} label="12955(o)(2)" />.</p>
+
+  <h2>How much can a California landlord charge for screening?</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Rule</th><th>What the law says</th></tr></thead>
+    <tbody>
+      <tr><td>Fee amount</td><td>No more than actual out-of-pocket costs plus the reasonable value of your time, and never more than $30 per applicant, adjustable annually by CPI from January 1, 1998 <Src href={S.f} label="1950.6(b)" />. The state guide says that as of December 2023 the fee could not exceed $62.02 <Src href={S.dre} label="CA DRE guide, p. 17" /></td></tr>
+      <tr><td>No vacancy</td><td>No fee when you know or should know no unit is or will be available within a reasonable time <Src href={S.f} label="1950.6(c)(1)" /></td></tr>
+      <tr><td>Process</td><td>Either consider completed applications in the order received, under written criteria given with the application, approve the first applicant who qualifies, and don't charge until an application is actually considered; or refund the whole fee to everyone not selected within 7 days of selecting a tenant or 30 days of the application, whichever is first <Src href={S.f} label="1950.6(c)(2)" /></td></tr>
+      <tr><td>Receipt</td><td>An itemized receipt of out-of-pocket costs and time <Src href={S.f} label="1950.6(d)" /></td></tr>
+      <tr><td>Unused fee</td><td>Return any part not used if you don't check references or don't get a credit report <Src href={S.f} label="1950.6(e)" /></td></tr>
+      <tr><td>Copy of the credit report</td><td>Give the applicant a copy within seven days of receiving it, if they paid a fee <Src href={S.f} label="1950.6(f)" /></td></tr>
+      <tr><td>Guarantors</td><td>A guarantor or cosigner counts as an "applicant" under these rules <Src href={S.f} label="1950.6(j)" /></td></tr>
+    </tbody>
+  </table></div>
+  <p>More detail: <a href="/application-fee-caps-by-state/">application fee caps by state</a>, <a href="/written-tenant-screening-criteria-by-state/">written screening criteria</a>, and <a href="/screening-fee-refund-when-no-screening/">screening fee refunds</a>.</p>
+
+  <h2>Can a California landlord check criminal history?</h2>
+  <p>Generally yes, with limits. According to the state's 2026 guide <Src href={S.dre} label="CA DRE guide, p. 12" />:</p>
+  <ul>
+    <li>You may not seek or consider arrests that didn't lead to a conviction, participation in a pretrial or post-trial diversion program, convictions sealed by a court, or convictions from the juvenile justice system.</li>
+    <li>Blanket bans on all applicants with criminal histories are prohibited.</li>
+    <li>A denial based on criminal history must rest on a "directly-related conviction": one with "a direct and specific negative bearing on a substantial, legitimate, and nondiscriminatory interest," such as the safety of residents, employees or the property.</li>
+    <li>Landlords should be able to give a copy of their criminal-history policy, offer a chance to present mitigating information, and wait to consider criminal history until financial and other qualifications are verified.</li>
+  </ul>
+  <p>The guide cites California Code of Regulations, title 2, sections 12264 to 12271 for these rules <Src href={S.dre} label="CA DRE guide, notes 28-31" />. It also says local governments can't require landlords to run criminal background checks <Src href={S.dre} label="CA DRE guide, pp. 12, 20" />.</p>
+
+  <h2>What else can't a California landlord consider?</h2>
+  <ul>
+    <li><strong>Source of income.</strong> Discrimination because of source of income, including housing vouchers, is unlawful, though you may ask about the level and source of income <Src href={S.g} label="Gov. 12955(a),(p)" />. See <a href="/source-of-income-and-voucher-rules-by-state/">Section 8 and source-of-income rules</a>.</li>
+    <li><strong>Combined income.</strong> Your income standard must count the aggregate income of people who will live together the same way it would for a married couple <Src href={S.g} label="12955(n)" />.</li>
+    <li><strong>Immigration status.</strong> Landlords may not ask about immigration or citizenship status, but can request documents to verify identity and finances <Src href={S.dre} label="CA DRE guide, p. 20" />. See <a href="/tenant-screening-without-ssn-itin/">applicants without an SSN</a>.</li>
+    <li><strong>COVID-19 rental debt.</strong> Screening services and landlords can't use alleged COVID-19 rental debt as a negative factor <Src href={S.dre} label="CA DRE guide, p. 16" />.</li>
+    <li><strong>Masked evictions.</strong> When an eviction record is masked, credit reporting agencies can't include it in a tenant screening report <Src href={S.dre} label="CA DRE guide, p. 16" />. See <a href="/eviction-records-official-court-portals/">eviction records and the laws that hide them</a>.</li>
+  </ul>
+
+  <h2>What do you owe the applicant if you deny them?</h2>
+  <p>If a denial is based in whole or part on a credit report or screening service, you must give written notice that says so, names the agency with its address and phone number, and tells the applicant they can get a free copy and dispute it <Src href={S.dre} label="CA DRE guide, p. 16" />. See <a href="/adverse-action-notice-tenant-screening/">adverse action notices</a>.</p>
+
+  <h2>Can an applicant use their own screening report?</h2>
+  <p>Yes, if you choose to accept it. The state guide says landlords aren't required to accept a reusable tenant screening report, but if they do, they can't charge a screening fee or a fee to access it <Src href={S.dre} label="CA DRE guide, p. 12" />. See <a href="/reusable-tenant-screening-reports-by-state/">reusable screening reports by state</a>.</p>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/oregon-tenant-screening-rules/">Oregon tenant screening rules</a></li>
+    <li><a href="/tenant-screening-checker-by-state/">Tenant screening checker by state</a></li>
+    <li><a href="/prepaid-rent-limits-by-state/">Prepaid rent limits</a></li>
+    <li><a href="/">All Screening Atlas guides</a></li>
+  </ul>
+</Base>

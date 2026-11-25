@@ -1,0 +1,79 @@
+---
+import Base from '../layouts/Base.astro';
+import Src from '../components/Src.astro';
+const S = {
+  s2: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title15/html/USCODE-2023-title15-chap41-subchapIII-sec1681s-2.htm',
+  c: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title15/html/USCODE-2023-title15-chap41-subchapIII-sec1681c.htm',
+  ca: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1785.26',
+  flRent: 'https://frontlobby.com/en/us-rent-reporting/',
+  flDebt: 'https://frontlobby.com/en/us-debt-reporting/',
+  flJudg: 'https://help.frontlobby.com/do-i-need-a-judgement-ruling-or-monetary-order-to-report-debts',
+  flCur: 'https://help.frontlobby.com/how-does-frontlobby-rent-reporting-help-me-recover-debts-from-a-current-tenant',
+};
+const updated = '2026-11-25';
+const title = 'Can a Landlord Report Unpaid Rent to the Credit Bureaus? Furnisher Duties and How It Works';
+const description = 'How landlords report unpaid rent or a move-out balance to Equifax, Experian and TransUnion, what the FCRA requires of anyone who furnishes that data (15 U.S.C. 1681s-2), how long it can stay on a report, California\'s notice rule, and what FrontLobby says it needs and charges.';
+const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":updated};
+---
+<Base title={title} description={description} updated={updated} schema={schema}>
+  <h1>{title}</h1>
+  <p class="lede">A tenant moves out owing two months' rent. Small claims feels like a lot of work, and collection agencies take a cut. Services now let individual landlords put that balance on the former tenant's credit report. Once you do, federal law treats you as a "furnisher" with duties of your own. Here is what the law says, and how one service describes its process.</p>
+
+  <div class="note"><strong>The short version.</strong> Anyone who furnishes information to a credit bureau must not report information they know or have reasonable cause to believe is inaccurate, must correct what turns out to be wrong, and must flag information the consumer disputes <Src href={S.s2} label="15 U.S.C. 1681s-2(a)" />. When a bureau forwards a dispute, the furnisher must investigate and report back <Src href={S.s2} label="1681s-2(b)" />. Collection accounts generally can't appear on a consumer report after seven years <Src href={S.c} label="1681c(a)(4)" />.</div>
+
+  <h2>Is it legal for a landlord to report unpaid rent to the credit bureaus?</h2>
+  <p>Federal law doesn't bar it; it sets rules for anyone who furnishes information about a consumer to a consumer reporting agency <Src href={S.s2} label="1681s-2" />. Most individual landlords don't have direct accounts with the bureaus, so they go through a reporting service. FrontLobby, for example, says it reports to Equifax, Experian, TransUnion and the Landlord Credit Bureau <Src href={S.flRent} label="FrontLobby" />.</p>
+
+  <h2>What does the FCRA require of a landlord who reports a debt?</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Duty</th><th>What the statute says</th></tr></thead>
+    <tbody>
+      <tr><td>Accuracy</td><td>A person "shall not furnish any information relating to a consumer to any consumer reporting agency if the person knows or has reasonable cause to believe that the information is inaccurate" <Src href={S.s2} label="1681s-2(a)(1)(A)" /></td></tr>
+      <tr><td>Notice of an error from the consumer</td><td>Information may not be furnished after the consumer notifies you (at the address you specify for notices) that it is inaccurate and it is in fact inaccurate <Src href={S.s2} label="1681s-2(a)(1)(B)" /></td></tr>
+      <tr><td>Correct and update</td><td>A person who regularly furnishes information and finds it incomplete or inaccurate must promptly notify the agency and provide corrections <Src href={S.s2} label="1681s-2(a)(2)" /></td></tr>
+      <tr><td>Disputed balances</td><td>If the consumer disputes the completeness or accuracy of the information to you, you may not furnish it "without notice that such information is disputed by the consumer" <Src href={S.s2} label="1681s-2(a)(3)" /></td></tr>
+      <tr><td>Date of delinquency</td><td>For an account placed for collection or charged off, the furnisher must report the month and year the delinquency began within 90 days after furnishing <Src href={S.s2} label="1681s-2(a)(5)" /></td></tr>
+      <tr><td>Disputes forwarded by a bureau</td><td>Investigate, review what the bureau sent, report the results, and correct the information with the other nationwide bureaus you reported to if it was wrong <Src href={S.s2} label="1681s-2(b)(1)" /></td></tr>
+    </tbody>
+  </table></div>
+  <p>The statute's separate written-notice rule for "negative information" applies to a "financial institution that extends credit" <Src href={S.s2} label="1681s-2(a)(7)" />.</p>
+
+  <h2>How long can unpaid rent stay on a tenant's credit report?</h2>
+  <p>A consumer report may not include accounts placed for collection or charged to profit and loss that are more than seven years old <Src href={S.c} label="1681c(a)(4)" />. The seven years start 180 days after the delinquency that came before the collection activity began <Src href={S.c} label="1681c(c)(1)" />. FrontLobby says rental debt "can remain on a Tenant's credit file for up to seven years" <Src href={S.flDebt} label="FrontLobby" />.</p>
+
+  <h2>Does California require notice before reporting?</h2>
+  <p>California's Consumer Credit Reporting Agencies Act says a "creditor" may submit negative credit information to a credit reporting agency "only if the creditor notifies the consumer affected." The notice must be in writing, delivered in person or mailed first class to the last known address, before or within 30 days after the information is sent <Src href={S.ca} label="Cal. Civ. 1785.26(b),(c)" />. The statute gives sample wording: "As required by law, you are hereby notified that a negative credit report reflecting on your credit record may be submitted to a credit reporting agency if you fail to fulfill the terms of your credit obligations" <Src href={S.ca} label="1785.26(c)(2)" />.</p>
+
+  <h2>How does a reporting service like FrontLobby work?</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Question</th><th>What FrontLobby says</th></tr></thead>
+    <tbody>
+      <tr><td>Bureaus reported to</td><td>TransUnion, Equifax, Experian and the Landlord Credit Bureau <Src href={S.flDebt} /></td></tr>
+      <tr><td>Tenant consent</td><td>Required for on-time rent reporting; not required for reporting unpaid rent <Src href={S.flRent} /></td></tr>
+      <tr><td>Court judgment needed?</td><td>Not for unpaid rent and unpaid utilities, if the amount is accurate, there is a mutually signed lease, and the debt is limited to rent and utilities under the lease. Damages, legal fees or penalty fees need a judgment, ruling or monetary order <Src href={S.flJudg} /></td></tr>
+      <tr><td>What you provide</td><td>Your name, date of birth and contact details; the tenant's name, date of birth, contact information and optionally SSN; property address, monthly rent, lease end date and amount owed <Src href={S.flDebt} /></td></tr>
+      <tr><td>Timing</td><td>The former tenant is notified by email; unresolved debts are reported on the 15th of each month, starting the month after rent first became past due <Src href={S.flDebt} /></td></tr>
+      <tr><td>Price (former tenant)</td><td>A one-time fee of $199 per debt reported; no Premium membership needed <Src href={S.flDebt} /></td></tr>
+      <tr><td>Current tenant</td><td>Requires an active Premium membership <Src href={S.flDebt} /></td></tr>
+      <tr><td>Your ongoing role</td><td>"You must update the balance monthly"; FrontLobby is not a collection agency and doesn't process payments <Src href={S.flCur} /></td></tr>
+    </tbody>
+  </table></div>
+  <p>Source: <a href="https://frontlobby.com/en/us-debt-reporting/" target="_blank" rel="noopener">FrontLobby debt reporting</a>.</p>
+
+  <h2>Before you report a former tenant's balance</h2>
+  <ol>
+    <li>Make sure the amount matches the lease and your ledger. Reporting a figure you have reason to believe is wrong is barred by 1681s-2(a)(1)(A) <Src href={S.s2} />.</li>
+    <li>Apply any security deposit you kept, so the balance you report is the amount actually owed.</li>
+    <li>Give the tenant an address for disputes, and if they dispute the balance, make sure it is reported as disputed <Src href={S.s2} label="1681s-2(a)(3)" />.</li>
+    <li>Update the balance as payments come in, and correct it if you find an error <Src href={S.s2} label="1681s-2(a)(2)" />.</li>
+    <li>In California, send the written negative-information notice <Src href={S.ca} label="1785.26" />.</li>
+  </ol>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/rent-reporting-services-compared/">Rent reporting services compared (on-time rent)</a></li>
+    <li><a href="/medical-debt-on-tenant-credit-reports/">Medical debt on tenant credit reports</a></li>
+    <li><a href="/free-tenant-screening-report-copy/">How tenants get a free copy of a screening report</a></li>
+    <li><a href="/">All Screening Atlas guides</a></li>
+  </ul>
+</Base>

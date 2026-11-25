@@ -1,0 +1,85 @@
+---
+import Base from '../layouts/Base.astro';
+import Src from '../components/Src.astro';
+const S = {
+  ilcs35: 'https://www.ilga.gov/Documents/legislation/ilcs/documents/076507050K35.htm',
+  pa: 'https://ilga.gov/Legislation/PublicActs/PrinterFriendly/104-0479',
+  ilcs30: 'https://www.ilga.gov/Documents/legislation/ilcs/documents/076507050K30.htm',
+};
+const updated = '2026-11-25';
+const title = 'Illinois Rental Fee Rules for 2027: the $50 Application Fee Limit and Fee Disclosure';
+const description = 'What Illinois Public Act 104-0479 (765 ILCS 705/35) changes for leases entered into after its January 1, 2027 effective date: the $50 limit on application and background check fees, the 14-day receipt rule, fees that must be on the first page of the lease, and the banned "junk fees", quoted from the statute.';
+const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":updated};
+---
+<Base title={title} description={description} updated={updated} schema={schema}>
+  <h1>{title}</h1>
+  <p class="lede">Illinois added a new Section 35, "Rental fee transparency and limitations," to its Landlord and Tenant Act <Src href={S.pa} label="P.A. 104-0479" />. It caps what you can charge an applicant for screening, and it makes any non-optional fee that isn't on the first page of the lease uncollectible. Here is what the text says, section by section.</p>
+
+  <div class="note"><strong>The short version.</strong> For covered Illinois leases, an application fee, including background checks, can't be more than $50. You can pass on a higher third-party background check cost only if you pay the provider first and bill the applicant, with the provider's receipts, within 14 days <Src href={S.ilcs35} label="765 ILCS 705/35(c)(1)" />. Every non-optional fee must appear on the first page of the lease and in the listing <Src href={S.ilcs35} label="705/35(b)" />. The Illinois Compiled Statutes list the section's source as P.A. 104-479, effective 1-1-27 <Src href={S.ilcs35} />.</div>
+
+  <h2>When does the Illinois rental fee law start, and which leases does it cover?</h2>
+  <p>The compiled statute shows the source as "P.A. 104-479, eff. 1-1-27" <Src href={S.ilcs35} />. The section "applies to all lease agreements for residential rental property entered into after the effective date" of the Act <Src href={S.ilcs35} label="705/35(e)" />.</p>
+  <p>It does not apply to "lease agreements entered into for dwelling units in owner-occupied premises containing 6 units or fewer" <Src href={S.ilcs35} label="705/35(e)" />. If you live in a building with 6 or fewer units and rent out the others, this section doesn't reach those leases.</p>
+
+  <h2>How much can an Illinois landlord charge for an application or background check?</h2>
+  <p>No landlord or lease may require "a fee for a rental application, including background checks, in excess of $50" <Src href={S.ilcs35} label="705/35(c)(1)" />. A fee over $50 for a third-party background check is allowed only if all three of these are true <Src href={S.ilcs35} label="705/35(c)(1)(A)-(C)" />:</p>
+  <ol>
+    <li>The actual cost of the third-party background check service is more than $50.</li>
+    <li>You, the landlord, pay the upfront cost of the service.</li>
+    <li>You bill the applicant within 14 days of the background check, with receipts from the provider.</li>
+  </ol>
+  <p>If you don't send the bill and receipts within 14 days, "the fee for a third-party background check is waived." The fee also can't be the basis for an eviction action within the first year of the lease <Src href={S.ilcs35} label="705/35(c)(1)" />.</p>
+  <p>You also can't add a second fee at application time that duplicates screening costs or covers costs unrelated to screening <Src href={S.ilcs35} label="705/35(c)(2)" />. Renaming a fee doesn't help: "A landlord may not rename a fee or charge to avoid application of this Section" <Src href={S.ilcs35} label="705/35(e)" />.</p>
+  <p>To compare the price of screening packages with the $50 limit, use the <a href="/tenant-screening-cost-calculator/">screening cost calculator</a> and the <a href="/tenant-screening-report-comparison/">report comparison</a>.</p>
+
+  <h2>What if the applicant brings a reusable screening report?</h2>
+  <p>Illinois already has a separate rule. If an applicant provides a reusable tenant screening report that was prepared within the previous 30 days by a consumer reporting agency, is available to you at no cost, and includes all the criteria you consistently use, you may not charge a fee to access it or an application screening fee <Src href={S.ilcs30} label="765 ILCS 705/30(b)(1)" />. You may ask the applicant to state there has been no material change in the information <Src href={S.ilcs30} label="705/30(b)(2)" />. See <a href="/reusable-tenant-screening-reports-by-state/">reusable screening reports by state</a>.</p>
+
+  <h2>What fees must be disclosed in the listing and the lease?</h2>
+  <ul>
+    <li>All non-optional fees, one-time or recurring, must be "explicitly contained on the first page of a lease agreement." If a fee isn't there, "a tenant shall not be liable for payment of such fee" <Src href={S.ilcs35} label="705/35(b)" />.</li>
+    <li>Non-optional fees must be disclosed "in a clear and conspicuous manner" in the listing or in a weblink that goes with it at the time of listing <Src href={S.ilcs35} label="705/35(b)(1)" />. A "listing" is an ad or written notice that a property is for lease and includes the rental price <Src href={S.ilcs35} label="705/35(a)" />.</li>
+    <li>The lease disclosure or the listing must say whether utilities are included in the rent <Src href={S.ilcs35} label="705/35(b)(2)" />.</li>
+  </ul>
+
+  <h2>Which fees are banned outright?</h2>
+  <p>Besides the application fee limit, no landlord or lease may require a fee or fine for <Src href={S.ilcs35} label="705/35(c)(3)-(11)" />:</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Banned fee or fine</th><th>Statute</th></tr></thead>
+    <tbody>
+      <tr><td>Modifying or renewing a lease</td><td>705/35(c)(3)</td></tr>
+      <tr><td>An eviction notice, or filing an eviction, before the court grants an eviction order (court costs and filing fees can still be recovered)</td><td>705/35(c)(4)</td></tr>
+      <tr><td>After-hours maintenance requests</td><td>705/35(c)(5)</td></tr>
+      <tr><td>Contacting the owner or manager about maintenance, the lease, or other tenancy matters</td><td>705/35(c)(6)</td></tr>
+      <tr><td>Travel needed to complete maintenance or safety repairs</td><td>705/35(c)(7)</td></tr>
+      <tr><td>A maintenance hotline service or call</td><td>705/35(c)(8)</td></tr>
+      <tr><td>Routine maintenance and upkeep of the unit</td><td>705/35(c)(9)</td></tr>
+      <tr><td>Pest abatement or removal where the tenant in no way contributed to the infestation</td><td>705/35(c)(10)</td></tr>
+      <tr><td>An in-person walk-through at move-in and move-out</td><td>705/35(c)(11)</td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>Can Chicago or other Illinois cities set stricter fee rules?</h2>
+  <p>Yes, but not looser ones. Local governments "may regulate fees charged to tenants, but such regulations must at a minimum, restrict fees charged to tenants in a manner equal to this Section" <Src href={S.ilcs35} label="705/35(d)" />.</p>
+
+  <h2>What happens if a landlord violates it?</h2>
+  <p>Anyone alleging a violation may bring a civil action, and the court may order injunctive relief, monetary relief, attorney's fees and costs <Src href={S.ilcs35} label="705/35(f)" />.</p>
+
+  <h2>Checklist for Illinois listings from January 1, 2027</h2>
+  <ol>
+    <li>Set the application fee at $50 or less, or use the pay-first, bill-with-receipts-within-14-days route for a costlier third-party check.</li>
+    <li>Put every non-optional fee on the first page of the lease.</li>
+    <li>List non-optional fees in the ad (or a linked page) and say whether utilities are included.</li>
+    <li>Drop any renewal, notice, after-hours, walk-through or routine-maintenance fees from your lease form.</li>
+    <li>Hand applicants your <a href="/written-tenant-screening-criteria-by-state/">written screening criteria</a> so a reusable report can be checked against them.</li>
+  </ol>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/application-fee-caps-by-state/">Application fee caps by state</a></li>
+    <li><a href="/holding-deposits-and-admin-fees-by-state/">Holding deposits and admin fees by state</a></li>
+    <li><a href="/screening-fee-refund-when-no-screening/">Screening fee refunds when you don't screen</a></li>
+    <li><a href="/phased-tenant-screening-jurisdictions/">Phased screening, including Cook County</a></li>
+    <li><a href="/">All Screening Atlas guides</a></li>
+  </ul>
+</Base>
