@@ -10,6 +10,8 @@ const S = {
   ttRead: 'https://support.turbotenant.com/en/articles/4409356-how-do-i-read-a-tenant-screening-report',
   ttSum: 'https://support.turbotenant.com/en/articles/15652533-understanding-the-applicant-summary-page',
   ttUp: 'https://support.turbotenant.com/en/articles/15960671-upload-income-verification-documents',
+  dlScreen: 'https://www.doorloop.com/features/tenant-screening',
+  dlFees: 'https://support.doorloop.com/en/articles/17004247-understanding-additional-fees-on-doorloop-one-connect-and-multiply',
 };
 const updated = '2026-11-22';
 const title = 'Bank-Linked Income Verification: What the Landlord Actually Sees';
@@ -48,6 +50,9 @@ const schema = {"@context":"https://schema.org","@type":"Article","headline":tit
 
   <h2>If you deny someone because of the income result</h2>
   <p>If anything in a screening report, including an income result delivered with it, contributes to a denial or a condition like a co-signer, see what you owe the applicant on our <a href="/adverse-action-notice-tenant-screening/">adverse action notice</a> page.</p>
+
+  <h2>DoorLoop</h2>
+  <p><Aff id="doorloop" href="https://doorloop.pxf.io/c/8280160/2153293/27441" text="DoorLoop" /> says it can "verify applicant income directly from bank or payroll providers instead of relying on uploaded pay stubs alone" <Src href={S.dlScreen} />. Its help center lists income verification as a $10 add-on to a $35 TransUnion screening, paid by the applicant <Src href={S.dlFees} />. The pages we reviewed do not list the fields the landlord sees, so we have not added DoorLoop to the table above.</p>
 
   <h2>Related</h2>
   <ul>
