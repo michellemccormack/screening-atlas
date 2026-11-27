@@ -1,0 +1,65 @@
+---
+import Base from '../layouts/Base.astro';
+import Src from '../components/Src.astro';
+const S = {
+  de: 'https://icis.corp.delaware.gov/ecorp/entitysearch/namesearch.aspx',
+  ca: 'https://www.sos.ca.gov/business-programs/bizfile',
+  caOnline: 'https://bizfileonline.sos.ca.gov/search/business',
+  or: 'https://sos.oregon.gov/business/Pages/find.aspx',
+  wa: 'https://www.sos.wa.gov/corporations-charities',
+  waSearch: 'https://ccfs.sos.wa.gov/',
+  tx: 'https://www.sos.state.tx.us/corp/sosda/index.shtml',
+  twn: 'https://www.theworknumber.com/verifiers/',
+  a: 'https://www.govinfo.gov/content/pkg/USCODE-2024-title15/html/USCODE-2024-title15-chap41-subchapIII-sec1681a.htm',
+};
+const updated = '2026-11-27';
+const title = "Does the Applicant's Employer Exist? Checking State Business Records";
+const description = "How to check that an applicant's employer is a real, registered business using official state business-entity searches (Delaware, California, Oregon, Washington, Texas), what those records show and don't, and what an employment verification service like The Work Number says it provides.";
+const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":updated};
+---
+<Base title={title} description={description} updated={updated} schema={schema}>
+  <h1>{title}</h1>
+  <p class="lede">Some rental fraud comes as a package: a fake job, fake pay stubs and a fake phone number for HR. A quick first check is whether the employer on the application is a registered business at all. Every state's business registry has a public search. It won't prove the applicant works there, but it can catch a company that doesn't exist or was formed last week.</p>
+
+  <div class="note"><strong>The short version.</strong> Search the employer's name in the business registry of the state where it says it's based, and in Delaware if it says it's incorporated there. Check that the entity exists, when it was formed, and its registered agent. Then verify the job itself by calling the employer at a number you found on your own, or by using an employment verification service. The Work Number describes itself as an FCRA-compliant service that returns employer name, tenure, job title and total gross income <Src href={S.twn} label="The Work Number" />.</div>
+
+  <h2>Where to search state business records</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>State</th><th>Official search</th><th>What the state says about it</th></tr></thead>
+    <tbody>
+      <tr><td>Delaware</td><td><a href={S.de} target="_blank" rel="noopener">Division of Corporations entity search</a></td><td>Free of charge: entity name, file number, incorporation or formation date, registered agent name, address, phone number and residency. Results include active and inactive entities and aren't an indication of current status; a Certificate of Status costs a fee <Src href={S.de} /></td></tr>
+      <tr><td>California</td><td><a href={S.caOnline} target="_blank" rel="noopener">bizfile Online</a>, Secretary of State</td><td>The Secretary of State's portal to file, search and order business records, including corporations, LLCs and limited partnerships <Src href={S.ca} /></td></tr>
+      <tr><td>Oregon</td><td><a href={S.or} target="_blank" rel="noopener">Business Name Search</a>, Secretary of State</td><td>Search by business name or registry number; the Business Registry Search also finds a business's registered agent <Src href={S.or} /></td></tr>
+      <tr><td>Washington</td><td><a href={S.waSearch} target="_blank" rel="noopener">Corporations and Charities System</a>, Secretary of State</td><td>The Secretary of State lists an Advanced Business Search among its online tools <Src href={S.wa} /></td></tr>
+      <tr><td>Texas</td><td><a href={S.tx} target="_blank" rel="noopener">SOSPortal</a>, Secretary of State</td><td>A $1.00 statutorily authorized fee for each search <Src href={S.tx} /></td></tr>
+    </tbody>
+  </table></div>
+
+  <h2>What a business registry can and can't tell you</h2>
+  <ul>
+    <li><strong>It can show</strong> that an entity by that name was formed, when, and who its registered agent is (Delaware lists all three for free) <Src href={S.de} label="Delaware" />.</li>
+    <li><strong>It can't show</strong> that the applicant works there, what they earn, or whether the business is still operating. Delaware warns that a search result "is not an indication of the current status of an entity" <Src href={S.de} label="Delaware" />.</li>
+    <li>The registries cover entities such as corporations, LLCs and limited partnerships <Src href={S.ca} label="California" />. A business that isn't one of those may not appear, so a missing record is a reason to ask, not an automatic no.</li>
+  </ul>
+
+  <h2>How to verify the job, step by step</h2>
+  <ol>
+    <li>Search the employer in the business registry of its home state, and in Delaware if it claims to be a Delaware company.</li>
+    <li>Note the formation date. A company formed just before the applicant's claimed start date deserves a closer look.</li>
+    <li>Find the employer's main phone number yourself, from its own website or a directory, rather than using the number on the application.</li>
+    <li>Ask HR or payroll to confirm employment and dates.</li>
+    <li>Compare what you learn with the pay stubs and the application.</li>
+  </ol>
+
+  <h2>Is calling an employer covered by the FCRA?</h2>
+  <p>The FCRA excludes from "consumer report" any "report containing information solely as to transactions or experiences between the consumer and the person making the report" <Src href={S.a} label="15 U.S.C. 1681a(d)(2)(A)(i)" />. An employer confirming its own employee's job fits that description. A verification service that sells employment data is different: The Work Number calls itself "Fully FCRA (Fair Credit Reporting Act) Compliant" and lists property management among the industries it serves <Src href={S.twn} label="The Work Number" />. If information from a service like that leads you to deny an applicant or set tougher terms, send an <a href="/adverse-action-notice-tenant-screening/">adverse action notice</a>.</p>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/verify-previous-landlord-property-records/">Checking a previous landlord in property records</a></li>
+    <li><a href="/bank-linked-income-verification-what-landlords-see/">Bank-linked income verification: what landlords see</a></li>
+    <li><a href="/rental-listing-scams-no-credit-check/">Rental listing scams</a></li>
+    <li><a href="/tenant-screening-report-comparison/">What each screening report includes</a></li>
+    <li><a href="/">All Screening Atlas guides</a></li>
+  </ul>
+</Base>
