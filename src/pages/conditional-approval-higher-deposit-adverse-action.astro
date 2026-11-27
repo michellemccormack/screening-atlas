@@ -1,0 +1,84 @@
+---
+import Base from '../layouts/Base.astro';
+import Src from '../components/Src.astro';
+const S = {
+  a: 'https://www.govinfo.gov/content/pkg/USCODE-2024-title15/html/USCODE-2024-title15-chap41-subchapIII-sec1681a.htm',
+  m: 'https://www.govinfo.gov/content/pkg/USCODE-2024-title15/html/USCODE-2024-title15-chap41-subchapIII-sec1681m.htm',
+  cfpbList: 'https://www.consumerfinance.gov/consumer-tools/credit-reports-and-scores/consumer-reporting-companies/companies-list/',
+  cfpbRev: 'https://www.consumerfinance.gov/rules-policy/tenant-background-checks/review-your-rental-background-check/',
+  ca: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1950.5',
+  ma: 'https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section15B',
+  ny: 'https://ag.ny.gov/sites/default/files/tenants_rights.pdf',
+};
+const updated = '2026-11-27';
+const title = 'Approving a Tenant With a Bigger Deposit or a Co-Signer: Is It Adverse Action?';
+const description = 'If a credit or screening report is why you ask for a larger deposit, a co-signer, more rent or months up front, the FCRA treats it as adverse action and you owe a notice. Plus the deposit caps in California, Massachusetts and New York that limit what you can ask for.';
+const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":updated};
+---
+<Base title={title} description={description} updated={updated} schema={schema}>
+  <h1>{title}</h1>
+  <p class="lede">The report comes back with thin or bad credit. You don't want to say no, so you say yes, if the applicant pays a bigger deposit, finds a co-signer, or pays a few months up front. Applicants offer the same thing: "What if I pay six months in advance?" A conditional yes can still be adverse action under federal law, and state deposit caps limit how much extra you can ask for.</p>
+
+  <div class="note"><strong>The short version.</strong> The CFPB says that if an applicant is "conditionally accepted" with adverse conditions, "such as requiring a co-signer or a larger deposit or a higher rent payment than other applicants," the landlord must give an adverse action notice naming the screening company it used <Src href={S.cfpbList} label="CFPB" />. The duty applies when the decision is based "in whole or in part" on a consumer report <Src href={S.m} label="15 U.S.C. 1681m(a)" />. Separately, California, Massachusetts and New York cap the deposit, so "pay more because of your credit" has a ceiling there <Src href={S.ca} label="CA" /> <Src href={S.ma} label="MA" /> <Src href={S.ny} label="NY" />.</div>
+
+  <h2>Why is a conditional approval adverse action?</h2>
+  <p>The FCRA's definition of adverse action includes "an action taken or determination that is" made in connection with an application by a consumer and "adverse to the interests of the consumer" <Src href={S.a} label="15 U.S.C. 1681a(k)(1)(B)(iv)" />. It isn't limited to a flat denial. The CFPB tells renters that landlords must tell them if they were "denied a lease, or charged a higher security deposit or other fee, because of information in your report" <Src href={S.cfpbRev} label="CFPB" />.</p>
+  <p>Conditions the CFPB names <Src href={S.cfpbList} label="CFPB" />:</p>
+  <ul>
+    <li>Requiring a co-signer</li>
+    <li>Requiring a larger deposit than other applicants pay</li>
+    <li>Charging a higher rent than other applicants pay</li>
+  </ul>
+  <p>The same CFPB page describes tough lease conditions after a negative report, such as "a requirement that you pay months of additional rent in advance or a higher security deposit" <Src href={S.cfpbList} label="CFPB" />.</p>
+
+  <h2>Does it matter if the applicant offered to pay more?</h2>
+  <p>The statute turns on whether you took the action "based in whole or in part on any information contained in a consumer report" <Src href={S.m} label="15 U.S.C. 1681m(a)" />. Who suggested the terms isn't part of the test. If the report is part of why you'll only rent on tougher terms than you'd give other applicants, send the notice. If you require the same terms of every applicant regardless of what the report says, the report didn't drive the decision.</p>
+
+  <h2>What must the notice say?</h2>
+  <p>After an adverse action based on a consumer report, you must <Src href={S.m} label="15 U.S.C. 1681m(a)" />:</p>
+  <ol>
+    <li>Give notice of the adverse action, orally, in writing or electronically.</li>
+    <li>Disclose any numerical credit score you used, with the score information listed in 1681g(f)(1).</li>
+    <li>Give the name, address and phone number of the consumer reporting agency that furnished the report, and a statement that the agency didn't make the decision and can't explain why it was made.</li>
+    <li>Tell the applicant about their right to a free copy of the report from that agency, and their right to dispute its accuracy or completeness.</li>
+  </ol>
+  <p>Our <a href="/adverse-action-notice-tenant-screening/">adverse action notice guide</a> covers the full contents, plus Washington's and Oregon's extra rules.</p>
+
+  <h2>How much extra can you ask for?</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>State</th><th>Cap on security at move-in</th><th>Rule on credit-based deposits</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>California</td>
+        <td>One month's rent, in addition to the first month's rent <Src href={S.ca} label="Civ. 1950.5(c)(1)" />. A landlord who is a natural person (or an LLC whose members are all natural persons) and owns no more than two rental properties with no more than four units may take up to two months' rent, but not from a service member <Src href={S.ca} label="1950.5(c)(5)" />. Advance payment of at least six months' rent is allowed on a lease of six months or longer <Src href={S.ca} label="1950.5(c)(2)" />.</td>
+        <td>Since April 1, 2025, if a landlord charges a service member a higher than standard or advertised deposit because of credit history, credit score, housing history or a similar factor, the landlord must give a written statement of the amount and the reason on or before lease signing, and return the extra after no more than six months if the tenant isn't behind on rent <Src href={S.ca} label="1950.5(c)(4)" /></td>
+      </tr>
+      <tr>
+        <td>Massachusetts</td>
+        <td>At or before the start of the tenancy, no more than first month's rent, last month's rent and a security deposit equal to one month's rent <Src href={S.ma} label="c.186 s.15B(1)(b)" /></td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>New York</td>
+        <td>A security deposit of no more than one month's rent, and the limit means a landlord can't ask for last month's rent and a security deposit, per the Attorney General's tenants' rights guide <Src href={S.ny} label="NY AG guide" /></td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table></div>
+  <p>A dash means the source we reviewed doesn't set a separate rule for credit-based deposits. For rent paid in advance, see <a href="/prepaid-rent-limits-by-state/">prepaid rent limits by state</a>. For taking a co-signer instead, see <a href="/screening-guarantors-and-co-signers/">screening guarantors and co-signers</a>.</p>
+
+  <h2>A simple routine for conditional approvals</h2>
+  <ol>
+    <li>Write the condition into your <a href="/written-tenant-screening-criteria-by-state/">screening criteria</a> before you screen, for example "applicants below our credit standard may qualify with a co-signer."</li>
+    <li>Check the deposit cap for your state before naming an amount.</li>
+    <li>Send the adverse action notice when you offer the conditional terms, and keep a copy with the file.</li>
+  </ol>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/holding-deposits-and-admin-fees-by-state/">Holding deposits and admin fees by state</a></li>
+    <li><a href="/source-of-income-and-voucher-rules-by-state/">Source-of-income and voucher rules</a></li>
+    <li><a href="/how-far-back-tenant-background-checks-go/">How far back a tenant background check goes</a></li>
+    <li><a href="/">All Screening Atlas guides</a></li>
+  </ul>
+</Base>

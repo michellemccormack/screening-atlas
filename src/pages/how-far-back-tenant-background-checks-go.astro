@@ -1,0 +1,86 @@
+---
+import Base from '../layouts/Base.astro';
+import Src from '../components/Src.astro';
+const S = {
+  c: 'https://www.govinfo.gov/content/pkg/USCODE-2023-title15/html/USCODE-2023-title15-chap41-subchapIII-sec1681c.htm',
+  wa: 'https://app.leg.wa.gov/RCW/default.aspx?cite=19.182.040',
+  ca13: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1785.13',
+  ca18: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1786.18',
+  ca2: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1786.2',
+  or: 'https://www.oregonlegislature.gov/bills_laws/ors/ors090.html',
+  cfpb: 'https://www.consumerfinance.gov/rules-policy/tenant-background-checks/review-your-rental-background-check/',
+};
+const updated = '2026-11-27';
+const title = 'How Far Back Does a Tenant Background Check Go?';
+const description = 'The FCRA seven-year limit on evictions, collections and arrests, the exception for criminal convictions (15 U.S.C. 1681c), and the stricter state limits in California, Washington and Oregon.';
+const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":updated};
+---
+<Base title={title} description={description} updated={updated} schema={schema}>
+  <h1>{title}</h1>
+  <p class="lede">Applicants worry that a mistake from ten years ago will follow them forever. Landlords want to know whether an old eviction or conviction will even show up. Federal law sets the outer limits for what a screening company may report, and a few states cut those limits shorter, especially for criminal records.</p>
+
+  <div class="note"><strong>The short version.</strong> Under the Fair Credit Reporting Act, most negative items can't appear on a consumer report once they're more than seven years old: civil suits and judgments, arrest records, collection accounts and "any other adverse item" <Src href={S.c} label="15 U.S.C. 1681c(a)" />. Bankruptcies can be reported for 10 years <Src href={S.c} label="1681c(a)(1)" />. Criminal <em>convictions</em> are the big exception: federal law sets no time limit on them <Src href={S.c} label="1681c(a)(5)" />. California and Washington do cap convictions at seven years <Src href={S.ca13} label="CA" /> <Src href={S.wa} label="WA" />.</div>
+
+  <h2>What does the FCRA's seven-year rule cover?</h2>
+  <p>A consumer reporting agency, which includes a tenant screening company, may not include these items in a consumer report <Src href={S.c} label="15 U.S.C. 1681c(a)" />:</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Item</th><th>Federal limit</th></tr></thead>
+    <tbody>
+      <tr><td>Bankruptcy cases</td><td>More than 10 years from the order for relief or adjudication <Src href={S.c} label="1681c(a)(1)" /></td></tr>
+      <tr><td>Civil suits, civil judgments and arrest records</td><td>More than seven years from date of entry, or until the statute of limitations runs, whichever is longer <Src href={S.c} label="1681c(a)(2)" /></td></tr>
+      <tr><td>Paid tax liens</td><td>More than seven years from payment <Src href={S.c} label="1681c(a)(3)" /></td></tr>
+      <tr><td>Collection accounts and charge-offs</td><td>More than seven years <Src href={S.c} label="1681c(a)(4)" />; the clock starts 180 days after the delinquency that led to collection <Src href={S.c} label="1681c(c)(1)" /></td></tr>
+      <tr><td>Any other adverse item</td><td>More than seven years, except records of convictions of crimes <Src href={S.c} label="1681c(a)(5)" /></td></tr>
+    </tbody>
+  </table></div>
+  <p>An eviction case is a civil suit, and an eviction judgment is a civil judgment, so the seven-year limit in 1681c(a)(2) is the one that applies to eviction records. The CFPB tells renters that federal law "generally bans negative information like evictions from being included on your report after seven years" <Src href={S.cfpb} label="CFPB" />.</p>
+
+  <h2>Do the limits ever not apply?</h2>
+  <p>The time limits in 1681c(a)(1) through (5) don't apply to reports used for three things: a credit transaction of $150,000 or more, life insurance with a face amount of $150,000 or more, or a job paying $75,000 a year or more <Src href={S.c} label="1681c(b)" />. A rental application isn't on that list.</p>
+
+  <h2>Can a tenant screening report show a 15-year-old conviction?</h2>
+  <p>Under federal law, yes. The seven-year catch-all in 1681c(a)(5) expressly excludes "records of convictions of crimes" <Src href={S.c} label="15 U.S.C. 1681c(a)(5)" />. Arrests that didn't lead to a conviction fall under the seven-year limit in 1681c(a)(2). Some states go further:</p>
+
+  <div class="tablewrap"><table>
+    <thead><tr><th>State</th><th>Criminal records</th><th>Eviction (unlawful detainer) records</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>California</td>
+        <td>Consumer credit reports can't include arrests, indictments, misdemeanor complaints or convictions more than seven years from disposition, release or parole, and must drop a conviction once a full pardon is granted <Src href={S.ca13} label="Civ. 1785.13(a)(6)" />. Investigative consumer reports have the same seven-year limit <Src href={S.ca18} label="Civ. 1786.18(a)(7)" />.</td>
+        <td>A credit report can include an unlawful detainer action only if the landlord was the prevailing party, as the statute defines it <Src href={S.ca13} label="1785.13(a)(3)" />. An investigative report can't include one the tenant won or that was resolved by settlement <Src href={S.ca18} label="1786.18(a)(4)" />.</td>
+      </tr>
+      <tr>
+        <td>Washington</td>
+        <td>No arrests, indictments or convictions of an adult that antedate the report by more than seven years from disposition, release or parole, and no juvenile records once the person is 21 or older <Src href={S.wa} label="RCW 19.182.040(1)(e),(f)" /></td>
+        <td>Suits and judgments: seven years from entry or until the statute of limitations runs, whichever is longer <Src href={S.wa} label="19.182.040(1)(b)" /></td>
+      </tr>
+      <tr>
+        <td>Oregon</td>
+        <td>This is a rule for landlords, not for screening companies. A landlord may consider only convictions and pending charges for certain kinds of conduct that is still illegal in Oregon, such as drug crimes (not marijuana use or possession alone), person crimes, sex offenses and financial fraud <Src href={S.or} label="ORS 90.303(3)" />.</td>
+        <td>A landlord may not consider an eviction that was dismissed or won by the applicant, or a judgment against the applicant entered five or more years before the application <Src href={S.or} label="ORS 90.303(1)" /></td>
+      </tr>
+    </tbody>
+  </table></div>
+  <p>California's investigative report rules reach tenant screening because the law defines "consumer" to include a person who applies to rent a dwelling unit <Src href={S.ca2} label="Civ. 1786.2(b)" />.</p>
+  <p>Washington's exceptions are lower than the federal ones: its limits don't apply to credit of $50,000 or more, life insurance of $50,000 or more, or a job paying $20,000 a year or more <Src href={S.wa} label="RCW 19.182.040(2)" />. A rental isn't on that list either.</p>
+
+  <h2>What should an applicant do if an old record shows up?</h2>
+  <p>If a record is outdated under these limits, the CFPB says to dispute it with the company that made the report and with the source that furnished it, in writing, with supporting documents <Src href={S.cfpb} label="CFPB" />. You're entitled to a free copy of the report the landlord used if you ask within 60 days of a denial <Src href={S.cfpb} label="CFPB" />. See <a href="/free-tenant-screening-report-copy/">how to get a free copy of your screening report</a>.</p>
+
+  <h2>What this means for landlords</h2>
+  <ul>
+    <li>The time limits bind the screening company, not you. Old court records you find yourself on a <a href="/eviction-records-official-court-portals/">public court portal</a> aren't governed by 1681c, but state rules like Oregon's still limit what you may consider <Src href={S.or} label="ORS 90.303" />.</li>
+    <li>If you deny someone or set tougher terms because of a report, you owe an <a href="/adverse-action-notice-tenant-screening/">adverse action notice</a>.</li>
+    <li>Put any look-back periods you use in your <a href="/written-tenant-screening-criteria-by-state/">written screening criteria</a>.</li>
+  </ul>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/reporting-unpaid-rent-to-credit-bureaus/">Reporting unpaid rent to credit bureaus</a></li>
+    <li><a href="/phased-tenant-screening-jurisdictions/">Phased (two-step) screening and local look-back periods</a></li>
+    <li><a href="/smartmove-criminal-eviction-coverage-by-state/">SmartMove criminal and eviction coverage by state</a></li>
+    <li><a href="/oregon-tenant-screening-rules/">Oregon tenant screening rules</a></li>
+    <li><a href="/california-tenant-screening-rules/">California tenant screening rules</a></li>
+    <li><a href="/">All Screening Atlas guides</a></li>
+  </ul>
+</Base>

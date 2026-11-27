@@ -1,0 +1,81 @@
+---
+import Base from '../layouts/Base.astro';
+import Src from '../components/Src.astro';
+const S = {
+  ca: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1950.5',
+  ma: 'https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section15B',
+  wa: 'https://app.leg.wa.gov/RCW/default.aspx?cite=59.18.280',
+  or: 'https://www.oregonlegislature.gov/bills_laws/ors/ors090.html',
+  ny: 'https://ag.ny.gov/sites/default/files/tenants_rights.pdf',
+};
+const updated = '2026-11-27';
+const title = 'Can a Landlord Deduct Carpet Cleaning and Repainting From a Security Deposit?';
+const description = 'What California, Massachusetts, Washington, Oregon and New York law say about normal wear and tear, professional carpet cleaning, repainting after a long tenancy, itemized statements, deadlines and penalties. Quoted from each statute or the state\'s official guide.';
+const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":updated};
+---
+<Base title={title} description={description} updated={updated} schema={schema}>
+  <h1>{title}</h1>
+  <p class="lede">A tenant moves out after three years and the landlord keeps $600 for professional carpet cleaning and a full repaint. Is that allowed? In every state reviewed here, the answer starts with the same rule: a landlord can't charge the deposit for ordinary wear and tear. The details on cleaning, paperwork and deadlines differ a lot.</p>
+
+  <div class="note"><strong>The short version.</strong> California bars claims for "ordinary wear and tear or the effects thereof," including "the cumulative effects of ordinary wear and tear" over one or more tenancies, and bars charging for professional carpet cleaning unless it's reasonably necessary to restore the move-in condition <Src href={S.ca} label="Cal. Civ. 1950.5(e)(2)" />. Washington bars withholding for wear from ordinary use, and for carpet cleaning unless the landlord documents wear beyond ordinary use <Src href={S.wa} label="RCW 59.18.280(1)(c)" />. Oregon allows a carpet-cleaning deduction only under three conditions <Src href={S.or} label="ORS 90.300(7)(c)" />. Massachusetts allows deductions for damage, "reasonable wear and tear excluded" <Src href={S.ma} label="c.186 s.15B(4)" />.</div>
+
+  <h2>Can a landlord charge for repainting after a long tenancy?</h2>
+  <p>Not for paint that has simply aged. In California, the landlord can't claim for ordinary wear and tear "whether the wear and tear preexisted the tenancy or occurred during the tenancy," or for its cumulative effects <Src href={S.ca} label="Cal. Civ. 1950.5(e)(2)(A)" />, and charges for work and materials are limited to a reasonable amount to restore the move-in condition, "exclusive of ordinary wear and tear" <Src href={S.ca} label="1950.5(e)(2)(B)" />. Washington and Oregon also exclude ordinary wear <Src href={S.wa} label="RCW 59.18.280(1)(c)(i)" /> <Src href={S.or} label="ORS 90.300(7)(a)(B)" />. Damage beyond normal wear, such as holes or stains the tenant caused, is a different matter in each of these states.</p>
+  <p>Washington adds a limit for partial damage: a landlord can't withhold more than the cost to repair or replace the damaged portion when the damage "does not encompass the item's entirety" <Src href={S.wa} label="RCW 59.18.280(1)(c)(iv)" />.</p>
+
+  <h2>What each state allows, and the paperwork it requires</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>State</th><th>Cleaning and carpet</th><th>Itemized statement and deadline</th><th>Penalty stated in the law</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>California</td>
+        <td>Cleaning only to return the unit to its move-in level of cleanliness <Src href={S.ca} label="1950.5(b)(3)" />. No professional carpet or other professional cleaning charge unless reasonably necessary to restore move-in condition, excluding ordinary wear <Src href={S.ca} label="1950.5(e)(2)(C)" /></td>
+        <td>Itemized statement within 21 days after move-out <Src href={S.ca} label="1950.5(h)(1)" />, with receipts or invoices, or time and hourly rate for the landlord's own work <Src href={S.ca} label="1950.5(h)(2)" />, unless deductions total $125 or less <Src href={S.ca} label="1950.5(h)(4)" />. Photos are required before and after repairs or cleaning, and at move-in for tenancies starting on or after July 1, 2025 <Src href={S.ca} label="1950.5(g)" /> <Src href={S.ca} label="1950.5(h)(2)(D)" /></td>
+        <td>For bad-faith retention, statutory damages of up to twice the deposit plus actual damages <Src href={S.ca} label="1950.5(m)" /></td>
+      </tr>
+      <tr>
+        <td>Massachusetts</td>
+        <td>Deductions are limited to unpaid rent or water charges, certain tax-escalation amounts, and a reasonable amount to repair damage caused by the tenant, reasonable wear and tear excluded <Src href={S.ma} label="c.186 s.15B(4)" /></td>
+        <td>Return within 30 days; for damage, an itemized list sworn under pains and penalties of perjury, with estimates, bills, invoices or receipts. No deduction for damage listed on the move-in statement of condition <Src href={S.ma} label="s.15B(4)" /></td>
+        <td>Three times the deposit or balance owed, plus 5% interest, court costs and attorney's fees, for the failures listed in s.15B(6)(a), (d) and (e), including not returning the deposit within 30 days <Src href={S.ma} label="s.15B(7)" /></td>
+      </tr>
+      <tr>
+        <td>Washington</td>
+        <td>No withholding for ordinary wear, or for carpet cleaning unless wear beyond ordinary use is documented, or for fixtures and appliances whose condition wasn't documented on the move-in checklist <Src href={S.wa} label="RCW 59.18.280(1)(c)" /></td>
+        <td>A full and specific statement within 30 days, with estimates or invoices, or time and hourly rate for the landlord's own work <Src href={S.wa} label="59.18.280(1)(a),(b)" /></td>
+        <td>Liable for the full deposit if the statement is late; up to two times the deposit for intentional refusal <Src href={S.wa} label="59.18.280(2)" /></td>
+      </tr>
+      <tr>
+        <td>Oregon</td>
+        <td>Carpet cleaning (beyond an ordinary vacuum) is deductible only if done with a carpet-cleaning machine, the carpet was cleaned or replaced before the tenant moved in, and the written rental agreement allows the deduction <Src href={S.or} label="ORS 90.300(7)(c)(A)" />. Labor must be at a reasonable hourly rate <Src href={S.or} label="90.300(7)(b)" /></td>
+        <td>Written accounting within 31 days after the tenancy ends and the tenant gives back possession <Src href={S.or} label="90.300(12)" /></td>
+        <td>Twice the amount withheld without a written accounting or in bad faith <Src href={S.or} label="90.300(16)" /></td>
+      </tr>
+      <tr>
+        <td>New York</td>
+        <td>The deposit may cover unpaid rent or "the reasonable cost of repairs beyond normal wear and tear" <Src href={S.ny} label="NY AG guide" /></td>
+        <td>For units that aren't rent stabilized or rent controlled: return within 14 days, with an itemized receipt for any damage deduction, or the whole deposit must be returned <Src href={S.ny} label="NY AG guide" /></td>
+        <td>Up to twice the deposit if the landlord deliberately breaks the law <Src href={S.ny} label="NY AG guide" /></td>
+      </tr>
+    </tbody>
+  </table></div>
+  <p>New York's statute page didn't load for us, so the New York row follows the Attorney General's Residential Tenants' Rights Guide.</p>
+
+  <h2>Can the tenant fix problems before moving out?</h2>
+  <p>In California, the landlord must tell the tenant in writing that they can ask for an initial inspection, no earlier than two weeks before move-out, and then give an itemized list of proposed deductions so the tenant can fix them <Src href={S.ca} label="Cal. Civ. 1950.5(f)" />. The New York AG guide says tenants can ask for a pre-move-out inspection and must be allowed to be present <Src href={S.ny} label="NY AG guide" />.</p>
+
+  <h2>What landlords should do at move-in</h2>
+  <ul>
+    <li>Document the condition. Massachusetts ties deductions to the statement of condition <Src href={S.ma} label="s.15B(4)" />, Washington to the written checklist <Src href={S.wa} label="RCW 59.18.280(1)(c)(iii)" />, and California now requires photos <Src href={S.ca} label="1950.5(g)" />.</li>
+    <li>In Oregon, put any carpet-cleaning deduction in the written rental agreement <Src href={S.or} label="ORS 90.300(7)(c)(A)(iii)" />.</li>
+    <li>Keep receipts and invoices for every deduction.</li>
+  </ul>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/prepaid-rent-limits-by-state/">Prepaid rent limits by state</a></li>
+    <li><a href="/holding-deposits-and-admin-fees-by-state/">Holding deposits and admin fees by state</a></li>
+    <li><a href="/conditional-approval-higher-deposit-adverse-action/">Bigger deposit or co-signer after a credit check</a></li>
+    <li><a href="/">All Screening Atlas guides</a></li>
+  </ul>
+</Base>

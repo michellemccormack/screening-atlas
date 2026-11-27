@@ -1,0 +1,59 @@
+---
+import Base from '../layouts/Base.astro';
+import Src from '../components/Src.astro';
+const S = {
+  acris: 'https://www.nyc.gov/site/finance/property/acris.page',
+  cook: 'https://www.cookcountyclerkil.gov/recordings',
+  king: 'https://blue.kingcounty.com/Assessor/eRealProperty/default.aspx',
+  dc: 'https://otr.cfo.dc.gov/page/real-property-tax-database-search',
+  henn: 'https://www.hennepin.us/residents/property/property-information-search',
+};
+const updated = '2026-11-27';
+const title = 'Is the Previous Landlord Real? Checking Property Records Before a Reference Call';
+const description = 'A fake job, fake pay stubs and a friend posing as the last landlord: how to check who owns the applicant\'s previous address using official county and city property records, with examples from New York City, Cook County, King County, Washington D.C. and Hennepin County.';
+const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":updated};
+---
+<Base title={title} description={description} updated={updated} schema={schema}>
+  <h1>{title}</h1>
+  <p class="lede">The landlord reference sounds great, and the phone number on the application goes to someone who says all the right things. But is that person the owner of the applicant's last address, or a friend? Before the reference call, you can check who owns the property in the local government's own records. Most counties and big cities have a free online lookup.</p>
+
+  <div class="note"><strong>The short version.</strong> Search the applicant's previous address in the county assessor's or recorder's database, note the owner of record, and compare it with the name the "landlord" gave you. Then call the owner or manager using contact information you found yourself, not just the number on the application. A mismatch isn't proof of fraud, since the owner may be an LLC or use a property manager, but it's a reason to ask more questions.</div>
+
+  <h2>Where to look up who owns an address</h2>
+  <p>Two kinds of local offices keep property records. The <strong>assessor</strong> (or tax office) values property for taxes. The <strong>recorder</strong> (or register of deeds, or county clerk) records deeds and other documents. Examples of official lookups:</p>
+  <div class="tablewrap"><table>
+    <thead><tr><th>Place</th><th>Official lookup</th><th>What the office says it offers</th></tr></thead>
+    <tbody>
+      <tr><td>New York City (Manhattan, Queens, Bronx, Brooklyn)</td><td><a href={S.acris} target="_blank" rel="noopener">ACRIS</a>, NYC Department of Finance</td><td>Search property records and view document images from 1966 to the present; find a property's borough-block-lot number or address; access deeds and other recorded documents <Src href={S.acris} /></td></tr>
+      <tr><td>Cook County, Illinois</td><td><a href={S.cook} target="_blank" rel="noopener">Cook County Clerk Recordings</a></td><td>Recorded land records can be searched by PIN, grantor, grantee and other indexed detail. The office also has a Property Fraud Unit <Src href={S.cook} /></td></tr>
+      <tr><td>King County, Washington</td><td><a href={S.king} target="_blank" rel="noopener">eReal Property</a>, Department of Assessments</td><td>Online data by property tax account or parcel number. Users must acknowledge that RCW 42.56.070(9) prohibits using lists of individuals for commercial purposes <Src href={S.king} /></td></tr>
+      <tr><td>Washington, D.C.</td><td><a href={S.dc} target="_blank" rel="noopener">Real Property Tax Database Search</a>, Office of Tax and Revenue</td><td>Property value, assessment roll and other information for more than 200,000 parcels <Src href={S.dc} /></td></tr>
+      <tr><td>Hennepin County, Minnesota</td><td><a href={S.henn} target="_blank" rel="noopener">Property information search</a></td><td>Search by address, property ID or map for taxes, assessment values, the tax parcel description and sales information, plus recently recorded documents. The county says this is public information under the Minnesota Data Practices Act <Src href={S.henn} /></td></tr>
+    </tbody>
+  </table></div>
+  <p>Elsewhere, search for your county's assessor or recorder and make sure the site ends in .gov or is linked from the county's official site.</p>
+
+  <h2>How to check a previous landlord, step by step</h2>
+  <ol>
+    <li>Take the exact previous address from the application, including the unit number.</li>
+    <li>Look it up in the county's assessor or recorder database and write down the owner of record.</li>
+    <li>Compare that owner with the reference's name. If the owner is a company, check whether the reference works for it or for a property manager.</li>
+    <li>Find the owner's or manager's contact details on your own, and call that number.</li>
+    <li>Ask questions only the real landlord could answer, such as the monthly rent and the dates of the tenancy, and compare the answers with the application.</li>
+    <li>Write down what you found and keep it with the application file.</li>
+  </ol>
+
+  <h2>What if the owner is an LLC?</h2>
+  <p>Many rentals are owned by a company, so the record may not show a person's name. Search the company in the state's business-entity database to see its registered agent and filing details. Our guide to <a href="/verify-applicant-employer-business-records/">checking an employer in state business records</a> lists official state searches, and the same searches work for a landlord's LLC.</p>
+
+  <h2>Does checking ownership change your FCRA duties?</h2>
+  <p>Looking up public property records yourself isn't buying a report from a screening company. A reference call is different, and if you pay a company to do the calls, the rules change. See <a href="/previous-landlord-references-and-the-fcra/">previous-landlord references and the FCRA</a> for when a reference check becomes a consumer report, and the state rules in California, Washington, Oregon and Minnesota.</p>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/rental-listing-scams-no-credit-check/">Rental listing scams</a></li>
+    <li><a href="/bank-linked-income-verification-what-landlords-see/">Bank-linked income verification</a></li>
+    <li><a href="/eviction-records-official-court-portals/">Eviction records: official court portals</a></li>
+    <li><a href="/">All Screening Atlas guides</a></li>
+  </ul>
+</Base>
