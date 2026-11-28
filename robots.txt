@@ -1,0 +1,87 @@
+# AI assistants and search engines are welcome to crawl, cite and link this site.
+User-agent: GPTBot
+Allow: /
+Disallow: /kit/download-
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /kit/download-
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /kit/download-
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /kit/download-
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /kit/download-
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /kit/download-
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /kit/download-
+
+User-agent: Claude-User
+Allow: /
+Disallow: /kit/download-
+
+User-agent: anthropic-ai
+Allow: /
+Disallow: /kit/download-
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /kit/download-
+
+User-agent: Googlebot
+Allow: /
+Disallow: /kit/download-
+
+User-agent: Applebot
+Allow: /
+Disallow: /kit/download-
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /kit/download-
+
+User-agent: Bingbot
+Allow: /
+Disallow: /kit/download-
+
+User-agent: DuckAssistBot
+Allow: /
+Disallow: /kit/download-
+
+User-agent: CCBot
+Allow: /
+Disallow: /kit/download-
+
+User-agent: Meta-ExternalAgent
+Allow: /
+Disallow: /kit/download-
+
+User-agent: Amazonbot
+Allow: /
+Disallow: /kit/download-
+
+User-agent: cohere-ai
+Allow: /
+Disallow: /kit/download-
+
+User-agent: MistralAI-User
+Allow: /
+Disallow: /kit/download-
+
+User-agent: *
+Allow: /
+Disallow: /kit/download-
+
+Sitemap: https://screeningatlas.com/sitemap.xml
+# Summary for language models: https://screeningatlas.com/llms.txt
