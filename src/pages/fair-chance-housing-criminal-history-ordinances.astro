@@ -1,0 +1,91 @@
+---
+import Base from '../layouts/Base.astro';
+import Src from '../components/Src.astro';
+const S = {
+  socr: 'https://www.seattle.gov/civilrights/civil-rights/fair-housing/fair-chance-housing',
+  yim: 'https://cdn.ca9.uscourts.gov/datastore/opinions/2023/03/21/21-35567.pdf',
+  oak: 'https://www.oaklandca.gov/Community/Housing-Programs-Support/Fair-Chance-Housing-Ordinance',
+  oakOrd: 'https://mcclibraryfunctions.azurewebsites.us/api/ordinanceDownload/16308/1007313/pdf',
+  pdx: 'https://www.portland.gov/code/30/01/086',
+};
+const updated = '2026-11-28';
+const title = 'Fair Chance Housing Ordinances: Where Landlords Can\'t Screen for Criminal History';
+const description = 'Seattle, Oakland and Portland limit or bar criminal-history screening of rental applicants. What each ordinance prohibits, which rentals are exempt, the Ninth Circuit ruling that changed Seattle\'s rule, Portland\'s 3- and 7-year look-backs, and the penalties. From the ordinances, the court opinion and each city\'s own pages.';
+const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":updated};
+---
+<Base title={title} description={description} updated={updated} schema={schema}>
+  <h1>{title}</h1>
+  <p class="lede">"Criminal history is a protected class in some cities" isn't quite how the laws are written, but the effect can be close. A handful of cities bar landlords from using an applicant's criminal record at all, with narrow exceptions; others allow it only within set look-back periods or after an individual review. The rules are local, so the same screening report can be fine in one city and a violation across the county line.</p>
+
+  <div class="note"><strong>The short version.</strong> <strong>Seattle</strong> still bars requiring disclosure of criminal history and taking adverse action based on it, but since June 6, 2023 no longer enforces its ban on asking <Src href={S.socr} label="Seattle OCR" />. <strong>Oakland</strong> generally bars asking about, requiring disclosure of, or using criminal history, with exemptions for some owner-occupied housing <Src href={S.oak} label="City of Oakland" />. <strong>Portland</strong> lets landlords choose low-barrier criteria (no denial for misdemeanors sentenced more than 3 years ago or felonies more than 7) or their own criteria with an individual assessment <Src href={S.pdx} label="Portland City Code 30.01.086(D)-(F)" />. Cook County, D.C., New York City and New Jersey use phased screening; see <a href="/phased-tenant-screening-jurisdictions/">phased screening</a>.</div>
+
+  <h2>Side by side</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th></th><th>Seattle, WA</th><th>Oakland, CA</th><th>Portland, OR</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Asking about criminal history</td>
+        <td>The ordinance bans it, but the city stopped enforcing that part on June 6, 2023 after the Ninth Circuit ruling <Src href={S.socr} label="Seattle OCR" /></td>
+        <td>Barred, except for checks required by federal or state law and the lifetime sex offender registry check described below <Src href={S.oakOrd} label="O.M.C. 8.25.030(A)-(C)" /></td>
+        <td>Allowed; the limits are on how it's used <Src href={S.pdx} label="30.01.086(E),(F)" /></td>
+      </tr>
+      <tr>
+        <td>Denying or other adverse action based on it</td>
+        <td>Still barred, subject to exceptions <Src href={S.socr} label="Seattle OCR" /></td>
+        <td>Barred, except where federal or state law requires excluding certain records <Src href={S.oakOrd} label="8.25.030(A),(B)" /></td>
+        <td>Under low-barrier criteria, no denial for arrests without conviction (unless the charge is still open on the date of the application), diversion, dismissed or expunged convictions, juvenile matters, misdemeanors sentenced more than 3 years before the application or felonies sentenced more than 7 years before <Src href={S.pdx} label="30.01.086(E)(1)(a)" />. Stricter criteria require an individual assessment <Src href={S.pdx} label="30.01.086(F)" /></td>
+      </tr>
+      <tr>
+        <td>Sex offender registry</td>
+        <td>All landlords may ask about sex offender status and take certain adverse actions based on it <Src href={S.yim} label="Yim v. Seattle, citing S.M.C. 14.09.025(A)(2), 14.09.115(B)" /></td>
+        <td>The state lifetime sex offender registry may be checked only if stated in the application, after the applicant otherwise qualifies, a conditional rental agreement is offered and written consent is requested <Src href={S.oakOrd} label="8.25.030(C)" /></td>
+        <td>—</td>
+      </tr>
+      <tr>
+        <td>Main exemptions</td>
+        <td>A single-family dwelling where the owner or subleasing tenant lives in part of it; an ADU or detached ADU where the owner lives on the same lot <Src href={S.yim} label="Yim, citing S.M.C. 14.09.115(C),(D)" /></td>
+        <td>Owner-occupied single-family homes; owner-occupied properties of up to three units; certain units the owner previously lived in; a tenant replacing or adding a co-tenant or subletting <Src href={S.oakOrd} label="8.25.020(K)" /> <Src href={S.oak} label="City of Oakland" /></td>
+        <td>Certain affordable housing filled through coordinated referral; units not advertised to the public; units shared with a landlord who lives there; a duplex unit or ADU where the owner lives on site <Src href={S.pdx} label="30.01.086(G)" /></td>
+      </tr>
+      <tr>
+        <td>Penalties</td>
+        <td>—</td>
+        <td>City civil penalties of up to $1,000 per violation; in a lawsuit, damages, attorney fees and penalties <Src href={S.oak} label="City of Oakland" /></td>
+        <td>Up to $250 per violation plus actual damages, attorney fees and costs <Src href={S.pdx} label="30.01.086(H)" /></td>
+      </tr>
+    </tbody>
+  </table></div>
+
+  <h2>Seattle: what the Ninth Circuit changed</h2>
+  <p>Seattle's Fair Chance Housing Ordinance barred landlords from requiring disclosure of, or asking about, "any arrest record, conviction record, or criminal history" of current or prospective tenants, and from taking adverse action based on it <Src href={S.yim} label="Yim v. City of Seattle, 9th Cir. 2023, citing S.M.C. 14.09.025(A)" />. In <em>Yim v. City of Seattle</em> (filed March 21, 2023), the Ninth Circuit held that the inquiry provision violated landlords' First Amendment rights, rejected the landlords' challenge to the adverse action provision, and sent the case back to the district court on severability <Src href={S.yim} label="Yim, summary" />.</p>
+  <p>The Seattle Office for Civil Rights says that as of June 6, 2023 it no longer enforces the ban on inquiring about criminal history, and continues to enforce the rest, including the bans (subject to exceptions) on requiring disclosure and on adverse action based on that history <Src href={S.socr} label="Seattle OCR" />. So in Seattle a landlord may ask, but generally can't deny or treat an applicant differently because of the answer.</p>
+
+  <h2>Oakland: the notice and paperwork rules</h2>
+  <ul>
+    <li>No advertisement may say, directly or indirectly, that people with criminal history won't be considered or can't apply, except as required by state or federal law <Src href={S.oakOrd} label="O.M.C. 8.25.040(A)" />.</li>
+    <li>The city's notice of rights must appear prominently on application materials, websites and places applicants visit <Src href={S.oakOrd} label="8.25.040(C)" />. The city publishes the notice <Src href={S.oak} label="City of Oakland" />.</li>
+    <li>Any criminal history obtained must be kept for at least three years and kept confidential to the extent the law allows <Src href={S.oakOrd} label="8.25.040(D)" />.</li>
+    <li>If any adverse action is based on criminal history, the applicant gets a written notice with the reasons, how to complain to the city, local legal services, a copy of the record relied on, and a chance to respond before denial <Src href={S.oakOrd} label="8.25.030(D)" />.</li>
+  </ul>
+
+  <h2>Portland: two ways to screen</h2>
+  <p>Portland requires every landlord to follow its general screening process, and then either use criteria no more prohibitive than the low-barrier criteria, or use the landlord's own criteria and conduct an individual assessment before denying <Src href={S.pdx} label="30.01.086(D)" />. The individual assessment must consider any supplemental evidence the applicant provides, the nature and severity of the incidents, their number and type, the time elapsed and the applicant's age at the time <Src href={S.pdx} label="30.01.086(F)(1)" />. A denial after an individual assessment needs a written notice within two weeks explaining the basis and why the supplemental evidence didn't make up for it <Src href={S.pdx} label="30.01.086(F)(2)" />. Even under low-barrier criteria, the landlord must consider supplemental evidence submitted with the application before denying for criminal history <Src href={S.pdx} label="30.01.086(E)(2)(b)" />.</p>
+  <p>The same section caps income requirements at 2.5 times the rent, or 2 times for higher-rent units, depending on the Portland Housing Bureau's 80% median income rent figure <Src href={S.pdx} label="30.01.086(D)(2)" />. Oregon's statewide rules are on our <a href="/oregon-tenant-screening-rules/">Oregon screening rules</a> page.</p>
+
+  <h2>What this means for your screening report</h2>
+  <ul>
+    <li>These ordinances control what you may do with a criminal report, and in Oakland whether you may ask for one at all for a covered unit.</li>
+    <li>In Portland, write your criteria down and decide in advance whether you're using the low-barrier criteria or doing individual assessments. See <a href="/written-tenant-screening-criteria-by-state/">written screening criteria</a>.</li>
+    <li>Old records have separate limits under the FCRA and some state laws. See <a href="/how-far-back-tenant-background-checks-go/">how far back background checks go</a>.</li>
+  </ul>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/phased-tenant-screening-jurisdictions/">Phased screening: Cook County, D.C., NYC and New Jersey</a></li>
+    <li><a href="/how-far-back-tenant-background-checks-go/">How far back background checks go</a></li>
+    <li><a href="/california-tenant-screening-rules/">California screening rules</a></li>
+    <li><a href="/oregon-tenant-screening-rules/">Oregon screening rules</a></li>
+    <li><a href="/adverse-action-notice-tenant-screening/">Adverse action notices</a></li>
+    <li><a href="/">All Screening Atlas guides</a></li>
+  </ul>
+</Base>
