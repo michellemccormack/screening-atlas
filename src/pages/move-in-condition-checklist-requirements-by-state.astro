@@ -1,0 +1,105 @@
+---
+import Base from '../layouts/Base.astro';
+import Src from '../components/Src.astro';
+const S = {
+  wa: 'https://app.leg.wa.gov/RCW/default.aspx?cite=59.18.260',
+  wa280: 'https://app.leg.wa.gov/RCW/default.aspx?cite=59.18.280',
+  ma: 'https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section15B',
+  ca: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1950.5',
+  az: 'https://www.azleg.gov/ars/33/01321.htm',
+  va1214: 'https://law.lis.virginia.gov/vacode/title55.1/chapter12/section55.1-1214/',
+  va1226: 'https://law.lis.virginia.gov/vacode/title55.1/chapter12/section55.1-1226/',
+  mi: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-554-608',
+  mi609: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-554-609',
+  mn182: 'https://www.revisor.mn.gov/statutes/cite/504B.182',
+  mn178: 'https://www.revisor.mn.gov/statutes/cite/504B.178',
+  wi: 'https://docs.legis.wisconsin.gov/code/admin_code/atcp/090/134/06',
+};
+const updated = '2026-11-28';
+const title = 'Move-In Condition Checklists and Photos: Which States Require Them';
+const description = 'Which states require a written move-in checklist, inspection report or photos before a landlord can take a security deposit or deduct for damage: Washington, Massachusetts, California, Arizona, Virginia, Michigan, Minnesota and Wisconsin. Deadlines, required wording and what happens without one, quoted from each statute.';
+const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":updated};
+---
+<Base title={title} description={description} updated={updated} schema={schema}>
+  <h1>{title}</h1>
+  <p class="lede">"That cabinet was already broken when I moved in." Whether a landlord can answer that depends on what was written down on day one, and in several states the paperwork isn't optional. Some states won't let a landlord collect a deposit at all without a signed checklist; others make the move-in report the measuring stick for every later deduction.</p>
+
+  <div class="note"><strong>The short version.</strong> Washington: no deposit without a signed written checklist, and a landlord who collects one without it owes the tenant the deposit <Src href={S.wa} label="RCW 59.18.260(2),(5)" />. Massachusetts: a signed statement of condition within ten days after the tenancy starts <Src href={S.ma} label="c.186 s.15B(2)(c)" />. California: photos at the start of tenancies beginning on or after July 1, 2025 <Src href={S.ca} label="Cal. Civ. 1950.5(g)(1)" />. Virginia: a written move-in report within five days <Src href={S.va1214} label="Va. 55.1-1214(A)" />. Arizona and Michigan require a move-in form or checklist <Src href={S.az} label="A.R.S. 33-1321(C)" /> <Src href={S.mi} label="MCL 554.608" />. Minnesota and Wisconsin require notice that the tenant may inspect <Src href={S.mn182} label="Minn. 504B.182" /> <Src href={S.wi} label="ATCP 134.06(1)" />.</div>
+
+  <h2>State by state</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>State</th><th>What the landlord must provide</th><th>Deadline</th><th>What the law ties to it</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Washington</td>
+        <td>A written checklist or statement describing the condition and cleanliness of, or existing damage to, the premises, fixtures, equipment, appliances and furnishings, including walls, flooring, furniture and appliances; signed and dated by both, with a copy to the tenant <Src href={S.wa} label="RCW 59.18.260(2),(3)" /></td>
+        <td>At the commencement of the tenancy <Src href={S.wa} label="59.18.260(2)" /></td>
+        <td>No deposit may be collected without it; if one is, the landlord is liable to the tenant for the deposit amount, and the prevailing party may recover costs and attorney fees <Src href={S.wa} label="59.18.260(5)" />. No withholding for items whose condition wasn't documented on the checklist <Src href={S.wa280} label="59.18.280(1)(c)" /></td>
+      </tr>
+      <tr>
+        <td>Massachusetts</td>
+        <td>A separate written statement of the present condition of the premises, with a comprehensive list of existing damage, signed by the landlord and carrying the statutory notice in 12-point bold type at the top <Src href={S.ma} label="c.186 s.15B(2)(c)" /></td>
+        <td>On receipt of the deposit, or within ten days after the tenancy begins, whichever is later. The tenant has 15 days to return it, with their own signed list of damage if they disagree <Src href={S.ma} label="s.15B(2)(c)" /></td>
+        <td>No deduction for damage listed on the statement or the tenant's signed list, unless the landlord later repaired it and can prove the new damage is unrelated <Src href={S.ma} label="s.15B(4)(iii)" /></td>
+      </tr>
+      <tr>
+        <td>California</td>
+        <td>Photographs of the unit <Src href={S.ca} label="Cal. Civ. 1950.5(g)(1)" /></td>
+        <td>Immediately before, or at the inception of, the tenancy, for tenancies beginning on or after July 1, 2025 <Src href={S.ca} label="1950.5(g)(1)" /></td>
+        <td>Move-out photos are also required, before and after repairs or cleaning <Src href={S.ca} label="1950.5(g)(2)" />, and they must go to the tenant with the itemized statement when a repair or cleaning deduction is made <Src href={S.ca} label="1950.5(h)(2)(D)" /></td>
+      </tr>
+      <tr>
+        <td>Arizona</td>
+        <td>A signed copy of the lease, a move-in form for listing existing damage, and written notice that the tenant may be present at the move-out inspection <Src href={S.az} label="A.R.S. 33-1321(C)" /></td>
+        <td>On move-in <Src href={S.az} label="33-1321(C)" /></td>
+        <td>On request, the landlord must tell the tenant when the move-out inspection will happen <Src href={S.az} label="33-1321(C)" /></td>
+      </tr>
+      <tr>
+        <td>Virginia</td>
+        <td>A written report itemizing damage existing at the time of occupancy. A written policy may let the tenant prepare it, or both prepare it jointly <Src href={S.va1214} label="Va. 55.1-1214(A),(B)" /></td>
+        <td>Within five days after occupancy. It is deemed correct unless the tenant objects in writing within five days after receiving it <Src href={S.va1214} label="55.1-1214(A)" /></td>
+        <td>At move-out, a tenant who asks in writing may attend the inspection, which must happen within 72 hours of delivery of possession <Src href={S.va1226} label="55.1-1226(G)" /></td>
+      </tr>
+      <tr>
+        <td>Michigan</td>
+        <td>Two blank copies of a commencement inventory checklist, identical to the termination checklist, covering items such as carpeting, draperies, appliances, windows, furniture, walls, closets, shelves, paint, doors and fixtures, with the statutory notice in 12-point bold type <Src href={S.mi} label="MCL 554.608(2),(4)" /></td>
+        <td>At the commencement of the lease; the tenant returns one copy within 7 days after getting possession unless both agree to a shorter period <Src href={S.mi} label="554.608(3)" /></td>
+        <td>The landlord completes a termination checklist listing damage claimed <Src href={S.mi} label="554.608(5)" />. The notice of damages can't include damage claimed on a previous termination checklist before the tenant moved in <Src href={S.mi609} label="554.609(2)" /></td>
+      </tr>
+      <tr>
+        <td>Minnesota</td>
+        <td>Notice of the tenant's option to request an initial inspection to identify existing deficiencies. If the tenant agrees, written acknowledgment of photos or videos may be used instead <Src href={S.mn182} label="Minn. 504B.182 subd. 1" /></td>
+        <td>At the commencement of the tenancy, or within 14 days of the tenant occupying the unit <Src href={S.mn182} label="subd. 1(a)" /></td>
+        <td>A landlord who doesn't give the inspection notices, or doesn't complete an inspection the tenant requests, is liable for a penalty equal to the deposit withheld, plus interest <Src href={S.mn178} label="Minn. 504B.178 subd. 4" /></td>
+      </tr>
+      <tr>
+        <td>Wisconsin</td>
+        <td>Written notice that the tenant may inspect the unit and report preexisting damage, and may ask for a list of damage charged to the previous tenant's deposit <Src href={S.wi} label="ATCP 134.06(1)(a)" /></td>
+        <td>Before accepting a deposit; the deadline given to the tenant must be at least 7 days after the tenancy starts <Src href={S.wi} label="ATCP 134.06(1)(a)" /></td>
+        <td>If asked, the landlord must give the list of the previous tenant's charged damage within the time the rule sets <Src href={S.wi} label="ATCP 134.06(1)(b)" /></td>
+      </tr>
+    </tbody>
+  </table></div>
+
+  <h2>Does a tenant have to sign the checklist?</h2>
+  <p>Washington requires both signatures and dates <Src href={S.wa} label="RCW 59.18.260(3)" />. In Massachusetts, the required notice tells the tenant that failing to return the statement within the time limit may be treated by a court as agreement that the list is complete and correct <Src href={S.ma} label="c.186 s.15B(2)(c)" />. Virginia's report is deemed correct unless the tenant objects in writing within five days <Src href={S.va1214} label="Va. 55.1-1214(A)" />.</p>
+
+  <h2>Can photos replace a written checklist?</h2>
+  <p>Only where the law says so. Minnesota allows a landlord, with the tenant's agreement, to give written acknowledgment of photos or videos in place of the initial or move-out inspection <Src href={S.mn182} label="Minn. 504B.182 subd. 1(b)" />. California requires photos, not a checklist <Src href={S.ca} label="Cal. Civ. 1950.5(g)" />. Washington and Massachusetts require a written checklist or statement <Src href={S.wa} label="RCW 59.18.260(2)" /> <Src href={S.ma} label="c.186 s.15B(2)(c)" />, so photos are useful extra evidence there but not a substitute.</p>
+
+  <h2>What landlords should do</h2>
+  <ul>
+    <li>Use one form for move-in and move-out, as Michigan requires <Src href={S.mi} label="MCL 554.608(2)" />. It makes every deduction a side-by-side comparison.</li>
+    <li>Get it signed and keep a copy with the lease, plus dated photos.</li>
+    <li>Calendar the short deadlines: five days in Virginia, ten days in Massachusetts, 14 days for Minnesota's notice.</li>
+    <li>At move-out, follow your state's return deadline. See <a href="/security-deposit-return-deadlines-by-state/">security deposit return deadlines by state</a>.</li>
+  </ul>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/security-deposit-return-deadlines-by-state/">Security deposit return deadlines by state</a></li>
+    <li><a href="/security-deposit-cleaning-repainting-wear-and-tear/">Cleaning and repainting deductions</a></li>
+    <li><a href="/tenant-damage-beyond-security-deposit-small-claims-limits/">Damage beyond the security deposit</a></li>
+    <li><a href="/">All Screening Atlas guides</a></li>
+  </ul>
+</Base>

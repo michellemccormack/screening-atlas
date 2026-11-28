@@ -1,0 +1,106 @@
+---
+import Base from '../layouts/Base.astro';
+import Src from '../components/Src.astro';
+const S = {
+  fl: 'https://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0000-0099/0083/Sections/0083.49.html',
+  az: 'https://www.azleg.gov/ars/33/01321.htm',
+  va: 'https://law.lis.virginia.gov/vacode/title55.1/chapter12/section55.1-1226/',
+  mi609: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-554-609',
+  mi610: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-554-610',
+  mn: 'https://www.revisor.mn.gov/statutes/cite/504B.178',
+  oh: 'https://codes.ohio.gov/ohio-revised-code/section-5321.16',
+  wi: 'https://docs.legis.wisconsin.gov/code/admin_code/atcp/090/134/06',
+};
+const updated = '2026-11-28';
+const title = 'Security Deposit Return Deadlines by State, and When the Clock Starts';
+const description = 'How many days a landlord has to return a security deposit or send an itemized list in Florida, Arizona, Virginia, Michigan, Minnesota, Ohio and Wisconsin, what starts the clock (move-out, end of the lease, a forwarding address), and what happens if the deadline is missed. Quoted from each statute.';
+const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":updated};
+---
+<Base title={title} description={description} updated={updated} schema={schema}>
+  <h1>{title}</h1>
+  <p class="lede">"Deadlines run from 14 to 60 days depending on the state" is the usual answer, but the number of days is only half of it. The other half is the day the count begins: the end of the lease, the day the keys come back, the day the tenant sends a forwarding address, or some mix of those. Miss it and several states take away the landlord's right to keep anything.</p>
+
+  <div class="note"><strong>The short version.</strong> Florida: 15 days to return the deposit if there's no claim, or 30 days to send a certified-mail or e-mail notice of a claim <Src href={S.fl} label="Fla. Stat. 83.49(3)(a)" />. Arizona: 14 days, excluding weekends and holidays, after the tenancy ends, possession is delivered and the tenant makes a demand <Src href={S.az} label="A.R.S. 33-1321(D)" />. Virginia: 45 days <Src href={S.va} label="Va. Code 55.1-1226(A)" />. Michigan: 30 days <Src href={S.mi609} label="MCL 554.609" />. Minnesota: three weeks <Src href={S.mn} label="Minn. Stat. 504B.178 subd. 3" />. Ohio: 30 days <Src href={S.oh} label="ORC 5321.16(B)" />. Wisconsin: 21 days <Src href={S.wi} label="Wis. Adm. Code ATCP 134.06(2)" />.</div>
+
+  <h2>Deadline, trigger and penalty, state by state</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>State</th><th>Deadline</th><th>The clock starts</th><th>If the landlord misses it</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>Florida</td>
+        <td>15 days to return the deposit if no claim is made; 30 days to send written notice of intent to impose a claim, with the reason, by certified mail or e-mail <Src href={S.fl} label="83.49(3)(a)" /></td>
+        <td>After the termination of the rental agreement <Src href={S.fl} label="83.49(3)(a)" /></td>
+        <td>The landlord forfeits the right to impose a claim on the deposit, but may file an action for damages after returning it <Src href={S.fl} label="83.49(3)(a)" /></td>
+      </tr>
+      <tr>
+        <td>Arizona</td>
+        <td>14 days, excluding Saturdays, Sundays and legal holidays, for an itemized list of deductions and any amount due <Src href={S.az} label="33-1321(D)" /></td>
+        <td>After termination of the tenancy, delivery of possession and demand by the tenant <Src href={S.az} label="33-1321(D)" /></td>
+        <td>The tenant may recover the money due plus damages equal to twice the amount wrongfully withheld <Src href={S.az} label="33-1321(E)" /></td>
+      </tr>
+      <tr>
+        <td>Virginia</td>
+        <td>45 days for a written, itemized notice of deductions with any amount due <Src href={S.va} label="55.1-1226(A)" /></td>
+        <td>The termination date of the tenancy or the date the tenant vacates, whichever is last <Src href={S.va} label="55.1-1226(A)" /></td>
+        <td>For willful failure, the court orders the deposit returned with actual damages and reasonable attorney fees, unless the tenant owes rent <Src href={S.va} label="55.1-1226(E)" /></td>
+      </tr>
+      <tr>
+        <td>Michigan</td>
+        <td>30 days to mail a notice of damages with an itemized list and the estimated repair cost of each item <Src href={S.mi609} label="MCL 554.609(1)" /></td>
+        <td>After the termination of occupancy <Src href={S.mi609} label="554.609(1)" /></td>
+        <td>Missing the deadline counts as the landlord's agreement that no damages are due, and the full deposit must be returned immediately <Src href={S.mi610} label="MCL 554.610" /></td>
+      </tr>
+      <tr>
+        <td>Minnesota</td>
+        <td>Three weeks to return the deposit with interest, or give a written statement of the specific reasons for withholding; five days if the tenant leaves because the building was condemned for reasons not due to the tenant <Src href={S.mn} label="504B.178 subd. 3(a)" /></td>
+        <td>After termination of the tenancy and after receipt of the tenant's mailing address or delivery instructions <Src href={S.mn} label="subd. 3(a)" /></td>
+        <td>A penalty equal to the amount withheld, plus interest, on top of the deposit itself <Src href={S.mn} label="subd. 4" />; up to $500 in punitive damages per deposit for bad-faith retention <Src href={S.mn} label="subd. 7" /></td>
+      </tr>
+      <tr>
+        <td>Ohio</td>
+        <td>30 days for an itemized written notice of deductions, with the amount due <Src href={S.oh} label="5321.16(B)" /></td>
+        <td>After termination of the rental agreement and delivery of possession <Src href={S.oh} label="5321.16(B)" /></td>
+        <td>Damages equal to the amount wrongfully withheld, plus reasonable attorney fees <Src href={S.oh} label="5321.16(C)" />. A tenant who never gave a forwarding address in writing can't get those damages or fees <Src href={S.oh} label="5321.16(B)" /></td>
+      </tr>
+      <tr>
+        <td>Wisconsin</td>
+        <td>21 days to deliver or mail the deposit, less lawful withholdings <Src href={S.wi} label="ATCP 134.06(2)" /></td>
+        <td>Depends on how the tenancy ended: the lease's end date if the tenant leaves on time; if the tenant leaves early, the end date or the day a new tenant's tenancy begins if the unit is re-rented sooner; if the tenant stays past the end date, the day the landlord learns the tenant has left or been removed <Src href={S.wi} label="ATCP 134.06(2)(a)-(c)" /></td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table></div>
+  <p>California, Massachusetts, Washington, Oregon and New York are covered on our <a href="/security-deposit-cleaning-repainting-wear-and-tear/">cleaning and repainting deductions</a> page, with their deadlines and penalties.</p>
+
+  <h2>Does the tenant have to give a forwarding address?</h2>
+  <p>It matters in several of these states. In Minnesota the three-week clock runs only after the landlord receives the tenant's mailing address or delivery instructions <Src href={S.mn} label="Minn. 504B.178 subd. 3(a)" />. Ohio requires the tenant to give a forwarding address in writing, and a tenant who doesn't loses the right to the statute's damages and attorney fees <Src href={S.oh} label="ORC 5321.16(B)" />. Arizona's 14 days start only after the tenant demands the deposit, and the landlord mails the list to the last known address unless other arrangements are made in writing <Src href={S.az} label="A.R.S. 33-1321(D)" />. In Florida, a tenant who leaves without at least 7 days' written notice that includes a forwarding address relieves the landlord of the 15/30-day notice requirement, though not of the tenant's right to the deposit <Src href={S.fl} label="Fla. Stat. 83.49(5)" />.</p>
+  <p>Virginia says what happens when there's no address at all: the landlord may keep holding the deposit in escrow, and one year after the 45-day period ends may remit it to the State Treasurer as unclaimed property <Src href={S.va} label="Va. 55.1-1226(B)" />.</p>
+
+  <h2>Can the tenant object to the deductions?</h2>
+  <p>Some states build an objection window into the process:</p>
+  <ul>
+    <li><strong>Florida.</strong> The tenant has 15 days after receiving the notice to object in writing; if they don't, the landlord may deduct the claim and must send the balance within 30 days after the date of the notice <Src href={S.fl} label="83.49(3)(b)" />. The statute sets out the wording of the notice <Src href={S.fl} label="83.49(3)(a)" />.</li>
+    <li><strong>Michigan.</strong> The notice of damages must say, in 12-point bold type, that the tenant must respond by mail within 7 days or forfeit the amount claimed <Src href={S.mi609} label="554.609(4)" />.</li>
+    <li><strong>Arizona.</strong> If the tenant doesn't dispute the itemized list within 60 days after it's mailed, it is deemed valid and final <Src href={S.az} label="33-1321(D)" />.</li>
+  </ul>
+
+  <h2>What if the damage is more than the deposit?</h2>
+  <p>A deposit deadline doesn't end the landlord's claim for larger damage. Virginia gives the landlord an extra 15 days to itemize when damage exceeds the deposit and needs a third-party contractor, if the landlord says so within the 45 days <Src href={S.va} label="55.1-1226(E)" />. Florida lets a landlord who missed the notice deadline still sue for damages after returning the deposit <Src href={S.fl} label="83.49(3)(a)" />. See <a href="/tenant-damage-beyond-security-deposit-small-claims-limits/">damage beyond the security deposit</a> for small claims limits.</p>
+
+  <h2>What landlords should do</h2>
+  <ul>
+    <li>Put the move-out date and your state's deadline on the calendar the day the tenant gives notice.</li>
+    <li>Ask for a forwarding address in writing at move-out, and keep it.</li>
+    <li>Use the delivery method the statute names: certified mail or e-mail in Florida <Src href={S.fl} label="83.49(3)(a)" />, first-class mail in Arizona unless agreed otherwise in writing <Src href={S.az} label="33-1321(D)" />.</li>
+    <li>Document the unit's condition at move-in, so deductions can be tied to it. See <a href="/move-in-condition-checklist-requirements-by-state/">move-in checklist requirements by state</a>.</li>
+  </ul>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/security-deposit-cleaning-repainting-wear-and-tear/">Cleaning and repainting deductions</a></li>
+    <li><a href="/move-in-condition-checklist-requirements-by-state/">Move-in condition checklists by state</a></li>
+    <li><a href="/tenant-damage-beyond-security-deposit-small-claims-limits/">Damage beyond the security deposit</a></li>
+    <li><a href="/prepaid-rent-limits-by-state/">Prepaid rent limits by state</a></li>
+    <li><a href="/">All Screening Atlas guides</a></li>
+  </ul>
+</Base>

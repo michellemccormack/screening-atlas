@@ -1,0 +1,82 @@
+---
+import Base from '../layouts/Base.astro';
+import Src from '../components/Src.astro';
+const S = {
+  epa: 'https://www.epa.gov/lead/real-estate-disclosure',
+  c745: 'https://www.ecfr.gov/current/title-40/chapter-I/subchapter-R/part-745/subpart-F',
+  c35: 'https://www.ecfr.gov/current/title-24/subtitle-A/part-35/subpart-A',
+  c19: 'https://www.ecfr.gov/current/title-40/chapter-I/subchapter-A/part-19/section-19.4',
+  form: 'https://www.epa.gov/sites/default/files/documents/lesr_eng.pdf',
+  pamphlet: 'https://www.epa.gov/lead/protect-your-family-lead-your-home-real-estate-disclosure',
+  rrp: 'https://www.epa.gov/lead/renovation-repair-and-painting-program',
+};
+const updated = '2026-11-28';
+const title = 'Lead-Based Paint Disclosure Before Signing a Lease: What Landlords Must Give Tenants';
+const description = 'The federal lead disclosure rule for rentals built before 1978: which units it covers and which are exempt, the pamphlet, warning statement and signed disclosure a landlord must provide before the lease is signed, the 3-year recordkeeping rule, and penalties. From 40 CFR 745 subpart F, 24 CFR 35 subpart A and EPA\'s own pages.';
+const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":updated};
+---
+<Base title={title} description={description} updated={updated} schema={schema}>
+  <h1>{title}</h1>
+  <p class="lede">"The landlord has to give the tenant a lead hazard pamphlet and a disclosure before the lease is signed." That's right for most homes built before 1978, and it has applied to owners of one to four dwellings since December 6, 1996 <Src href={S.c745} label="40 CFR 745.102(b)" />. Here is what the federal rule requires, who is exempt, and what it costs to skip it.</p>
+
+  <div class="note"><strong>The short version.</strong> For housing built before 1978, before the tenant is bound by the lease, the landlord must give an EPA-approved lead pamphlet, disclose any known lead-based paint or hazards, hand over any available reports, and attach a Lead Warning Statement signed by both sides <Src href={S.c745} label="40 CFR 745.107, 745.113(b)" />. Keep the signed copy for 3 years from the start of the lease <Src href={S.c745} label="745.113(c)(1)" />. The same rule appears in HUD's regulations at 24 CFR part 35, subpart A <Src href={S.c35} label="24 CFR 35.80-35.98" />.</div>
+
+  <h2>Which rentals does it cover?</h2>
+  <p>The rule applies to leases of "target housing," including subleases <Src href={S.c745} label="40 CFR 745.101" />. Target housing means housing built before 1978, except housing for the elderly or persons with disabilities and 0-bedroom dwellings, unless a child under 6 lives or is expected to live there <Src href={S.c745} label="745.103" />. A 0-bedroom dwelling is one where the living area isn't separated from the sleeping area, including studios, efficiencies, dorm housing and rentals of individual rooms <Src href={S.c745} label="745.103" />. "Lessor" covers any entity offering target housing for rent, including individuals <Src href={S.c745} label="745.103" />.</p>
+
+  <h2>Which leases are exempt?</h2>
+  <ul>
+    <li>Leases of housing found lead-based paint free by a certified inspector <Src href={S.c745} label="745.101(b)" />.</li>
+    <li>Short-term leases of 100 days or less, where no renewal or extension can occur <Src href={S.c745} label="745.101(c)" />.</li>
+    <li>Renewals of existing leases where the landlord already made the full disclosure and has no new information <Src href={S.c745} label="745.101(d)" />.</li>
+    <li>Units that aren't target housing: built in 1978 or later, housing for the elderly or persons with disabilities, and 0-bedroom units, unless a child under 6 lives or is expected to live there <Src href={S.c745} label="745.103" />.</li>
+  </ul>
+
+  <h2>What the landlord must provide, before the lease is signed</h2>
+  <p>All of this must be done before the tenant is obligated under the lease <Src href={S.c745} label="745.107(a)" />:</p>
+  <ol>
+    <li>An EPA-approved lead hazard information pamphlet, such as <em>Protect Your Family From Lead in Your Home</em> <Src href={S.c745} label="745.107(a)(1)" />. EPA publishes it in several languages <Src href={S.pamphlet} label="EPA" />.</li>
+    <li>Disclosure of any known lead-based paint or lead-based paint hazards in the unit, with what's known about where they are and the condition of the painted surfaces <Src href={S.c745} label="745.107(a)(2)" />.</li>
+    <li>Any available records or reports on lead-based paint or hazards, including those on common areas, and on other units when they're part of a building-wide evaluation <Src href={S.c745} label="745.107(a)(4)" />.</li>
+  </ol>
+  <p>If any of this happens after the applicant has already made an offer to rent, the landlord must finish the disclosure before accepting the offer and let the applicant review it and possibly amend the offer <Src href={S.c745} label="745.107(b)" />.</p>
+
+  <h2>What goes in or with the lease</h2>
+  <p>Each lease of target housing must include, attached or in the lease itself and in the lease's language <Src href={S.c745} label="745.113(b)" />:</p>
+  <ul>
+    <li>The Lead Warning Statement, word for word: "Housing built before 1978 may contain lead-based paint. Lead from paint, paint chips, and dust can pose health hazards if not managed properly. Lead exposure is especially harmful to young children and pregnant women. Before renting pre-1978 housing, lessors must disclose the presence of known lead-based paint and/or lead-based paint hazards in the dwelling. Lessees must also receive a federally approved pamphlet on lead poisoning prevention." <Src href={S.c745} label="745.113(b)(1)" /></li>
+    <li>The landlord's statement disclosing known lead-based paint or hazards, or saying the landlord has no knowledge of any <Src href={S.c745} label="745.113(b)(2)" />.</li>
+    <li>A list of the records or reports given to the tenant, or a statement that there are none <Src href={S.c745} label="745.113(b)(3)" />.</li>
+    <li>The tenant's statement confirming receipt of the information and the pamphlet <Src href={S.c745} label="745.113(b)(4)" />.</li>
+    <li>If an agent is involved, the agent's statement that they've informed the landlord of the obligations and know their own duty <Src href={S.c745} label="745.113(b)(5)" />.</li>
+    <li>Signatures and dates of the landlord, any agent and the tenants <Src href={S.c745} label="745.113(b)(6)" />.</li>
+  </ul>
+  <p>EPA publishes a sample <a href={S.form} target="_blank" rel="noopener">Lessor's Disclosure of Information</a> form that covers these elements <Src href={S.epa} label="EPA" />.</p>
+
+  <h2>Does the landlord have to test for lead?</h2>
+  <p>No. The rule states that nothing in it implies a positive obligation on the lessor to conduct evaluation or reduction activities <Src href={S.c745} label="745.107(a)" />. EPA says renters may ask for an inspection by a certified inspector before signing, but the rule doesn't require landlords to do one <Src href={S.epa} label="EPA" />. The 10-day inspection opportunity in the rule applies to home buyers, not renters <Src href={S.c745} label="745.100" />.</p>
+
+  <h2>How long must the signed disclosure be kept?</h2>
+  <p>The landlord, and any agent, must keep a copy of the completed attachment or lease for at least 3 years from the start of the leasing period <Src href={S.c745} label="745.113(c)(1)" />. If the disclosure is given electronically, EPA lists what must go with it, including the tenant's consent and a statement of their right to paper copies <Src href={S.epa} label="EPA" />.</p>
+
+  <h2>What happens if a landlord skips it?</h2>
+  <ul>
+    <li>A person who knowingly violates the rule is liable to the tenant for three times the tenant's damages <Src href={S.c745} label="745.118(c)" />, and a court may award the tenant's court costs, attorney fees and expert witness fees if the tenant prevails <Src href={S.c745} label="745.118(d)" />.</li>
+    <li>Civil penalties apply per violation. EPA's current inflation table lists $22,263 under 42 U.S.C. 4852d(b)(5) for penalties assessed on or after January 8, 2025 <Src href={S.c19} label="40 CFR 19.4" />.</li>
+    <li>Knowing violations are also subject to civil monetary penalties under 42 U.S.C. 3545, and the rule authorizes the Secretary to seek an injunction in federal district court <Src href={S.c745} label="745.118(a),(b)" />.</li>
+  </ul>
+
+  <h2>Do state or local lead laws still apply?</h2>
+  <p>Yes. The federal rule doesn't relieve a landlord from state or local lead notice or disclosure requirements <Src href={S.c745} label="745.119" />. Many cities and states have their own rules, so check locally too.</p>
+
+  <h2>Repairs and repainting in pre-1978 rentals</h2>
+  <p>A separate EPA rule covers work, not disclosure. Anyone paid to do work that disturbs paint in housing built before 1978 must be certified, and the homeowner exemption doesn't apply if you rent out all or part of your home <Src href={S.rrp} label="EPA RRP" />. That matters for turnover repainting. See <a href="/security-deposit-cleaning-repainting-wear-and-tear/">cleaning and repainting deductions</a> for what can be charged to a tenant.</p>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/move-in-condition-checklist-requirements-by-state/">Move-in condition checklists by state</a></li>
+    <li><a href="/written-tenant-screening-criteria-by-state/">Written screening criteria by state</a></li>
+    <li><a href="/how-long-to-keep-tenant-screening-reports/">How long to keep screening reports</a></li>
+    <li><a href="/">All Screening Atlas guides</a></li>
+  </ul>
+</Base>

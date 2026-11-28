@@ -1,0 +1,79 @@
+---
+import Base from '../layouts/Base.astro';
+import Src from '../components/Src.astro';
+const S = {
+  ca: 'https://leginfo.legislature.ca.gov/faces/codes_displaySection.xhtml?lawCode=CIV&sectionNum=1950.5',
+  caSc: 'https://selfhelp.courts.ca.gov/small-claims-california',
+  ma15b: 'https://malegislature.gov/Laws/GeneralLaws/PartII/TitleI/Chapter186/Section15B',
+  maSc: 'https://malegislature.gov/Laws/GeneralLaws/PartIII/TitleI/Chapter218/Section21',
+  waSc: 'https://app.leg.wa.gov/RCW/default.aspx?cite=12.40.010',
+  orSc: 'https://www.oregonlegislature.gov/bills_laws/ors/ors046.html',
+  va: 'https://law.lis.virginia.gov/vacode/title55.1/chapter12/section55.1-1226/',
+  vaSc: 'https://law.lis.virginia.gov/vacode/title16.1/chapter4.1/section16.1-122.2/',
+  miSc: 'https://www.legislature.mi.gov/Laws/MCL?objectName=mcl-600-8401',
+  mnSc: 'https://www.revisor.mn.gov/statutes/cite/491A.01',
+  mn178: 'https://www.revisor.mn.gov/statutes/cite/504B.178',
+  ohSc: 'https://codes.ohio.gov/ohio-revised-code/section-1925.02',
+  az: 'https://www.azleg.gov/ars/33/01321.htm',
+  azSc: 'https://www.azleg.gov/ars/22/00503.htm',
+  wiSc: 'https://docs.legis.wisconsin.gov/statutes/statutes/799/01',
+  fl: 'https://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0000-0099/0083/Sections/0083.49.html',
+};
+const updated = '2026-11-28';
+const title = 'When Tenant Damage Is More Than the Security Deposit: Recovering the Rest, and Small Claims Limits by State';
+const description = 'The deposit is not a cap on what a tenant owes. What deposit statutes in Virginia, Florida, Arizona, Massachusetts and California say about claims beyond the deposit, and the small claims dollar limits in California, Massachusetts, Washington, Oregon, Virginia, Michigan, Minnesota, Ohio, Arizona and Wisconsin, from each state\'s statute or court.';
+const schema = {"@context":"https://schema.org","@type":"Article","headline":title,"description":description,"dateModified":updated};
+---
+<Base title={title} description={description} updated={updated} schema={schema}>
+  <h1>{title}</h1>
+  <p class="lede">"$15,000 in property damage. Your security deposit is only $4,000." The deposit is the money the landlord already holds, not the most a tenant can owe. Deposit statutes generally leave the landlord's other claims intact, and the rest is collected the ordinary way: a demand, then a lawsuit, often in small claims court if the amount fits under the state's limit.</p>
+
+  <div class="note"><strong>The short version.</strong> Several deposit statutes say outright that they don't stop a landlord from recovering other damages <Src href={S.az} label="A.R.S. 33-1321(F)" /> <Src href={S.va} label="Va. 55.1-1226(E)" />. Small claims limits differ widely: $12,500 for an individual in California ($6,250 for a business) <Src href={S.caSc} label="CA Courts" />, $5,000 in Virginia <Src href={S.vaSc} label="Va. 16.1-122.2" />, $20,000 in Minnesota conciliation court <Src href={S.mnSc} label="Minn. 491A.01" />. Above the limit, the claim goes to the regular civil court.</div>
+
+  <h2>Does the security deposit cap what a tenant owes?</h2>
+  <p>No, in the statutes reviewed here. Arizona's deposit section "does not preclude the landlord or tenant from recovering other damages to which the landlord or tenant may be entitled" <Src href={S.az} label="A.R.S. 33-1321(F)" />. Virginia's has the same kind of sentence <Src href={S.va} label="Va. 55.1-1226(E)" />, and adds that if more damage is found after the deposit has been settled, the landlord may still recover it, though the tenant may use the move-out report as evidence the damage wasn't there at move-out <Src href={S.va} label="55.1-1226(G)" />. Massachusetts says its deposit section doesn't limit a landlord's right to recover from a tenant who willfully or maliciously destroys or damages the property, when repair or replacement costs more than the deposit <Src href={S.ma15b} label="c.186 s.15B(4)" />.</p>
+
+  <h2>What happens to the deposit paperwork when damage exceeds it?</h2>
+  <ul>
+    <li><strong>Virginia.</strong> When damage exceeds the deposit and needs a third-party contractor, the landlord must say so in writing within the 45-day period, and then gets 15 more days to itemize the damage and the repair cost <Src href={S.va} label="55.1-1226(E)" />.</li>
+    <li><strong>Florida.</strong> A landlord who misses the 30-day notice forfeits the right to claim against the deposit, but may file an action for damages after returning it <Src href={S.fl} label="Fla. Stat. 83.49(3)(a)" />. In a lawsuit over the deposit, the prevailing party gets court costs and a reasonable attorney's fee <Src href={S.fl} label="83.49(3)(c)" />.</li>
+    <li><strong>Everywhere.</strong> Follow the deposit deadline first. A late or missing itemization can cost the landlord the deposit itself, and in some states a penalty, even when the damage was real. See <a href="/security-deposit-return-deadlines-by-state/">deposit return deadlines by state</a>.</li>
+  </ul>
+
+  <h2>Small claims limits by state</h2>
+  <div class="tablewrap"><table>
+    <thead><tr><th>State</th><th>Small claims limit</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td>California</td><td>$12,500 for an individual; $6,250 for a business <Src href={S.caSc} label="CA Courts" /></td><td>Deposit actions may be brought in small claims if the damages claimed are within the limit <Src href={S.ca} label="Cal. Civ. 1950.5(o)" /></td></tr>
+      <tr><td>Massachusetts</td><td>$7,000 <Src href={S.maSc} label="M.G.L. c.218 s.21" /></td><td>Contract or tort claims</td></tr>
+      <tr><td>Washington</td><td>$10,000 for a natural person; $5,000 in all other cases <Src href={S.waSc} label="RCW 12.40.010" /></td><td>Small claims department of district court</td></tr>
+      <tr><td>Oregon</td><td>$10,000 <Src href={S.orSc} label="ORS 46.405(3)" /></td><td>Claims of $750 or less must be filed in small claims <Src href={S.orSc} label="ORS 46.405(2)" /></td></tr>
+      <tr><td>Virginia</td><td>$5,000 <Src href={S.vaSc} label="Va. 16.1-122.2" /></td><td>Concurrent with general district court</td></tr>
+      <tr><td>Michigan</td><td>$7,000 (since January 1, 2024) <Src href={S.miSc} label="MCL 600.8401" /></td><td>Small claims division of district court</td></tr>
+      <tr><td>Minnesota</td><td>$20,000 ($4,000 for consumer credit transactions) <Src href={S.mnSc} label="Minn. 491A.01 subd. 3a" /></td><td>Conciliation court. A deposit action may be brought in the county where the rental is, or at the tenant's option, where the landlord lives <Src href={S.mn178} label="504B.178 subd. 9" /></td></tr>
+      <tr><td>Ohio</td><td>$6,000 <Src href={S.ohSc} label="ORC 1925.02(A)(1)" /></td><td>Money claims only</td></tr>
+      <tr><td>Arizona</td><td>$5,000 <Src href={S.azSc} label="A.R.S. 22-503(A)" /></td><td>Small claims division of justice court</td></tr>
+      <tr><td>Wisconsin</td><td>$10,000; $15,000 effective January 1, 2027 <Src href={S.wiSc} label="Wis. Stat. 799.01(1)(d)" /></td><td>Tort and personal injury claims: $5,000 <Src href={S.wiSc} label="799.01(1)(cr)" /></td></tr>
+    </tbody>
+  </table></div>
+  <p>Limits change by statute and are often raised. Check the linked section before filing.</p>
+
+  <h2>What if the damage is above the small claims limit?</h2>
+  <p>The claim goes to the state's regular civil court instead, with its own filing rules. Small claims limits cap what that court can hear or award; they don't cap what the tenant owes. Wisconsin's statute, for example, sets a separate, lower $5,000 limit for tort claims <Src href={S.wiSc} label="Wis. 799.01(1)(cr)" />, so how a claim is framed can matter.</p>
+
+  <h2>What helps a landlord win</h2>
+  <ul>
+    <li>A signed move-in checklist or report and dated photos. See <a href="/move-in-condition-checklist-requirements-by-state/">move-in checklist requirements by state</a>.</li>
+    <li>An on-time itemized statement with estimates, invoices or receipts.</li>
+    <li>Charges only for damage beyond ordinary wear and tear. See <a href="/security-deposit-cleaning-repainting-wear-and-tear/">cleaning and repainting deductions</a>.</li>
+  </ul>
+  <p>An unpaid judgment or balance can also be reported to credit bureaus if the furnisher rules are followed. See <a href="/reporting-unpaid-rent-to-credit-bureaus/">reporting unpaid rent to credit bureaus</a>.</p>
+
+  <h2>Related</h2>
+  <ul>
+    <li><a href="/security-deposit-return-deadlines-by-state/">Security deposit return deadlines by state</a></li>
+    <li><a href="/move-in-condition-checklist-requirements-by-state/">Move-in condition checklists by state</a></li>
+    <li><a href="/reporting-unpaid-rent-to-credit-bureaus/">Reporting unpaid rent to credit bureaus</a></li>
+    <li><a href="/">All Screening Atlas guides</a></li>
+  </ul>
+</Base>
